@@ -1,0 +1,8 @@
+$scale: 0.75;
+
+.marker__inner--carris-vehicle {
+  width: $scale * 1rem;
+  height: $scale * 2rem;
+  font-size: 0.75em;
+  background-color: rgb(255, 217, 0);
+}

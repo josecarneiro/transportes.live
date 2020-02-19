@@ -1,0 +1,2613 @@
+[
+  {
+    "id": "6C",
+    "estimates": [
+      {
+        "station": "RM",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:45:57.000Z",
+        "time": "2020-02-16T17:46:08.000Z",
+        "timeUntil": 11
+      },
+      {
+        "station": "AE",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:45:56.000Z",
+        "time": "2020-02-16T17:47:52.000Z",
+        "timeUntil": 116
+      },
+      {
+        "station": "AM",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:45:58.000Z",
+        "time": "2020-02-16T17:49:12.000Z",
+        "timeUntil": 194
+      },
+      {
+        "station": "AR",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:45:58.000Z",
+        "time": "2020-02-16T17:50:26.000Z",
+        "timeUntil": 268
+      },
+      {
+        "station": "AN",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:45:56.000Z",
+        "time": "2020-02-16T17:51:53.000Z",
+        "timeUntil": 357
+      },
+      {
+        "station": "IN",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:45:56.000Z",
+        "time": "2020-02-16T17:53:04.000Z",
+        "timeUntil": 428
+      },
+      {
+        "station": "MM",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:45:56.000Z",
+        "time": "2020-02-16T17:54:31.000Z",
+        "timeUntil": 515
+      },
+      {
+        "station": "RO",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:45:56.000Z",
+        "time": "2020-02-16T17:55:44.000Z",
+        "timeUntil": 588
+      },
+      {
+        "station": "BC",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:45:57.000Z",
+        "time": "2020-02-16T17:56:54.000Z",
+        "timeUntil": 657
+      },
+      {
+        "station": "CS",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:45:57.000Z",
+        "time": "2020-02-16T17:58:48.000Z",
+        "timeUntil": 771
+      },
+      {
+        "station": "CS",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:45:56.000Z",
+        "time": "2020-02-16T18:04:56.000Z",
+        "timeUntil": 1140
+      },
+      {
+        "station": "CS",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:45:56.000Z",
+        "time": "2020-02-16T18:04:56.000Z",
+        "timeUntil": 1140
+      },
+      {
+        "station": "BC",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:45:58.000Z",
+        "time": "2020-02-16T18:06:24.000Z",
+        "timeUntil": 1226
+      },
+      {
+        "station": "RO",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:45:56.000Z",
+        "time": "2020-02-16T18:07:37.000Z",
+        "timeUntil": 1301
+      }
+    ],
+    "line": "verde",
+    "position": {
+      "stations": ["AL", "RM"],
+      "progress": 0.012591666666666666
+    }
+  },
+  {
+    "id": "1C",
+    "estimates": [
+      {
+        "station": "TE",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:45:58.000Z",
+        "time": "2020-02-16T17:45:58.000Z",
+        "timeUntil": 0
+      },
+      {
+        "station": "TE",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:45:56.000Z",
+        "time": "2020-02-16T17:50:28.000Z",
+        "timeUntil": 272
+      },
+      {
+        "station": "CG",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:45:57.000Z",
+        "time": "2020-02-16T17:51:39.000Z",
+        "timeUntil": 342
+      },
+      {
+        "station": "AL",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:45:56.000Z",
+        "time": "2020-02-16T17:55:14.000Z",
+        "timeUntil": 558
+      },
+      {
+        "station": "RM",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:45:57.000Z",
+        "time": "2020-02-16T17:56:47.000Z",
+        "timeUntil": 650
+      },
+      {
+        "station": "AE",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:45:56.000Z",
+        "time": "2020-02-16T17:58:47.000Z",
+        "timeUntil": 771
+      },
+      {
+        "station": "AM",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:45:58.000Z",
+        "time": "2020-02-16T18:00:07.000Z",
+        "timeUntil": 849
+      },
+      {
+        "station": "AR",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:45:58.000Z",
+        "time": "2020-02-16T18:01:20.000Z",
+        "timeUntil": 922
+      },
+      {
+        "station": "AN",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:45:56.000Z",
+        "time": "2020-02-16T18:02:48.000Z",
+        "timeUntil": 1012
+      },
+      {
+        "station": "IN",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:45:56.000Z",
+        "time": "2020-02-16T18:03:59.000Z",
+        "timeUntil": 1083
+      },
+      {
+        "station": "MM",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:45:56.000Z",
+        "time": "2020-02-16T18:05:25.000Z",
+        "timeUntil": 1169
+      },
+      {
+        "station": "RO",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:45:56.000Z",
+        "time": "2020-02-16T18:06:38.000Z",
+        "timeUntil": 1242
+      },
+      {
+        "station": "BC",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:45:57.000Z",
+        "time": "2020-02-16T18:07:49.000Z",
+        "timeUntil": 1312
+      },
+      {
+        "station": "CS",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:45:57.000Z",
+        "time": "2020-02-16T18:09:43.000Z",
+        "timeUntil": 1426
+      },
+      {
+        "station": "CS",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:45:56.000Z",
+        "time": "2020-02-16T18:14:32.000Z",
+        "timeUntil": 1716
+      }
+    ],
+    "line": "verde",
+    "position": {
+      "stations": ["CG", "TE"],
+      "progress": 0
+    }
+  },
+  {
+    "id": "2C",
+    "estimates": [
+      {
+        "station": "RM",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:45:56.000Z",
+        "time": "2020-02-16T17:46:52.000Z",
+        "timeUntil": 56
+      },
+      {
+        "station": "AL",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:45:57.000Z",
+        "time": "2020-02-16T17:48:13.000Z",
+        "timeUntil": 136
+      },
+      {
+        "station": "CG",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:45:57.000Z",
+        "time": "2020-02-16T17:51:22.000Z",
+        "timeUntil": 325
+      },
+      {
+        "station": "TE",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:45:58.000Z",
+        "time": "2020-02-16T17:53:07.000Z",
+        "timeUntil": 429
+      },
+      {
+        "station": "TE",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:45:56.000Z",
+        "time": "2020-02-16T17:58:04.000Z",
+        "timeUntil": 728
+      },
+      {
+        "station": "CG",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:45:57.000Z",
+        "time": "2020-02-16T17:59:15.000Z",
+        "timeUntil": 798
+      },
+      {
+        "station": "AL",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:45:56.000Z",
+        "time": "2020-02-16T18:02:50.000Z",
+        "timeUntil": 1014
+      },
+      {
+        "station": "RM",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:45:57.000Z",
+        "time": "2020-02-16T18:04:24.000Z",
+        "timeUntil": 1107
+      },
+      {
+        "station": "AE",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:45:56.000Z",
+        "time": "2020-02-16T18:06:23.000Z",
+        "timeUntil": 1227
+      },
+      {
+        "station": "AM",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:45:58.000Z",
+        "time": "2020-02-16T18:07:44.000Z",
+        "timeUntil": 1306
+      },
+      {
+        "station": "AR",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:45:58.000Z",
+        "time": "2020-02-16T18:08:57.000Z",
+        "timeUntil": 1379
+      }
+    ],
+    "line": "verde",
+    "position": {
+      "stations": ["AE", "RM"],
+      "progress": 0.37925833333333336
+    }
+  },
+  {
+    "id": "3C",
+    "estimates": [
+      {
+        "station": "MM",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:45:58.000Z",
+        "time": "2020-02-16T17:45:58.000Z",
+        "timeUntil": 0
+      },
+      {
+        "station": "IN",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:45:57.000Z",
+        "time": "2020-02-16T17:46:55.000Z",
+        "timeUntil": 58
+      },
+      {
+        "station": "AN",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:45:57.000Z",
+        "time": "2020-02-16T17:48:01.000Z",
+        "timeUntil": 124
+      },
+      {
+        "station": "AR",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:45:58.000Z",
+        "time": "2020-02-16T17:49:38.000Z",
+        "timeUntil": 220
+      },
+      {
+        "station": "AM",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:45:57.000Z",
+        "time": "2020-02-16T17:50:48.000Z",
+        "timeUntil": 291
+      },
+      {
+        "station": "AE",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:45:56.000Z",
+        "time": "2020-02-16T17:52:17.000Z",
+        "timeUntil": 381
+      },
+      {
+        "station": "RM",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:45:56.000Z",
+        "time": "2020-02-16T17:54:18.000Z",
+        "timeUntil": 502
+      },
+      {
+        "station": "AL",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:45:57.000Z",
+        "time": "2020-02-16T17:55:39.000Z",
+        "timeUntil": 582
+      },
+      {
+        "station": "CG",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:45:57.000Z",
+        "time": "2020-02-16T17:58:48.000Z",
+        "timeUntil": 771
+      },
+      {
+        "station": "TE",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:45:58.000Z",
+        "time": "2020-02-16T18:00:33.000Z",
+        "timeUntil": 875
+      },
+      {
+        "station": "TE",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:45:56.000Z",
+        "time": "2020-02-16T18:05:30.000Z",
+        "timeUntil": 1174
+      },
+      {
+        "station": "CG",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:45:57.000Z",
+        "time": "2020-02-16T18:06:41.000Z",
+        "timeUntil": 1244
+      },
+      {
+        "station": "AL",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:45:56.000Z",
+        "time": "2020-02-16T18:10:16.000Z",
+        "timeUntil": 1460
+      }
+    ],
+    "line": "verde",
+    "position": {
+      "stations": ["RO", "MM"],
+      "progress": 0
+    }
+  },
+  {
+    "id": "4C",
+    "estimates": [
+      {
+        "station": "CS",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:45:56.000Z",
+        "time": "2020-02-16T17:48:46.000Z",
+        "timeUntil": 170
+      },
+      {
+        "station": "BC",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:45:58.000Z",
+        "time": "2020-02-16T17:50:13.000Z",
+        "timeUntil": 255
+      },
+      {
+        "station": "RO",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:45:56.000Z",
+        "time": "2020-02-16T17:51:26.000Z",
+        "timeUntil": 330
+      },
+      {
+        "station": "MM",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:45:58.000Z",
+        "time": "2020-02-16T17:52:46.000Z",
+        "timeUntil": 408
+      },
+      {
+        "station": "IN",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:45:57.000Z",
+        "time": "2020-02-16T17:54:08.000Z",
+        "timeUntil": 491
+      },
+      {
+        "station": "AN",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:45:57.000Z",
+        "time": "2020-02-16T17:55:14.000Z",
+        "timeUntil": 557
+      },
+      {
+        "station": "AR",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:45:58.000Z",
+        "time": "2020-02-16T17:56:51.000Z",
+        "timeUntil": 653
+      },
+      {
+        "station": "AM",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:45:57.000Z",
+        "time": "2020-02-16T17:58:02.000Z",
+        "timeUntil": 725
+      },
+      {
+        "station": "AE",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:45:56.000Z",
+        "time": "2020-02-16T17:59:31.000Z",
+        "timeUntil": 815
+      },
+      {
+        "station": "RM",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:45:56.000Z",
+        "time": "2020-02-16T18:01:31.000Z",
+        "timeUntil": 935
+      },
+      {
+        "station": "AL",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:45:57.000Z",
+        "time": "2020-02-16T18:02:53.000Z",
+        "timeUntil": 1016
+      },
+      {
+        "station": "CG",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:45:57.000Z",
+        "time": "2020-02-16T18:06:02.000Z",
+        "timeUntil": 1205
+      }
+    ],
+    "line": "verde",
+    "position": {
+      "stations": ["BC", "CS"],
+      "progress": 1
+    }
+  },
+  {
+    "id": "5C",
+    "estimates": [
+      {
+        "station": "AN",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:45:56.000Z",
+        "time": "2020-02-16T17:45:56.000Z",
+        "timeUntil": 0
+      },
+      {
+        "station": "IN",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:45:56.000Z",
+        "time": "2020-02-16T17:46:44.000Z",
+        "timeUntil": 48
+      },
+      {
+        "station": "MM",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:45:56.000Z",
+        "time": "2020-02-16T17:48:10.000Z",
+        "timeUntil": 134
+      },
+      {
+        "station": "RO",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:45:56.000Z",
+        "time": "2020-02-16T17:49:23.000Z",
+        "timeUntil": 207
+      },
+      {
+        "station": "BC",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:45:57.000Z",
+        "time": "2020-02-16T17:50:33.000Z",
+        "timeUntil": 276
+      },
+      {
+        "station": "CS",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:45:57.000Z",
+        "time": "2020-02-16T17:52:28.000Z",
+        "timeUntil": 391
+      },
+      {
+        "station": "CS",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:45:56.000Z",
+        "time": "2020-02-16T17:57:17.000Z",
+        "timeUntil": 681
+      },
+      {
+        "station": "CS",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:45:56.000Z",
+        "time": "2020-02-16T17:57:17.000Z",
+        "timeUntil": 681
+      },
+      {
+        "station": "BC",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:45:58.000Z",
+        "time": "2020-02-16T17:58:44.000Z",
+        "timeUntil": 766
+      },
+      {
+        "station": "RO",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:45:56.000Z",
+        "time": "2020-02-16T17:59:57.000Z",
+        "timeUntil": 841
+      },
+      {
+        "station": "MM",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:45:58.000Z",
+        "time": "2020-02-16T18:01:17.000Z",
+        "timeUntil": 919
+      },
+      {
+        "station": "IN",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:45:57.000Z",
+        "time": "2020-02-16T18:02:39.000Z",
+        "timeUntil": 1002
+      },
+      {
+        "station": "AN",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:45:57.000Z",
+        "time": "2020-02-16T18:03:45.000Z",
+        "timeUntil": 1068
+      },
+      {
+        "station": "AR",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:45:58.000Z",
+        "time": "2020-02-16T18:05:22.000Z",
+        "timeUntil": 1164
+      },
+      {
+        "station": "AM",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:45:57.000Z",
+        "time": "2020-02-16T18:06:33.000Z",
+        "timeUntil": 1236
+      },
+      {
+        "station": "AE",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:45:56.000Z",
+        "time": "2020-02-16T18:08:02.000Z",
+        "timeUntil": 1326
+      }
+    ],
+    "line": "verde",
+    "position": {
+      "stations": ["AR", "AN"],
+      "progress": 0
+    }
+  },
+  {
+    "id": "1B",
+    "estimates": [
+      {
+        "station": "AX",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:45:56.000Z",
+        "time": "2020-02-16T17:47:32.000Z",
+        "timeUntil": 96
+      },
+      {
+        "station": "LU",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:45:57.000Z",
+        "time": "2020-02-16T17:49:05.000Z",
+        "timeUntil": 188
+      },
+      {
+        "station": "QC",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:45:59.000Z",
+        "time": "2020-02-16T17:50:37.000Z",
+        "timeUntil": 278
+      },
+      {
+        "station": "CG",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:45:57.000Z",
+        "time": "2020-02-16T17:52:22.000Z",
+        "timeUntil": 385
+      },
+      {
+        "station": "CU",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:45:59.000Z",
+        "time": "2020-02-16T17:54:41.000Z",
+        "timeUntil": 522
+      },
+      {
+        "station": "EC",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:45:57.000Z",
+        "time": "2020-02-16T17:56:53.000Z",
+        "timeUntil": 656
+      },
+      {
+        "station": "CP",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:45:59.000Z",
+        "time": "2020-02-16T17:58:26.000Z",
+        "timeUntil": 747
+      },
+      {
+        "station": "SA",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:45:57.000Z",
+        "time": "2020-02-16T18:00:02.000Z",
+        "timeUntil": 845
+      },
+      {
+        "station": "PI",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:45:59.000Z",
+        "time": "2020-02-16T18:01:31.000Z",
+        "timeUntil": 932
+      },
+      {
+        "station": "MP",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:45:58.000Z",
+        "time": "2020-02-16T18:02:58.000Z",
+        "timeUntil": 1020
+      },
+      {
+        "station": "RA",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:45:59.000Z",
+        "time": "2020-02-16T18:09:38.000Z",
+        "timeUntil": 1419
+      }
+    ],
+    "line": "amarela",
+    "position": {
+      "stations": ["SR", "AX"],
+      "progress": 0.7125916666666666
+    }
+  },
+  {
+    "id": "2B",
+    "estimates": [
+      {
+        "station": "OD",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:45:59.000Z",
+        "time": "2020-02-16T17:52:08.000Z",
+        "timeUntil": 369
+      },
+      {
+        "station": "SR",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:45:57.000Z",
+        "time": "2020-02-16T17:53:42.000Z",
+        "timeUntil": 465
+      },
+      {
+        "station": "AX",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:45:56.000Z",
+        "time": "2020-02-16T17:56:25.000Z",
+        "timeUntil": 629
+      },
+      {
+        "station": "LU",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:45:57.000Z",
+        "time": "2020-02-16T17:57:58.000Z",
+        "timeUntil": 721
+      },
+      {
+        "station": "QC",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:45:59.000Z",
+        "time": "2020-02-16T17:59:30.000Z",
+        "timeUntil": 811
+      },
+      {
+        "station": "CG",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:45:57.000Z",
+        "time": "2020-02-16T18:01:15.000Z",
+        "timeUntil": 918
+      },
+      {
+        "station": "CU",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:45:59.000Z",
+        "time": "2020-02-16T18:03:33.000Z",
+        "timeUntil": 1054
+      },
+      {
+        "station": "EC",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:45:57.000Z",
+        "time": "2020-02-16T18:05:46.000Z",
+        "timeUntil": 1189
+      },
+      {
+        "station": "CP",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:45:59.000Z",
+        "time": "2020-02-16T18:07:19.000Z",
+        "timeUntil": 1280
+      },
+      {
+        "station": "SA",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:45:57.000Z",
+        "time": "2020-02-16T18:08:54.000Z",
+        "timeUntil": 1377
+      },
+      {
+        "station": "PI",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:45:59.000Z",
+        "time": "2020-02-16T18:10:24.000Z",
+        "timeUntil": 1465
+      }
+    ],
+    "line": "amarela",
+    "position": {
+      "stations": ["SR", "OD"],
+      "progress": 1
+    }
+  },
+  {
+    "id": "3B",
+    "estimates": [
+      {
+        "station": "CG",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:45:59.000Z",
+        "time": "2020-02-16T17:46:01.000Z",
+        "timeUntil": 2
+      },
+      {
+        "station": "QC",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:45:59.000Z",
+        "time": "2020-02-16T17:47:29.000Z",
+        "timeUntil": 90
+      },
+      {
+        "station": "LU",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:45:59.000Z",
+        "time": "2020-02-16T17:48:56.000Z",
+        "timeUntil": 177
+      },
+      {
+        "station": "AX",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:45:57.000Z",
+        "time": "2020-02-16T17:50:24.000Z",
+        "timeUntil": 267
+      },
+      {
+        "station": "SR",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:45:57.000Z",
+        "time": "2020-02-16T17:53:02.000Z",
+        "timeUntil": 425
+      },
+      {
+        "station": "OD",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:45:59.000Z",
+        "time": "2020-02-16T18:00:53.000Z",
+        "timeUntil": 894
+      },
+      {
+        "station": "SR",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:45:57.000Z",
+        "time": "2020-02-16T18:02:28.000Z",
+        "timeUntil": 991
+      },
+      {
+        "station": "AX",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:45:56.000Z",
+        "time": "2020-02-16T18:05:10.000Z",
+        "timeUntil": 1154
+      },
+      {
+        "station": "LU",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:45:57.000Z",
+        "time": "2020-02-16T18:06:44.000Z",
+        "timeUntil": 1247
+      },
+      {
+        "station": "QC",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:45:59.000Z",
+        "time": "2020-02-16T18:08:16.000Z",
+        "timeUntil": 1337
+      },
+      {
+        "station": "CG",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:45:57.000Z",
+        "time": "2020-02-16T18:10:01.000Z",
+        "timeUntil": 1444
+      }
+    ],
+    "line": "amarela",
+    "position": {
+      "stations": ["CU", "CG"],
+      "progress": 0
+    }
+  },
+  {
+    "id": "4B",
+    "estimates": [
+      {
+        "station": "MP",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:45:57.000Z",
+        "time": "2020-02-16T17:46:09.000Z",
+        "timeUntil": 12
+      },
+      {
+        "station": "PI",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:45:57.000Z",
+        "time": "2020-02-16T17:47:34.000Z",
+        "timeUntil": 97
+      },
+      {
+        "station": "SA",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:45:57.000Z",
+        "time": "2020-02-16T17:48:48.000Z",
+        "timeUntil": 171
+      },
+      {
+        "station": "CP",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:45:57.000Z",
+        "time": "2020-02-16T17:50:25.000Z",
+        "timeUntil": 268
+      },
+      {
+        "station": "EC",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:46:00.000Z",
+        "time": "2020-02-16T17:52:04.000Z",
+        "timeUntil": 364
+      },
+      {
+        "station": "CU",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:45:59.000Z",
+        "time": "2020-02-16T17:54:14.000Z",
+        "timeUntil": 495
+      },
+      {
+        "station": "CG",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:45:59.000Z",
+        "time": "2020-02-16T17:56:59.000Z",
+        "timeUntil": 660
+      },
+      {
+        "station": "QC",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:45:59.000Z",
+        "time": "2020-02-16T17:58:42.000Z",
+        "timeUntil": 763
+      },
+      {
+        "station": "LU",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:45:59.000Z",
+        "time": "2020-02-16T18:00:09.000Z",
+        "timeUntil": 850
+      },
+      {
+        "station": "AX",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:45:57.000Z",
+        "time": "2020-02-16T18:01:37.000Z",
+        "timeUntil": 940
+      },
+      {
+        "station": "SR",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:45:57.000Z",
+        "time": "2020-02-16T18:04:15.000Z",
+        "timeUntil": 1098
+      },
+      {
+        "station": "OD",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:45:59.000Z",
+        "time": "2020-02-16T18:10:08.000Z",
+        "timeUntil": 1449
+      },
+      {
+        "station": "SR",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:45:57.000Z",
+        "time": "2020-02-16T18:11:43.000Z",
+        "timeUntil": 1546
+      }
+    ],
+    "line": "amarela",
+    "position": {
+      "stations": ["PI", "MP"],
+      "progress": 0.020925000000000003
+    }
+  },
+  {
+    "id": "5B",
+    "estimates": [
+      {
+        "station": "MP",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:45:58.000Z",
+        "time": "2020-02-16T17:45:58.000Z",
+        "timeUntil": 0
+      },
+      {
+        "station": "RA",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:45:59.000Z",
+        "time": "2020-02-16T17:52:08.000Z",
+        "timeUntil": 369
+      },
+      {
+        "station": "MP",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:45:57.000Z",
+        "time": "2020-02-16T17:53:19.000Z",
+        "timeUntil": 442
+      },
+      {
+        "station": "PI",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:45:57.000Z",
+        "time": "2020-02-16T17:54:44.000Z",
+        "timeUntil": 527
+      },
+      {
+        "station": "SA",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:45:57.000Z",
+        "time": "2020-02-16T17:55:58.000Z",
+        "timeUntil": 601
+      },
+      {
+        "station": "CP",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:45:57.000Z",
+        "time": "2020-02-16T17:57:35.000Z",
+        "timeUntil": 698
+      },
+      {
+        "station": "EC",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:46:00.000Z",
+        "time": "2020-02-16T17:59:15.000Z",
+        "timeUntil": 795
+      },
+      {
+        "station": "CU",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:45:59.000Z",
+        "time": "2020-02-16T18:01:24.000Z",
+        "timeUntil": 925
+      },
+      {
+        "station": "CG",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:45:59.000Z",
+        "time": "2020-02-16T18:04:09.000Z",
+        "timeUntil": 1090
+      },
+      {
+        "station": "QC",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:45:59.000Z",
+        "time": "2020-02-16T18:05:53.000Z",
+        "timeUntil": 1194
+      },
+      {
+        "station": "LU",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:45:59.000Z",
+        "time": "2020-02-16T18:07:19.000Z",
+        "timeUntil": 1280
+      },
+      {
+        "station": "AX",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:45:57.000Z",
+        "time": "2020-02-16T18:08:47.000Z",
+        "timeUntil": 1370
+      },
+      {
+        "station": "SR",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:45:57.000Z",
+        "time": "2020-02-16T18:11:25.000Z",
+        "timeUntil": 1528
+      }
+    ],
+    "line": "amarela",
+    "position": {
+      "stations": ["PI", "MP"],
+      "progress": 0
+    }
+  },
+  {
+    "id": "6B",
+    "estimates": [
+      {
+        "station": "CU",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:45:59.000Z",
+        "time": "2020-02-16T17:46:33.000Z",
+        "timeUntil": 34
+      },
+      {
+        "station": "EC",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:45:57.000Z",
+        "time": "2020-02-16T17:48:46.000Z",
+        "timeUntil": 169
+      },
+      {
+        "station": "CP",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:45:59.000Z",
+        "time": "2020-02-16T17:50:19.000Z",
+        "timeUntil": 260
+      },
+      {
+        "station": "SA",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:45:57.000Z",
+        "time": "2020-02-16T17:51:55.000Z",
+        "timeUntil": 358
+      },
+      {
+        "station": "PI",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:45:59.000Z",
+        "time": "2020-02-16T17:53:24.000Z",
+        "timeUntil": 445
+      },
+      {
+        "station": "MP",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:45:58.000Z",
+        "time": "2020-02-16T17:54:51.000Z",
+        "timeUntil": 533
+      },
+      {
+        "station": "RA",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:45:59.000Z",
+        "time": "2020-02-16T18:00:53.000Z",
+        "timeUntil": 894
+      },
+      {
+        "station": "MP",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:45:57.000Z",
+        "time": "2020-02-16T18:02:04.000Z",
+        "timeUntil": 967
+      },
+      {
+        "station": "PI",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:45:57.000Z",
+        "time": "2020-02-16T18:03:29.000Z",
+        "timeUntil": 1052
+      },
+      {
+        "station": "SA",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:45:57.000Z",
+        "time": "2020-02-16T18:04:43.000Z",
+        "timeUntil": 1126
+      },
+      {
+        "station": "CP",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:45:57.000Z",
+        "time": "2020-02-16T18:06:20.000Z",
+        "timeUntil": 1223
+      },
+      {
+        "station": "EC",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:46:00.000Z",
+        "time": "2020-02-16T18:08:00.000Z",
+        "timeUntil": 1320
+      },
+      {
+        "station": "CU",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:45:59.000Z",
+        "time": "2020-02-16T18:10:09.000Z",
+        "timeUntil": 1450
+      }
+    ],
+    "line": "amarela",
+    "position": {
+      "stations": ["CG", "CU"],
+      "progress": 0.22092499999999998
+    }
+  },
+  {
+    "id": "5D",
+    "estimates": [
+      {
+        "station": "OR",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:46:04.000Z",
+        "time": "2020-02-16T17:46:04.000Z",
+        "timeUntil": 0
+      },
+      {
+        "station": "MO",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:46:04.000Z",
+        "time": "2020-02-16T17:47:36.000Z",
+        "timeUntil": 92
+      },
+      {
+        "station": "EN",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:45:58.000Z",
+        "time": "2020-02-16T17:49:44.000Z",
+        "timeUntil": 226
+      },
+      {
+        "station": "AP",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:46:05.000Z",
+        "time": "2020-02-16T17:52:21.000Z",
+        "timeUntil": 376
+      },
+      {
+        "station": "AP",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:46:03.000Z",
+        "time": "2020-02-16T17:56:06.000Z",
+        "timeUntil": 603
+      },
+      {
+        "station": "EN",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:46:03.000Z",
+        "time": "2020-02-16T17:58:03.000Z",
+        "timeUntil": 720
+      },
+      {
+        "station": "MO",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:46:04.000Z",
+        "time": "2020-02-16T18:00:04.000Z",
+        "timeUntil": 840
+      },
+      {
+        "station": "OR",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:46:05.000Z",
+        "time": "2020-02-16T18:02:01.000Z",
+        "timeUntil": 956
+      },
+      {
+        "station": "CR",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:45:58.000Z",
+        "time": "2020-02-16T18:03:53.000Z",
+        "timeUntil": 1075
+      },
+      {
+        "station": "OS",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:46:05.000Z",
+        "time": "2020-02-16T18:05:19.000Z",
+        "timeUntil": 1154
+      }
+    ],
+    "line": "vermelha",
+    "position": {
+      "stations": ["CR", "OR"],
+      "progress": 0
+    }
+  },
+  {
+    "id": "7D",
+    "estimates": [
+      {
+        "station": "CH",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:46:04.000Z",
+        "time": "2020-02-16T17:47:17.000Z",
+        "timeUntil": 73
+      },
+      {
+        "station": "OS",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:46:04.000Z",
+        "time": "2020-02-16T17:48:45.000Z",
+        "timeUntil": 161
+      },
+      {
+        "station": "CR",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:46:05.000Z",
+        "time": "2020-02-16T17:50:12.000Z",
+        "timeUntil": 247
+      },
+      {
+        "station": "OR",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:46:04.000Z",
+        "time": "2020-02-16T17:51:59.000Z",
+        "timeUntil": 355
+      },
+      {
+        "station": "MO",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:46:04.000Z",
+        "time": "2020-02-16T17:53:57.000Z",
+        "timeUntil": 473
+      },
+      {
+        "station": "EN",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:45:58.000Z",
+        "time": "2020-02-16T17:55:59.000Z",
+        "timeUntil": 601
+      },
+      {
+        "station": "AP",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:46:05.000Z",
+        "time": "2020-02-16T17:58:41.000Z",
+        "timeUntil": 756
+      },
+      {
+        "station": "AP",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:46:03.000Z",
+        "time": "2020-02-16T18:02:55.000Z",
+        "timeUntil": 1012
+      },
+      {
+        "station": "EN",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:46:03.000Z",
+        "time": "2020-02-16T18:04:53.000Z",
+        "timeUntil": 1130
+      }
+    ],
+    "line": "vermelha",
+    "position": {
+      "stations": ["BV", "CH"],
+      "progress": 0.5875916666666666
+    }
+  },
+  {
+    "id": "6D",
+    "estimates": [
+      {
+        "station": "SA",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:46:03.000Z",
+        "time": "2020-02-16T17:46:03.000Z",
+        "timeUntil": 0
+      },
+      {
+        "station": "AM",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:46:04.000Z",
+        "time": "2020-02-16T17:47:38.000Z",
+        "timeUntil": 94
+      },
+      {
+        "station": "OL",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:46:04.000Z",
+        "time": "2020-02-16T17:49:29.000Z",
+        "timeUntil": 205
+      },
+      {
+        "station": "BV",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:46:04.000Z",
+        "time": "2020-02-16T17:51:19.000Z",
+        "timeUntil": 315
+      },
+      {
+        "station": "CH",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:46:04.000Z",
+        "time": "2020-02-16T17:53:03.000Z",
+        "timeUntil": 419
+      },
+      {
+        "station": "OS",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:46:04.000Z",
+        "time": "2020-02-16T17:54:31.000Z",
+        "timeUntil": 507
+      },
+      {
+        "station": "CR",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:46:05.000Z",
+        "time": "2020-02-16T17:55:58.000Z",
+        "timeUntil": 593
+      },
+      {
+        "station": "OR",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:46:04.000Z",
+        "time": "2020-02-16T17:57:45.000Z",
+        "timeUntil": 701
+      },
+      {
+        "station": "MO",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:46:04.000Z",
+        "time": "2020-02-16T17:59:42.000Z",
+        "timeUntil": 818
+      },
+      {
+        "station": "EN",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:45:58.000Z",
+        "time": "2020-02-16T18:01:51.000Z",
+        "timeUntil": 953
+      },
+      {
+        "station": "AP",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:46:05.000Z",
+        "time": "2020-02-16T18:04:27.000Z",
+        "timeUntil": 1102
+      }
+    ],
+    "line": "vermelha",
+    "position": {
+      "stations": ["AM", "SA"],
+      "progress": 0
+    }
+  },
+  {
+    "id": "1D",
+    "estimates": [
+      {
+        "station": "SA",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:46:05.000Z",
+        "time": "2020-02-16T17:46:56.000Z",
+        "timeUntil": 51
+      },
+      {
+        "station": "SS",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:46:04.000Z",
+        "time": "2020-02-16T17:50:56.000Z",
+        "timeUntil": 292
+      },
+      {
+        "station": "SS",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:46:04.000Z",
+        "time": "2020-02-16T17:50:56.000Z",
+        "timeUntil": 292
+      },
+      {
+        "station": "SA",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:46:03.000Z",
+        "time": "2020-02-16T17:52:25.000Z",
+        "timeUntil": 382
+      },
+      {
+        "station": "AM",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:46:04.000Z",
+        "time": "2020-02-16T17:54:26.000Z",
+        "timeUntil": 502
+      },
+      {
+        "station": "OL",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:46:04.000Z",
+        "time": "2020-02-16T17:56:17.000Z",
+        "timeUntil": 613
+      },
+      {
+        "station": "BV",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:46:04.000Z",
+        "time": "2020-02-16T17:58:08.000Z",
+        "timeUntil": 724
+      },
+      {
+        "station": "CH",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:46:04.000Z",
+        "time": "2020-02-16T17:59:51.000Z",
+        "timeUntil": 827
+      },
+      {
+        "station": "OS",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:46:04.000Z",
+        "time": "2020-02-16T18:01:19.000Z",
+        "timeUntil": 915
+      },
+      {
+        "station": "CR",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:46:05.000Z",
+        "time": "2020-02-16T18:02:46.000Z",
+        "timeUntil": 1001
+      }
+    ],
+    "line": "vermelha",
+    "position": {
+      "stations": ["AM", "SA"],
+      "progress": 0.4125916666666667
+    }
+  },
+  {
+    "id": "3D",
+    "estimates": [
+      {
+        "station": "MO",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:46:04.000Z",
+        "time": "2020-02-16T17:46:43.000Z",
+        "timeUntil": 39
+      },
+      {
+        "station": "OR",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:46:05.000Z",
+        "time": "2020-02-16T17:48:40.000Z",
+        "timeUntil": 155
+      },
+      {
+        "station": "CR",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:45:58.000Z",
+        "time": "2020-02-16T17:50:33.000Z",
+        "timeUntil": 275
+      },
+      {
+        "station": "OS",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:46:05.000Z",
+        "time": "2020-02-16T17:51:58.000Z",
+        "timeUntil": 353
+      },
+      {
+        "station": "CH",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:46:05.000Z",
+        "time": "2020-02-16T17:53:30.000Z",
+        "timeUntil": 445
+      },
+      {
+        "station": "BV",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:46:05.000Z",
+        "time": "2020-02-16T17:55:18.000Z",
+        "timeUntil": 553
+      },
+      {
+        "station": "OL",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:46:05.000Z",
+        "time": "2020-02-16T17:57:14.000Z",
+        "timeUntil": 669
+      },
+      {
+        "station": "AM",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:45:58.000Z",
+        "time": "2020-02-16T17:59:09.000Z",
+        "timeUntil": 791
+      },
+      {
+        "station": "SA",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:46:05.000Z",
+        "time": "2020-02-16T18:01:08.000Z",
+        "timeUntil": 903
+      },
+      {
+        "station": "SS",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:46:04.000Z",
+        "time": "2020-02-16T18:04:56.000Z",
+        "timeUntil": 1132
+      },
+      {
+        "station": "SS",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:46:04.000Z",
+        "time": "2020-02-16T18:04:56.000Z",
+        "timeUntil": 1132
+      }
+    ],
+    "line": "vermelha",
+    "position": {
+      "stations": ["EN", "MO"],
+      "progress": 0.30425833333333335
+    }
+  },
+  {
+    "id": "4D",
+    "estimates": [
+      {
+        "station": "AP",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:46:03.000Z",
+        "time": "2020-02-16T17:48:55.000Z",
+        "timeUntil": 172
+      },
+      {
+        "station": "EN",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:46:03.000Z",
+        "time": "2020-02-16T17:50:52.000Z",
+        "timeUntil": 289
+      },
+      {
+        "station": "MO",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:46:04.000Z",
+        "time": "2020-02-16T17:52:53.000Z",
+        "timeUntil": 409
+      },
+      {
+        "station": "OR",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:46:05.000Z",
+        "time": "2020-02-16T17:54:50.000Z",
+        "timeUntil": 525
+      },
+      {
+        "station": "CR",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:45:58.000Z",
+        "time": "2020-02-16T17:56:42.000Z",
+        "timeUntil": 644
+      },
+      {
+        "station": "OS",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:46:05.000Z",
+        "time": "2020-02-16T17:58:08.000Z",
+        "timeUntil": 723
+      },
+      {
+        "station": "CH",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:46:05.000Z",
+        "time": "2020-02-16T17:59:40.000Z",
+        "timeUntil": 815
+      },
+      {
+        "station": "BV",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:46:05.000Z",
+        "time": "2020-02-16T18:01:28.000Z",
+        "timeUntil": 923
+      },
+      {
+        "station": "OL",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:46:05.000Z",
+        "time": "2020-02-16T18:03:25.000Z",
+        "timeUntil": 1040
+      },
+      {
+        "station": "AM",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:45:58.000Z",
+        "time": "2020-02-16T18:05:17.000Z",
+        "timeUntil": 1159
+      }
+    ],
+    "line": "vermelha",
+    "position": {
+      "stations": ["EN", "AP"],
+      "progress": 1
+    }
+  },
+  {
+    "id": "2D",
+    "estimates": [
+      {
+        "station": "CH",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:46:05.000Z",
+        "time": "2020-02-16T17:46:45.000Z",
+        "timeUntil": 40
+      },
+      {
+        "station": "BV",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:46:05.000Z",
+        "time": "2020-02-16T17:48:33.000Z",
+        "timeUntil": 148
+      },
+      {
+        "station": "OL",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:46:05.000Z",
+        "time": "2020-02-16T17:50:29.000Z",
+        "timeUntil": 264
+      },
+      {
+        "station": "AM",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:45:58.000Z",
+        "time": "2020-02-16T17:52:24.000Z",
+        "timeUntil": 386
+      },
+      {
+        "station": "SA",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:46:05.000Z",
+        "time": "2020-02-16T17:54:23.000Z",
+        "timeUntil": 498
+      },
+      {
+        "station": "SS",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:46:04.000Z",
+        "time": "2020-02-16T17:57:56.000Z",
+        "timeUntil": 712
+      },
+      {
+        "station": "SS",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:46:04.000Z",
+        "time": "2020-02-16T17:57:56.000Z",
+        "timeUntil": 712
+      },
+      {
+        "station": "SA",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:46:03.000Z",
+        "time": "2020-02-16T17:59:25.000Z",
+        "timeUntil": 802
+      },
+      {
+        "station": "AM",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:46:04.000Z",
+        "time": "2020-02-16T18:01:26.000Z",
+        "timeUntil": 922
+      },
+      {
+        "station": "OL",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:46:04.000Z",
+        "time": "2020-02-16T18:03:17.000Z",
+        "timeUntil": 1033
+      },
+      {
+        "station": "BV",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:46:04.000Z",
+        "time": "2020-02-16T18:05:08.000Z",
+        "timeUntil": 1144
+      }
+    ],
+    "line": "vermelha",
+    "position": {
+      "stations": ["OS", "CH"],
+      "progress": 0.320925
+    }
+  },
+  {
+    "id": "7A",
+    "estimates": [
+      {
+        "station": "LA",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:46:04.000Z",
+        "time": "2020-02-16T17:46:53.000Z",
+        "timeUntil": 49
+      },
+      {
+        "station": "AH",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:46:01.000Z",
+        "time": "2020-02-16T17:48:21.000Z",
+        "timeUntil": 140
+      },
+      {
+        "station": "CM",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:46:00.000Z",
+        "time": "2020-02-16T17:50:06.000Z",
+        "timeUntil": 246
+      },
+      {
+        "station": "CA",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:46:02.000Z",
+        "time": "2020-02-16T17:52:03.000Z",
+        "timeUntil": 361
+      },
+      {
+        "station": "PO",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:46:00.000Z",
+        "time": "2020-02-16T17:53:33.000Z",
+        "timeUntil": 453
+      },
+      {
+        "station": "AF",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:46:04.000Z",
+        "time": "2020-02-16T17:55:06.000Z",
+        "timeUntil": 542
+      },
+      {
+        "station": "AS",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:46:03.000Z",
+        "time": "2020-02-16T17:57:15.000Z",
+        "timeUntil": 672
+      },
+      {
+        "station": "RB",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:46:01.000Z",
+        "time": "2020-02-16T17:59:01.000Z",
+        "timeUntil": 780
+      },
+      {
+        "station": "RB",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:46:04.000Z",
+        "time": "2020-02-16T18:04:55.000Z",
+        "timeUntil": 1131
+      },
+      {
+        "station": "AS",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:46:04.000Z",
+        "time": "2020-02-16T18:06:25.000Z",
+        "timeUntil": 1221
+      }
+    ],
+    "line": "azul",
+    "position": {
+      "stations": ["JZ", "LA"],
+      "progress": 0.38759166666666667
+    }
+  },
+  {
+    "id": "8A",
+    "estimates": [
+      {
+        "station": "MP",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:46:01.000Z",
+        "time": "2020-02-16T17:46:01.000Z",
+        "timeUntil": 0
+      },
+      {
+        "station": "PA",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:46:01.000Z",
+        "time": "2020-02-16T17:47:08.000Z",
+        "timeUntil": 67
+      },
+      {
+        "station": "SS",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:46:00.000Z",
+        "time": "2020-02-16T17:48:28.000Z",
+        "timeUntil": 148
+      },
+      {
+        "station": "PE",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:46:02.000Z",
+        "time": "2020-02-16T17:50:05.000Z",
+        "timeUntil": 243
+      },
+      {
+        "station": "JZ",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:46:00.000Z",
+        "time": "2020-02-16T17:51:49.000Z",
+        "timeUntil": 349
+      },
+      {
+        "station": "LA",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:46:04.000Z",
+        "time": "2020-02-16T17:53:43.000Z",
+        "timeUntil": 459
+      },
+      {
+        "station": "AH",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:46:01.000Z",
+        "time": "2020-02-16T17:55:10.000Z",
+        "timeUntil": 549
+      },
+      {
+        "station": "CM",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:46:00.000Z",
+        "time": "2020-02-16T17:56:55.000Z",
+        "timeUntil": 655
+      },
+      {
+        "station": "CA",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:46:02.000Z",
+        "time": "2020-02-16T17:58:52.000Z",
+        "timeUntil": 770
+      },
+      {
+        "station": "PO",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:46:00.000Z",
+        "time": "2020-02-16T18:00:22.000Z",
+        "timeUntil": 862
+      },
+      {
+        "station": "AF",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:46:04.000Z",
+        "time": "2020-02-16T18:01:55.000Z",
+        "timeUntil": 951
+      },
+      {
+        "station": "AS",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:46:03.000Z",
+        "time": "2020-02-16T18:04:04.000Z",
+        "timeUntil": 1081
+      },
+      {
+        "station": "RB",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:46:01.000Z",
+        "time": "2020-02-16T18:05:50.000Z",
+        "timeUntil": 1189
+      }
+    ],
+    "line": "azul",
+    "position": {
+      "stations": ["AV", "MP"],
+      "progress": 0
+    }
+  },
+  {
+    "id": "1A",
+    "estimates": [
+      {
+        "station": "TP",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:46:02.000Z",
+        "time": "2020-02-16T17:47:57.000Z",
+        "timeUntil": 115
+      },
+      {
+        "station": "BC",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:46:01.000Z",
+        "time": "2020-02-16T17:49:43.000Z",
+        "timeUntil": 222
+      },
+      {
+        "station": "RE",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:46:00.000Z",
+        "time": "2020-02-16T17:51:17.000Z",
+        "timeUntil": 317
+      },
+      {
+        "station": "AV",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:46:01.000Z",
+        "time": "2020-02-16T17:52:30.000Z",
+        "timeUntil": 389
+      },
+      {
+        "station": "MP",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:46:01.000Z",
+        "time": "2020-02-16T17:53:57.000Z",
+        "timeUntil": 476
+      },
+      {
+        "station": "PA",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:46:01.000Z",
+        "time": "2020-02-16T17:55:26.000Z",
+        "timeUntil": 565
+      },
+      {
+        "station": "SS",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:46:00.000Z",
+        "time": "2020-02-16T17:56:45.000Z",
+        "timeUntil": 645
+      },
+      {
+        "station": "PE",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:46:02.000Z",
+        "time": "2020-02-16T17:58:23.000Z",
+        "timeUntil": 741
+      },
+      {
+        "station": "JZ",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:46:00.000Z",
+        "time": "2020-02-16T18:00:07.000Z",
+        "timeUntil": 847
+      },
+      {
+        "station": "LA",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:46:04.000Z",
+        "time": "2020-02-16T18:02:00.000Z",
+        "timeUntil": 956
+      },
+      {
+        "station": "AH",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:46:01.000Z",
+        "time": "2020-02-16T18:03:27.000Z",
+        "timeUntil": 1046
+      },
+      {
+        "station": "CM",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:46:00.000Z",
+        "time": "2020-02-16T18:05:13.000Z",
+        "timeUntil": 1153
+      },
+      {
+        "station": "CA",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:46:02.000Z",
+        "time": "2020-02-16T18:07:09.000Z",
+        "timeUntil": 1267
+      }
+    ],
+    "line": "azul",
+    "position": {
+      "stations": ["BC", "TP"],
+      "progress": 0.920925
+    }
+  },
+  {
+    "id": "5A",
+    "estimates": [
+      {
+        "station": "AF",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:46:01.000Z",
+        "time": "2020-02-16T17:47:03.000Z",
+        "timeUntil": 62
+      },
+      {
+        "station": "PO",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:46:00.000Z",
+        "time": "2020-02-16T17:48:31.000Z",
+        "timeUntil": 151
+      },
+      {
+        "station": "CA",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:46:02.000Z",
+        "time": "2020-02-16T17:50:08.000Z",
+        "timeUntil": 246
+      },
+      {
+        "station": "CM",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:46:00.000Z",
+        "time": "2020-02-16T17:51:41.000Z",
+        "timeUntil": 341
+      },
+      {
+        "station": "AH",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:46:02.000Z",
+        "time": "2020-02-16T17:53:29.000Z",
+        "timeUntil": 447
+      },
+      {
+        "station": "LA",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:45:59.000Z",
+        "time": "2020-02-16T17:54:56.000Z",
+        "timeUntil": 537
+      },
+      {
+        "station": "JZ",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:46:00.000Z",
+        "time": "2020-02-16T17:56:37.000Z",
+        "timeUntil": 637
+      },
+      {
+        "station": "PE",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:46:03.000Z",
+        "time": "2020-02-16T17:58:34.000Z",
+        "timeUntil": 751
+      },
+      {
+        "station": "SS",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:46:00.000Z",
+        "time": "2020-02-16T18:00:02.000Z",
+        "timeUntil": 842
+      },
+      {
+        "station": "PA",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:46:02.000Z",
+        "time": "2020-02-16T18:01:38.000Z",
+        "timeUntil": 936
+      },
+      {
+        "station": "MP",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:46:01.000Z",
+        "time": "2020-02-16T18:02:54.000Z",
+        "timeUntil": 1013
+      },
+      {
+        "station": "AV",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:45:59.000Z",
+        "time": "2020-02-16T18:04:29.000Z",
+        "timeUntil": 1110
+      },
+      {
+        "station": "RE",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:46:02.000Z",
+        "time": "2020-02-16T18:05:42.000Z",
+        "timeUntil": 1180
+      },
+      {
+        "station": "BC",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:46:00.000Z",
+        "time": "2020-02-16T18:07:10.000Z",
+        "timeUntil": 1270
+      }
+    ],
+    "line": "azul",
+    "position": {
+      "stations": ["AS", "AF"],
+      "progress": 0.47092500000000004
+    }
+  },
+  {
+    "id": "9A",
+    "estimates": [
+      {
+        "station": "RB",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:46:04.000Z",
+        "time": "2020-02-16T17:50:15.000Z",
+        "timeUntil": 251
+      },
+      {
+        "station": "AS",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:46:04.000Z",
+        "time": "2020-02-16T17:51:45.000Z",
+        "timeUntil": 341
+      },
+      {
+        "station": "AF",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:46:01.000Z",
+        "time": "2020-02-16T17:53:51.000Z",
+        "timeUntil": 470
+      },
+      {
+        "station": "PO",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:46:00.000Z",
+        "time": "2020-02-16T17:55:19.000Z",
+        "timeUntil": 559
+      },
+      {
+        "station": "CA",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:46:02.000Z",
+        "time": "2020-02-16T17:56:55.000Z",
+        "timeUntil": 653
+      },
+      {
+        "station": "CM",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:46:00.000Z",
+        "time": "2020-02-16T17:58:29.000Z",
+        "timeUntil": 749
+      },
+      {
+        "station": "AH",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:46:02.000Z",
+        "time": "2020-02-16T18:00:17.000Z",
+        "timeUntil": 855
+      },
+      {
+        "station": "LA",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:45:59.000Z",
+        "time": "2020-02-16T18:01:44.000Z",
+        "timeUntil": 945
+      },
+      {
+        "station": "JZ",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:46:00.000Z",
+        "time": "2020-02-16T18:03:25.000Z",
+        "timeUntil": 1045
+      },
+      {
+        "station": "PE",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:46:03.000Z",
+        "time": "2020-02-16T18:05:22.000Z",
+        "timeUntil": 1159
+      }
+    ],
+    "line": "azul",
+    "position": {
+      "stations": ["AS", "RB"],
+      "progress": 1
+    }
+  },
+  {
+    "id": "6A",
+    "estimates": [
+      {
+        "station": "PO",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:46:00.000Z",
+        "time": "2020-02-16T17:46:52.000Z",
+        "timeUntil": 52
+      },
+      {
+        "station": "AF",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:46:04.000Z",
+        "time": "2020-02-16T17:48:25.000Z",
+        "timeUntil": 141
+      },
+      {
+        "station": "AS",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:46:03.000Z",
+        "time": "2020-02-16T17:50:34.000Z",
+        "timeUntil": 271
+      },
+      {
+        "station": "RB",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:46:01.000Z",
+        "time": "2020-02-16T17:52:20.000Z",
+        "timeUntil": 379
+      },
+      {
+        "station": "RB",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:46:04.000Z",
+        "time": "2020-02-16T17:57:35.000Z",
+        "timeUntil": 691
+      },
+      {
+        "station": "AS",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:46:04.000Z",
+        "time": "2020-02-16T17:59:05.000Z",
+        "timeUntil": 781
+      },
+      {
+        "station": "AF",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:46:01.000Z",
+        "time": "2020-02-16T18:01:12.000Z",
+        "timeUntil": 911
+      },
+      {
+        "station": "PO",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:46:00.000Z",
+        "time": "2020-02-16T18:02:40.000Z",
+        "timeUntil": 1000
+      },
+      {
+        "station": "CA",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:46:02.000Z",
+        "time": "2020-02-16T18:04:16.000Z",
+        "timeUntil": 1094
+      },
+      {
+        "station": "CM",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:46:00.000Z",
+        "time": "2020-02-16T18:05:50.000Z",
+        "timeUntil": 1190
+      }
+    ],
+    "line": "azul",
+    "position": {
+      "stations": ["CA", "PO"],
+      "progress": 0.37925833333333336
+    }
+  },
+  {
+    "id": "2A",
+    "estimates": [
+      {
+        "station": "TP",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:46:02.000Z",
+        "time": "2020-02-16T17:46:58.000Z",
+        "timeUntil": 56
+      },
+      {
+        "station": "SP",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:46:00.000Z",
+        "time": "2020-02-16T17:52:21.000Z",
+        "timeUntil": 381
+      },
+      {
+        "station": "SP",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:46:02.000Z",
+        "time": "2020-02-16T17:52:23.000Z",
+        "timeUntil": 381
+      },
+      {
+        "station": "TP",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:46:02.000Z",
+        "time": "2020-02-16T17:54:48.000Z",
+        "timeUntil": 526
+      },
+      {
+        "station": "BC",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:46:01.000Z",
+        "time": "2020-02-16T17:56:33.000Z",
+        "timeUntil": 632
+      },
+      {
+        "station": "RE",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:46:00.000Z",
+        "time": "2020-02-16T17:58:07.000Z",
+        "timeUntil": 727
+      },
+      {
+        "station": "AV",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:46:01.000Z",
+        "time": "2020-02-16T17:59:20.000Z",
+        "timeUntil": 799
+      },
+      {
+        "station": "MP",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:46:01.000Z",
+        "time": "2020-02-16T18:00:47.000Z",
+        "timeUntil": 886
+      },
+      {
+        "station": "PA",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:46:01.000Z",
+        "time": "2020-02-16T18:02:16.000Z",
+        "timeUntil": 975
+      },
+      {
+        "station": "SS",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:46:00.000Z",
+        "time": "2020-02-16T18:03:36.000Z",
+        "timeUntil": 1056
+      },
+      {
+        "station": "PE",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:46:02.000Z",
+        "time": "2020-02-16T18:05:13.000Z",
+        "timeUntil": 1151
+      },
+      {
+        "station": "JZ",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:46:00.000Z",
+        "time": "2020-02-16T18:06:57.000Z",
+        "timeUntil": 1257
+      }
+    ],
+    "line": "azul",
+    "position": {
+      "stations": ["BC", "TP"],
+      "progress": 0.42925833333333335
+    }
+  },
+  {
+    "id": "3A",
+    "estimates": [
+      {
+        "station": "SS",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:46:00.000Z",
+        "time": "2020-02-16T17:46:00.000Z",
+        "timeUntil": 0
+      },
+      {
+        "station": "PA",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:46:02.000Z",
+        "time": "2020-02-16T17:47:10.000Z",
+        "timeUntil": 68
+      },
+      {
+        "station": "MP",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:46:01.000Z",
+        "time": "2020-02-16T17:48:26.000Z",
+        "timeUntil": 145
+      },
+      {
+        "station": "AV",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:45:59.000Z",
+        "time": "2020-02-16T17:50:01.000Z",
+        "timeUntil": 242
+      },
+      {
+        "station": "RE",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:46:02.000Z",
+        "time": "2020-02-16T17:51:14.000Z",
+        "timeUntil": 312
+      },
+      {
+        "station": "BC",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:46:00.000Z",
+        "time": "2020-02-16T17:52:43.000Z",
+        "timeUntil": 403
+      },
+      {
+        "station": "TP",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:46:02.000Z",
+        "time": "2020-02-16T17:54:37.000Z",
+        "timeUntil": 515
+      },
+      {
+        "station": "SP",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:46:00.000Z",
+        "time": "2020-02-16T17:59:41.000Z",
+        "timeUntil": 821
+      },
+      {
+        "station": "SP",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:46:02.000Z",
+        "time": "2020-02-16T17:59:43.000Z",
+        "timeUntil": 821
+      },
+      {
+        "station": "TP",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:46:02.000Z",
+        "time": "2020-02-16T18:02:08.000Z",
+        "timeUntil": 966
+      },
+      {
+        "station": "BC",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:46:01.000Z",
+        "time": "2020-02-16T18:03:54.000Z",
+        "timeUntil": 1073
+      },
+      {
+        "station": "RE",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:46:00.000Z",
+        "time": "2020-02-16T18:05:27.000Z",
+        "timeUntil": 1167
+      },
+      {
+        "station": "AV",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:46:01.000Z",
+        "time": "2020-02-16T18:06:40.000Z",
+        "timeUntil": 1239
+      }
+    ],
+    "line": "azul",
+    "position": {
+      "stations": ["PE", "SS"],
+      "progress": 0
+    }
+  },
+  {
+    "id": "4A",
+    "estimates": [
+      {
+        "station": "AH",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:46:02.000Z",
+        "time": "2020-02-16T17:46:02.000Z",
+        "timeUntil": 0
+      },
+      {
+        "station": "LA",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:45:59.000Z",
+        "time": "2020-02-16T17:47:16.000Z",
+        "timeUntil": 77
+      },
+      {
+        "station": "JZ",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:46:00.000Z",
+        "time": "2020-02-16T17:48:57.000Z",
+        "timeUntil": 177
+      },
+      {
+        "station": "PE",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:46:03.000Z",
+        "time": "2020-02-16T17:50:54.000Z",
+        "timeUntil": 291
+      },
+      {
+        "station": "SS",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:46:00.000Z",
+        "time": "2020-02-16T17:52:22.000Z",
+        "timeUntil": 382
+      },
+      {
+        "station": "PA",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:46:02.000Z",
+        "time": "2020-02-16T17:53:58.000Z",
+        "timeUntil": 476
+      },
+      {
+        "station": "MP",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:46:01.000Z",
+        "time": "2020-02-16T17:55:14.000Z",
+        "timeUntil": 553
+      },
+      {
+        "station": "AV",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:45:59.000Z",
+        "time": "2020-02-16T17:56:49.000Z",
+        "timeUntil": 650
+      },
+      {
+        "station": "RE",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:46:02.000Z",
+        "time": "2020-02-16T17:58:02.000Z",
+        "timeUntil": 720
+      },
+      {
+        "station": "BC",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:46:00.000Z",
+        "time": "2020-02-16T17:59:30.000Z",
+        "timeUntil": 810
+      },
+      {
+        "station": "TP",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:46:02.000Z",
+        "time": "2020-02-16T18:01:25.000Z",
+        "timeUntil": 923
+      },
+      {
+        "station": "SP",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:46:00.000Z",
+        "time": "2020-02-16T18:07:01.000Z",
+        "timeUntil": 1261
+      },
+      {
+        "station": "SP",
+        "computationTime": "2020-02-16T17:46:06.488Z",
+        "referenceTime": "2020-02-16T17:46:02.000Z",
+        "time": "2020-02-16T18:07:03.000Z",
+        "timeUntil": 1261
+      }
+    ],
+    "line": "azul",
+    "position": {
+      "stations": ["CM", "AH"],
+      "progress": 0
+    }
+  }
+]

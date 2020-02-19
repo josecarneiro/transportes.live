@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "dotenv": "^8.2.0",
-    "firebase-admin": "^8.9.2"
+    "firebase-admin": "^8.9.2",
+    "transportes": "^0.0.1"
   }
 }

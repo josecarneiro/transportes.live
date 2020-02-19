@@ -7,7 +7,7 @@ const Metro = require('transportes/metro');
 
 const KEY = 'ba1a551e-e324-32d1-9194-aa31bbf32fcc';
 
-const config = require('config');
+const config = require('./../config');
 
 const { apiKey } = config.metro;
 

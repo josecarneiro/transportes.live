@@ -44,7 +44,8 @@
         streetViewControl: false,
         rotateControl: false,
         fullscreenControl: false,
-        disableDefaultUi: true
+        disableDefaultUi: true,
+        clickableIcons: false
       },
       ready: false
     }),

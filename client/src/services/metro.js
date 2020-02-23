@@ -25,3 +25,13 @@ class TrainPositionService extends RealtimeDataService {
 }
 
 export { TrainPositionService };
+
+class StationDetailService extends RealtimeDataService {
+  constructor(id, ...props) {
+    super(...props);
+    this.reference = this.database.ref(`/metro/stations/${id.toUpperCase()}`);
+    this.listen();
+  }
+}
+
+export { StationDetailService };

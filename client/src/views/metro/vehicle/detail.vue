@@ -11,7 +11,6 @@
 
 <script>
   import { VehicleDetailService } from '@/services/carris';
-  import ViewAside from '@/components/view/aside';
 
   export default {
     props: {
@@ -37,9 +36,6 @@
       updateVehicle(data) {
         this.vehicle = data;
       }
-    },
-    components: {
-      ViewAside
     }
   };
 </script>

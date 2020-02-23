@@ -1,8 +1,6 @@
 const { log, write } = require('transportes/metro/utilities');
 
-const Carris = require('transportes/carris');
-
-const client = new Carris();
+const client = require('./client');
 
 const loadTrainPositions = async () => {
   const vehicles = await client.listVehicles();

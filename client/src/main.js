@@ -36,6 +36,19 @@ Vue.use(VueGoogleMaps, {
   // installComponents: false
 });
 
+import VueTimeago from 'vue-timeago';
+
+Vue.use(VueTimeago, {
+  name: 'TimeAgo',
+  locale: 'en',
+  converterOptions: {
+    includeSeconds: true
+  }
+  // locales: {
+  //   ja: require('date-fns/locale/ja')
+  // }
+});
+
 new Vue({
   router,
   store,

@@ -7,7 +7,7 @@
       class="marker bus"
       @click="center = marker.position"
     )
-      router-link(:to="{ name: 'carris', params: { id: marker.id } }")
+      router-link(:to="{ name: 'carris-vehicle', params: { id: marker.id } }")
         span(v-text="marker.route")
 </template>
 

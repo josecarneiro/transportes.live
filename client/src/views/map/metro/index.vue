@@ -1,5 +1,6 @@
 <template lang="pug">
   div
+    metro-lines
     custom-map-marker(
       v-for="(marker, index) in markers"
       :key="index"
@@ -17,6 +18,7 @@
   import metroStations from '@/data/metro/stations';
 
   import CustomMapMarker from '@/components/map/custom-marker';
+  import MetroLines from './lines';
 
   const interpolatePositions = (start, end, progress) => ({
     latitude: start.latitude + (end.latitude - start.latitude) * progress,
@@ -69,7 +71,8 @@
       }
     },
     components: {
-      CustomMapMarker
+      CustomMapMarker,
+      MetroLines
     }
   };
 </script>

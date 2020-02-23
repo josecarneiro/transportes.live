@@ -19,9 +19,9 @@
   import MapLayerCarris from './carris';
   import MapLayerMetro from './metro';
 
-  // const DEFAULT_CENTER = [38.7262929, -9.1447389];
+  const DEFAULT_CENTER = { lat: 38.7462929, lng: -9.1447389 };
 
-  // const DEFAULT_ZOOM = 14;
+  const DEFAULT_ZOOM = 13;
 
   const loadLocation = () =>
     new Promise((resolve, reject) =>
@@ -31,10 +31,12 @@
       )
     );
 
+  import LIGHT_STYLE from '@/components/map/style/light';
+
   export default {
     data: () => ({
-      center: { lat: 38.75, lng: -9.2 },
-      zoom: 11,
+      center: DEFAULT_CENTER,
+      zoom: DEFAULT_ZOOM,
       options: {
         gestureHandling: 'greedy',
         minZoom: 7,
@@ -45,7 +47,8 @@
         rotateControl: false,
         fullscreenControl: false,
         disableDefaultUi: true,
-        clickableIcons: false
+        clickableIcons: false,
+        styles: LIGHT_STYLE
       },
       ready: false
     }),

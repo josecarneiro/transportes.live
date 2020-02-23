@@ -10,13 +10,18 @@
     left: 0;
     z-index: 300;
     width: 100%;
-    padding: 30px;
+    padding: 1em;
+    pointer-events: none;
     a {
+      pointer-events: initial;
+      display: inline-flex;
+      padding: 1.25em;
       font-weight: bold;
       color: #2c3e50;
       // &.router-link-exact-active {
       //   color: #42b983;
       // }
+      background-color: white;
     }
   }
 </style>

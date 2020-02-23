@@ -38,16 +38,27 @@
     justify-content: flex-end;
     align-items: flex-end;
     padding: 1em;
+    padding-bottom: 1em + 14 * 1em / 16;
     pointer-events: none;
     & > * {
       pointer-events: initial;
     }
   }
 
+  $icon-size: 1.25em;
+
   .map__control {
     width: 4em;
     height: 4em;
     background-color: white;
+    padding: 0;
+    .material-design-icon {
+      &,
+      & > .material-design-icon__svg {
+        width: $icon-size;
+        height: $icon-size;
+      }
+    }
   }
 
   .map__controls {

@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import App from './app';
-// import './registerServiceWorker';
+// import './register-service-worker';
 import router from './router';
 import store from './store';
 
@@ -45,8 +45,10 @@ Vue.use(VueTimeago, {
   }
 });
 
-new Vue({
+const app = new Vue({
   router,
   store,
   render: h => h(App)
-}).$mount('#app');
+});
+
+export default app;

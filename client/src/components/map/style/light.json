@@ -39,33 +39,6 @@
     ]
   },
   {
-    "featureType": "administrative",
-    "elementType": "geometry.fill",
-    "stylers": [
-      {
-        "color": "#fefefe"
-      },
-      {
-        "lightness": 20
-      }
-    ]
-  },
-  {
-    "featureType": "administrative",
-    "elementType": "geometry.stroke",
-    "stylers": [
-      {
-        "color": "#fefefe"
-      },
-      {
-        "lightness": 17
-      },
-      {
-        "weight": 1.2
-      }
-    ]
-  },
-  {
     "featureType": "landscape",
     "elementType": "geometry",
     "stylers": [
@@ -169,7 +142,7 @@
     "elementType": "geometry",
     "stylers": [
       {
-        "lightness": "82"
+        "lightness": "100"
       },
       {
         "saturation": "-100"

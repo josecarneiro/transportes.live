@@ -24,9 +24,12 @@
 </script>
 
 <style lang="scss">
+  @import '~@/style/utilities.scss';
+
   .map__overlay {
     position: fixed;
     top: 0;
+    top: calc(env(safe-area-inset-top));
     right: 0;
     bottom: 0;
     left: 0;
@@ -42,6 +45,10 @@
     pointer-events: none;
     & > * {
       pointer-events: initial;
+    }
+    & > .map__control,
+    & > .map__controls {
+      @include shadow();
     }
   }
 

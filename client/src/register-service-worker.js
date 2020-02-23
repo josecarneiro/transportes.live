@@ -2,12 +2,13 @@
 
 import { register } from 'register-service-worker';
 
-if (process.env.NODE_ENV === 'production') {
-  register(`${process.env.BASE_URL}service-worker.js`, {
+const { NODE_ENV, BASE_URL } = process.env;
+
+if (NODE_ENV === 'production') {
+  register(`${BASE_URL}service-worker.js`, {
     ready() {
       console.log(
-        'App is being served from cache by a service worker.\n' +
-          'For more details, visit https://goo.gl/AFskqB'
+        'transportes.live is being served from cache by a service worker.'
       );
     },
     registered() {
@@ -20,7 +21,11 @@ if (process.env.NODE_ENV === 'production') {
       console.log('New content is downloading.');
     },
     updated() {
-      console.log('New content is available; please refresh.');
+      console.log('New content is available. Please refresh.');
+      console.log('Refreshing in 3 seconds.');
+      setTimeout(() => {
+        window.location.reload(true);
+      }, 3000);
     },
     offline() {
       console.log(

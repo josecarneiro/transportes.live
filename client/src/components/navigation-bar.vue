@@ -4,9 +4,12 @@
 </template>
 
 <style lang="scss">
+  @import '~@/style/utilities.scss';
+
   .nav {
     position: fixed;
     top: 0;
+    top: env(safe-area-inset-top);
     left: 0;
     z-index: 300;
     width: 100%;
@@ -22,6 +25,7 @@
       //   color: #42b983;
       // }
       background-color: white;
+      @include shadow();
     }
   }
 </style>

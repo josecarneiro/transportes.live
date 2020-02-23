@@ -11,8 +11,9 @@
     bottom: 0;
     z-index: 200;
     width: 100%;
-    padding: 2em;
+    padding: 1em;
     padding-top: 6em;
+    padding-top: calc(env(safe-area-inset-top) - 0em + 6em);
     background-color: white;
     background-color: hsla(0, 0, 100%, 0.9);
     backdrop-filter: blur(2px);

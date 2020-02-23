@@ -17,7 +17,7 @@
       "**/Procfile": true,
       "**/*.config.js": true,
       "**/.*rc": true,
-      "**/*rc.*": true,
+      // "**/*rc.*": true,
       "**/cypress*": true,
       "**/client/dist": true
     }

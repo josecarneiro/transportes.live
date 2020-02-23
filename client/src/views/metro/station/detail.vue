@@ -39,7 +39,6 @@
     },
     methods: {
       updateStation(data) {
-        console.log(data);
         this.station = data;
       }
     },

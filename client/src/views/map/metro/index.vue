@@ -51,6 +51,7 @@
 
   export default {
     data: () => ({
+      service: null,
       trains: []
     }),
     computed: {
@@ -60,10 +61,10 @@
       }
     },
     created() {
-      this.trainPositionListener = new TrainPositionService(this.updateTrains);
+      this.service = new TrainPositionService(this.updateTrains);
     },
     destroyed() {
-      this.vehiclePositionListener.destroy();
+      if (this.service) this.service.destroy();
     },
     methods: {
       updateTrains(trains) {

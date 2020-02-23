@@ -1,7 +1,6 @@
-<template>
-  <div :style="{ opacity }">
-    <slot />
-  </div>
+<template lang="pug">
+  div(:style="{ opacity }")
+    slot
 </template>
 
 <script>

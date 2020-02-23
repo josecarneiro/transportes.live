@@ -31,3 +31,28 @@ a {
   text-decoration: none;
   color: inherit;
 }
+
+button,
+input {
+  border: 0;
+  padding: 1em;
+  font: inherit;
+}
+
+button {
+  border: 0;
+  cursor: pointer;
+  &:active,
+  &:focus {
+    outline: 0;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}

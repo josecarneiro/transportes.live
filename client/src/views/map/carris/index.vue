@@ -24,6 +24,7 @@
 
   export default {
     data: () => ({
+      service: null,
       vehicles: []
     }),
     computed: {
@@ -33,12 +34,10 @@
       }
     },
     created() {
-      this.vehiclePositionListener = new VehiclePositionService(
-        this.updateVehicles
-      );
+      this.service = new VehiclePositionService(this.updateVehicles);
     },
     destroyed() {
-      this.vehiclePositionListener.destroy();
+      if (this.service) this.service.destroy();
     },
     methods: {
       updateVehicles(vehicles) {

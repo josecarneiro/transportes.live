@@ -9,8 +9,8 @@
       v-bind="{ center, zoom, options }"
     )
       template(v-if="ready")
-        map-layer-carris
-        map-layer-metro
+        map-layer-carris(v-if="active.bus")
+        map-layer-metro(v-if="active.subway")
 </template>
 
 <script>
@@ -50,7 +50,11 @@
         clickableIcons: false,
         styles: LIGHT_STYLE
       },
-      ready: false
+      ready: false,
+      active: {
+        bus: false,
+        subway: true
+      }
     }),
     mounted() {
       this.$refs.map.$mapPromise.then(() => {
@@ -72,7 +76,16 @@
           case 'locate':
             this.locate();
             break;
+          case 'toggle-bus':
+            this.toggle('bus');
+            break;
+          case 'toggle-subway':
+            this.toggle('subway');
+            break;
         }
+      },
+      toggle(value) {
+        this.active[value] = !this.active[value];
       },
       async locate() {
         const position = await loadLocation();
@@ -95,11 +108,13 @@
   .map__container {
     width: 100%;
     height: 100%;
+    // min-height: 100vh;
   }
 
   main {
     width: 100%;
     height: 100vh;
+    // min-height: 100vh;
   }
 
   .marker a {
@@ -107,5 +122,9 @@
     align-items: center;
     justify-content: center;
     font-size: 0.675em;
+  }
+
+  .vue-map > div {
+    background-color: white !important;
   }
 </style>

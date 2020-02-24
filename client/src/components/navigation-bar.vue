@@ -20,7 +20,6 @@
       display: inline-flex;
       padding: 1.25em;
       font-weight: bold;
-      color: #2c3e50;
       // &.router-link-exact-active {
       //   color: #42b983;
       // }

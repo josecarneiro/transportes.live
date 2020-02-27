@@ -21,7 +21,7 @@
       "**/cypress*": true,
       // "**/client/dist": true,
       "**/*.toml": true,
-      "**/.env": true,
+      // "**/.env": true,
       "**/react-client": true
     }
   }

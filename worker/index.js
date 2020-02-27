@@ -10,40 +10,52 @@ const updateFirebaseCarrisEstimates = require('./carris/firebase-update-estimate
 const DELAY = 1000;
 // const DELAY = 5000;
 
+const debug = require('debug');
+const log = debug('transportes-live');
+
+const workerLog = log.extend('worker');
+const carrisServiceLog = log.extend('carris');
+const metroServiceLog = log.extend('metro');
+
 const runOnce = async () => {
   try {
     await updateFirebaseCarrisStops();
+    carrisServiceLog.extend('success')('Updated Carris stops.');
   } catch (error) {
-    console.log('Error updating firebase with carris stops', error);
+    carrisServiceLog.extend('error')('Error updating Carris stops.', error);
   }
 };
 
 const loop = async () => {
-  // try {
-  //   await updateFirebaseCarrisVehiclesPositions();
-  // } catch (error) {
-  //   console.log('Error updating firebase with carris', error);
-  // }
-  // try {
-  //   await updateFirebaseMetroTrainPositions();
-  // } catch (error) {
-  //   console.log('Error updating firebase with metro', error);
-  // }
-  // try {
-  //   await updateFirebaseMetroEstimates();
-  // } catch (error) {
-  //   console.log('Error updating firebase with metro estimates', error);
-  // }
+  try {
+    await updateFirebaseCarrisVehiclesPositions();
+    carrisServiceLog.extend('success')('Updated Carris vehicle positions.');
+  } catch (error) {
+    carrisServiceLog.extend('error')('Error updating Carris vehicle positions.', error);
+  }
+  try {
+    await updateFirebaseMetroTrainPositions();
+    metroServiceLog.extend('success')('Updated Metro train positions.');
+  } catch (error) {
+    metroServiceLog.extend('error')('Error updating firebase with metro train positions', error);
+  }
+  try {
+    await updateFirebaseMetroEstimates();
+    metroServiceLog.extend('success')('Updated Metro estimates.');
+  } catch (error) {
+    metroServiceLog.extend('error')('Error updating firebase with metro train estimates', error);
+  }
   setTimeout(loop, DELAY);
 };
 
 const loopSlower = async () => {
   try {
     await updateFirebaseCarrisEstimates();
+    carrisServiceLog.extend('success')('Updated Carris estimates.');
   } catch (error) {
-    console.log('Error updating firebase with carris estimates', error);
+    carrisServiceLog.extend('error')('Error updating Carris estimates.', error);
   }
-  setTimeout(loop, DELAY * 5);
+  setTimeout(loopSlower, DELAY * 5);
 };
 
 runOnce();

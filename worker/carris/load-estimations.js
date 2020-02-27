@@ -21,7 +21,6 @@ const listEstimationsRecursively = async ids => {
   const estimations = [];
   for (const list of operations) {
     const values = await client.listEstimations(list);
-    console.log('Listing');
     estimations.push(...values);
   }
   return estimations;

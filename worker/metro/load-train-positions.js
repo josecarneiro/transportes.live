@@ -1,4 +1,4 @@
-const { log, write } = require('transportes/metro/utilities');
+const { log, write } = require('transportes/utilities');
 const extractTrainLocations = require('./extract-train-location');
 const lines = require('transportes/metro/data/lines');
 const stations = require('transportes/metro/data/stations');

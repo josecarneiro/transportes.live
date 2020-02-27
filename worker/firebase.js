@@ -1,6 +1,5 @@
-// Import Admin SDK
 // process.env.FIREBASE_CONFIG = JSON.stringify(require('./key.json'));
-process.env.GOOGLE_APPLICATION_CREDENTIALS = './key.json';
+process.env.GOOGLE_APPLICATION_CREDENTIALS = './config/key.json';
 
 const admin = require('firebase-admin');
 const config = require('./config');

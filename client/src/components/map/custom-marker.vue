@@ -36,9 +36,32 @@
         default: null
       }
     },
-    beforeCreate(options) {
-      if (this.$clusterPromise) options.map = null;
-      return this.$clusterPromise;
+    data: () => ({
+      opacity: 0.01
+    }),
+    computed: {
+      lat() {
+        const { lat, latitude } = this.position;
+        return parseFloat(isNaN(lat) ? latitude : lat);
+      },
+      lng() {
+        const { lng, longitude } = this.position;
+        return parseFloat(isNaN(lng) ? longitude : lng);
+      },
+      latLng() {
+        return this.position instanceof this.google.maps.LatLng
+          ? this.position
+          : new this.google.maps.LatLng(this.lat, this.lng);
+      },
+      google: gmapApi
+    },
+    watch: {
+      position() {
+        this.$mapPromise.then(() => this.$overlay.setPosition());
+      },
+      zIndex() {
+        this.$overlay.repaint();
+      }
     },
     methods: {
       afterCreate(inst) {
@@ -50,17 +73,17 @@
         }
       }
     },
-    data() {
-      return {
-        opacity: 0.01
-      };
+    beforeCreate(options) {
+      if (this.$clusterPromise) options.map = null;
+      return this.$clusterPromise;
     },
-    watch: {
-      position() {
-        this.$mapPromise.then(() => this.$overlay.setPosition());
-      },
-      zIndex() {
-        this.$overlay.repaint();
+
+    destroyed() {
+      if (this.$clusterObject) {
+        this.$clusterObject.removeMarker(this.$overlay, true);
+      } else {
+        this.$overlay.setMap(null);
+        this.$overlay = undefined;
       }
     },
     provide() {
@@ -72,8 +95,10 @@
           constructor(map) {
             super();
             this.setMap(map);
-            this.draw = () => this.repaint();
-            this.setPosition = () => this.repaint();
+            this.draw = this.repaint;
+            this.setPosition = this.repaint;
+            // this.draw = () => this.repaint();
+            // this.setPosition = () => this.repaint();
           }
 
           repaint() {
@@ -81,47 +106,49 @@
             const projection = this.getProjection();
             if (projection && div) {
               const posPixel = projection.fromLatLngToDivPixel(self.latLng);
+              const { x: horizontal, y: vertical } = posPixel;
+              const { offsetWidth: width, offsetHeight: height } = div;
               let x, y;
               switch (self.alignment) {
                 case 'top':
-                  x = posPixel.x - div.offsetWidth / 2;
-                  y = posPixel.y - div.offsetHeight;
+                  x = horizontal - width / 2;
+                  y = vertical - height;
                   break;
                 case 'bottom':
-                  x = posPixel.x - div.offsetWidth / 2;
-                  y = posPixel.y;
+                  x = horizontal - width / 2;
+                  y = vertical;
                   break;
                 case 'left':
-                  x = posPixel.x - div.offsetWidth;
-                  y = posPixel.y - div.offsetHeight / 2;
+                  x = horizontal - width;
+                  y = vertical - height / 2;
                   break;
                 case 'right':
-                  x = posPixel.x;
-                  y = posPixel.y - div.offsetHeight / 2;
+                  x = horizontal;
+                  y = vertical - height / 2;
                   break;
                 case 'center':
-                  x = posPixel.x - div.offsetWidth / 2;
-                  y = posPixel.y - div.offsetHeight / 2;
+                  x = horizontal - width / 2;
+                  y = vertical - height / 2;
                   break;
                 case 'topleft':
                 case 'lefttop':
-                  x = posPixel.x - div.offsetWidth;
-                  y = posPixel.y - div.offsetHeight;
+                  x = horizontal - width;
+                  y = vertical - height;
                   break;
                 case 'topright':
                 case 'righttop':
-                  x = posPixel.x;
-                  y = posPixel.y - div.offsetHeight;
+                  x = horizontal;
+                  y = vertical - height;
                   break;
                 case 'bottomleft':
                 case 'leftop':
-                  x = posPixel.x - div.offsetWidth;
-                  y = posPixel.y;
+                  x = horizontal - width;
+                  y = vertical;
                   break;
                 case 'bottomright':
                 case 'rightbottom':
-                  x = posPixel.x;
-                  y = posPixel.y;
+                  x = horizontal;
+                  y = vertical;
                   break;
                 default:
                   throw new Error('Invalid alignment type of custom marker!');
@@ -135,16 +162,16 @@
 
           onAdd() {
             const div = self.$el;
+            Object.assign(div.style, {
+              position: 'absolute',
+              display: 'inline-block',
+              zIndex: self.zIndex
+            });
             const panes = this.getPanes();
-            div.style.position = 'absolute';
-            div.style.display = 'inline-block';
-            div.style.zIndex = self.zIndex;
             panes.overlayLayer.appendChild(div);
             panes.overlayMouseTarget.appendChild(div);
             this.getDraggable = () => false;
-            this.getPosition = () => {
-              return new google.maps.LatLng(self.lat, self.lng);
-            };
+            this.getPosition = () => new google.maps.LatLng(self.lat, self.lng);
             self.afterCreate(this);
           }
 
@@ -164,39 +191,20 @@
 
         this.$overlay = new Overlay(map);
 
-        setTimeout(() => {
+        this.$nextTick(() => {
           if (this.$overlay) {
             this.$overlay.repaint();
             this.opacity = 1;
           }
-        }, 100);
+        });
+
+        // setTimeout(() => {
+        //   if (this.$overlay) {
+        //     this.$overlay.repaint();
+        //     this.opacity = 1;
+        //   }
+        // }, 100);
       });
-    },
-    computed: {
-      lat() {
-        return parseFloat(
-          isNaN(this.position.lat) ? this.position.latitude : this.position.lat
-        );
-      },
-      lng() {
-        return parseFloat(
-          isNaN(this.position.lng) ? this.position.longitude : this.position.lng
-        );
-      },
-      latLng() {
-        const google = this.google;
-        if (this.position instanceof google.maps.LatLng) return this.position;
-        return new google.maps.LatLng(this.lat, this.lng);
-      },
-      google: gmapApi
-    },
-    destroyed() {
-      if (this.$clusterObject) {
-        this.$clusterObject.removeMarker(this.$overlay, true);
-      } else {
-        this.$overlay.setMap(null);
-        this.$overlay = undefined;
-      }
     }
   };
 </script>

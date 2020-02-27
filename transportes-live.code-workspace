@@ -11,15 +11,18 @@
       "**/.hg": true,
       "**/CVS": true,
       "**/.DS_Store": true,
-      // "**/node_modules": true,
+      "**/node_modules": true,
       "**/*.log": true,
       "**/*.lock": true,
       "**/Procfile": true,
       // "**/*.config.js": true,
       "**/.*rc": true,
       // "**/*rc.*": true,
-      "**/cypress*": true
-      // "**/client/dist": true
+      "**/cypress*": true,
+      // "**/client/dist": true,
+      "**/*.toml": true,
+      "**/.env": true,
+      "**/react-client": true
     }
   }
 }

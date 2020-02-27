@@ -1640,10 +1640,10 @@ to-regex-range@^5.0.1:
   dependencies:
     is-number "^7.0.0"
 
-transportes@^0.0.3:
-  version "0.0.3"
-  resolved "https://registry.yarnpkg.com/transportes/-/transportes-0.0.3.tgz#ee00e49d57465c23abfe7c1cbc12fb698928243e"
-  integrity sha512-nUsp2sTgOPKwkjZBjScQNf5klAevaRsiRJwyiIw/OqAcUTMX9lH4fxNVR/Ryo7yZzpixQakWh1TB89AEyiP09w==
+transportes@^0.0.5:
+  version "0.0.5"
+  resolved "https://registry.yarnpkg.com/transportes/-/transportes-0.0.5.tgz#a46dbdcacbc4b694e38c1daa99bf495fa96fe297"
+  integrity sha512-PWgiyP/75VyYwYt5WFE5e7RCDFVP8oQfURA+MypaCqd6/GmwSWF4/7kOV8atNPQmq630gUKm/mM6KvftnAK+OQ==
   dependencies:
     axios "^0.19.2"
     mocha "^7.0.1"

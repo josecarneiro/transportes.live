@@ -1,10 +1,10 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import CarrisBusDetail from '@/views/carris/vehicle/detail';
-import MetroStationDetail from '@/views/metro/station/detail';
 
-// const AboutView = () =>
-//   import(/* webpackChunkName: "about" */ '../views/About.vue');
+const CarrisBusDetail = () =>
+  import(/* webpackChunkName: "carris" */ '@/views/carris/vehicle/detail');
+const MetroStationDetail = () =>
+  import(/* webpackChunkName: "metro" */ '@/views/metro/station/detail');
 
 Vue.use(VueRouter);
 

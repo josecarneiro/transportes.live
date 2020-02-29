@@ -1,6 +1,6 @@
 <template lang="pug">
   div
-    gmap-polyline(
+    map-polyline(
       v-for="{ id, styles, path } in lines"
       :key="id"
       :editable="false"
@@ -19,6 +19,7 @@
 </template>
 
 <script>
+  import { Polyline as MapPolyline } from 'vue2-google-maps';
   import metroLines from '@/data/metro/lines';
   import metroStations from '@/data/metro/stations';
 
@@ -61,7 +62,8 @@
       }
     }),
     components: {
-      CustomMapMarker
+      CustomMapMarker,
+      MapPolyline
     }
   };
 </script>

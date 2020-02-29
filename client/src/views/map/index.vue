@@ -3,7 +3,7 @@
     map-overlay(
       v-on="{ control }"
     )
-    gmap-map(
+    custom-map(
       ref="map"
       class="map__container"
       v-bind="{ center, zoom, options }"
@@ -14,6 +14,8 @@
 </template>
 
 <script>
+  import { Map as CustomMap } from 'vue2-google-maps';
+
   import MapOverlay from '@/components/map/overlay';
 
   import MapLayerCarris from './carris';
@@ -99,7 +101,8 @@
     components: {
       MapLayerCarris,
       MapLayerMetro,
-      MapOverlay
+      MapOverlay,
+      CustomMap
     }
   };
 </script>

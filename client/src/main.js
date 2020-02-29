@@ -26,9 +26,7 @@ Vue.use(VueGoogleMaps, {
   //// import {GmapMarker} from 'vue2-google-maps/src/components/marker'
   //// Vue.component('GmapMarker', GmapMarker)
   //// then set installComponents to 'false'.
-  //// If you want to automatically install all the components this property must be set to 'true':
-  installComponents: true
-  // installComponents: false
+  installComponents: false
 });
 
 import VueTimeago from 'vue-timeago';

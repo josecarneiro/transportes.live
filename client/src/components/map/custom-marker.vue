@@ -197,13 +197,6 @@
             this.opacity = 1;
           }
         });
-
-        // setTimeout(() => {
-        //   if (this.$overlay) {
-        //     this.$overlay.repaint();
-        //     this.opacity = 1;
-        //   }
-        // }, 100);
       });
     }
   };

@@ -1,32 +1,22 @@
 <template lang="pug">
   .map__overlay
     .map__controls
-      button.map__control(@click="$emit('control', 'toggle-bus')")
-        icon(icon="bus")
-      button.map__control(@click="$emit('control', 'toggle-subway')")
-        icon(icon="subway")
+      slot
     button.map__control.map__control--locate(@click="$emit('control', 'locate')")
-      icon-location
+      icon(icon="location")
     .map__controls.map__controls--zoom
       button.map__control.map__control--zoom(@click="$emit('control', 'zoom-in')")
-        //- icon-plus
         icon(icon="plus")
       button.map__control.map__control--zoom(@click="$emit('control', 'zoom-out')")
-        icon-minus
+        icon(icon="minus")
 </template>
 
 <script>
   import Icon from '@/components/icon';
-  import IconPlus from 'vue-material-design-icons/Plus';
-  import IconMinus from 'vue-material-design-icons/Minus';
-  import IconLocation from 'vue-material-design-icons/NearMe';
 
   export default {
     components: {
-      Icon,
-      IconPlus,
-      IconMinus,
-      IconLocation
+      Icon
     }
   };
 </script>
@@ -44,8 +34,6 @@
     z-index: 100;
     display: flex;
     flex-direction: column;
-    // justify-content: center;
-    // align-items: center;
     justify-content: flex-end;
     align-items: flex-end;
     padding: 1em;

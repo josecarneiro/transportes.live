@@ -3,7 +3,7 @@
     navigation-bar
     map-view
     transition(name="slide")
-      router-view
+      router-view(name="overlay")
 </template>
 
 <script>

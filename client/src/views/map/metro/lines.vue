@@ -14,7 +14,7 @@
       :position="position"
       class="metro-station marker"
     )
-      router-link(:to="{ name: 'metro-station', params: { id } }")
+      router-link(:to="{ name: 'metro/station', params: { id } }")
         span(v-text="id")
 </template>
 

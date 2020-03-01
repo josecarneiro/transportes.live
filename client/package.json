@@ -10,8 +10,9 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "@firebase/app": "^0.5.5",
+    "@firebase/database": "^0.5.22",
     "core-js": "^3.6.4",
-    "firebase": "^7.8.2",
     "pug": "^2.0.4",
     "pug-plain-loader": "^1.0.0",
     "register-service-worker": "^1.6.2",

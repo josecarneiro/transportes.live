@@ -1,6 +1,8 @@
 <template lang="pug">
   view-aside
     template(v-if="vehicle")
+      button(@click="$emit('control', 'zoom-out')")
+        icon(icon="favorite")
       h1(v-text="vehicle.route")
       small {{vehicle.plate}}
       br
@@ -11,6 +13,7 @@
 
 <script>
   import { VehicleDetailService } from '@/services/carris';
+  import Icon from '@/components/icon';
   import ViewAside from '@/components/view/aside';
 
   export default {
@@ -39,7 +42,8 @@
       }
     },
     components: {
-      ViewAside
+      ViewAside,
+      Icon
     }
   };
 </script>

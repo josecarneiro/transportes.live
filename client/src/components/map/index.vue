@@ -18,6 +18,7 @@
         v-if="ready"
         name="default"
       )
+    .map__color-overlay
 </template>
 
 <script>
@@ -35,9 +36,9 @@
       center: Object,
       zoom: {
         type: Number,
-        default: 13
+        default: 13,
       },
-      options: Object
+      options: Object,
     },
     data: () => ({
       defaultOptions: {
@@ -50,11 +51,11 @@
         fullscreenControl: false,
         disableDefaultUi: true,
         clickableIcons: false,
-        styles: LIGHT_STYLE
+        styles: LIGHT_STYLE,
       },
       ready: false,
       loaded: false,
-      size: []
+      size: [],
     }),
     mounted() {
       const { map } = this.$refs;
@@ -88,7 +89,7 @@
         const position = await loadLocation();
         const center = Object.assign({}, this.center, {
           lat: position.latitude,
-          lng: position.longitude
+          lng: position.longitude,
         });
         this.$emit('changeCenter', center);
         this.$emit('changeZoom', 15);
@@ -100,13 +101,13 @@
         this.size[1] = Math.floor(height / 2 - 0.5);
         // this.size[0] = width;
         // this.size[1] = height;
-      }
+      },
     },
     components: {
       GmapsMap,
       MapStatic,
-      MapOverlay
-    }
+      MapOverlay,
+    },
   };
 </script>
 
@@ -140,5 +141,19 @@
     .map__static {
       opacity: 0;
     }
+  }
+
+  .map__color-overlay {
+    // $map-overlay-color: hsla(227, 60%, 50%, 0.3);
+    $map-overlay-color: hsla(202, 100%, 60%, 0.1);
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 100;
+    background-color: $map-overlay-color;
+    mix-blend-mode: overlay;
+    pointer-events: none;
   }
 </style>

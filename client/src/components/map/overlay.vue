@@ -16,8 +16,8 @@
 
   export default {
     components: {
-      Icon
-    }
+      Icon,
+    },
   };
 </script>
 

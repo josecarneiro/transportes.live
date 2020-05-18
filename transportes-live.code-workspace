@@ -7,16 +7,13 @@
   "settings": {
     "files.exclude": {
       "**/.git": true,
-      "**/.svn": true,
-      "**/.hg": true,
-      "**/CVS": true,
       "**/.DS_Store": true,
       "**/node_modules": true,
       "**/dist": true,
       "**/*.log": true,
       "**/*.lock": true,
       "**/Procfile": true,
-      // "**/*.config.js": true,
+      "**/*.config.js": true,
       // "**/.*rc": true,
       // "**/*rc.*": true,
       "**/cypress*": true,

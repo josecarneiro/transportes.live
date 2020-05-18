@@ -2,7 +2,7 @@
   div
     custom-map-marker(
       v-for="(marker, index) in markers"
-      :key="index"
+      :key="marker.id || index"
       :position="marker.position"
       class="marker bus"
       @click="center = marker.position"
@@ -59,6 +59,7 @@
   $carris-blue: #0055a2;
 
   .bus {
+    transition: all 1s ease;
     a {
       $scale: 1.25;
       width: $scale * 0.75rem;

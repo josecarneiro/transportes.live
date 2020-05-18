@@ -11,7 +11,7 @@
     )
     gmaps-map(
       ref="map"
-      v-bind="{ center, zoom, options: { ...defaultOptions, ...options } }",
+      v-bind="{ center, zoom, options: { ...defaultOptions, ...options } }",
       v-on="{ tilesloaded: changeLoaded }"
     )
       slot(
@@ -36,9 +36,9 @@
       center: Object,
       zoom: {
         type: Number,
-        default: 13,
+        default: 13
       },
-      options: Object,
+      options: Object
     },
     data: () => ({
       defaultOptions: {
@@ -51,14 +51,13 @@
         fullscreenControl: false,
         disableDefaultUi: true,
         clickableIcons: false,
-        styles: LIGHT_STYLE,
+        styles: LIGHT_STYLE
       },
       ready: false,
       loaded: false,
-      size: [],
+      size: []
     }),
     mounted() {
-      const { map } = this.$refs;
       this.$refs.map.$mapPromise.then(() => {
         this.ready = true;
         this.$emit('ready');
@@ -68,14 +67,12 @@
     methods: {
       changeLoaded() {
         this.loaded = true;
-        console.log('loaded');
       },
       control(value) {
         const { minZoom } = this.options;
         switch (value) {
           case 'zoom-in':
             this.$emit('changeZoom', this.zoom + 1);
-            this.zoom++;
             break;
           case 'zoom-out':
             this.$emit('changeZoom', Math.max(minZoom, this.zoom - 1));
@@ -89,7 +86,7 @@
         const position = await loadLocation();
         const center = Object.assign({}, this.center, {
           lat: position.latitude,
-          lng: position.longitude,
+          lng: position.longitude
         });
         this.$emit('changeCenter', center);
         this.$emit('changeZoom', 15);
@@ -101,13 +98,13 @@
         this.size[1] = Math.floor(height / 2 - 0.5);
         // this.size[0] = width;
         // this.size[1] = height;
-      },
+      }
     },
     components: {
       GmapsMap,
       MapStatic,
-      MapOverlay,
-    },
+      MapOverlay
+    }
   };
 </script>
 

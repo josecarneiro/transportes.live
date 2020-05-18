@@ -8,10 +8,8 @@ const { transformToJSONObject } = require('./../utilities');
 
 const updateFirebaseCarrisBusPositions = async () => {
   const vehicles = await loadBusPositions();
-  const data = vehicles.reduce((acc, { id, ...value }) => ({ ...acc, [id]: value }), {});
-  // const data = trains.reduce((acc, { id, ...value }) => ({ ...acc, [id]: value }), {});
   const vehiclePositionReference = database.ref('carris/vehicles');
-  // vehiclePositionReference.set(data);
+  const data = vehicles.reduce((acc, { id, ...value }) => ({ ...acc, [id]: value }), {});
   vehiclePositionReference.set(transformToJSONObject(data));
 };
 

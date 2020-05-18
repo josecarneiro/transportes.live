@@ -13,7 +13,7 @@ const loadLineData = async () => {
   const stations = require('./data/stations');
   return lines.map(line => ({
     ...line,
-    stations: line.stations.map(id => stations.find(station => id === station.id))
+    stations: line.stations.map(id => stations.find(station => id === station.id)),
   }));
 };
 

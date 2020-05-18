@@ -22,10 +22,14 @@ const updateFirebaseCarrisStops = async () => {
   const estimates = await loadEstimates(ids.slice(0, 50));
   const data = estimates
     .filter(value => value)
-    .map(({ publicId: id, name, position, estimations }) => ({ id, name, position, estimations }))
+    .map(({ publicId: id, name, position, estimations }) => ({
+      id,
+      name,
+      position,
+      estimations,
+    }))
     .reduce((acc, { id, ...value }) => ({ ...acc, [id]: value }), {});
 
-  // console.log(estimates);
   const carrisStopsReference = database.ref('carris/estimates');
   carrisStopsReference.set(transformToJSONObject(data));
 };

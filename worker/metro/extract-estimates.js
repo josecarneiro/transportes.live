@@ -1,8 +1,7 @@
 'use strict';
 
-module.exports = estimates => {
-  // console.log(estimates);
-  return estimates.reduce((accumulator, { station, ...value }) => {
-    return { ...accumulator, [station]: [...(accumulator[station] || []), value] };
-  });
-};
+module.exports = estimates =>
+  estimates.reduce((accumulator, { station, ...value }) => ({
+    ...accumulator,
+    [station]: [...(accumulator[station] || []), value],
+  }));

@@ -17,47 +17,54 @@ const workerLog = log.extend('worker');
 const carrisServiceLog = log.extend('carris');
 const metroServiceLog = log.extend('metro');
 
+const loop = (callback, delay) =>
+  setTimeout(() => {
+    callback();
+    loop(callback, delay);
+  }, delay);
+
 const runOnce = async () => {
   try {
     await updateFirebaseCarrisStops();
     carrisServiceLog.extend('success')('Updated Carris stops.');
   } catch (error) {
-    carrisServiceLog.extend('error')('Error updating Carris stops.', error);
+    carrisServiceLog.extend('error')('Error updating Carris stops.');
+    carrisServiceLog.extend('detailed')(error);
   }
 };
 
-const loop = async () => {
+runOnce();
+
+loop(async () => {
   try {
     await updateFirebaseCarrisVehiclesPositions();
     carrisServiceLog.extend('success')('Updated Carris vehicle positions.');
   } catch (error) {
-    carrisServiceLog.extend('error')('Error updating Carris vehicle positions.', error);
+    carrisServiceLog.extend('error')('Error updating Carris vehicle positions.');
+    carrisServiceLog.extend('detailed')(error);
   }
   try {
     await updateFirebaseMetroTrainPositions();
     metroServiceLog.extend('success')('Updated Metro train positions.');
   } catch (error) {
-    metroServiceLog.extend('error')('Error updating firebase with metro train positions', error);
+    metroServiceLog.extend('error')('Error updating firebase with metro train positions');
+    metroServiceLog.extend('detailed')(error);
   }
   try {
     await updateFirebaseMetroEstimates();
     metroServiceLog.extend('success')('Updated Metro estimates.');
   } catch (error) {
-    metroServiceLog.extend('error')('Error updating firebase with metro train estimates', error);
+    metroServiceLog.extend('error')('Error updating firebase with metro train estimates');
+    metroServiceLog.extend('detailer')(error);
   }
-  setTimeout(loop, DELAY);
-};
+}, DELAY);
 
-const loopSlower = async () => {
+loop(async () => {
   try {
     await updateFirebaseCarrisEstimates();
     carrisServiceLog.extend('success')('Updated Carris estimates.');
   } catch (error) {
-    carrisServiceLog.extend('error')('Error updating Carris estimates.', error);
+    carrisServiceLog.extend('error')('Error updating Carris estimates.');
+    carrisServiceLog.extend('detailed')(error);
   }
-  setTimeout(loopSlower, DELAY * 5);
-};
-
-runOnce();
-loop();
-loopSlower();
+}, DELAY * 5);

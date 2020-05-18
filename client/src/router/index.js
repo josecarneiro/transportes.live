@@ -6,9 +6,9 @@ const CarrisBusDetail = () => import(/* webpackChunkName: "carris" */ '@/views/c
 // prettier-ignore
 const MetroStationDetail = () => import(/* webpackChunkName: "metro" */ '@/views/metro/station/detail');
 // prettier-ignore
-const MapMetroView = () => import(/* webpackChunkName: "metro" */ '@/views/map/metro');
+const MapMetroView = () => import(/* webpackChunkName: "metro" */ '@/views/metro/map');
 // prettier-ignore
-const MapCarrisView = () => import(/* webpackChunkName: "metro" */ '@/views/map/carris');
+const MapCarrisView = () => import(/* webpackChunkName: "metro" */ '@/views/carris/map');
 
 Vue.use(VueRouter);
 
@@ -49,6 +49,7 @@ const routes = [
       overlay: true
     },
     components: {
+      map: MapCarrisView,
       overlay: CarrisBusDetail
     }
   }

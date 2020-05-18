@@ -1,7 +1,7 @@
 <template lang="pug">
   view-aside
     template(v-if="vehicle")
-      button(@click="$emit('control', 'zoom-out')")
+      //- button(@click="$emit('control', 'zoom-out')")
         icon(icon="favorite")
       h1(v-text="vehicle.route")
       small {{vehicle.plate}}

@@ -17,8 +17,8 @@
   import MapOverlay from '@/components/map/overlay';
   import Icon from '@/components/icon';
 
-  import MapLayerCarris from './carris';
-  import MapLayerMetro from './metro';
+  // import MapLayerCarris from './carris';
+  // import MapLayerMetro from './metro';
 
   const DEFAULT_CENTER = { lat: 38.7462929, lng: -9.1447389 };
 
@@ -59,8 +59,8 @@
       }
     },
     components: {
-      MapLayerCarris,
-      MapLayerMetro,
+      // MapLayerCarris,
+      // MapLayerMetro,
       Icon,
       MapOverlay,
       CustomMap

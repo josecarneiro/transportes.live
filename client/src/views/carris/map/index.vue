@@ -7,7 +7,10 @@
       class="marker bus"
       @click="center = marker.position"
     )
-      router-link(:to="{ name: 'carris/vehicle', params: { id: marker.id } }")
+      router-link(
+        :to="{ name: 'carris/vehicle', params: { id: marker.id } }"
+        :style="{ transform: `rotate(${ 180 * marker.bearing / Math.PI }deg)` }"
+      )
         span(v-text="marker.route")
 </template>
 
@@ -16,7 +19,7 @@
 
   import CustomMapMarker from '@/components/map/custom-marker';
 
-  const extractMarkersFromVehicles = vehicles =>
+  const extractMarkersFromVehicles = (vehicles) =>
     vehicles.map(({ route, ...vehicle }) => ({
       ...vehicle,
       route

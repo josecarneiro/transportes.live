@@ -104,8 +104,10 @@
         // this.size[1] = height;
       },
       async idleStart() {
-        await this.$nextTick();
-        this.idle = true;
+        // await this.$nextTick();
+        setTimeout(() => {
+          this.idle = true;
+        }, 500);
       },
       idleEnd() {
         this.idle = false;

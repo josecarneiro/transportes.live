@@ -1,15 +1,15 @@
 <template lang="pug">
   div
     custom-map-marker(
-      v-for="({ id, position, bearing, route, ...marker }, index) in markers"
-      :key="id || index"
+      v-for="({ position, bearing, route, ...marker }, id) in vehicles"
+      :key="id"
       :position="position"
       class="marker bus"
       @click="center = position"
     )
       router-link(
         :to="{ name: 'carris/vehicle', params: { id } }"
-        :style="{ transform: `rotate(${ 180 * bearing / Math.PI }deg)` }"
+        :style="{ transform: `rotate(${ (180 * bearing) / Math.PI }deg)` }"
       )
         span(v-text="route")
 </template>
@@ -19,23 +19,11 @@
 
   import CustomMapMarker from '@/components/map/custom-marker';
 
-  const extractMarkersFromVehicles = (vehicles) =>
-    vehicles.map(({ route, ...vehicle }) => ({
-      ...vehicle,
-      route
-    }));
-
   export default {
     data: () => ({
       service: null,
-      vehicles: []
+      vehicles: {}
     }),
-    computed: {
-      markers() {
-        const { vehicles } = this;
-        return [...extractMarkersFromVehicles(vehicles)];
-      }
-    },
     created() {
       this.service = new VehiclePositionService(this.updateVehicles);
     },
@@ -44,7 +32,7 @@
     },
     methods: {
       updateVehicles(vehicles) {
-        this.vehicles = [...VehiclePositionService.parse(vehicles)];
+        this.vehicles = Object.assign({}, this.vehicles, vehicles);
       }
     },
     components: {

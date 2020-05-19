@@ -1243,7 +1243,7 @@ mkdirp@0.5.5:
   dependencies:
     minimist "^1.2.5"
 
-mocha@^7.0.1, mocha@^7.1.0:
+mocha@^7.1.0:
   version "7.1.2"
   resolved "https://registry.yarnpkg.com/mocha/-/mocha-7.1.2.tgz#8e40d198acf91a52ace122cd7599c9ab857b29e6"
   integrity sha512-o96kdRKMKI3E8U0bjnfqW4QMk12MwZ4mhdBTf+B5a1q9+aq2HRnj+3ZdJu0B/ZhJeK78MgYuv6L8d/rA5AeBJA==
@@ -1697,13 +1697,12 @@ to-regex-range@^5.0.1:
   dependencies:
     is-number "^7.0.0"
 
-transportes@^0.0.6:
-  version "0.0.6"
-  resolved "https://registry.yarnpkg.com/transportes/-/transportes-0.0.6.tgz#09fcc45e60071fa03f0ab737196f87c3eaa594d8"
-  integrity sha512-mExEE5jQPCuDRWPADMAVjPZ1l2v+d6Mq8/AM+BhCP81mj7C0eBW7GzgUx9C3WbfIMHhHv75s8vK3XNR8U18T3Q==
+transportes@^0.0.7:
+  version "0.0.7"
+  resolved "https://registry.yarnpkg.com/transportes/-/transportes-0.0.7.tgz#bfd04aee0849a6845d8f440ef1f2690dae4e01df"
+  integrity sha512-iQMay+qtO2TQTIleWoxKGsNni5/KRSxB9sUKoCrTdanblz/aZVeCcQs1PrbLgUguilzhbZxi78njEaE90IdY4A==
   dependencies:
     axios "^0.19.2"
-    mocha "^7.0.1"
 
 tslib@1.11.1:
   version "1.11.1"

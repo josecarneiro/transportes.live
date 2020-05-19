@@ -1,17 +1,17 @@
 <template lang="pug">
   div
     custom-map-marker(
-      v-for="(marker, index) in markers"
-      :key="marker.id || index"
-      :position="marker.position"
+      v-for="({ id, position, bearing, route, ...marker }, index) in markers"
+      :key="id || index"
+      :position="position"
       class="marker bus"
-      @click="center = marker.position"
+      @click="center = position"
     )
       router-link(
-        :to="{ name: 'carris/vehicle', params: { id: marker.id } }"
-        :style="{ transform: `rotate(${ 180 * marker.bearing / Math.PI }deg)` }"
+        :to="{ name: 'carris/vehicle', params: { id } }"
+        :style="{ transform: `rotate(${ 180 * bearing / Math.PI }deg)` }"
       )
-        span(v-text="marker.route")
+        span(v-text="route")
 </template>
 
 <script>
@@ -59,7 +59,9 @@
   $carris-blue: #0055a2;
 
   .bus {
-    transition: all 1s ease;
+    .map--idle & {
+      transition: all 1s ease;
+    }
     a {
       $scale: 1.25;
       width: $scale * 0.75rem;

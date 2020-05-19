@@ -2,38 +2,24 @@
 
 const client = require('./client');
 
-function radians(n) {
-  return n * (Math.PI / 180);
-}
-function degrees(n) {
-  return n * (180 / Math.PI);
-}
+const calculateBearing = (
+  { latitude: latitudeStart, longitude: longitudeStart },
+  { latitude: latitudeEnd, longitude: longitudeEnd }
+) => {
+  let longitudeDelta = (longitudeEnd - longitudeStart) * (Math.PI / 180);
 
-function getBearing(startLat, startLong, endLat, endLong) {
-  startLat = radians(startLat);
-  startLong = radians(startLong);
-  endLat = radians(endLat);
-  endLong = radians(endLong);
-
-  var dLong = endLong - startLong;
-
-  var dPhi = Math.log(
-    Math.tan(endLat / 2.0 + Math.PI / 4.0) / Math.tan(startLat / 2.0 + Math.PI / 4.0)
+  let latitudeDelta = Math.log(
+    Math.tan(((latitudeEnd * Math.PI) / 180 + Math.PI / 2) / 2) /
+      Math.tan(((latitudeStart * Math.PI) / 180 + Math.PI / 2) / 2)
   );
-  if (Math.abs(dLong) > Math.PI) {
-    if (dLong > 0.0) dLong = -(2.0 * Math.PI - dLong);
-    else dLong = 2.0 * Math.PI + dLong;
+
+  if (Math.abs(longitudeDelta) > Math.PI) {
+    longitudeDelta =
+      longitudeDelta > 0 ? -(2 * Math.PI - longitudeDelta) : 2 * Math.PI + longitudeDelta;
   }
 
-  return Math.atan2(dLong, dPhi);
-}
-
-const calculateBearing = (p1, p2) =>
-  (getBearing(p1.latitude, p1.longitude, p2.latitude, p2.longitude) + Math.PI * 2) % (Math.PI * 2);
-
-// const calculateBearing = (p1, p2) =>
-//   (Math.atan2(p2.latitude - p1.latitude, p2.longitude - p1.longitude) + Math.PI * 2) %
-//   (Math.PI * 2);
+  return (Math.atan2(longitudeDelta, latitudeDelta) + Math.PI * 2) % (Math.PI * 2);
+};
 
 const transformVehicle = vehicle => {
   let bearing =

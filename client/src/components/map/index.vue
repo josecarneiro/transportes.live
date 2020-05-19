@@ -7,12 +7,14 @@
     )
       slot(name="overlay")
     map-static(
+      v-once,
       v-bind="{ center, zoom, size }"
     )
     gmaps-map(
       ref="map"
+      :class="{ 'map--idle': idle }"
       v-bind="{ center, zoom, options: { ...defaultOptions, ...options } }",
-      v-on="{ tilesloaded: changeLoaded }"
+      v-on="{ tilesloaded: changeLoaded, drag: idleEnd, resize: idleEnd, zoom_changed: idleEnd, idle: idleStart }"
     )
       slot(
         v-if="ready"
@@ -25,6 +27,7 @@
   import { Map as GmapsMap } from 'vue2-google-maps';
   import MapOverlay from '@/components/map/overlay';
   import loadLocation from '@/services/load-location';
+
   import MapStatic from './static/image';
 
   import LIGHT_STYLE from './style/light';
@@ -55,6 +58,7 @@
       },
       ready: false,
       loaded: false,
+      idle: false,
       size: []
     }),
     mounted() {
@@ -98,6 +102,13 @@
         this.size[1] = Math.floor(height / 2 - 0.5);
         // this.size[0] = width;
         // this.size[1] = height;
+      },
+      async idleStart() {
+        await this.$nextTick();
+        this.idle = true;
+      },
+      idleEnd() {
+        this.idle = false;
       }
     },
     components: {

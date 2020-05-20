@@ -33,7 +33,6 @@
   import { VehicleDetailService, RouteService } from '@/services/carris';
 
   import Icon from '@/components/icon';
-  import RouteDisplay from './route';
   import ViewAside from '@/components/view/aside';
 
   export default {
@@ -63,7 +62,6 @@
     },
     components: {
       ViewAside,
-      RouteDisplay,
       Icon
     }
   };

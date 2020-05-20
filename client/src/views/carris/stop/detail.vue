@@ -1,28 +1,29 @@
 <template lang="pug">
   .view--aside
-    h1 Stop Detail
-    h1 {{ id }}
     template(v-if="stop")
-      span {{ stop.name }}
+      h1 {{ stop.name }}
+      h3 Stop \#{{ id }}
     template(v-if="estimates")
-    ul
-      li(
-        v-for="vehicle of estimates"
-        :key="vehicle.plate"
-      )
-        router-link(
-          :to="{ nome: 'carris/vehicle', params: { id: vehicle.id } }"
+      h4 Estimates
+      ul
+        li(
+          v-for="vehicle of estimates"
+          :key="vehicle.plate"
         )
-          //- strong {{ vehicle.id }}
-          span {{ vehicle.route }}
-          span  {{ vehicle.routeName }}
-          //- span {{ vehicle.destination }}
-          |  - 
-          time-ago(
-            :datetime="vehicle.time"
-            :auto-update="5"
-            :converterOptions="{ includeSeconds: true }"
+          router-link(
+            :to="{ name: 'carris/vehicle', params: { id: vehicle.id || vehicle.plate } }"
           )
+            //- strong {{ vehicle.id }}
+            strong {{ vehicle.route }}
+            span  {{ vehicle.routeName }}
+            //- span {{ vehicle.destination }}
+            |  - 
+            strong
+              time-ago(
+                :datetime="vehicle.time"
+                :auto-update="5"
+                :converterOptions="{ includeSeconds: true }"
+              )
 </template>
 
 <script>
@@ -45,8 +46,6 @@
           ...everything,
           time: new Date(time)
         }));
-
-        console.log(stop, estimates);
       }
     }
   };

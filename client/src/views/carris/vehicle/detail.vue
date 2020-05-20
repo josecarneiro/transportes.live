@@ -4,9 +4,10 @@
       //- button(@click="$emit('control', 'zoom-out')")
         icon(icon="favorite")
       h1(v-text="vehicle.route")
-      small {{vehicle.plate}}
       br
-      span ID \#{{id}}
+      span
+        strong Vehicle Id
+        | : {{id}}
       br
       span 
 </template>

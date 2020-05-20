@@ -32,6 +32,9 @@ body,
 a {
   text-decoration: none;
   color: inherit;
+  p & {
+    text-decoration: underline;
+  }
 }
 
 button,

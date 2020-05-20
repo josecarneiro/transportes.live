@@ -37,6 +37,10 @@ Vue.use(VueTimeago, {
   }
 });
 
+const filters = {};
+
+for (let key in filters) Vue.filter(key, filters[key]);
+
 const app = new Vue({
   router,
   store,

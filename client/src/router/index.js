@@ -1,14 +1,17 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 
-// prettier-ignore
-const CarrisBusDetail = () => import(/* webpackChunkName: "carris" */ '@/views/carris/vehicle/detail');
-// prettier-ignore
-const MetroStationDetail = () => import(/* webpackChunkName: "metro" */ '@/views/metro/station/detail');
-// prettier-ignore
-const MapMetroView = () => import(/* webpackChunkName: "metro" */ '@/views/metro/map');
-// prettier-ignore
-const MapCarrisView = () => import(/* webpackChunkName: "metro" */ '@/views/carris/map');
+const CarrisMapView = () =>
+  import(/* webpackChunkName: "carris" */ '@/views/carris/map');
+const CarrisVehicleDetailView = () =>
+  import(/* webpackChunkName: "carris" */ '@/views/carris/vehicle/detail');
+
+const MetroMapView = () =>
+  import(/* webpackChunkName: "metro" */ '@/views/metro/map');
+const MetroStationDetailView = () =>
+  import(/* webpackChunkName: "metro" */ '@/views/metro/station/detail');
+
+const AboutView = () => import(/* webpackChunkName: "other" */ '@/views/about');
 
 Vue.use(VueRouter);
 
@@ -19,10 +22,17 @@ const routes = [
     redirect: '/carris'
   },
   {
+    path: '/about',
+    name: 'about',
+    components: {
+      overlay: AboutView
+    }
+  },
+  {
     path: '/metro',
     name: 'map/metro',
     components: {
-      map: MapMetroView
+      map: MetroMapView
     }
   },
   {
@@ -32,15 +42,15 @@ const routes = [
       overlay: true
     },
     components: {
-      map: MapMetroView,
-      overlay: MetroStationDetail
+      map: MetroMapView,
+      overlay: MetroStationDetailView
     }
   },
   {
     path: '/carris',
     name: 'map/carris',
     components: {
-      map: MapCarrisView
+      map: CarrisMapView
     }
   },
   {
@@ -50,8 +60,8 @@ const routes = [
       overlay: true
     },
     components: {
-      map: MapCarrisView,
-      overlay: CarrisBusDetail
+      map: CarrisMapView,
+      overlay: CarrisVehicleDetailView
     }
   }
 ];

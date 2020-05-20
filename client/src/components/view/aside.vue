@@ -1,4 +1,4 @@
-<template lang="pug">
+<template lang="pug" functional>
   .view--aside
     slot
 </template>
@@ -18,7 +18,7 @@
     background-color: hsla(0, 0, 100%, 0.9);
     backdrop-filter: blur(2px);
     @media (min-width: 30em) {
-      width: 30%;
+      max-width: 26em;
       padding-top: 2em;
     }
   }

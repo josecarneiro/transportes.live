@@ -1,35 +1,29 @@
 import Vue from 'vue';
 import App from './app';
-import './register-service-worker';
 import router from './router';
 import store from './store';
+import './register-service-worker';
 
 import * as VueGoogleMaps from 'vue2-google-maps';
+import VueGtag from 'vue-gtag';
+import VueTimeago from 'vue-timeago';
+
+import { mapsConfiguration, analyticsConfiguration } from './config';
 
 import 'vue-material-design-icons/styles.css';
 
-import { mapsConfiguration } from './config';
-
 Vue.config.productionTip = false;
+
+Vue.use(VueGtag, {
+  config: { id: analyticsConfiguration.id }
+});
 
 Vue.use(VueGoogleMaps, {
   load: {
     key: mapsConfiguration.apiKey
-    // OR: libraries: 'places,drawing,visualization'
   },
-  //// If you intend to programmatically custom event listener code
-  //// (e.g. `this.$refs.gmap.$on('zoom_changed', someFunc)`)
-  //// instead of going through Vue templates (e.g. `<GmapMap @zoom_changed="someFunc">`)
-  //// you might need to turn this on.
-  // autobindAllEvents: false,
-  //// If you want to manually install components, e.g.
-  //// import {GmapMarker} from 'vue2-google-maps/src/components/marker'
-  //// Vue.component('GmapMarker', GmapMarker)
-  //// then set installComponents to 'false'.
   installComponents: false
 });
-
-import VueTimeago from 'vue-timeago';
 
 Vue.use(VueTimeago, {
   name: 'TimeAgo',
@@ -46,7 +40,7 @@ Vue.use(VueTimeago, {
 const app = new Vue({
   router,
   store,
-  render: h => h(App)
+  render: (h) => h(App)
 });
 
 export default app;

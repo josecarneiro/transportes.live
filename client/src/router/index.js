@@ -15,7 +15,8 @@ Vue.use(VueRouter);
 const routes = [
   {
     path: '/',
-    name: 'home'
+    name: 'home',
+    redirect: '/carris'
   },
   {
     path: '/metro',

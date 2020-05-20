@@ -11,5 +11,6 @@
     "worker": "cd ./worker && npm start",
     "client:build": "cd ./client && yarn install --production=false && yarn build",
     "postinstall": "cd ./worker && yarn install"
-  }
+  },
+  "dependencies": {}
 }

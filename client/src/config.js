@@ -1,12 +1,20 @@
-const config = {
-  apiKey: 'AIzaSyAyXZGjAc-AU8uaOmcdseCDPGUiUC_Gj2I',
-  // authDomain: '{YOUR KEY}',
+const {
+  VUE_APP_GOOGLE_ANALYTICS_ID,
+  VUE_APP_GOOGLE_MAPS_API_KEY,
+  VUE_APP_FIREBASE_API_KEY
+} = process.env;
+
+const firebaseConfiguration = {
+  apiKey: VUE_APP_FIREBASE_API_KEY,
   databaseURL: 'https://transportes-live.firebaseio.com'
 };
 
 const mapsConfiguration = {
-  // apiKey: 'AIzaSyDGD7_VrYPlO5F-qYuZSo_KSNAjHWev2Tg'
-  apiKey: 'AIzaSyC9rIsKXdfVi55asnUbYcy1aw85n690GG4'
+  apiKey: VUE_APP_GOOGLE_MAPS_API_KEY
 };
 
-export { config as firebaseConfiguration, mapsConfiguration };
+const analyticsConfiguration = {
+  id: VUE_APP_GOOGLE_ANALYTICS_ID
+};
+
+export { firebaseConfiguration, mapsConfiguration, analyticsConfiguration };

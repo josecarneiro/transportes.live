@@ -12,7 +12,7 @@
     "debug": "^4.1.1",
     "dotenv": "^8.2.0",
     "firebase-admin": "^8.9.2",
-    "transportes": "^0.0.7"
+    "transportes": "^0.0.8"
   },
   "devDependencies": {
     "mocha": "^7.1.0"

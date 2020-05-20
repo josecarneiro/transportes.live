@@ -5,6 +5,8 @@ const CarrisMapView = () =>
   import(/* webpackChunkName: "carris" */ '@/views/carris/map');
 const CarrisVehicleDetailView = () =>
   import(/* webpackChunkName: "carris" */ '@/views/carris/vehicle/detail');
+const CarrisStopDetailView = () =>
+  import(/* webpackChunkName: "carris" */ '@/views/carris/stop/detail');
 
 const MetroMapView = () =>
   import(/* webpackChunkName: "metro" */ '@/views/metro/map');
@@ -62,6 +64,17 @@ const routes = [
     components: {
       map: CarrisMapView,
       overlay: CarrisVehicleDetailView
+    }
+  },
+  {
+    path: '/carris/stop/:id',
+    name: 'carris/stop',
+    props: {
+      overlay: true
+    },
+    components: {
+      map: CarrisMapView,
+      overlay: CarrisStopDetailView
     }
   }
 ];

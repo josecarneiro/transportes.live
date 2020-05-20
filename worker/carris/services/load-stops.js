@@ -1,6 +1,6 @@
 'use strict';
 
-const client = require('./client');
+const client = require('./../client');
 
 const loadStops = async () => {
   const stops = await client.listStops();

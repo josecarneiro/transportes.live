@@ -24,8 +24,6 @@ class TrainPositionService extends RealtimeDataService {
   }
 }
 
-export { TrainPositionService };
-
 class StationDetailService extends RealtimeDataService {
   constructor(id, ...props) {
     super(...props);
@@ -34,4 +32,4 @@ class StationDetailService extends RealtimeDataService {
   }
 }
 
-export { StationDetailService };
+export { TrainPositionService, StationDetailService };

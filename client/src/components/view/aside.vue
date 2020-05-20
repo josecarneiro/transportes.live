@@ -17,6 +17,7 @@
     background-color: white;
     background-color: hsla(0, 0, 100%, 0.9);
     backdrop-filter: blur(2px);
+    overflow-y: auto;
     @media (min-width: 30em) {
       max-width: 26em;
       padding-top: 2em;

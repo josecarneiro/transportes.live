@@ -9,18 +9,12 @@
         strong Vehicle Id
         | : {{id}}
       br
-      span
-      route-display(
-        v-if="route",
-        v-bind="{ route }"
-      )
+      span 
 </template>
 
 <script>
-  import { VehicleDetailService, RouteService } from '@/services/carris';
-
+  import { VehicleDetailService } from '@/services/carris';
   import Icon from '@/components/icon';
-  import RouteDisplay from './route';
   import ViewAside from '@/components/view/aside';
 
   export default {
@@ -28,29 +22,21 @@
       id: String
     },
     data: () => ({
-      vehicle: null,
-      route: null
+      vehicle: null
     }),
     watch: {
       id: {
         immediate: true,
         async handler() {
           this.vehicle = null;
-          this.route = null;
-          const vehicleDetailService = new VehicleDetailService(this.id);
-          const vehicle = await vehicleDetailService.load();
+          this.service = new VehicleDetailService(this.id);
+          const vehicle = await this.service.load();
           this.vehicle = vehicle;
-          if (this.vehicle) {
-            const routeService = new RouteService(this.vehicle.route);
-            const route = await routeService.load();
-            this.route = route;
-          }
         }
       }
     },
     components: {
       ViewAside,
-      RouteDisplay,
       Icon
     }
   };

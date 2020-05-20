@@ -1,8 +1,8 @@
-const database = require('./../firebase');
+const database = require('./../../firebase');
 
-const loadTrainEstimates = require('./load-estimates');
+const loadTrainEstimates = require('./../services/load-estimates');
 
-const { transformToJSONObject } = require('./../utilities');
+const transformToJSONObject = require('./../../helpers/transform-to-json-object');
 
 const updateFirebaseMetroEstimates = async () => {
   const estimates = await loadTrainEstimates();

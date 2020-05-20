@@ -32,6 +32,13 @@ class RealtimeDataService {
     this.handler(parsed);
   }
 
+  async load(id) {
+    const snapshot = await this.reference.once('value');
+    const state = snapshot.val();
+    const parsed = this._parse(state);
+    return parsed;
+  }
+
   listen() {
     this.reference.on('value', this.callback);
   }

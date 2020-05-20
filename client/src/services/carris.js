@@ -25,14 +25,38 @@ class VehiclePositionService extends RealtimeDataService {
   }
 }
 
-export { VehiclePositionService };
-
 class VehicleDetailService extends RealtimeDataService {
   constructor(id, ...props) {
     super(...props);
     this.reference = this.database.ref(`/carris/vehicles/${id}`);
-    this.listen();
   }
 }
 
-export { VehicleDetailService };
+class RouteService extends RealtimeDataService {
+  constructor(id, ...props) {
+    super(...props);
+    this.reference = this.database.ref(`/carris/routes/${id}`);
+  }
+}
+
+class StopService extends RealtimeDataService {
+  constructor(id, ...props) {
+    super(...props);
+    this.reference = this.database.ref(`/carris/stops/${id}`);
+  }
+}
+
+class EstimatesService extends RealtimeDataService {
+  constructor(id, ...props) {
+    super(...props);
+    this.reference = this.database.ref(`/carris/estimates/${id}`);
+  }
+}
+
+export {
+  VehiclePositionService,
+  VehicleDetailService,
+  RouteService,
+  StopService,
+  EstimatesService
+};

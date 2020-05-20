@@ -2,9 +2,9 @@
 
 const { log, write } = require('transportes/utilities');
 
-const client = require('./client');
+const client = require('../client');
 
-const listEstimationsRecursively = async ids => {
+const listEstimatesRecursively = async ids => {
   const COUNT = 50;
   const operations = ids.reduce(
     (acc, value) => {
@@ -18,17 +18,17 @@ const listEstimationsRecursively = async ids => {
     },
     [[]]
   );
-  const estimations = [];
+  const estimates = [];
   for (const list of operations) {
-    const values = await client.listEstimations(list);
-    estimations.push(...values);
+    const values = await client.listEstimates(list);
+    estimates.push(...values);
   }
-  return estimations;
+  return estimates;
 };
 
 module.exports = async ids => {
-  const estimations = await listEstimationsRecursively(ids);
-  return estimations;
+  const estimates = await listEstimatesRecursively(ids);
+  return estimates.filter(value => value);
 };
 
 // module.exports = ids => {};

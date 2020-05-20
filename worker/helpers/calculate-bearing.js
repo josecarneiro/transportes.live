@@ -1,7 +1,3 @@
-'use strict';
-
-const client = require('./client');
-
 const calculateBearing = (
   { latitude: latitudeStart, longitude: longitudeStart },
   { latitude: latitudeEnd, longitude: longitudeEnd }
@@ -21,20 +17,4 @@ const calculateBearing = (
   return (Math.atan2(longitudeDelta, latitudeDelta) + Math.PI * 2) % (Math.PI * 2);
 };
 
-const transformVehicle = vehicle => {
-  let bearing =
-    vehicle.position && vehicle.previousPosition
-      ? calculateBearing(vehicle.previousPosition, vehicle.position)
-      : 0;
-  return {
-    bearing,
-    ...vehicle,
-  };
-};
-
-const loadVehiclePositions = async () => {
-  const vehicles = await client.listVehicles();
-  return vehicles.map(transformVehicle);
-};
-
-module.exports = loadVehiclePositions;
+module.exports = calculateBearing;

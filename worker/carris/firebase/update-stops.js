@@ -1,10 +1,10 @@
 'use strict';
 
-const database = require('./../firebase');
+const database = require('./../../firebase');
 
-const loadStops = require('./load-stops');
+const loadStops = require('./../services/load-stops');
 
-const { transformToJSONObject } = require('./../utilities');
+const transformToJSONObject = require('./../../helpers/transform-to-json-object');
 
 const updateFirebaseCarrisStops = async () => {
   const stops = await loadStops();

@@ -26,6 +26,7 @@
           if (this.service) this.service.destroy();
           this.vehicle = null;
           this.service = new VehicleDetailService(this.id, this.updateVehicle);
+          this.service.listen();
         }
       }
     },

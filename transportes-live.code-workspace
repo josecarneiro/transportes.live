@@ -18,9 +18,9 @@
       // "**/*rc.*": true,
       "**/cypress*": true,
       // "**/client/dist": true,
-      "**/*.toml": true,
+      "**/*.toml": true
       // "**/.env": true,
-      "**/react-client": true
+      // "**/react-client": true
     }
   }
 }

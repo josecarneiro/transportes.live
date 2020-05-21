@@ -1,7 +1,7 @@
 <template lang="pug">
   div
     custom-map-marker(
-      v-for="({ position, bearing, route, ...marker }, id) in vehicles"
+      v-for="({ route, position, angle }, id) in vehicles"
       :key="id"
       :position="position"
       class="marker bus"
@@ -9,7 +9,7 @@
     )
       router-link(
         :to="{ name: 'carris/vehicle', params: { id } }"
-        :style="{ transform: `rotate(${ (180 * bearing) / Math.PI }deg)` }"
+        :style="{ transform: `rotate(${ angle }deg)` }"
       )
         span(v-text="route")
 </template>

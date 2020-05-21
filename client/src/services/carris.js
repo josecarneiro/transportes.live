@@ -20,7 +20,7 @@ import { RealtimeDataService } from './realtime-database';
 class VehiclePositionService extends RealtimeDataService {
   constructor(...props) {
     super(...props);
-    this.reference = this.database.ref('/carris/vehicles');
+    this.reference = this.database.ref('/carris/positions');
     this.listen();
   }
 }

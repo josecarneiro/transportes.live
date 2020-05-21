@@ -3,8 +3,10 @@
     template(v-if="stop")
       h1 {{ stop.name }}
       h3 Stop \#{{ id }}
-    template(v-if="estimates")
-      h4 Estimates
+    h4 Estimates
+    template(v-if="!estimates || !estimates.length")
+      span There are no estimates for this stop...
+    template(v-else)
       ul
         li(
           v-for="vehicle of estimates"

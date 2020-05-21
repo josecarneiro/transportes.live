@@ -6,8 +6,7 @@
       div(
         v-if="route"
       )
-        h1 Route {{ vehicle.route }}
-        h3 {{ route.name }}
+        h1 {{ vehicle.route }} - {{ route.name }}
         span
           strong Vehicle Id
           | : {{id}}

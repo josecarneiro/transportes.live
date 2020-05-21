@@ -29,7 +29,16 @@
       center: DEFAULT_CENTER,
       zoom: DEFAULT_ZOOM,
       options: {
-        minZoom: 7
+        minZoom: 7,
+        restriction: {
+          latLngBounds: {
+            north: DEFAULT_CENTER.lat + 2.5,
+            south: DEFAULT_CENTER.lat - 1,
+            west: DEFAULT_CENTER.lng - 3,
+            east: DEFAULT_CENTER.lng + 3
+          },
+          strictBounds: false
+        }
       },
       active: {
         bus: false,

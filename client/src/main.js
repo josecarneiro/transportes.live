@@ -6,7 +6,6 @@ import './register-service-worker';
 
 import * as VueGoogleMaps from 'vue2-google-maps';
 import VueGtag from 'vue-gtag';
-import VueTimeago from 'vue-timeago';
 
 import { mapsConfiguration, analyticsConfiguration } from './config';
 
@@ -23,18 +22,6 @@ Vue.use(VueGoogleMaps, {
     key: mapsConfiguration.apiKey
   },
   installComponents: false
-});
-
-Vue.use(VueTimeago, {
-  name: 'TimeAgo',
-  locale: 'en',
-  // locale: 'pt',
-  locales: {
-    pt: require('date-fns/locale/pt')
-  },
-  converterOptions: {
-    includeSeconds: true
-  }
 });
 
 const filters = {};

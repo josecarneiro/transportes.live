@@ -21,15 +21,17 @@
             //- span {{ vehicle.destination }}
             |  - 
             strong
-              time-ago(
-                :datetime="vehicle.time"
-                :auto-update="5"
-                :converterOptions="{ includeSeconds: true }"
+              time-until(
+                :date="vehicle.time"
+                :interval="5"
               )
+
 </template>
 
 <script>
   import { StopService, EstimatesService } from '@/services/carris';
+
+  import TimeUntil from '@/components/time-until';
 
   export default {
     props: {
@@ -49,6 +51,9 @@
           time: new Date(time)
         }));
       }
+    },
+    components: {
+      TimeUntil
     }
   };
 </script>

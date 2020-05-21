@@ -6,15 +6,16 @@
       div(v-for="arrival in pier.arrivals")
         strong {{ arrival.train }}: 
         span
-          time-ago(
-            :datetime="arrival.time"
-            :auto-update="5"
-            :converterOptions="{ includeSeconds: true }"
+          time-until(
+            :date="new Date(arrival.time)",
+            :interval="10"
           )
 </template>
 
 <script>
   import { StationDetailService } from '@/services/metro';
+
+  import TimeUntil from '@/components/time-until';
   import ViewAside from '@/components/view/aside';
 
   export default {
@@ -43,7 +44,8 @@
       }
     },
     components: {
-      ViewAside
+      ViewAside,
+      TimeUntil
     }
   };
 </script>

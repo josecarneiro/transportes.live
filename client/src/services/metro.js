@@ -1,34 +1,14 @@
-// import database from './realtime-database';
+import { RealtimeDatabaseService } from './realtime-database';
 
-// const parse = object =>
-//   Object.entries(object).map(([id, value]) => ({ id, ...value }));
-
-// const listenToPositionUpdates = callback => {
-//   const reference = database.ref('/metro/position');
-//   reference.on('value', snapshot => {
-//     const state = snapshot.val();
-//     const parsed = parse(state);
-//     callback(parsed);
-//   });
-// };
-
-// export { listenToPositionUpdates };
-
-import { RealtimeDataService } from './realtime-database';
-
-class TrainPositionService extends RealtimeDataService {
-  constructor(...props) {
-    super(...props);
-    this.reference = this.database.ref('/metro/position');
-    this.listen();
+class TrainPositionService extends RealtimeDatabaseService {
+  constructor(handler) {
+    super('/metro/position', handler);
   }
 }
 
-class StationDetailService extends RealtimeDataService {
-  constructor(id, ...props) {
-    super(...props);
-    this.reference = this.database.ref(`/metro/stations/${id.toUpperCase()}`);
-    this.listen();
+class StationDetailService extends RealtimeDatabaseService {
+  constructor(id, handler) {
+    super('/metro/stations/' + id, handler);
   }
 }
 

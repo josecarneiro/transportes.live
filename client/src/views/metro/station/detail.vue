@@ -8,7 +8,7 @@
         span
           time-until(
             :date="new Date(arrival.time)",
-            :interval="10"
+            :interval="5"
           )
 </template>
 
@@ -31,7 +31,11 @@
         handler() {
           if (this.service) this.service.destroy();
           this.station = null;
-          this.service = new StationDetailService(this.id, this.updateStation);
+          this.service = new StationDetailService(
+            this.id.toUpperCase(),
+            this.updateStation
+          );
+          this.service.listen();
         }
       }
     },

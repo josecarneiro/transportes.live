@@ -14,8 +14,11 @@
 
 <script>
   import { VehicleDetailService } from '@/services/carris';
+
   import Icon from '@/components/icon';
   import ViewAside from '@/components/view/aside';
+
+  const service = new VehicleDetailService();
 
   export default {
     props: {
@@ -29,8 +32,7 @@
         immediate: true,
         async handler() {
           this.vehicle = null;
-          this.service = new VehicleDetailService(this.id);
-          const vehicle = await this.service.load();
+          const vehicle = await service.load(this.id);
           this.vehicle = vehicle;
         }
       }

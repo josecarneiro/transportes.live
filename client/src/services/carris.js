@@ -1,55 +1,32 @@
-// import database from './realtime-database';
+import { RealtimeDatabaseService, DatabaseService } from './realtime-database';
 
-// const parse = object =>
-//   Object.entries(object).map(([id, value]) => ({ id, ...value }));
-
-// const listenToPositionUpdates = callback => {
-//   const reference = database.ref('/carris/vehicles');
-//   const handleValue = snapshot => {
-//     const state = snapshot.val();
-//     const parsed = parse(state);
-//     callback(parsed);
-//   };
-//   reference.on('value', handleValue);
-// };
-
-// export { listenToPositionUpdates };
-
-import { RealtimeDataService } from './realtime-database';
-
-class VehiclePositionService extends RealtimeDataService {
-  constructor(...props) {
-    super(...props);
-    this.reference = this.database.ref('/carris/positions');
-    this.listen();
+class VehiclePositionService extends RealtimeDatabaseService {
+  constructor(handler) {
+    super('/carris/positions', handler);
   }
 }
 
-class VehicleDetailService extends RealtimeDataService {
-  constructor(id, ...props) {
-    super(...props);
-    this.reference = this.database.ref(`/carris/vehicles/${id}`);
+class VehicleDetailService extends DatabaseService {
+  constructor() {
+    super(`/carris/vehicles`);
   }
 }
 
-class RouteService extends RealtimeDataService {
-  constructor(id, ...props) {
-    super(...props);
-    this.reference = this.database.ref(`/carris/routes/${id}`);
+class RouteService extends DatabaseService {
+  constructor() {
+    super(`/carris/routes`);
   }
 }
 
-class StopService extends RealtimeDataService {
-  constructor(id, ...props) {
-    super(...props);
-    this.reference = this.database.ref(`/carris/stops/${id}`);
+class StopService extends DatabaseService {
+  constructor() {
+    super(`/carris/stops`);
   }
 }
 
-class EstimatesService extends RealtimeDataService {
-  constructor(id, ...props) {
-    super(...props);
-    this.reference = this.database.ref(`/carris/estimates/${id}`);
+class EstimatesService extends DatabaseService {
+  constructor() {
+    super(`/carris/estimates`);
   }
 }
 

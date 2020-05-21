@@ -6,7 +6,8 @@
       div(
         v-if="route"
       )
-        h1 {{ vehicle.route }} - {{ route.name }}
+        h1 {{ vehicle.route }}
+        h1 {{ route.name }}
         span
           strong Vehicle Id
           | : {{id}}
@@ -34,6 +35,9 @@
   import Icon from '@/components/icon';
   import ViewAside from '@/components/view/aside';
 
+  const vehicleDetailService = new VehicleDetailService();
+  const routeService = new RouteService();
+
   export default {
     props: {
       id: String
@@ -48,12 +52,10 @@
         async handler() {
           this.vehicle = null;
           this.route = null;
-          const vehicleDetailService = new VehicleDetailService(this.id);
-          const vehicle = await vehicleDetailService.load();
+          const vehicle = await vehicleDetailService.load(this.id);
           this.vehicle = vehicle;
           if (this.vehicle) {
-            const routeService = new RouteService(this.vehicle.route);
-            const route = await routeService.load();
+            const route = await routeService.load(this.vehicle.route);
             this.route = route;
           }
         }

@@ -39,12 +39,12 @@
     },
     data: () => ({ stop: null, estimates: [] }),
     async created() {
-      const stopService = new StopService(this.id);
-      const stop = await stopService.load();
+      const stopService = new StopService();
+      const stop = await stopService.load(this.id);
       this.stop = stop;
 
-      const estimatesService = new EstimatesService(this.id);
-      const estimates = await estimatesService.load();
+      const estimatesService = new EstimatesService();
+      const estimates = await estimatesService.load(this.id);
       if (estimates) {
         this.estimates = estimates.map(({ time, ...everything }) => ({
           ...everything,

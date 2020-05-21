@@ -30,8 +30,8 @@
 
   // const convertPosition = ({ latitude: lat, longitude: lng }) => ({ lat, lng });
 
-  const extractMarkersFromTrains = trains =>
-    trains.map(train => {
+  const extractMarkersFromTrains = (trains) =>
+    trains.map((train) => {
       const [startStationId, endStationId] = train.position.stations;
       const progress = train.position.progress;
       const startStation = metroStations.find(
@@ -62,6 +62,7 @@
     },
     created() {
       this.service = new TrainPositionService(this.updateTrains);
+      this.service.listen();
     },
     destroyed() {
       if (this.service) this.service.destroy();

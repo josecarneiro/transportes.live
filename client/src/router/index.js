@@ -1,8 +1,7 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 
-const CarrisMapView = () =>
-  import(/* webpackChunkName: "carris" */ '@/views/carris/map');
+const CarrisMapView = () => import('@/views/carris/map');
 const CarrisVehicleDetailView = () =>
   import(/* webpackChunkName: "carris" */ '@/views/carris/vehicle/detail');
 const CarrisStopDetailView = () =>

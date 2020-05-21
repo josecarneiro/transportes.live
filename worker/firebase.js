@@ -1,8 +1,10 @@
 // process.env.FIREBASE_CONFIG = JSON.stringify(require('./key.json'));
-process.env.GOOGLE_APPLICATION_CREDENTIALS = './config/key.json';
+
+const config = require('./config');
+
+process.env.GOOGLE_APPLICATION_CREDENTIALS = config.firebase.credentialsPath;
 
 const admin = require('firebase-admin');
-const config = require('./config');
 
 const app = admin.initializeApp({
   // credential: process.env.FIREBASE_CONFIG,

@@ -1,12 +1,13 @@
 const {
   VUE_APP_GOOGLE_ANALYTICS_ID,
   VUE_APP_GOOGLE_MAPS_API_KEY,
+  VUE_APP_FIREBASE_DATABASE_NAME,
   VUE_APP_FIREBASE_API_KEY
 } = process.env;
 
 const firebaseConfiguration = {
   apiKey: VUE_APP_FIREBASE_API_KEY,
-  databaseURL: 'https://transportes-live.firebaseio.com'
+  databaseURL: `https://${VUE_APP_FIREBASE_DATABASE_NAME}.firebaseio.com`
 };
 
 const mapsConfiguration = {

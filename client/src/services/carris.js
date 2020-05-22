@@ -24,6 +24,12 @@ class StopService extends DatabaseService {
   }
 }
 
+class StopPositionService extends DatabaseService {
+  constructor() {
+    super(`/carris/stop-positions`);
+  }
+}
+
 class EstimatesService extends DatabaseService {
   constructor() {
     super(`/carris/estimates`);
@@ -35,5 +41,6 @@ export {
   VehicleDetailService,
   RouteService,
   StopService,
+  StopPositionService,
   EstimatesService
 };

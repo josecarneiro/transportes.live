@@ -4,12 +4,11 @@
       v-for="({ route, position, angle }, id) in vehicles"
       :key="id"
       :position="position"
-      class="marker bus"
+      :class="['bus', `bus--${angle > 180 ? 'left' : 'right'}`]"
       @click="center = position"
     )
       router-link(
         :to="{ name: 'carris/vehicle', params: { id } }"
-        :class="{ 'bus--left': angle > 180, 'bus--right': angle <= 180 }"
         :style="{ transform: `rotate(${ angle }deg)` }"
       )
         span(v-text="route")
@@ -65,15 +64,17 @@
       //   border-top: 0;
       // }
     }
-    .bus--left {
-      span {
-        transform: rotate(90deg);
-      }
-    }
-    .bus--right {
-      span {
-        transform: rotate(-90deg);
-      }
-    }
   }
+
+  // .bus--left {
+  //   span {
+  //     transform: rotate(90deg);
+  //   }
+  // }
+
+  // .bus--right {
+  //   span {
+  //     transform: rotate(-90deg);
+  //   }
+  // }
 </style>

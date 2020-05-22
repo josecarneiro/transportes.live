@@ -1,5 +1,5 @@
 <template lang="pug">
-  .view--aside
+  view-aside
     template(v-if="stop")
       h1 {{ stop.name }}
       h3 Stop \#{{ id }}
@@ -13,25 +13,33 @@
           :key="vehicle.plate"
         )
           router-link(
-            :to="{ name: 'carris/vehicle', params: { id: vehicle.id || vehicle.plate } }"
+            v-if="vehicle.id"
+            :to="{ name: 'carris/vehicle', params: { id: vehicle.id } }"
           )
-            //- strong {{ vehicle.id }}
             strong {{ vehicle.route }}
             span  {{ vehicle.routeName }}
-            //- span {{ vehicle.destination }}
             |  - 
             strong
               time-until(
                 :date="vehicle.time"
                 :interval="5"
               )
-
+          div(v-else)
+            strong {{ vehicle.route }}
+            span  {{ vehicle.routeName }}
+            |  - 
+            strong
+              time-until(
+                :date="vehicle.time"
+                :interval="5"
+              )
 </template>
 
 <script>
   import { StopService, EstimatesService } from '@/services/carris';
 
   import TimeUntil from '@/components/time-until';
+  import ViewAside from '@/components/view/aside';
 
   export default {
     props: {
@@ -53,6 +61,7 @@
       }
     },
     components: {
+      ViewAside,
       TimeUntil
     }
   };

@@ -1,6 +1,6 @@
 <template lang="pug">
   div
-    stop-layer(v-bind="{ stops }")
+    //- stop-layer(v-bind="{ stops }")
     vehicles-layer(v-bind="{ vehicles }")
 </template>
 
@@ -21,7 +21,7 @@
     }),
     created() {
       this.listenToVehiclePositions();
-      this.loadStops();
+      // this.loadStops();
     },
     destroyed() {
       if (this.service) this.service.destroy();
@@ -40,7 +40,19 @@
         this.service.listen();
       },
       updateVehicles(vehicles) {
-        this.vehicles = Object.assign({}, this.vehicles, vehicles);
+        const parsed = Object.fromEntries(
+          Object.entries(vehicles).map(
+            ([
+              key,
+              {
+                r: route,
+                a: angle,
+                p: [latitude, longitude]
+              }
+            ]) => [key, { route, angle, position: { latitude, longitude } }]
+          )
+        );
+        this.vehicles = Object.assign({}, this.vehicles, parsed);
       }
     },
     components: {

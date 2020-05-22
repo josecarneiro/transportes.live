@@ -2,6 +2,14 @@ $sans-serif: Avenir, Helvetica, Arial, sans-serif;
 // $text-color: #2c3e50;
 $text-color: #1e1e1f;
 
+@mixin screen($size) {
+  @if $size == small {
+    @media (min-width: 30em) {
+      @content;
+    }
+  }
+}
+
 * {
   &,
   &:before,
@@ -15,6 +23,10 @@ html {
   -moz-osx-font-smoothing: grayscale;
   -webkit-tap-highlight-color: transparent;
   box-sizing: border-box;
+  font-size: 14 / 16 * 1em;
+  @include screen(small) {
+    font-size: 1em;
+  }
 }
 
 body {

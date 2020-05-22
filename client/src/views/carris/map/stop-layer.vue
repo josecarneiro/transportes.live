@@ -19,7 +19,7 @@
     'marker-cluster',
     'marker-cluster'
   ].map((name) => ({
-    url: `/img/${name}.png`,
+    url: `/images/${name}.png`,
     textColor: 'black',
     height: 24,
     width: 24

@@ -61,12 +61,11 @@
       idle: false,
       size: []
     }),
-    mounted() {
-      this.$refs.map.$mapPromise.then(() => {
-        this.ready = true;
-        this.$emit('ready');
-        this.setSize();
-      });
+    async mounted() {
+      await this.$refs.map.$mapPromise;
+      this.ready = true;
+      this.$emit('ready');
+      this.setSize();
     },
     methods: {
       changeLoaded() {
@@ -97,11 +96,8 @@
       },
       setSize() {
         const { innerWidth: width, innerHeight: height } = window;
-        // this.size = [width / 2, height / 2];
         this.size[0] = Math.floor(width / 2 - 0.5);
         this.size[1] = Math.floor(height / 2 - 0.5);
-        // this.size[0] = width;
-        // this.size[1] = height;
       },
       async idleStart() {
         // await this.$nextTick();
@@ -165,5 +161,12 @@
     background-color: $map-overlay-color;
     mix-blend-mode: overlay;
     pointer-events: none;
+  }
+
+  .marker a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.675em;
   }
 </style>

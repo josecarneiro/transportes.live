@@ -29,7 +29,7 @@
       center: DEFAULT_CENTER,
       zoom: DEFAULT_ZOOM,
       options: {
-        minZoom: 7,
+        minZoom: 11,
         restriction: {
           latLngBounds: {
             north: DEFAULT_CENTER.lat + 2.5,
@@ -53,7 +53,6 @@
         this.center = Object.assign({}, this.center, position);
       },
       control(value) {
-        const { minZoom } = this.options;
         switch (value) {
           case 'toggle-bus':
             this.toggle('bus');
@@ -68,8 +67,6 @@
       }
     },
     components: {
-      // MapLayerCarris,
-      // MapLayerMetro,
       Icon,
       MapOverlay,
       CustomMap
@@ -81,13 +78,5 @@
   main {
     width: 100%;
     height: 100vh;
-    // min-height: 100vh;
-  }
-
-  .marker a {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.675em;
   }
 </style>

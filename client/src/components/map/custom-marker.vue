@@ -1,5 +1,8 @@
 <template lang="pug">
-  div(:style="{ opacity }")
+  div(
+    class="marker",
+    :style="{ opacity }"
+  )
     slot
 </template>
 

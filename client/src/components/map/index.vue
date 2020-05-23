@@ -5,7 +5,8 @@
     map-overlay(
       v-on="{ control }"
     )
-      slot(name="overlay")
+      template(v-slot:overlay-bottom-left)
+        slot(name="overlay")
     map-static(
       v-once,
       v-bind="{ center, zoom, size }"

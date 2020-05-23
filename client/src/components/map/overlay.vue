@@ -1,14 +1,19 @@
 <template lang="pug">
-  .map__overlay
-    .map__controls
-      slot
-    button.map__control.map__control--locate(@click="$emit('control', 'locate')")
-      icon(icon="location")
-    .map__controls.map__controls--zoom
-      button.map__control.map__control--zoom(@click="$emit('control', 'zoom-in')")
-        icon(icon="plus")
-      button.map__control.map__control--zoom(@click="$emit('control', 'zoom-out')")
-        icon(icon="minus")
+  .map__overlay__wrapper
+    .map__overlay
+      .map__overlay__container.map__overlay__container--bottom-left
+        slot(name="overlay-bottom-left")
+      //- .map__controls
+      //-   slot(name="")
+      .map__overlay__container.map__overlay__container--bottom-right
+        .map__controls
+          button.map__control.map__control--locate(@click="$emit('control', 'locate')")
+            icon(icon="location")
+        .map__controls.map__controls--zoom
+          button.map__control.map__control--zoom(@click="$emit('control', 'zoom-in')")
+            icon(icon="plus")
+          button.map__control.map__control--zoom(@click="$emit('control', 'zoom-out')")
+            icon(icon="minus")
 </template>
 
 <script>
@@ -16,15 +21,15 @@
 
   export default {
     components: {
-      Icon,
-    },
+      Icon
+    }
   };
 </script>
 
 <style lang="scss">
   @import '~@/style/utilities.scss';
 
-  .map__overlay {
+  .map__overlay__wrapper {
     position: fixed;
     top: 0;
     top: calc(env(safe-area-inset-top));
@@ -32,19 +37,50 @@
     bottom: 0;
     left: 0;
     z-index: 100;
+    padding: 1em;
+    // padding-bottom: 1em + 14 * 1em / 16;
+    // padding-bottom: 1em + 14 / 16 * 1em;
+    padding-bottom: 26px; // Google icon size
+    pointer-events: none;
+  }
+
+  .map__overlay {
+    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
     align-items: flex-end;
-    padding: 1em;
-    padding-bottom: 1em + 14 * 1em / 16;
-    pointer-events: none;
+    width: 100%;
+    height: 100%;
     & > * {
       pointer-events: initial;
     }
-    & > .map__control,
-    & > .map__controls {
-      @include shadow();
+  }
+
+  .map__overlay__container {
+    position: absolute;
+  }
+
+  .map__overlay__container--bottom-left {
+    left: 0;
+    bottom: 0;
+  }
+
+  .map__overlay__container--bottom-right {
+    right: 0;
+    bottom: 0;
+  }
+
+  .map__controls {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1em;
+    @include shadow();
+    // &:first-child {
+    //   margin-bottom: auto;
+    // }
+    &:last-child {
+      margin-bottom: 0;
     }
   }
 
@@ -65,25 +101,5 @@
         height: $icon-size;
       }
     }
-  }
-
-  .map__controls {
-    display: flex;
-    flex-direction: column;
-    &:first-child {
-      margin-bottom: auto;
-    }
-  }
-
-  .map__controls--zoom {
-    // justify-self: flex-end;
-    // align-self: flex-end;
-    // margin-left: auto;
-  }
-
-  .map__control--locate {
-    // align-self: flex-end;
-    // margin-left: auto;
-    margin-bottom: 1em;
   }
 </style>

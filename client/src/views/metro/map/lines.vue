@@ -78,9 +78,9 @@
       align-items: center;
       width: $size;
       height: $size;
-      background-color: white;
-      border: 0.5em solid black;
+      border: 2px solid black;
       border-radius: 2em;
+      background-color: white;
     }
   }
 </style>

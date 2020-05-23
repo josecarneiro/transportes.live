@@ -5,20 +5,14 @@
       v-on="{ changeZoom, changeCenter }"
     )
       template(v-slot:overlay)
-        router-link.map__control(:to="{ name: 'map/carris' }")
-          icon(icon="bus")
-        router-link.map__control(:to="{ name: 'map/metro' }")
-          icon(icon="subway")
+        navigation-aside
       router-view(name="map")
 </template>
 
 <script>
   import CustomMap from '@/components/map';
   import MapOverlay from '@/components/map/overlay';
-  import Icon from '@/components/icon';
-
-  // import MapLayerCarris from './carris';
-  // import MapLayerMetro from './metro';
+  import NavigationAside from '@/components/navigation-aside';
 
   const DEFAULT_CENTER = { lat: 38.7462929, lng: -9.1447389 };
 
@@ -39,10 +33,6 @@
           },
           strictBounds: false
         }
-      },
-      active: {
-        bus: false,
-        subway: true
       }
     }),
     methods: {
@@ -51,25 +41,12 @@
       },
       changeCenter(position) {
         this.center = Object.assign({}, this.center, position);
-      },
-      control(value) {
-        switch (value) {
-          case 'toggle-bus':
-            this.toggle('bus');
-            break;
-          case 'toggle-subway':
-            this.toggle('subway');
-            break;
-        }
-      },
-      toggle(value) {
-        this.active[value] = !this.active[value];
       }
     },
     components: {
-      Icon,
       MapOverlay,
-      CustomMap
+      CustomMap,
+      NavigationAside
     }
   };
 </script>

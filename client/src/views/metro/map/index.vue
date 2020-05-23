@@ -86,9 +86,10 @@
       width: $scale * 0.65rem;
       height: $scale * 1.75rem;
       // background-color: orange;
-      background-color: hsl(185, 12%, 85%);
-      border: 2px solid hsl(185, 12%, 65%);
+      background-color: grey(0.95);
+      border: 2px solid grey(0.7);
       font-weight: bold;
+      // border-radius: 0.25em;
       border-radius: 0.25em;
       border-top-right-radius: 1em;
       border-top-left-radius: 1em;

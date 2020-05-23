@@ -1,15 +1,11 @@
 <template lang="pug">
   div
-    metro-lines
-    custom-map-marker(
-      v-for="(marker, index) in markers"
-      :key="index"
-      :position="marker.position"
-      class="metro marker"
-      @click="center = marker.position"
+    metro-infrastructure
+    metro-train(
+      v-for="(train, index) in markers"
+      :key="index",
+      v-bind="{ ...train }"
     )
-      router-link(to="/")
-        span(v-text="marker.id")
 </template>
 
 <script>
@@ -17,8 +13,8 @@
 
   import metroStations from '@/data/metro/stations';
 
-  import CustomMapMarker from '@/components/map/custom-marker';
-  import MetroLines from './lines';
+  import MetroInfrastructure from './infrastructure';
+  import MetroTrain from './train';
 
   const interpolatePositions = (start, end, progress) => ({
     latitude: start.latitude + (end.latitude - start.latitude) * progress,
@@ -44,8 +40,8 @@
         ...train,
         position,
         direction,
-        name: train.id,
-        type: 'metro'
+        name: train.id
+        // type: 'metro'
       };
     });
 
@@ -73,26 +69,8 @@
       }
     },
     components: {
-      CustomMapMarker,
-      MetroLines
+      MetroInfrastructure,
+      MetroTrain
     }
   };
 </script>
-
-<style lang="scss">
-  .metro {
-    a {
-      $scale: 1.5;
-      width: $scale * 0.65rem;
-      height: $scale * 1.75rem;
-      // background-color: orange;
-      background-color: grey(0.95);
-      border: 2px solid grey(0.7);
-      font-weight: bold;
-      // border-radius: 0.25em;
-      border-radius: 0.25em;
-      border-top-right-radius: 1em;
-      border-top-left-radius: 1em;
-    }
-  }
-</style>

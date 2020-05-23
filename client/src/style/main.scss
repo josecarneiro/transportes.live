@@ -41,6 +41,10 @@ a {
   p & {
     text-decoration: underline;
   }
+  &.disabled {
+    pointer-events: none;
+    color: grey(0.8);
+  }
 }
 
 button,

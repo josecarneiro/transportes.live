@@ -46,54 +46,58 @@
 </script>
 
 <style lang="scss">
-  a.disabled {
-    pointer-events: none;
-    color: grey(0.8);
-  }
-
   .side__navigation {
     position: relative;
     display: flex;
     flex-direction: column;
     width: 4em;
     min-height: 4em;
-    a {
-      &:not(.active) {
-        box-shadow: 0 0;
-        &:not(.disabled) {
-          color: grey(0.5, 1, 0.1);
-        }
-      }
-    }
     &:not(.toggled) {
-      .active {
-        z-index: 30;
-      }
+      // a {
+      //   position: absolute;
+      // }
       a:not(.active) {
-        transform: translateY(-15%) scale(0.85);
+        display: none;
       }
       .active {
-        // box-shadow: 0 0 1em -0.5em grey(0.6);
+        // z-index: 30;
         @include shadow;
+      }
+      &:before {
+        content: '';
+        position: absolute;
+        top: 0em;
+        left: 0em;
+        z-index: -1;
+        display: flex;
+        width: 4em;
+        height: 4em;
+        background-color: white;
+        transform: translateY(-15%) scale(0.85);
       }
     }
     &.toggled {
       @include shadow;
-      a {
-        position: inherit;
-      }
+      // a {
+      //   position: inherit;
+      // }
       button {
         display: none;
       }
     }
     a {
-      position: absolute;
       display: flex;
       justify-content: center;
       width: 4em;
       padding: 1em 0;
       text-align: center;
       background-color: white;
+      &:not(.active) {
+        box-shadow: 0 0;
+        &:not(.disabled) {
+          color: grey(0.5, 1, 0.1);
+        }
+      }
     }
     button {
       position: absolute;

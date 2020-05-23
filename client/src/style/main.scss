@@ -15,10 +15,10 @@ html {
   -moz-osx-font-smoothing: grayscale;
   -webkit-tap-highlight-color: transparent;
   box-sizing: border-box;
-  font-size: 14 / 16 * 1em;
-  @include screen(small) {
-    font-size: 1em;
-  }
+  // font-size: 14 / 16 * 1em;
+  // @include screen(small) {
+  //   font-size: 1em;
+  // }
 }
 
 body {
@@ -52,7 +52,11 @@ input {
 
 button {
   border: 0;
+  font: inherit;
+  color: inherit;
+  background-color: transparent;
   cursor: pointer;
+  -webkit-appearance: none;
   &:active,
   &:focus {
     outline: 0;

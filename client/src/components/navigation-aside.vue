@@ -46,22 +46,9 @@
 </script>
 
 <style lang="scss">
-  .disabled {
+  a.disabled {
     pointer-events: none;
     color: grey(0.8);
-  }
-
-  body {
-    line-height: 1.5;
-    font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  }
-
-  button {
-    font: inherit;
-    color: inherit;
-    border: 0;
-    background-color: transparent;
-    -webkit-appearance: none;
   }
 
   .side__navigation {
@@ -118,9 +105,5 @@
         display: none;
       }
     }
-  }
-
-  a.disabled {
-    color: grey(0.9);
   }
 </style>

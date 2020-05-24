@@ -3,9 +3,7 @@
     template(v-if="vehicle")
       //- button(@click="$emit('control', 'zoom-out')")
         icon(icon="favorite")
-      div(
-        v-if="route"
-      )
+      div(v-if="route")
         h1 {{ vehicle.route }}
         h1 {{ route.name }}
         span
@@ -30,16 +28,12 @@
 </template>
 
 <script>
-  import {
-    VehicleDetailService,
-    RouteService
-  } from '@/providers/carris/services';
+  import { VehicleDetailService, loadRoute } from '@/providers/carris/services';
 
   import Icon from '@/components/icon';
   import ViewAside from '@/components/view/aside';
 
   const vehicleDetailService = new VehicleDetailService();
-  const routeService = new RouteService();
 
   export default {
     props: {
@@ -57,8 +51,9 @@
           this.route = null;
           const vehicle = await vehicleDetailService.load(this.id);
           this.vehicle = vehicle;
+
           if (this.vehicle) {
-            const route = await routeService.load(this.vehicle.route);
+            const route = await loadRoute(this.vehicle.route);
             this.route = route;
           }
         }

@@ -1,8 +1,5 @@
 <template lang="pug">
-  div(
-    class="marker",
-    :style="{ opacity }"
-  )
+  .marker(:style="{ opacity }")
     slot
 </template>
 
@@ -189,3 +186,9 @@
     }
   };
 </script>
+
+<style lang="scss">
+  .marker {
+    user-select: none;
+  }
+</style>

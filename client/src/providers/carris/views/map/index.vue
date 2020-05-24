@@ -10,7 +10,7 @@
 <script>
   import {
     VehiclePositionService,
-    StopPositionService
+    listStops
   } from '@/providers/carris/services';
 
   import StopLayer from './stop-layer';
@@ -44,8 +44,7 @@
     },
     methods: {
       async loadStops() {
-        const service = new StopPositionService();
-        const stops = await service.load();
+        const stops = await listStops();
         const parsed = Object.fromEntries(
           Object.entries(stops).map(([key, [lat, lng]]) => [key, { lat, lng }])
         );

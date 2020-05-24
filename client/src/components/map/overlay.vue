@@ -40,9 +40,9 @@
     left: 0;
     z-index: 100;
     padding: 1em;
-    // padding-bottom: 1em + 14 * 1em / 16;
+    $google-map-icon-size: 26px;
     // padding-bottom: 1em + 14 / 16 * 1em;
-    padding-bottom: 26px; // Google icon size
+    padding-bottom: ($google-map-icon-size / 16px) * 1em; // Google icon size
     pointer-events: none;
   }
 

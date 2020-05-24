@@ -36,7 +36,7 @@
 </template>
 
 <script>
-  import { StopService, EstimatesService } from '@/providers/carris/services';
+  import { loadStop, EstimatesService } from '@/providers/carris/services';
 
   import TimeUntil from '@/components/time-until';
   import ViewAside from '@/components/view/aside';
@@ -47,8 +47,7 @@
     },
     data: () => ({ stop: null, estimates: [] }),
     async created() {
-      const stopService = new StopService();
-      const stop = await stopService.load(this.id);
+      const stop = await loadStop(this.id);
       this.stop = stop;
 
       const estimatesService = new EstimatesService();

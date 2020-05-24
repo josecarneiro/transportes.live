@@ -15,35 +15,26 @@ class VehicleDetailService extends DatabaseService {
   }
 }
 
-class RouteService extends DatabaseService {
-  constructor() {
-    super(`/carris/routes`);
-  }
-}
-
-class StopService extends DatabaseService {
-  constructor() {
-    super(`/carris/stops`);
-  }
-}
-
-class StopPositionService extends DatabaseService {
-  constructor() {
-    super(`/carris/stop-positions`);
-  }
-}
-
 class EstimatesService extends DatabaseService {
   constructor() {
     super(`/carris/estimates`);
   }
 }
 
+const routeService = new DatabaseService('/carris/routes');
+const loadRoute = (id) => routeService.load(id);
+
+const stopPositionService = new DatabaseService('/carris/stop-positions');
+const listStops = () => stopPositionService.load();
+
+const stopService = new DatabaseService('/carris/stop-positions');
+const loadStop = (id) => stopService.load(`/carris/stops/${id}`);
+
 export {
   VehiclePositionService,
   VehicleDetailService,
-  RouteService,
-  StopService,
-  StopPositionService,
-  EstimatesService
+  EstimatesService,
+  listStops,
+  loadRoute,
+  loadStop
 };

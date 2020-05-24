@@ -39,7 +39,7 @@
       transition: all 1s ease;
     }
     a {
-      $scale: 1.25;
+      $scale: 1.375;
       width: $scale * 0.75rem;
       height: $scale * 1.5rem;
       border-radius: $scale * 0.125rem;
@@ -47,6 +47,8 @@
       color: $carris-blue;
       font-weight: bold;
       background-color: $carris-yellow;
+      // font-size: 0.675em;
+      // font-size: 0.675em;
       // position: relative;
       // border-bottom-width: 3px;
       // border-width: 2px 1px;
@@ -63,6 +65,10 @@
       //   border-bottom: $size * 2 solid $carris-blue;
       //   border-top: 0;
       // }
+      span {
+        font-size: 0.5em;
+        letter-spacing: -0.5px;
+      }
     }
   }
 

@@ -166,6 +166,10 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 0.675em;
+  }
+
+  .gm-style {
+    font-family: inherit;
+    font-size: inherit;
   }
 </style>

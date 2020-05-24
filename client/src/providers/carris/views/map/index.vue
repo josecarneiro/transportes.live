@@ -31,8 +31,11 @@
       }
     },
     watch: {
-      layers({ stops }) {
-        if (stops) this.loadStops();
+      layers: {
+        immediate: true,
+        handler({ stops }) {
+          if (stops) this.loadStops();
+        }
       }
     },
     created() {

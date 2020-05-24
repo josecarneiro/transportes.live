@@ -1,4 +1,7 @@
-$sans-serif: Avenir, Helvetica, Arial, sans-serif;
+// $sans-serif: Avenir, Helvetica, Arial, sans-serif;
+$base-sans-serif-font-stack: -apple-system, Roboto, BlinkMacSystemFont, Segoe UI,
+  Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji;
+$sans-serif: Avenir, $base-sans-serif-font-stack;
 // $text-color: #2c3e50;
 $text-color: #1e1e1f;
 

@@ -32,6 +32,9 @@
       border-radius: 0.25em;
       border-top-right-radius: 1em;
       border-top-left-radius: 1em;
+      span {
+        font-size: 8 / 16 * 1em;
+      }
     }
   }
 </style>

@@ -22,7 +22,7 @@
 </script>
 
 <style lang="scss">
-  $size: 2.5em;
+  $size: 1.25em;
 
   .metro-station {
     a {
@@ -34,6 +34,11 @@
       border: 2px solid black;
       border-radius: 2em;
       background-color: white;
+      transform: translateY(50%);
+      span {
+        font-size: 0.5em;
+        font-weight: bold;
+      }
     }
   }
 </style>

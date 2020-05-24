@@ -3,6 +3,8 @@
     .map__overlay
       .map__overlay__container.map__overlay__container--bottom-left
         slot(name="overlay-bottom-left")
+      .map__overlay__container.map__overlay__container--top-right
+        slot(name="overlay-top-right")
       //- .map__controls
       //-   slot(name="")
       .map__overlay__container.map__overlay__container--bottom-right
@@ -64,6 +66,11 @@
   .map__overlay__container--bottom-left {
     left: 0;
     bottom: 0;
+  }
+
+  .map__overlay__container--top-right {
+    top: 0;
+    right: 0;
   }
 
   .map__overlay__container--bottom-right {

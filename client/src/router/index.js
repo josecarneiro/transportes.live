@@ -1,16 +1,8 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 
-const CarrisMapView = () => import('@/views/carris/map');
-const CarrisVehicleDetailView = () =>
-  import(/* webpackChunkName: "carris" */ '@/views/carris/vehicle/detail');
-const CarrisStopDetailView = () =>
-  import(/* webpackChunkName: "carris" */ '@/views/carris/stop/detail');
-
-const MetroMapView = () =>
-  import(/* webpackChunkName: "metro" */ '@/views/metro/map');
-const MetroStationDetailView = () =>
-  import(/* webpackChunkName: "metro" */ '@/views/metro/station/detail');
+import carrisRoutes from './carris';
+import metroRoutes from './metro';
 
 const AboutView = () => import(/* webpackChunkName: "other" */ '@/views/about');
 
@@ -29,53 +21,8 @@ const routes = [
       overlay: AboutView
     }
   },
-  {
-    path: '/metro',
-    name: 'map/metro',
-    components: {
-      map: MetroMapView
-    }
-  },
-  {
-    path: '/metro/station/:id',
-    name: 'metro/station',
-    props: {
-      overlay: true
-    },
-    components: {
-      map: MetroMapView,
-      overlay: MetroStationDetailView
-    }
-  },
-  {
-    path: '/carris',
-    name: 'map/carris',
-    components: {
-      map: CarrisMapView
-    }
-  },
-  {
-    path: '/carris/vehicle/:id',
-    name: 'carris/vehicle',
-    props: {
-      overlay: true
-    },
-    components: {
-      map: CarrisMapView,
-      overlay: CarrisVehicleDetailView
-    }
-  },
-  {
-    path: '/carris/stop/:id',
-    name: 'carris/stop',
-    props: {
-      overlay: true
-    },
-    components: {
-      map: CarrisMapView,
-      overlay: CarrisStopDetailView
-    }
-  }
+  ...carrisRoutes,
+  ...metroRoutes
 ];
 
 const router = new VueRouter({

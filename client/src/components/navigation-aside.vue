@@ -21,8 +21,8 @@
   import Icon from '@/components/icon';
 
   const LINKS = [
-    { name: 'map/carris', icon: 'bus' },
-    { name: 'map/metro', icon: 'subway' },
+    { name: 'carris/map', icon: 'bus' },
+    { name: 'metro/map', icon: 'subway' },
     { name: 'about', icon: 'train', disabled: true },
     { name: 'about', icon: 'boat', disabled: true },
     { name: 'about', icon: 'bicycle' }

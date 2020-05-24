@@ -1,6 +1,9 @@
 <template lang="pug">
   div
-    //- stop-layer(v-bind="{ stops }")
+    stop-layer(
+      v-if="layers.stops",
+      v-bind="{ stops }"
+    )
     vehicles-layer(v-bind="{ vehicles }")
 </template>
 
@@ -19,6 +22,19 @@
       vehicles: {},
       stops: {}
     }),
+    computed: {
+      layers() {
+        const { query } = this.$route;
+        return {
+          stops: !!query.stops
+        };
+      }
+    },
+    watch: {
+      layers({ stops }) {
+        if (stops) this.loadStops();
+      }
+    },
     created() {
       this.listenToVehiclePositions();
       // this.loadStops();

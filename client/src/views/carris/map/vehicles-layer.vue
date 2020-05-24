@@ -43,7 +43,7 @@
       width: $scale * 0.75rem;
       height: $scale * 1.5rem;
       border-radius: $scale * 0.125rem;
-      border: 1px solid $carris-blue;
+      border: 2px solid $carris-blue;
       color: $carris-blue;
       font-weight: bold;
       background-color: $carris-yellow;

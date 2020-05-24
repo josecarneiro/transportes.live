@@ -4,8 +4,10 @@
       v-bind="{ center, zoom, options }"
       v-on="{ changeZoom, changeCenter }"
     )
-      template(v-slot:overlay)
+      template(v-slot:navigation)
         navigation-aside
+      template(v-slot:filters)
+        router-view(name="filters")
       router-view(name="map")
 </template>
 

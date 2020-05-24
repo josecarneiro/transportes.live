@@ -1,12 +1,10 @@
 <template lang="pug">
-  .map__container(
-    :class="{ 'map__container--loaded': loaded }"
-  )
-    map-overlay(
-      v-on="{ control }"
-    )
+  .map__container(:class="{ 'map__container--loaded': loaded }")
+    map-overlay(v-on="{ control }")
       template(v-slot:overlay-bottom-left)
-        slot(name="overlay")
+        slot(name="navigation")
+      template(v-slot:overlay-top-right)
+        slot(name="filters")
     map-static(
       v-once,
       v-bind="{ center, zoom, size }"

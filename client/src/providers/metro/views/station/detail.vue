@@ -13,7 +13,7 @@
 </template>
 
 <script>
-  import { StationDetailService } from '@/services/metro';
+  import { StationDetailService } from '@/providers/metro/services';
 
   import TimeUntil from '@/components/time-until';
   import ViewAside from '@/components/view/aside';

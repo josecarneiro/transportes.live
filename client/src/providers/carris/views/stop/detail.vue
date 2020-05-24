@@ -36,7 +36,7 @@
 </template>
 
 <script>
-  import { StopService, EstimatesService } from '@/services/carris';
+  import { StopService, EstimatesService } from '@/providers/carris/services';
 
   import TimeUntil from '@/components/time-until';
   import ViewAside from '@/components/view/aside';

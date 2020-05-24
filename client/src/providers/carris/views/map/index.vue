@@ -11,7 +11,7 @@
   import {
     VehiclePositionService,
     StopPositionService
-  } from '@/services/carris';
+  } from '@/providers/carris/services';
 
   import StopLayer from './stop-layer';
   import VehiclesLayer from './vehicles-layer';

@@ -1,7 +1,7 @@
 const MetroMapView = () =>
-  import(/* webpackChunkName: "metro" */ '@/views/metro/map');
+  import(/* webpackChunkName: "metro" */ './views/map');
 const MetroStationDetailView = () =>
-  import(/* webpackChunkName: "metro" */ '@/views/metro/station/detail');
+  import(/* webpackChunkName: "metro" */ './views/station/detail');
 
 export default [
   {

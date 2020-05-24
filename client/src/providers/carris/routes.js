@@ -1,9 +1,9 @@
-const CarrisMapView = () => import('@/views/carris/map');
-const CarrisMapFiltersView = () => import('@/views/carris/map/filters');
+const CarrisMapView = () => import('./views/map');
+const CarrisMapFiltersView = () => import('./views/map/filters');
 const CarrisVehicleDetailView = () =>
-  import(/* webpackChunkName: "carris" */ '@/views/carris/vehicle/detail');
+  import(/* webpackChunkName: "carris" */ './views/vehicle/detail');
 const CarrisStopDetailView = () =>
-  import(/* webpackChunkName: "carris" */ '@/views/carris/stop/detail');
+  import(/* webpackChunkName: "carris" */ './views/stop/detail');
 
 export default [
   {

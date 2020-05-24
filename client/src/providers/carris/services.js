@@ -1,4 +1,7 @@
-import { RealtimeDatabaseService, DatabaseService } from './realtime-database';
+import {
+  RealtimeDatabaseService,
+  DatabaseService
+} from '@/services/realtime-database';
 
 class VehiclePositionService extends RealtimeDatabaseService {
   constructor(handler) {

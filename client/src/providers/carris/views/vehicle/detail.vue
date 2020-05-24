@@ -30,7 +30,10 @@
 </template>
 
 <script>
-  import { VehicleDetailService, RouteService } from '@/services/carris';
+  import {
+    VehicleDetailService,
+    RouteService
+  } from '@/providers/carris/services';
 
   import Icon from '@/components/icon';
   import ViewAside from '@/components/view/aside';

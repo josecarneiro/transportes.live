@@ -1,8 +1,10 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 
-import carrisRoutes from './carris';
-import metroRoutes from './metro';
+import carrisRoutes from '@/providers/carris/routes';
+import metroRoutes from '@/providers/metro/routes';
+
+import { providersConfiguration } from '@/config';
 
 const AboutView = () => import(/* webpackChunkName: "other" */ '@/views/about');
 
@@ -21,8 +23,8 @@ const routes = [
       overlay: AboutView
     }
   },
-  ...carrisRoutes,
-  ...metroRoutes
+  ...(providersConfiguration.carris ? carrisRoutes : []),
+  ...(providersConfiguration.metro ? metroRoutes : [])
 ];
 
 const router = new VueRouter({

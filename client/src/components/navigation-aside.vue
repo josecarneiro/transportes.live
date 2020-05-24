@@ -20,13 +20,15 @@
 <script>
   import Icon from '@/components/icon';
 
+  import { providersConfiguration } from '@/config';
+
   const LINKS = [
-    { name: 'carris/map', icon: 'bus' },
-    { name: 'metro/map', icon: 'subway' },
-    { name: 'about', icon: 'train', disabled: true },
-    { name: 'about', icon: 'boat', disabled: true },
-    { name: 'about', icon: 'bicycle' }
-  ];
+    { id: 'carris', name: 'carris/map', icon: 'bus' },
+    { id: 'metro', name: 'metro/map', icon: 'subway' },
+    { id: 'cp', name: 'about', icon: 'train' },
+    { id: 'boat', name: 'about', icon: 'boat' },
+    { id: 'gira', name: 'about', icon: 'bicycle' }
+  ].map((link) => ({ ...link, disabled: !providersConfiguration[link.id] }));
 
   export default {
     data: () => ({

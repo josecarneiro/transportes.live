@@ -15,8 +15,8 @@
   import metroLines from '@/data/metro/lines';
   import metroStations from '@/data/metro/stations';
 
-  import MetroStation from './station';
-  import MetroLine from './line';
+  import MetroStation from '@/providers/metro/components/station';
+  import MetroLine from '@/providers/metro/components/line';
 
   const removeDuplicateMetroStations = ({ id }, index, array) =>
     array.findIndex(({ id: i }) => i === id) === index;

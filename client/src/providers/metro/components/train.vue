@@ -1,6 +1,6 @@
 <template lang="pug">
   custom-map-marker.metro.marker(v-bind="{ position }")
-    router-link(to="/")
+    router-link(:to="{ name: 'metro/map' }")
       span(v-text="id")
 </template>
 

@@ -1,6 +1,6 @@
 <template lang="pug">
   div
-    metro-infrastructure
+    metro-infrastructure-layer
     metro-train(
       v-for="(train, index) in markers"
       :key="index",
@@ -9,12 +9,12 @@
 </template>
 
 <script>
-  import { TrainPositionService } from '@/services/metro';
+  import { TrainPositionService } from '@/providers/metro/services';
 
   import metroStations from '@/data/metro/stations';
 
-  import MetroInfrastructure from './infrastructure';
-  import MetroTrain from './train';
+  import MetroInfrastructureLayer from './infrastructure-layer';
+  import MetroTrain from '@/providers/metro/components/train';
 
   const interpolatePositions = (start, end, progress) => ({
     latitude: start.latitude + (end.latitude - start.latitude) * progress,
@@ -69,7 +69,7 @@
       }
     },
     components: {
-      MetroInfrastructure,
+      MetroInfrastructureLayer,
       MetroTrain
     }
   };

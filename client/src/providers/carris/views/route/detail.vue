@@ -13,7 +13,7 @@
 </template>
 
 <script>
-  import { VehicleDetailService } from '@/services/carris';
+  import { VehicleDetailService } from '@/providers/carris/services';
 
   import Icon from '@/components/icon';
   import ViewAside from '@/components/view/aside';

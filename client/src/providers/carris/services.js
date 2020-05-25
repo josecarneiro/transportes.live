@@ -24,8 +24,16 @@ class EstimatesService extends DatabaseService {
 const routeService = new DatabaseService('/carris/routes');
 const loadRoute = (id) => routeService.load(id);
 
-const stopPositionService = new DatabaseService('/carris/stop-positions');
-const listStops = () => stopPositionService.load();
+// const stopPositionService = new DatabaseService('/carris/stop-positions');
+// const listStops = () => stopPositionService.load();
+
+const listStops = async () => {
+  const response = await fetch('/built/stops.json');
+  const data = await response.json();
+  return Object.fromEntries(
+    Object.entries(data).map(([key, [lat, lng]]) => [key, { lat, lng }])
+  );
+};
 
 const stopService = new DatabaseService('/carris/stop-positions');
 const loadStop = (id) => stopService.load(`/carris/stops/${id}`);

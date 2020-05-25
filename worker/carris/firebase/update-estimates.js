@@ -2,7 +2,7 @@
 
 const database = require('./../../firebase');
 
-const loadStops = require('./../services/load-stops');
+const loadStops = require('./../services/list-stops');
 
 const transformToJSONObject = require('./../../helpers/transform-to-json-object');
 

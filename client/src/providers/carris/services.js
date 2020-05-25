@@ -28,7 +28,7 @@ const loadRoute = (id) => routeService.load(id);
 // const listStops = () => stopPositionService.load();
 
 const listStops = async () => {
-  const response = await fetch('/built/stops.json');
+  const response = await fetch('/built/stop-list.json');
   const data = await response.json();
   return Object.fromEntries(
     Object.entries(data).map(([key, [lat, lng]]) => [key, { lat, lng }])

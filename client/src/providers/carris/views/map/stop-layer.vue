@@ -1,18 +1,27 @@
 <template lang="pug">
   div
     gmap-cluster(v-bind="{ styles: clusterStyles }")
-      custom-map-marker(
+      //- custom-map-marker(
+      //-   v-for="(position, id) in stops"
+      //-   :key="id"
+      //-   v-bind="{ position }"
+      //- )
+      //-   router-link(:to="{ name: 'carris/stop', params: { id } }")
+      map-marker.marker(
         v-for="(position, id) in stops"
         :key="id"
         v-bind="{ position }"
-        class="marker bus-stop"
+        :icon="stopIcon"
+        @click="navigateToStop(id)"
       )
-        router-link(:to="{ name: 'carris/stop', params: { id } }")
+        //- router-link(:to="{ name: 'carris/stop', params: { id } }")
 </template>
 
 <script>
   import GmapCluster from 'vue2-google-maps/src/components/cluster';
   import CustomMapMarker from '@/components/map/custom-marker';
+
+  import { Marker as MapMarker } from 'vue2-google-maps';
 
   const clusterStyles = [
     'marker-cluster',
@@ -25,13 +34,25 @@
     width: 24
   }));
 
+  const stopIcon = {
+    url: '/images/marker-cluster.png',
+    size: { height: 24, width: 24 },
+    scaledSize: { height: 24, width: 24 }
+  };
+
   export default {
     props: {
       stops: Object
     },
-    data: () => ({ clusterStyles }),
+    data: () => ({ clusterStyles, stopIcon }),
+    methods: {
+      navigateToStop(id) {
+        console.log(id);
+      }
+    },
     components: {
       CustomMapMarker,
+      MapMarker,
       GmapCluster
     }
   };

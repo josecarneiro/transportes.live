@@ -40,7 +40,6 @@
     },
     created() {
       this.listenToVehiclePositions();
-      // this.loadStops();
     },
     destroyed() {
       if (this.service) this.service.destroy();

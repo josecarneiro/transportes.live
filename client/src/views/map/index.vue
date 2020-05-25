@@ -4,21 +4,17 @@
       v-bind="{ center, zoom, options }"
       v-on="{ changeZoom, changeCenter }"
     )
-      template(v-slot:overlay)
-        router-link.map__control(:to="{ name: 'map/carris' }")
-          icon(icon="bus")
-        router-link.map__control(:to="{ name: 'map/metro' }")
-          icon(icon="subway")
+      template(v-slot:navigation)
+        navigation-aside
+      template(v-slot:filters)
+        router-view(name="filters")
       router-view(name="map")
 </template>
 
 <script>
   import CustomMap from '@/components/map';
   import MapOverlay from '@/components/map/overlay';
-  import Icon from '@/components/icon';
-
-  // import MapLayerCarris from './carris';
-  // import MapLayerMetro from './metro';
+  import NavigationAside from '@/components/navigation-aside';
 
   const DEFAULT_CENTER = { lat: 38.7462929, lng: -9.1447389 };
 
@@ -29,7 +25,7 @@
       center: DEFAULT_CENTER,
       zoom: DEFAULT_ZOOM,
       options: {
-        minZoom: 7,
+        minZoom: 11,
         restriction: {
           latLngBounds: {
             north: DEFAULT_CENTER.lat + 2.5,
@@ -39,10 +35,6 @@
           },
           strictBounds: false
         }
-      },
-      active: {
-        bus: false,
-        subway: true
       }
     }),
     methods: {
@@ -51,28 +43,12 @@
       },
       changeCenter(position) {
         this.center = Object.assign({}, this.center, position);
-      },
-      control(value) {
-        const { minZoom } = this.options;
-        switch (value) {
-          case 'toggle-bus':
-            this.toggle('bus');
-            break;
-          case 'toggle-subway':
-            this.toggle('subway');
-            break;
-        }
-      },
-      toggle(value) {
-        this.active[value] = !this.active[value];
       }
     },
     components: {
-      // MapLayerCarris,
-      // MapLayerMetro,
-      Icon,
       MapOverlay,
-      CustomMap
+      CustomMap,
+      NavigationAside
     }
   };
 </script>
@@ -81,13 +57,5 @@
   main {
     width: 100%;
     height: 100vh;
-    // min-height: 100vh;
-  }
-
-  .marker a {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.675em;
   }
 </style>

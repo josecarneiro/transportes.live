@@ -1,3 +1,16 @@
+@function grey($lightness: 0.7, $opacity: 1, $saturation: 0.2) {
+  @return hsla(230, $saturation * 100%, $lightness * 100%, $opacity);
+}
+
 @mixin shadow() {
-  box-shadow: 0 0.125em 1em -0.5em hsla(230, 20%, 30%, 0.3);
+  $shadow-color: grey(0.3, 0.3);
+  box-shadow: 0 0.125em 1em -0.5em $shadow-color;
+}
+
+@mixin screen($size) {
+  @if $size == small {
+    @media (min-width: 30em) {
+      @content;
+    }
+  }
 }

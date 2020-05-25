@@ -20,6 +20,12 @@ const updateFirebaseCarrisBusPositions = async () => {
       position,
       route
     }))
+    .map(({ id, angle, position: { latitude, longitude }, route }) => ({
+      id,
+      a: angle,
+      p: [latitude, longitude],
+      r: route
+    }))
     .reduce((acc, { id, ...value }) => ({ ...acc, [id]: value }), {});
 
   vehicleReference.set(transformToJSONObject(vehicleData));

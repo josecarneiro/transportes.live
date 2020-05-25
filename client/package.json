@@ -7,7 +7,9 @@
     "build": "vue-cli-service build --modern",
     "test:unit": "vue-cli-service test:unit",
     "test:e2e": "vue-cli-service test:e2e",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "generate-resources:alt": "npx pwa-asset-generator public/images/transportes-iconographic-centered.png --favicon --portrait-only --index public/images/output/index.html --manifest public/images/output/manifest.json --background \"white\" public/images/icons",
+    "generate-resources": "npx pwa-asset-generator public/images/transportes-iconographic-centered.png --favicon --portrait-only --background \"white\" public/images/icons"
   },
   "dependencies": {
     "@firebase/app": "^0.6.3",

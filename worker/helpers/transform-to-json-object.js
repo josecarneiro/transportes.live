@@ -4,7 +4,7 @@ module.exports = (object, hide = []) =>
   JSON.parse(
     JSON.stringify(object, (key, value) => {
       if (hide.includes(key)) return;
-      if (typeof value === 'number') round(value, 6);
+      if (typeof value === 'number') return round(value, 5);
       return value;
     })
   );

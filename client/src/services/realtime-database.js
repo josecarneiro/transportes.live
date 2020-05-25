@@ -4,39 +4,41 @@ import '@firebase/database';
 import { firebaseConfiguration } from './../config';
 
 const app = firebase.initializeApp(firebaseConfiguration);
-
 const database = app.database();
 
-export default database;
-
-class RealtimeDataService {
-  constructor(handler) {
-    this.handler = handler;
+class GenericDatabaseService {
+  constructor(path) {
     this.database = database;
-    this.callback = this.callback.bind(this);
+    this.reference = this.database.ref(path);
   }
 
   static parse(data) {
     return Object.entries(data).map(([id, value]) => ({ id, ...value }));
   }
 
-  _parse(data) {
+  _parse(snapshot) {
+    const data = snapshot.val();
     return data;
-    // console.log(data);
-    // return Object.entries(data).map(([id, value]) => ({ id, ...value }));
+  }
+}
+
+class DatabaseService extends GenericDatabaseService {
+  async load(id) {
+    const reference = id ? this.reference.child(id) : this.reference;
+    const snapshot = await reference.once('value');
+    return this._parse(snapshot);
+  }
+}
+
+class RealtimeDatabaseService extends DatabaseService {
+  constructor(path, handler) {
+    super(path);
+    this.handler = handler;
+    this.callback = this.callback.bind(this);
   }
 
   callback(snapshot) {
-    const state = snapshot.val();
-    const parsed = this._parse(state);
-    this.handler(parsed);
-  }
-
-  async load(id) {
-    const snapshot = await this.reference.once('value');
-    const state = snapshot.val();
-    const parsed = this._parse(state);
-    return parsed;
+    this.handler(this._parse(snapshot));
   }
 
   listen() {
@@ -48,4 +50,4 @@ class RealtimeDataService {
   }
 }
 
-export { RealtimeDataService };
+export { DatabaseService, RealtimeDatabaseService };

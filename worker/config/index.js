@@ -1,12 +1,11 @@
-const { NODE_ENV } = process.env;
+const { FIREBASE_DATABASE_NAME, FIREBASE_CREDENTIALS_PATH, METRO_API_KEY } = process.env;
 
 module.exports = {
   firebase: {
-    databaseName: NODE_ENV === 'production' ? 'transportes-live' : 'transportes-live-development',
-    credentialsPath:
-      NODE_ENV === 'production' ? './config/key-production.json' : './config/key-development.json'
+    databaseName: FIREBASE_DATABASE_NAME,
+    credentialsPath: FIREBASE_CREDENTIALS_PATH
   },
   metro: {
-    apiKey: process.env.METRO_API_KEY
+    apiKey: METRO_API_KEY
   }
 };

@@ -13,17 +13,18 @@ module.exports = {
   manifestOptions: {
     icons: [
       {
-        src: 'images/icons/manifest-icon-192.jpg',
+        src: 'images/icons/icon-192x192.png',
         sizes: '192x192',
-        type: 'image/jpg',
+        type: 'image/png',
         purpose: 'maskable any'
       },
       {
-        src: 'images/icons/manifest-icon-512.jpg',
+        src: 'images/icons/icon-512x512.png',
         sizes: '512x512',
-        type: 'image/jpg',
+        type: 'image/png',
         purpose: 'maskable any'
       }
-    ]
+    ],
+    orientation: 'portrait'
   }
 };

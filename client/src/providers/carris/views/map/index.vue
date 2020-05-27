@@ -1,9 +1,6 @@
 <template lang="pug">
   div
-    stop-layer(
-      v-if="layers.stops",
-      v-bind="{ stops }"
-    )
+    stop-layer(v-bind="{ stops }")
     vehicles-layer(v-bind="{ vehicles }")
 </template>
 

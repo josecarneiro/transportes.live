@@ -11,5 +11,8 @@
     "client:build": "cd ./client && yarn install --production=false && yarn build",
     "worker": "cd ./worker && npm start",
     "heroku-postbuild": "cd ./worker && yarn install"
+  },
+  "dependencies": {
+    "transportes": "^0.0.9"
   }
 }

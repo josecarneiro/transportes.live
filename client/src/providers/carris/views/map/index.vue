@@ -40,7 +40,6 @@
     },
     created() {
       this.listenToVehiclePositions();
-      // this.loadStops();
     },
     destroyed() {
       if (this.service) this.service.destroy();
@@ -48,10 +47,7 @@
     methods: {
       async loadStops() {
         const stops = await listStops();
-        const parsed = Object.fromEntries(
-          Object.entries(stops).map(([key, [lat, lng]]) => [key, { lat, lng }])
-        );
-        this.stops = Object.assign({}, this.stops, parsed);
+        this.stops = Object.assign({}, this.stops, stops);
       },
       async listenToVehiclePositions() {
         this.service = new VehiclePositionService(this.updateVehicles);

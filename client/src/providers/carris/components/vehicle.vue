@@ -1,0 +1,84 @@
+<template lang="pug">
+  custom-map-marker(
+    v-bind="{ position }"
+    :class="['bus', `bus--${angle > 180 ? 'left' : 'right'}`]"
+    @click="$emit('changeCenter', position)"
+  )
+    router-link(
+      :to="{ name: 'carris/vehicle', params: { id } }"
+      :style="{ transform: `rotate(${ angle }deg)` }"
+    )
+      span(v-text="route")
+</template>
+
+<script>
+  import CustomMapMarker from '@/components/map/custom-marker';
+
+  export default {
+    props: {
+      id: String,
+      position: Object,
+      route: String,
+      angle: Number
+    },
+    components: {
+      CustomMapMarker
+    }
+  };
+</script>
+
+<style lang="scss">
+  // $carris-yellow: hsl(59, 100%, 68%);
+  $carris-yellow: #fed705;
+  $carris-blue: #0055a2;
+
+  .bus {
+    .map--idle & {
+      transition: all 1s ease;
+    }
+    a {
+      $scale: 1.375;
+      width: $scale * 0.75rem;
+      height: $scale * 1.5rem;
+      border-radius: $scale * 0.125rem;
+      border: 2px solid $carris-blue;
+      color: $carris-blue;
+      font-weight: bold;
+      background-color: $carris-yellow;
+      // font-size: 0.675em;
+      // font-size: 0.675em;
+      // position: relative;
+      // border-bottom-width: 3px;
+      // border-width: 2px 1px;
+      // border-top-width: 1px;
+      // border-bottom-width: 2px;
+      // &:before {
+      //   position: absolute;
+      //   top: 0;
+      //   margin: 0 auto;
+      //   $size: 4px;
+      //   content: '';
+      //   display: block;
+      //   border: $size solid transparent;
+      //   border-bottom: $size * 2 solid $carris-blue;
+      //   border-top: 0;
+      // }
+      span {
+        font-size: 0.5em;
+        letter-spacing: -0.5px;
+      }
+    }
+  }
+
+  // .bus--left {
+  //   span {
+  //     transform: rotate(90deg);
+  //   }
+  // }
+
+  // .bus--right {
+  //   span {
+  //     transform: rotate(-90deg);
+  //   }
+  // }
+</style>

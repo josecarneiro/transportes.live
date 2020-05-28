@@ -7,6 +7,7 @@
     )
     metro-station(
       v-for="station in stations"
+      :key="line.id"
       v-bind="{ ...station }"
     )
 </template>

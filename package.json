@@ -13,6 +13,6 @@
     "heroku-postbuild": "cd ./worker && yarn install"
   },
   "dependencies": {
-    "transportes": "^0.0.8"
+    "transportes": "^0.0.9"
   }
 }

@@ -28,9 +28,9 @@ ms@2.0.0:
   resolved "https://registry.yarnpkg.com/ms/-/ms-2.0.0.tgz#5608aeadfc00be6c2901df5f9861788de0d597c8"
   integrity sha1-VgiurfwAvmwpAd9fmGF4jeDVl8g=
 
-transportes@^0.0.8:
-  version "0.0.8"
-  resolved "https://registry.yarnpkg.com/transportes/-/transportes-0.0.8.tgz#7fe9cd84e9acfaf250f7319bad4a3a580d9511e9"
-  integrity sha512-jhIzfnLRjs/Dv82nmWuxnX8/9MvmzWtRiO3/HuHDLEIQ/npmD3zOvmfLEGlaCcIEsUkBlbQjnU+xmVFvwu+Hnw==
+transportes@^0.0.9:
+  version "0.0.9"
+  resolved "https://registry.yarnpkg.com/transportes/-/transportes-0.0.9.tgz#4906de88bf129ffe86a5691cab91eb6f2f401382"
+  integrity sha512-BKO5sPFxQE1jtE8uveBqExFp6CClu5UJkd2DACgH6BSxCog4VNyNsmevIZM9rVMzDPoNtHPFu1QgwcB04rknJQ==
   dependencies:
     axios "^0.19.2"

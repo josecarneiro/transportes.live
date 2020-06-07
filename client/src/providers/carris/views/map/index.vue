@@ -54,19 +54,7 @@
         this.service.listen();
       },
       updateVehicles(vehicles) {
-        const parsed = Object.fromEntries(
-          Object.entries(vehicles).map(
-            ([
-              key,
-              {
-                r: route,
-                a: angle,
-                p: [latitude, longitude]
-              }
-            ]) => [key, { route, angle, position: { latitude, longitude } }]
-          )
-        );
-        this.vehicles = Object.assign({}, this.vehicles, parsed);
+        this.vehicles = Object.assign({}, this.vehicles, vehicles);
       }
     },
     components: {

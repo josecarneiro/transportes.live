@@ -75,4 +75,4 @@ loop(async () => {
     carrisServiceLog.extend('error')('Error updating Carris estimates.');
     carrisServiceLog.extend('detailed')(error);
   }
-}, DELAY * 5);
+}, DELAY * 2);

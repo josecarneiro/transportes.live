@@ -23,14 +23,27 @@ follow-redirects@1.5.10:
   dependencies:
     debug "=3.1.0"
 
+moment-timezone@^0.5.31:
+  version "0.5.31"
+  resolved "https://registry.yarnpkg.com/moment-timezone/-/moment-timezone-0.5.31.tgz#9c40d8c5026f0c7ab46eda3d63e49c155148de05"
+  integrity sha512-+GgHNg8xRhMXfEbv81iDtrVeTcWt0kWmTEY1XQK14dICTXnWJnT0dxdlPspwqF3keKMVPXwayEsk1DI0AA/jdA==
+  dependencies:
+    moment ">= 2.9.0"
+
+"moment@>= 2.9.0":
+  version "2.26.0"
+  resolved "https://registry.yarnpkg.com/moment/-/moment-2.26.0.tgz#5e1f82c6bafca6e83e808b30c8705eed0dcbd39a"
+  integrity sha512-oIixUO+OamkUkwjhAVE18rAMfRJNsNe/Stid/gwHSOfHrOtw9EhAY2AHvdKZ/k/MggcYELFCJz/Sn2pL8b8JMw==
+
 ms@2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/ms/-/ms-2.0.0.tgz#5608aeadfc00be6c2901df5f9861788de0d597c8"
   integrity sha1-VgiurfwAvmwpAd9fmGF4jeDVl8g=
 
-transportes@^0.0.9:
-  version "0.0.9"
-  resolved "https://registry.yarnpkg.com/transportes/-/transportes-0.0.9.tgz#4906de88bf129ffe86a5691cab91eb6f2f401382"
-  integrity sha512-BKO5sPFxQE1jtE8uveBqExFp6CClu5UJkd2DACgH6BSxCog4VNyNsmevIZM9rVMzDPoNtHPFu1QgwcB04rknJQ==
+transportes@^0.0.10:
+  version "0.0.10"
+  resolved "https://registry.yarnpkg.com/transportes/-/transportes-0.0.10.tgz#52875292bc1c370f9fd43dd4f13108f4a22c30bb"
+  integrity sha512-OgiCFTFJ0mpqII/5wAOtwm4JrEGcoGnxpYdndmcE4RHJvnMc/R3R3bJxTTPektHJvm2ABq0hw1RW/0Lq0bgy0w==
   dependencies:
     axios "^0.19.2"
+    moment-timezone "^0.5.31"

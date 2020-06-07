@@ -9,9 +9,15 @@
       :style="{ transform: `rotate(${ angle }deg)` }"
     )
       span(v-text="route")
+  //- map-marker.marker(
+  //-   v-bind="{ position: { lat: position.latitude, lng: position.longitude } }",
+  //-   :clickable="true",
+  //-   @click="$emit('navigate')"
+  //- )
 </template>
 
 <script>
+  // import { Marker as MapMarker } from 'vue2-google-maps';
   import CustomMapMarker from '@/components/map/custom-marker';
 
   export default {
@@ -23,14 +29,13 @@
     },
     components: {
       CustomMapMarker
+      // MapMarker
     }
   };
 </script>
 
 <style lang="scss">
-  // $carris-yellow: hsl(59, 100%, 68%);
-  $carris-yellow: #fed705;
-  $carris-blue: #0055a2;
+  @import './../style/variables.scss';
 
   .bus {
     .map--idle & {

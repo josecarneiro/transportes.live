@@ -7,6 +7,21 @@ class VehiclePositionService extends RealtimeDatabaseService {
   constructor(handler) {
     super('/carris/positions', handler);
   }
+
+  parse(vehicles) {
+    return Object.fromEntries(
+      Object.entries(vehicles).map(
+        ([
+          key,
+          {
+            r: route,
+            a: angle,
+            p: [latitude, longitude]
+          }
+        ]) => [key, { route, angle, position: { latitude, longitude } }]
+      )
+    );
+  }
 }
 
 class VehicleDetailService extends DatabaseService {

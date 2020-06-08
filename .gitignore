@@ -12,3 +12,5 @@ dist
 .vscode
 
 /client/public/built/stop
+
+tmp

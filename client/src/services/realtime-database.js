@@ -16,6 +16,10 @@ class GenericDatabaseService {
     return Object.entries(data).map(([id, value]) => ({ id, ...value }));
   }
 
+  parse(data) {
+    return data;
+  }
+
   _parse(snapshot) {
     const data = snapshot.val();
     return data;
@@ -38,7 +42,7 @@ class RealtimeDatabaseService extends DatabaseService {
   }
 
   callback(snapshot) {
-    this.handler(this._parse(snapshot));
+    this.handler(this.parse(this._parse(snapshot)));
   }
 
   listen() {

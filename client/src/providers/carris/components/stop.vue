@@ -1,7 +1,6 @@
 <template lang="pug">
   map-marker.marker(
-    v-bind="{ position }",
-    :icon="icon",
+    v-bind="{ position, icon }",
     :clickable="true",
     @click="$emit('navigate')"
   )
@@ -10,10 +9,11 @@
 <script>
   import { Marker as MapMarker } from 'vue2-google-maps';
 
+  const ICON_SIZE = 24;
+
   const icon = {
     url: '/images/marker-cluster.png',
-    // size: { height: 24, width: 24 },
-    scaledSize: { height: 24, width: 24 }
+    scaledSize: { height: ICON_SIZE, width: ICON_SIZE }
   };
 
   export default {
@@ -29,14 +29,14 @@
 </script>
 
 <style lang="scss">
-  .bus-stop {
-    a {
-      $scale: 1;
-      width: $scale * 1rem;
-      height: $scale * 1rem;
-      background-color: hsl(0, 0%, 90%);
-      border-radius: 50%;
-      border: 2px solid grey;
-    }
-  }
+  // .bus-stop {
+  //   a {
+  //     $scale: 1;
+  //     width: $scale * 1rem;
+  //     height: $scale * 1rem;
+  //     background-color: hsl(0, 0%, 90%);
+  //     border-radius: 50%;
+  //     border: 2px solid grey;
+  //   }
+  // }
 </style>

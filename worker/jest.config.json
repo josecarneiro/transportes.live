@@ -1,3 +1,4 @@
 {
-  "coveragePathIgnorePatterns": ["**/*.json"]
+  "coveragePathIgnorePatterns": ["**/*.json"],
+  "testEnvironment": "node"
 }

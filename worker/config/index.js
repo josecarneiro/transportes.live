@@ -1,4 +1,8 @@
-const { FIREBASE_DATABASE_NAME, FIREBASE_CREDENTIALS_PATH, METRO_API_KEY } = process.env;
+const {
+  FIREBASE_DATABASE_NAME,
+  FIREBASE_CREDENTIALS_PATH,
+  METRO_API_KEY
+} = process.env;
 
 module.exports = {
   firebase: {

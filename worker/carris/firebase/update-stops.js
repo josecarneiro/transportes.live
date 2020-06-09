@@ -11,7 +11,12 @@ const updateFirebaseCarrisStops = async () => {
 
   const stopDetails = stops
     .filter(({ visible }) => visible)
-    .map(({ publicId: id, name, position }) => ({ id, name, position, estimates: [] }))
+    .map(({ publicId: id, name, position }) => ({
+      id,
+      name,
+      position,
+      estimates: []
+    }))
     .reduce((acc, { id, ...value }) => ({ ...acc, [id]: value }), {});
   const carrisStopsReference = database.ref('carris/stops');
   carrisStopsReference.set(transformToJSONObject(stopDetails));

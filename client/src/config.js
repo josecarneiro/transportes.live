@@ -32,9 +32,4 @@ const providersConfiguration = {
   cp: VUE_APP_PROVIDER_GIRA === 'true'
 };
 
-export {
-  firebaseConfiguration,
-  mapsConfiguration,
-  analyticsConfiguration,
-  providersConfiguration
-};
+export { firebaseConfiguration, mapsConfiguration, analyticsConfiguration, providersConfiguration };

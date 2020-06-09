@@ -48,21 +48,27 @@ loop(async () => {
     await updateFirebaseCarrisVehiclesPositions();
     carrisServiceLog.extend('success')('Updated Carris vehicle positions.');
   } catch (error) {
-    carrisServiceLog.extend('error')('Error updating Carris vehicle positions.');
+    carrisServiceLog.extend('error')(
+      'Error updating Carris vehicle positions.'
+    );
     carrisServiceLog.extend('detailed')(error);
   }
   try {
     await updateFirebaseMetroTrainPositions();
     metroServiceLog.extend('success')('Updated Metro train positions.');
   } catch (error) {
-    metroServiceLog.extend('error')('Error updating firebase with metro train positions');
+    metroServiceLog.extend('error')(
+      'Error updating firebase with metro train positions'
+    );
     metroServiceLog.extend('detailed')(error);
   }
   try {
     await updateFirebaseMetroEstimates();
     metroServiceLog.extend('success')('Updated Metro estimates.');
   } catch (error) {
-    metroServiceLog.extend('error')('Error updating firebase with metro train estimates');
+    metroServiceLog.extend('error')(
+      'Error updating firebase with metro train estimates'
+    );
     metroServiceLog.extend('detailer')(error);
   }
 }, DELAY);

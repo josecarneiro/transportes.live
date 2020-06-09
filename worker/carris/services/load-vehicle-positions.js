@@ -10,7 +10,7 @@ const transformVehicle = vehicle => {
       : 0;
   return {
     bearing,
-    ...vehicle,
+    ...vehicle
   };
 };
 

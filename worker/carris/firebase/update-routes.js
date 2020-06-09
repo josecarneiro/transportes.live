@@ -12,7 +12,10 @@ const delay = require('./../../helpers/delay');
 
 const updateFirebaseCarrisStops = async () => {
   const routes = await loadRoutes();
-  const parsed = routes.reduce((acc, { number, ...value }) => ({ ...acc, [number]: value }), {});
+  const parsed = routes.reduce(
+    (acc, { number, ...value }) => ({ ...acc, [number]: value }),
+    {}
+  );
   // Is currently replacing every existing route with simplified route,
   // having the option to deep merge would solve this
   const carrisRoutesReference = database.ref('carris/routes');
@@ -23,7 +26,12 @@ const updateFirebaseCarrisStops = async () => {
     if (route) {
       const carrisRouteReference = database.ref('carris/routes/' + item.number);
       carrisRouteReference.set(
-        transformToJSONObject(route, ['shape', 'order', 'creationDate', 'updateDate'])
+        transformToJSONObject(route, [
+          'shape',
+          'order',
+          'creationDate',
+          'updateDate'
+        ])
       );
     }
     await delay(1000);

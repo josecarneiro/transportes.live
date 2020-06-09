@@ -2,8 +2,7 @@ const CarrisMapView = () => import('./views/map');
 const CarrisMapFiltersView = () => import('./views/map/filters');
 const CarrisVehicleDetailView = () =>
   import(/* webpackChunkName: "carris" */ './views/vehicle/detail');
-const CarrisStopDetailView = () =>
-  import(/* webpackChunkName: "carris" */ './views/stop/detail');
+const CarrisStopDetailView = () => import(/* webpackChunkName: "carris" */ './views/stop/detail');
 
 export default [
   {

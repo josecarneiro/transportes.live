@@ -12,7 +12,10 @@ const updateFirebaseCarrisBusPositions = async () => {
   const vehicleReference = database.ref('carris/vehicles');
   const positionReference = database.ref('carris/positions');
 
-  const vehicleData = vehicles.reduce((acc, { id, ...value }) => ({ ...acc, [id]: value }), {});
+  const vehicleData = vehicles.reduce(
+    (acc, { id, ...value }) => ({ ...acc, [id]: value }),
+    {}
+  );
   const positionData = vehicles
     .map(({ id, bearing, position, route }) => ({
       id,

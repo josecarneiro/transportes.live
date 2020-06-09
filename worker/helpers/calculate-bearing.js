@@ -11,10 +11,14 @@ const calculateBearing = (
 
   if (Math.abs(longitudeDelta) > Math.PI) {
     longitudeDelta =
-      longitudeDelta > 0 ? -(2 * Math.PI - longitudeDelta) : 2 * Math.PI + longitudeDelta;
+      longitudeDelta > 0
+        ? -(2 * Math.PI - longitudeDelta)
+        : 2 * Math.PI + longitudeDelta;
   }
 
-  return (Math.atan2(longitudeDelta, latitudeDelta) + Math.PI * 2) % (Math.PI * 2);
+  return (
+    (Math.atan2(longitudeDelta, latitudeDelta) + Math.PI * 2) % (Math.PI * 2)
+  );
 };
 
 module.exports = calculateBearing;

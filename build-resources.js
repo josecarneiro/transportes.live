@@ -51,7 +51,8 @@ const buildCarrisSingleStop = async id => {
   // carrisStopPositionsReference.set(transformToJSONObject(stopPositions));
 };
 
-const delay = duration => new Promise((resolve, reject) => setTimeout(resolve, duration));
+const delay = duration =>
+  new Promise((resolve, reject) => setTimeout(resolve, duration));
 
 const cleanStops = async () => {
   const base = path.join(DIRECTORY, 'stop');

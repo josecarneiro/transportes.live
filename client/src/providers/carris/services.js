@@ -1,7 +1,4 @@
-import {
-  RealtimeDatabaseService,
-  DatabaseService
-} from '@/services/realtime-database';
+import { RealtimeDatabaseService, DatabaseService } from '@/services/realtime-database';
 
 class VehiclePositionService extends RealtimeDatabaseService {
   constructor(handler) {
@@ -10,16 +7,10 @@ class VehiclePositionService extends RealtimeDatabaseService {
 
   parse(vehicles) {
     return Object.fromEntries(
-      Object.entries(vehicles).map(
-        ([
-          key,
-          {
-            r: route,
-            a: angle,
-            p: [latitude, longitude]
-          }
-        ]) => [key, { route, angle, position: { latitude, longitude } }]
-      )
+      Object.entries(vehicles).map(([key, { r: route, a: angle, p: [latitude, longitude] }]) => [
+        key,
+        { route, angle, position: { latitude, longitude } }
+      ])
     );
   }
 }
@@ -37,7 +28,7 @@ class EstimatesService extends DatabaseService {
 }
 
 const routeService = new DatabaseService('/carris/routes');
-const loadRoute = (id) => routeService.load(id);
+const loadRoute = id => routeService.load(id);
 
 // const stopPositionService = new DatabaseService('/carris/stop-positions');
 // const listStops = () => stopPositionService.load();
@@ -45,13 +36,11 @@ const loadRoute = (id) => routeService.load(id);
 const listStops = async () => {
   const response = await fetch('/built/stop-list.json');
   const data = await response.json();
-  return Object.fromEntries(
-    Object.entries(data).map(([key, [lat, lng]]) => [key, { lat, lng }])
-  );
+  return Object.fromEntries(Object.entries(data).map(([key, [lat, lng]]) => [key, { lat, lng }]));
 };
 
 const stopService = new DatabaseService('/carris/stop-positions');
-const loadStop = (id) => stopService.load(`/carris/stops/${id}`);
+const loadStop = id => stopService.load(`/carris/stops/${id}`);
 
 export {
   VehiclePositionService,

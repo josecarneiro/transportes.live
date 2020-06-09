@@ -8,7 +8,13 @@ const limitValue = (value, max, min) => Math.max(Math.min(value, max), min);
 
 const getTrains = piers => {
   const trains = [];
-  for (const { station, pier, destination, arrivals, time: dataTime } of piers) {
+  for (const {
+    station,
+    pier,
+    destination,
+    arrivals,
+    time: dataTime
+  } of piers) {
     for (const { train, time } of arrivals) {
       const estimate = {
         station,
@@ -44,10 +50,15 @@ module.exports = piers => {
     .filter(train => train.estimates.length >= 2)
     .map(train => {
       const line = lines.find(line =>
-        train.estimates.every(({ station }) => line.stations.some(id => station === id))
+        train.estimates.every(({ station }) =>
+          line.stations.some(id => station === id)
+        )
       );
 
-      const [{ station: currentStation }, { station: nextStation }] = train.estimates;
+      const [
+        { station: currentStation },
+        { station: nextStation }
+      ] = train.estimates;
 
       const currentStationIndex = line.stations.indexOf(currentStation);
       const nextStationIndex = line.stations.indexOf(nextStation);
@@ -55,7 +66,8 @@ module.exports = piers => {
       let previousStationIndex =
         currentStationIndex + (currentStationIndex < nextStationIndex ? -1 : 1);
       if (previousStationIndex < 1) previousStationIndex *= -1;
-      if (previousStationIndex >= line.stations.length - 1) previousStationIndex -= 2;
+      if (previousStationIndex >= line.stations.length - 1)
+        previousStationIndex -= 2;
 
       const previousStation = line.stations[previousStationIndex];
 

@@ -4,7 +4,10 @@ const estimates = require('./estimates.data.spec.json');
 
 const prepareJSON = object => {
   return JSON.parse(JSON.stringify(object), (key, value) => {
-    if (key.toLowerCase().includes('time') || key.toLowerCase().includes('date')) {
+    if (
+      key.toLowerCase().includes('time') ||
+      key.toLowerCase().includes('date')
+    ) {
       return new Date(value);
     } else {
       return value;

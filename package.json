@@ -9,7 +9,7 @@
   },
   "scripts": {
     "client:build": "cd ./client && yarn install --production=false && yarn build",
-    "worker": "cd ./worker && npm start",
+    "worker": "cd ./worker && yarn start",
     "fix": "prettier --write \"**/*.js\"",
     "lint": "eslint \"**/*.js\" && prettier --check \"**/*.js\"",
     "heroku-postbuild": "cd ./worker && yarn install"

@@ -1,6 +1,6 @@
 const GiraMapView = () => import(/* webpackChunkName: "gira" */ './views/map');
-const GiraStopDetailView = () =>
-  import(/* webpackChunkName: "gira" */ './views/stop/detail');
+const GiraStationDetailView = () =>
+  import(/* webpackChunkName: "gira" */ './views/station/detail');
 
 export default [
   {
@@ -11,14 +11,14 @@ export default [
     }
   },
   {
-    path: '/gira/stop/:id',
-    name: 'gira/stop',
+    path: '/gira/station/:id',
+    name: 'gira/station',
     props: {
       overlay: true
     },
     components: {
       map: GiraMapView,
-      overlay: GiraStopDetailView
+      overlay: GiraStationDetailView
     }
   }
 ];

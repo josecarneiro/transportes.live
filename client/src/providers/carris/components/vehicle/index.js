@@ -47,8 +47,5 @@ export default {
           [createElement('span', route)]
         )
       ]
-    ),
-  components: {
-    CustomMapMarker
-  }
+    )
 };

@@ -1,6 +1,7 @@
 <template lang="pug">
   map-marker.marker(
-    v-bind="{ position, icon }",
+    v-bind="{ position: { lat: position.latitude, lng: position.longitude }, icon }",
+    :label="`${bikes}/${docks}`",
     :clickable="true",
     @click="$emit('navigate')"
   )
@@ -19,7 +20,9 @@
   export default {
     props: {
       id: String,
-      position: Object
+      position: Object,
+      bikes: Number,
+      docks: Number
     },
     data: () => ({ icon }),
     components: {

@@ -1,62 +1,36 @@
 <template lang="pug">
   div
-    stop-layer(
-      v-if="layers.stops",
-      v-bind="{ stops }"
+    map-gira-station(
+      v-for="(station, id) in stations"
+      :key="id"
+      v-bind="{ id, ...station }"
     )
-    vehicles-layer(v-bind="{ vehicles }")
 </template>
 
 <script>
-  // import { VehiclePositionService, listStops } from '@/providers/carris/services';
+  import { StationService } from '@/providers/gira/services';
 
-  // import StopLayer from './stop-layer';
-  // import VehiclesLayer from './vehicles-layer';
+  import MapGiraStation from './../../components/station';
 
   export default {
-    data: () => ({
-      service: null,
-      vehicles: {},
-      stops: {}
-    }),
-    computed: {
-      layers() {
-        const { query } = this.$route;
-        return {
-          stops: !!query.stops
-        };
-      }
-    },
-    watch: {
-      layers: {
-        immediate: true,
-        handler({ stops }) {
-          if (stops) this.loadStops();
-        }
-      }
-    },
+    data: () => ({ stations: {} }),
     created() {
-      this.listenToVehiclePositions();
+      this.listenToGiraStationUpdates();
     },
     destroyed() {
       if (this.service) this.service.destroy();
     },
     methods: {
-      async loadStops() {
-        // const stops = await listStops();
-        // this.stops = Object.assign({}, this.stops, stops);
-      },
-      async listenToVehiclePositions() {
-        // this.service = new VehiclePositionService(this.updateVehicles);
+      async listenToGiraStationUpdates() {
+        this.service = new StationService(this.updateStations);
         this.service.listen();
       },
-      updateVehicles(vehicles) {
-        this.vehicles = Object.assign({}, this.vehicles, vehicles);
+      updateStations(stations) {
+        this.stations = Object.assign({}, this.stations, stations);
       }
     },
     components: {
-      // StopLayer,
-      // VehiclesLayer
+      MapGiraStation
     }
   };
 </script>

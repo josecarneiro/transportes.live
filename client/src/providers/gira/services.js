@@ -3,9 +3,9 @@ import {
   DatabaseService
 } from '@/services/realtime-database';
 
-class VehiclePositionService extends RealtimeDatabaseService {
+class StationService extends RealtimeDatabaseService {
   constructor(handler) {
-    super('/carris/positions', handler);
+    super('/gira/stations', handler);
   }
 
   parse(vehicles) {
@@ -14,50 +14,26 @@ class VehiclePositionService extends RealtimeDatabaseService {
         ([
           key,
           {
-            r: route,
-            a: angle,
+            n: name,
+            a: active,
+            b: bikes,
+            d: docks,
             p: [latitude, longitude]
           }
-        ]) => [key, { route, angle, position: { latitude, longitude } }]
+        ]) => [
+          key,
+          {
+            name,
+            active,
+            bikes,
+            docks,
+            ratio: bikes / docks,
+            position: { latitude, longitude }
+          }
+        ]
       )
     );
   }
 }
 
-class VehicleDetailService extends DatabaseService {
-  constructor() {
-    super(`/carris/vehicles`);
-  }
-}
-
-class EstimatesService extends DatabaseService {
-  constructor() {
-    super(`/carris/estimates`);
-  }
-}
-
-const routeService = new DatabaseService('/carris/routes');
-const loadRoute = id => routeService.load(id);
-
-// const stopPositionService = new DatabaseService('/carris/stop-positions');
-// const listStops = () => stopPositionService.load();
-
-const listStops = async () => {
-  const response = await fetch('/built/stop-list.json');
-  const data = await response.json();
-  return Object.fromEntries(
-    Object.entries(data).map(([key, [lat, lng]]) => [key, { lat, lng }])
-  );
-};
-
-const stopService = new DatabaseService('/carris/stop-positions');
-const loadStop = id => stopService.load(`/carris/stops/${id}`);
-
-export {
-  VehiclePositionService,
-  VehicleDetailService,
-  EstimatesService,
-  listStops,
-  loadRoute,
-  loadStop
-};
+export { StationService };

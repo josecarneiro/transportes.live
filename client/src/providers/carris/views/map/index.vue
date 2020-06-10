@@ -22,7 +22,7 @@
 
   import MapCarrisVehicle from './../../components/vehicle';
   import MapCarrisStop from './../../components/stop';
-  import MapCarrisStopCluster from './../../components/stop-cluster';
+  import MapCarrisStopCluster from './../../components/stop/cluster';
 
   export default {
     data: () => ({

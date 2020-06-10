@@ -8,7 +8,9 @@ module.exports = {
   css: {
     loaderOptions: {
       sass: {
-        prependData: [...scssImports.map(item => `@import "${item}"`), ''].join(';')
+        prependData: [...scssImports.map(item => `@import "${item}"`), ''].join(
+          ';'
+        )
       }
     }
   },

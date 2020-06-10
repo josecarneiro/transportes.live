@@ -17,11 +17,9 @@ const updateFirebaseCarrisBusPositions = async () => {
     {}
   );
   const positionData = vehicles
-    .map(({ id, bearing, position, route }) => ({
-      id,
+    .map(({ bearing, ...vehicle }) => ({
       angle: Math.floor((180 * bearing) / Math.PI),
-      position,
-      route
+      ...vehicle
     }))
     .map(({ id, angle, position: { latitude, longitude }, route }) => ({
       id,

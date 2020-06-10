@@ -1,4 +1,5 @@
-const MetroMapView = () => import(/* webpackChunkName: "metro" */ './views/map');
+const MetroMapView = () =>
+  import(/* webpackChunkName: "metro" */ './views/map');
 const MetroStationDetailView = () =>
   import(/* webpackChunkName: "metro" */ './views/station/detail');
 

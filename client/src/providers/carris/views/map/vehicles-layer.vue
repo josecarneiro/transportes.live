@@ -9,6 +9,7 @@
 
 <script>
   import MapCarrisVehicle from './../../components/vehicle';
+  // import MapCarrisVehicle from './../../components/vehicle-alternative';
   import StopLayer from './stop-layer';
 
   export default {

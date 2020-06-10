@@ -7,7 +7,8 @@ export default (...classes) =>
         ...a,
         ...(v && {
           ...(typeof v === 'string' && { [v]: true }),
-          ...(v instanceof Array && v.reduce((c, t) => ({ ...a, [t]: true }), {})),
+          ...(v instanceof Array &&
+            v.reduce((c, t) => ({ ...a, [t]: true }), {})),
           ...(typeof v === 'object' && !(v instanceof Array) && v)
         })
       }),

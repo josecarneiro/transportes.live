@@ -7,7 +7,9 @@ const { NODE_ENV, BASE_URL } = process.env;
 if (NODE_ENV === 'production') {
   register(`${BASE_URL}service-worker.js`, {
     ready() {
-      console.log('transportes.live is being served from cache by a service worker.');
+      console.log(
+        'transportes.live is being served from cache by a service worker.'
+      );
     },
     registered() {
       console.log('Service worker has been registered.');
@@ -26,7 +28,9 @@ if (NODE_ENV === 'production') {
       }, 3000);
     },
     offline() {
-      console.log('No internet connection found. App is running in offline mode.');
+      console.log(
+        'No internet connection found. App is running in offline mode.'
+      );
     },
     error(error) {
       console.error('Error during service worker registration:', error);

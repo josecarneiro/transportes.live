@@ -37,7 +37,8 @@
       }
     },
     data: () => ({
-      opacity: 0.01
+      // opacity: 0.01
+      opacity: 1
     }),
     computed: {
       lat() {

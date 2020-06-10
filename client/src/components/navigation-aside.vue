@@ -1,17 +1,15 @@
 <template lang="pug">
   aside.side__navigation(
-    :class="{ toggled }"
+    :class="{ toggled }",
     @blur="toggled = false"
   )
-    button(
-      @click="toggled = true"
-    )
+    button(@click="toggled = true")
     router-link.map__control(
       v-for="{ name, icon, disabled } in links",
       :key="icon",
-      :to="{ name }"
-      :class="{ disabled }"
-      v-bind="{ disabled }"
+      :to="{ name  }",
+      :class="{ disabled }",
+      v-bind="{ disabled }",
       @click="toggled = false"
     )
       icon(v-bind="{ icon }")
@@ -23,12 +21,18 @@
   import { providersConfiguration } from '@/config';
 
   const LINKS = [
-    { id: 'carris', name: 'carris/map', icon: 'bus' },
-    { id: 'metro', name: 'metro/map', icon: 'subway' },
-    { id: 'cp', name: 'about', icon: 'train' },
-    { id: 'boat', name: 'about', icon: 'boat' },
-    { id: 'gira', name: 'about', icon: 'bicycle' }
-  ].map((link) => ({ ...link, disabled: !providersConfiguration[link.id] }));
+    ...[
+      { id: 'carris', name: 'carris/map', icon: 'bus' },
+      { id: 'metro', name: 'metro/map', icon: 'subway' },
+      { id: 'cp', name: 'error', icon: 'train' },
+      { id: 'boat', name: 'error', icon: 'boat' },
+      { id: 'gira', name: 'gira/map', icon: 'bicycle' }
+    ].map(({ name, ...link }) => {
+      const disabled = !providersConfiguration[link.id];
+      return { ...link, name: disabled ? 'error' : name, disabled };
+    }),
+    { id: 'about', name: 'about', icon: 'about' }
+  ];
 
   export default {
     data: () => ({

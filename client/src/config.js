@@ -27,9 +27,14 @@ const analyticsConfiguration = {
 const providersConfiguration = {
   carris: VUE_APP_PROVIDER_CARRIS === 'true',
   metro: VUE_APP_PROVIDER_METRO === 'true',
-  gira: VUE_APP_PROVIDER_CP === 'true',
+  gira: VUE_APP_PROVIDER_GIRA === 'true',
   boats: VUE_APP_PROVIDER_BOATS === 'true',
-  cp: VUE_APP_PROVIDER_GIRA === 'true'
+  cp: VUE_APP_PROVIDER_CP === 'true'
 };
 
-export { firebaseConfiguration, mapsConfiguration, analyticsConfiguration, providersConfiguration };
+export {
+  firebaseConfiguration,
+  mapsConfiguration,
+  analyticsConfiguration,
+  providersConfiguration
+};

@@ -20,11 +20,11 @@
       display: inline-flex;
       padding: 1.25em;
       font-weight: bold;
+      background-color: white;
+      @include shadow();
       // &.router-link-exact-active {
       //   color: #42b983;
       // }
-      background-color: white;
-      @include shadow();
     }
   }
 </style>

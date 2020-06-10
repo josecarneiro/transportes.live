@@ -21,8 +21,10 @@
     backdrop-filter: blur(2px);
     overflow-y: auto;
     @media (min-width: 30em) {
+      @include shadow();
       max-width: 26em;
-      padding-top: 2em;
+      padding-top: 1em;
+      // padding-top: 2em;
     }
   }
 </style>

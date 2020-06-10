@@ -1,8 +1,9 @@
 <template lang="pug" functional>
-  .view--aside
+  .view--aside(:class="[data.class, data.staticClass]")
     slot
 </template>
 
+script
 <style lang="scss">
   .view--aside {
     position: fixed;

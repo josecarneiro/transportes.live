@@ -1,10 +1,17 @@
 <template lang="pug">
   div
-    stop-layer(
-      v-if="layers.stops",
-      v-bind="{ stops }"
+    map-carris-stop-cluster(v-if="layers.stops")
+      map-carris-stop(
+        v-for="(position, id) in stops",
+        :key="id",
+        v-bind="{ id, position }",
+        @navigate="navigateToStop(id)"
+      )
+    map-carris-vehicle(
+      v-for="(vehicle, id) in vehicles"
+      :key="id"
+      v-bind="{ id, ...vehicle }"
     )
-    vehicles-layer(v-bind="{ vehicles }")
 </template>
 
 <script>
@@ -13,8 +20,9 @@
     listStops
   } from '@/providers/carris/services';
 
-  import StopLayer from './stop-layer';
-  import VehiclesLayer from './vehicles-layer';
+  import MapCarrisVehicle from './../../components/vehicle';
+  import MapCarrisStop from './../../components/stop';
+  import MapCarrisStopCluster from './../../components/stop-cluster';
 
   export default {
     data: () => ({
@@ -55,11 +63,15 @@
       },
       updateVehicles(vehicles) {
         this.vehicles = Object.assign({}, this.vehicles, vehicles);
+      },
+      navigateToStop(id) {
+        this.$router.push({ name: 'carris/stop', params: { id } });
       }
     },
     components: {
-      StopLayer,
-      VehiclesLayer
+      MapCarrisStopCluster,
+      MapCarrisStop,
+      MapCarrisVehicle
     }
   };
 </script>

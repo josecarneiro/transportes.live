@@ -1,4 +1,7 @@
-const round = (value, digits) => Math.round(value * 10 ** digits) / 10 ** digits;
+'use strict';
+
+const round = (value, digits) =>
+  Math.round(value * 10 ** digits) / 10 ** digits;
 
 module.exports = (object, hide = []) =>
   JSON.parse(

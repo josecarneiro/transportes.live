@@ -9,10 +9,16 @@
   },
   "scripts": {
     "client:build": "cd ./client && yarn install --production=false && yarn build",
-    "worker": "cd ./worker && npm start",
+    "worker": "cd ./worker && yarn start",
+    "fix": "prettier --write \"**/*.js\"",
+    "lint": "eslint \"**/*.js\" && prettier --check \"**/*.js\"",
     "heroku-postbuild": "cd ./worker && yarn install"
   },
   "dependencies": {
     "transportes": "^0.0.11"
+  },
+  "devDependencies": {
+    "eslint": "^7.2.0",
+    "prettier": "^2.0.5"
   }
 }

@@ -20,19 +20,21 @@
       date: Date,
       interval: Number
     },
-    data: () => ({ now: new Date(), timeout: null }),
-    created() {
+    data: () => ({ now: new Date(), id: null }),
+    mounted() {
       const { interval } = this;
-      this.timeout = setTimeout(() => {
-        this.now = new Date();
-      }, interval * 1000);
+      if (interval) {
+        this.id = setInterval(() => {
+          this.now = new Date();
+        }, interval * 1000);
+      }
     },
-    destroyed() {
-      clearTimeout(this.timeout);
+    unmounted() {
+      setInterval(this.id);
     },
     computed: {
       parsed() {
-        const seconds = Math.max(0, this.date - this.now) / 1000;
+        const seconds = (this.date - this.now) / 1000;
         if (seconds < 0) return '0s';
         return format(seconds);
       }

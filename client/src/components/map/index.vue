@@ -30,6 +30,7 @@
   import MapStatic from './static/image';
 
   import LIGHT_STYLE from './style/light';
+  // import LIGHT_STYLE from './style/colored';
 
   const DEFAULT_CENTER = { lat: 38.7462929, lng: -9.1447389 };
 

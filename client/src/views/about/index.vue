@@ -1,6 +1,9 @@
 <template lang="pug">
-  view-aside
+  view-aside.view--about
     h1 About 
+    p
+      strong transportes.live
+      |  uses data that is made publicly available by third-party transportation providers. As such, the accuracy of all estimates, vehicle and stop information, among others, is of the responsibility of said providers.
     p
       strong transportes.live
       |  was built by 
@@ -23,3 +26,12 @@
     }
   };
 </script>
+
+<style lang="scss">
+  .view--about {
+    justify-content: center;
+    // h1 {
+    //   margin-bottom: auto;
+    // }
+  }
+</style>

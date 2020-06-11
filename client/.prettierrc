@@ -1,5 +1,7 @@
 {
-  "vueIndentScriptAndStyle": true,
+  "arrowParens": "avoid",
+  "printWidth": 80,
   "singleQuote": true,
-  "trailingComma": "none"
+  "trailingComma": "none",
+  "vueIndentScriptAndStyle": true
 }

@@ -1,4 +1,11 @@
-const { FIREBASE_DATABASE_NAME, FIREBASE_CREDENTIALS_PATH, METRO_API_KEY } = process.env;
+'use strict';
+
+const {
+  FIREBASE_DATABASE_NAME,
+  FIREBASE_CREDENTIALS_PATH,
+  METRO_API_KEY,
+  GIRA_API_KEY
+} = process.env;
 
 module.exports = {
   firebase: {
@@ -7,5 +14,8 @@ module.exports = {
   },
   metro: {
     apiKey: METRO_API_KEY
+  },
+  gira: {
+    apiKey: GIRA_API_KEY
   }
 };

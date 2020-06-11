@@ -1,5 +1,5 @@
 <template lang="pug" functional>
-  .view--aside
+  .view--aside(:class="[data.class, data.staticClass]")
     slot
 </template>
 
@@ -10,6 +10,8 @@
     right: 0;
     bottom: 0;
     z-index: 200;
+    display: flex;
+    flex-direction: column;
     width: 100%;
     padding: 1em;
     padding-top: 6em;
@@ -19,8 +21,10 @@
     backdrop-filter: blur(2px);
     overflow-y: auto;
     @media (min-width: 30em) {
+      @include shadow();
       max-width: 26em;
-      padding-top: 2em;
+      padding-top: 1em;
+      // padding-top: 2em;
     }
   }
 </style>

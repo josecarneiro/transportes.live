@@ -1,2 +1,9 @@
-exports.transformToJSONObject = (object, hide = []) =>
-  JSON.parse(JSON.stringify(object, (key, value) => (hide.includes(key) ? undefined : value)));
+'use strict';
+
+// exports.transformToJSONObject = (object, hide = []) =>
+//   JSON.parse(
+//     JSON.stringify(object, (key, value) =>
+//       hide.includes(key) ? undefined : value
+//     )
+//   );
+

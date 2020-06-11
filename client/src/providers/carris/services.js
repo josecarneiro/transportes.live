@@ -37,7 +37,7 @@ class EstimatesService extends DatabaseService {
 }
 
 const routeService = new DatabaseService('/carris/routes');
-const loadRoute = (id) => routeService.load(id);
+const loadRoute = id => routeService.load(id);
 
 // const stopPositionService = new DatabaseService('/carris/stop-positions');
 // const listStops = () => stopPositionService.load();
@@ -51,7 +51,7 @@ const listStops = async () => {
 };
 
 const stopService = new DatabaseService('/carris/stop-positions');
-const loadStop = (id) => stopService.load(`/carris/stops/${id}`);
+const loadStop = id => stopService.load(`/carris/stops/${id}`);
 
 export {
   VehiclePositionService,

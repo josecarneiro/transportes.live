@@ -43,7 +43,7 @@ module.exports = async () => {
       );
       carrisServiceLog.extend('detailed')(error);
     }
-  }, DELAY);
+  }, DELAY / 4);
 
   loop(async () => {
     try {

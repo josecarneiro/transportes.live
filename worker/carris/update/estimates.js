@@ -4,6 +4,7 @@ const transformToJSONObject = require('./../../helpers/transform-to-json-object'
 
 const database = require('./../../firebase');
 const client = require('./../client');
+const { log } = require('transportes/utilities');
 
 const loadEstimates = async ids => {
   const COUNT = 50;
@@ -31,8 +32,9 @@ const MAXIMUM_COUNT = 40;
 
 const updateFirebaseCarrisStops = async () => {
   const stops = await client.listStops();
-  const filtered = stops.map(({ id, publicId }) => ({ id, publicId }));
-
+  const filtered = stops
+    .filter(({ visible }) => visible)
+    .map(({ id, publicId }) => ({ id, publicId }));
   const ids = filtered.map(({ id }) => id);
   ids.sort(() => 0.5 - Math.random());
 

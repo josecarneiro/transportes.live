@@ -43,7 +43,7 @@ module.exports = async () => {
       );
       carrisServiceLog.extend('detailed')(error);
     }
-  }, DELAY);
+  }, DELAY / 4);
 
   loop(async () => {
     try {
@@ -53,5 +53,5 @@ module.exports = async () => {
       carrisServiceLog.extend('error')('Error updating Carris estimates.');
       carrisServiceLog.extend('detailed')(error);
     }
-  }, DELAY * 2);
+  }, DELAY);
 };

@@ -236,7 +236,11 @@ $icons: (
   "taxi": "local_taxi",
   "car": "directions_car",
   "walk": "directions_walk",
-  "stop": "place",
+  // "stop": "place",
+  // "stop": "adjust",
+  "stop": "trip_origin",
   // "about": "help_outline",
-  "about": "help"
+  "about": "help",
+  // "clock": "watch_later",
+  "radio": "wifi_tethering"
 );

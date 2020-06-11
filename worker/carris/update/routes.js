@@ -18,8 +18,10 @@ const updateFirebaseCarrisStops = async () => {
   carrisRoutesReference.set(transformToJSONObject(parsed));
 
   // Randomized order of route loading
-  for (const item of [...routes].sort(() => 0.5 - Math.random())) {
-    const route = await client.loadRoute(item.number);
+
+  const visibleRoutes = [...routes].filter(({ visible }) => visible);
+  for (const { number } of visibleRoutes.sort(() => 0.5 - Math.random())) {
+    const route = await client.loadRoute(number);
     if (route) {
       const routeData = transformToJSONObject(route, [
         'shape',
@@ -27,7 +29,7 @@ const updateFirebaseCarrisStops = async () => {
         'creationDate',
         'updateDate'
       ]);
-      const carrisRouteReference = database.ref('carris/routes/' + item.number);
+      const carrisRouteReference = database.ref(`carris/routes/${number}`);
       carrisRouteReference.set(routeData);
     }
     await delay(1000);

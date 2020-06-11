@@ -1,3 +1,5 @@
+'use strict';
+
 const { log, write } = require('./utilities');
 
 const Metro = require('.');

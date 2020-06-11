@@ -59,7 +59,7 @@ const cleanStops = async () => {
   const files = await fs.promises.readdir(base);
   const stopsWithNoRoutes = [];
   const invisibleStops = [];
-  for (let file of files) {
+  for (const file of files) {
     const filePath = path.join(base, file);
     const contents = require(filePath);
     if (!contents.routes.length) stopsWithNoRoutes.push(contents.publicId);

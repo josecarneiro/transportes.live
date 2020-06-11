@@ -1,13 +1,12 @@
 'use strict';
 
 const database = require('./../../firebase');
-
-const loadStops = require('./../services/list-stops');
+const client = require('./../client');
 
 const transformToJSONObject = require('./../../helpers/transform-to-json-object');
 
 const updateFirebaseCarrisStops = async () => {
-  const stops = await loadStops();
+  const stops = await client.listStops();
 
   const stopDetails = stops
     .filter(({ visible }) => visible)
@@ -18,6 +17,7 @@ const updateFirebaseCarrisStops = async () => {
       estimates: []
     }))
     .reduce((acc, { id, ...value }) => ({ ...acc, [id]: value }), {});
+
   const carrisStopsReference = database.ref('carris/stops');
   carrisStopsReference.set(transformToJSONObject(stopDetails));
 
@@ -28,6 +28,7 @@ const updateFirebaseCarrisStops = async () => {
       position: [latitude, longitude]
     }))
     .reduce((acc, { id, position }) => ({ ...acc, [id]: position }), {});
+
   const carrisStopPositionsReference = database.ref('carris/stop-positions');
   carrisStopPositionsReference.set(transformToJSONObject(stopPositions));
 };

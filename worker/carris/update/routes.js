@@ -1,17 +1,13 @@
 'use strict';
 
 const database = require('./../../firebase');
-
-const loadRoutes = require('./../services/load-routes');
-const loadSingleRoute = require('./../services/load-single-route');
+const client = require('./../client');
 
 const transformToJSONObject = require('./../../helpers/transform-to-json-object');
 const delay = require('./../../helpers/delay');
 
-// const convertArrayOfDocumentsToObject = items => items.reduce((acc, { id, ...value }) => ({ ...acc, [id]: value }), {});
-
 const updateFirebaseCarrisStops = async () => {
-  const routes = await loadRoutes();
+  const routes = await client.listRoutes();
   const parsed = routes.reduce(
     (acc, { number, ...value }) => ({ ...acc, [number]: value }),
     {}
@@ -20,19 +16,19 @@ const updateFirebaseCarrisStops = async () => {
   // having the option to deep merge would solve this
   const carrisRoutesReference = database.ref('carris/routes');
   carrisRoutesReference.set(transformToJSONObject(parsed));
+
   // Randomized order of route loading
-  for (let item of [...routes].sort(() => 0.5 - Math.random())) {
-    const route = await loadSingleRoute(item.number);
+  for (const item of [...routes].sort(() => 0.5 - Math.random())) {
+    const route = await client.loadRoute(item.number);
     if (route) {
+      const routeData = transformToJSONObject(route, [
+        'shape',
+        'order',
+        'creationDate',
+        'updateDate'
+      ]);
       const carrisRouteReference = database.ref('carris/routes/' + item.number);
-      carrisRouteReference.set(
-        transformToJSONObject(route, [
-          'shape',
-          'order',
-          'creationDate',
-          'updateDate'
-        ])
-      );
+      carrisRouteReference.set(routeData);
     }
     await delay(1000);
   }

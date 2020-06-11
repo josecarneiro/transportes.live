@@ -1,3 +1,5 @@
+'use strict';
+
 const config = require('./config');
 
 // process.env.FIREBASE_CONFIG = JSON.stringify(require('./key.json'));

@@ -1,3 +1,5 @@
+'use strict';
+
 const { log, write } = require('transportes/utilities');
 const extractTrainLocations = require('./extract');
 const estimates = require('./estimates.data.spec.json');

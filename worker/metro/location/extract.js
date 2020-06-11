@@ -1,6 +1,6 @@
 'use strict';
 
-const { log, write } = require('transportes/utilities');
+// const { log, write } = require('transportes/utilities');
 
 const lines = require('transportes/metro/data/lines');
 
@@ -43,9 +43,7 @@ const getTrains = piers => {
 };
 
 module.exports = piers => {
-  // log(piers);
   const trains = getTrains(piers);
-  // log(trains);
   return trains
     .filter(train => train.estimates.length >= 2)
     .map(train => {
@@ -92,9 +90,7 @@ module.exports = piers => {
         }
       };
     })
-    .map(train => {
-      return {
-        ...train
-      };
-    });
+    .map(train => ({
+      ...train
+    }));
 };

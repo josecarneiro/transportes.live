@@ -1,21 +1,33 @@
 'use strict';
 
 const database = require('./../../firebase');
+const client = require('./../client');
 
-const loadBusPositions = require('./../services/load-vehicle-positions');
+const transformToJSONObject = require('../../helpers/transform-to-json-object');
+const calculateBearing = require('./../../helpers/calculate-bearing');
 
-const transformToJSONObject = require('./../../helpers/transform-to-json-object');
+const transformVehicle = vehicle => {
+  const bearing =
+    vehicle.position && vehicle.previousPosition
+      ? calculateBearing(vehicle.previousPosition, vehicle.position)
+      : 0;
+  return {
+    bearing,
+    ...vehicle
+  };
+};
 
 const updateFirebaseCarrisBusPositions = async () => {
-  const vehicles = await loadBusPositions();
-
+  const unparsedVehicles = await client.listVehicles();
+  const vehicles = unparsedVehicles.map(transformVehicle);
   const vehicleReference = database.ref('carris/vehicles');
-  const positionReference = database.ref('carris/positions');
-
   const vehicleData = vehicles.reduce(
     (acc, { id, ...value }) => ({ ...acc, [id]: value }),
     {}
   );
+  vehicleReference.set(transformToJSONObject(vehicleData));
+
+  const positionReference = database.ref('carris/positions');
   const positionData = vehicles
     .map(({ bearing, ...vehicle }) => ({
       angle: Math.floor((180 * bearing) / Math.PI),
@@ -28,8 +40,6 @@ const updateFirebaseCarrisBusPositions = async () => {
       r: route
     }))
     .reduce((acc, { id, ...value }) => ({ ...acc, [id]: value }), {});
-
-  vehicleReference.set(transformToJSONObject(vehicleData));
   positionReference.set(transformToJSONObject(positionData));
 };
 

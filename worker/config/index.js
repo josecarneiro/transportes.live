@@ -1,3 +1,5 @@
+'use strict';
+
 const {
   FIREBASE_DATABASE_NAME,
   FIREBASE_CREDENTIALS_PATH,

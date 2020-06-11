@@ -1,3 +1,5 @@
+'use strict';
+
 const round = (value, digits) =>
   Math.round(value * 10 ** digits) / 10 ** digits;
 

@@ -1,11 +1,12 @@
-const database = require('./../firebase');
+'use strict';
 
-const loadGiraStations = require('./load');
+const client = require('./client');
+const database = require('./../firebase');
 
 const transformToJSONObject = require('./../helpers/transform-to-json-object');
 
 const updateFirebaseGiraStations = async () => {
-  const stations = await loadGiraStations();
+  const stations = await client.listStations();
   const stationData = stations
     .map(
       ({

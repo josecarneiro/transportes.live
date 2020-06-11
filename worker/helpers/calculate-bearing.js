@@ -1,3 +1,5 @@
+'use strict';
+
 const calculateBearing = (
   { latitude: latitudeStart, longitude: longitudeStart },
   { latitude: latitudeEnd, longitude: longitudeEnd }

@@ -1,8 +1,8 @@
 'use strict';
 
 const loop = (callback, delay) =>
-  setTimeout(() => {
-    callback();
+  setTimeout(async () => {
+    await callback();
     loop(callback, delay);
   }, delay);
 

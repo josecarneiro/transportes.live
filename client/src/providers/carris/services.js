@@ -2,6 +2,7 @@ import {
   RealtimeDatabaseService,
   DatabaseService
 } from '@/services/realtime-database';
+import loadData from '@/services/load-data';
 
 class VehiclePositionService extends RealtimeDatabaseService {
   constructor(handler) {
@@ -36,22 +37,22 @@ class EstimatesService extends DatabaseService {
   }
 }
 
-const routeService = new DatabaseService('/carris/routes');
-const loadRoute = id => routeService.load(id);
-
-// const stopPositionService = new DatabaseService('/carris/stop-positions');
-// const listStops = () => stopPositionService.load();
+const loadRoute = async id => {
+  const route = await loadData(`/built/carris/route/${id}.json`);
+  return route;
+};
 
 const listStops = async () => {
-  const response = await fetch('/built/stop-list.json');
-  const data = await response.json();
+  const stops = await loadData('/built/carris/stop/list.json');
   return Object.fromEntries(
-    Object.entries(data).map(([key, [lat, lng]]) => [key, { lat, lng }])
+    Object.entries(stops).map(([key, [lat, lng]]) => [key, { lat, lng }])
   );
 };
 
-const stopService = new DatabaseService('/carris/stop-positions');
-const loadStop = id => stopService.load(`/carris/stops/${id}`);
+const loadStop = async id => {
+  const stop = await loadData(`/built/carris/stop/${id}.json`);
+  return stop;
+};
 
 export {
   VehiclePositionService,

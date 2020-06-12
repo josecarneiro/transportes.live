@@ -11,6 +11,6 @@ dist
 # Editor directories and files
 .vscode
 
-/client/public/built/stop
+/client/public/built
 
 tmp

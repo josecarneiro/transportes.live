@@ -9,9 +9,6 @@ module.exports = {
   appleMobileWebAppStatusBarStyle: 'black-translucent',
   // appleMobileWebAppStatusBarStyle: 'default',
   appleMobileWebAppCapable: 'yes',
-  workboxOptions: {
-    skipWaiting: true
-  },
   manifestOptions: {
     icons: [
       {

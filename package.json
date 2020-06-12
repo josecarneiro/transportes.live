@@ -8,7 +8,7 @@
     "yarn": "^1.17.3"
   },
   "scripts": {
-    "client:build": "cd ./client && yarn install --production=false && yarn prepare && yarn build",
+    "client:build": "cd ./client && yarn install --production=false && yarn build",
     "worker": "cd ./worker && yarn start",
     "fix": "prettier --write \"**/*.js\"",
     "lint": "eslint \"**/*.js\" && prettier --check \"**/*.js\"",

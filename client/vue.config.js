@@ -5,6 +5,7 @@ const pwaConfig = require('./pwa.config');
 
 module.exports = {
   lintOnSave: false,
+  productionSourceMap: !process.env.NETLIFY,
   css: {
     loaderOptions: {
       sass: {
@@ -21,6 +22,10 @@ module.exports = {
     });
   },
   pwa: {
-    ...pwaConfig
+    ...pwaConfig,
+    workboxOptions: {
+      skipWaiting: true,
+      exclude: [/^.*built\/.*$/]
+    }
   }
 };

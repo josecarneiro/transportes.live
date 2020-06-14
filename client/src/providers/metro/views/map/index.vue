@@ -1,6 +1,15 @@
 <template lang="pug">
   div
-    metro-infrastructure-layer
+    metro-line(
+      v-for="line in lines"
+      :key="line.id"
+      v-bind="{ ...line }"
+    )
+    metro-station(
+      v-for="station in stations"
+      :key="station.id"
+      v-bind="{ ...station }"
+    )
     metro-train(
       v-for="(train, index) in markers"
       :key="index",
@@ -9,11 +18,15 @@
 </template>
 
 <script>
-  import { TrainPositionService } from '@/providers/metro/services';
+  import {
+    TrainPositionService,
+    loadInfrastructure
+  } from '@/providers/metro/services';
 
   import metroStations from '@/data/metro/stations';
 
-  import MetroInfrastructureLayer from './infrastructure-layer';
+  import MetroStation from '@/providers/metro/components/station';
+  import MetroLine from '@/providers/metro/components/line';
   import MetroTrain from '@/providers/metro/components/train';
 
   const interpolatePositions = (start, end, progress) => ({
@@ -26,37 +39,41 @@
 
   // const convertPosition = ({ latitude: lat, longitude: lng }) => ({ lat, lng });
 
-  const extractMarkersFromTrains = (trains) =>
-    trains.map((train) => {
+  const extractMarkersFromTrains = trains =>
+    trains.map(({ id, ...train }) => {
       const [startStationId, endStationId] = train.position.stations;
       const progress = train.position.progress;
       const startStation = metroStations.find(
-        ({ id }) => startStationId === id
+        station => startStationId === station.id
       );
-      const endStation = metroStations.find(({ id }) => endStationId === id);
+      const endStation = metroStations.find(
+        station => endStationId === station.id
+      );
       const position = interpolatePositions(startStation, endStation, progress);
       const direction = extractAngle(startStation, endStation);
       return {
-        ...train,
+        id,
         position,
-        direction,
-        name: train.id
-        // type: 'metro'
+        direction
       };
     });
 
   export default {
     data: () => ({
       service: null,
-      trains: []
+      trains: [],
+      stations: {},
+      lines: {}
     }),
     computed: {
       markers() {
         const { trains } = this;
-        return [...extractMarkersFromTrains(trains)];
+        const markers = extractMarkersFromTrains(trains);
+        return markers;
       }
     },
     created() {
+      this.loadData();
       this.service = new TrainPositionService(this.updateTrains);
       this.service.listen();
     },
@@ -66,11 +83,17 @@
     methods: {
       updateTrains(trains) {
         this.trains = [...TrainPositionService.parse(trains)];
+      },
+      async loadData() {
+        const { lines, stations } = await loadInfrastructure();
+        this.lines = Object.assign(this.lines, {}, lines);
+        this.stations = Object.assign(this.stations, {}, stations);
       }
     },
     components: {
-      MetroInfrastructureLayer,
-      MetroTrain
+      MetroTrain,
+      MetroStation,
+      MetroLine
     }
   };
 </script>

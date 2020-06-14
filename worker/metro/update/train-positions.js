@@ -6,11 +6,11 @@ const client = require('./../client');
 const transformToJSONObject = require('./../../helpers/transform-to-json-object');
 
 const extractTrainLocations = require('./../location/extract');
-const lines = require('transportes/metro/data/lines');
-const stations = require('transportes/metro/data/stations');
+// const lines = require('transportes/metro/data/lines');
+// const stations = require('transportes/metro/data/stations');
 
 const updateFirebaseMetroTrainPositions = async () => {
-  const rawTrains = await client.loadEstimates();
+  const rawTrains = await client.listEstimates();
   const trains = extractTrainLocations(rawTrains);
   const data = trains.reduce(
     (acc, { id, ...value }) => ({ ...acc, [id]: value }),

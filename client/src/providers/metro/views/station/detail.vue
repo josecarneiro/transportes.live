@@ -1,9 +1,9 @@
 <template lang="pug">
   view-aside
     h1 Station Detail
-    div(v-for="pier in station")
-      strong {{ pier.pier }}
-      div(v-for="arrival in pier.arrivals")
+    div(v-for="platform in station")
+      strong {{ platform.platform }}
+      div(v-for="arrival in platform.arrivals")
         strong {{ arrival.train }}: 
         span
           time-until(
@@ -13,7 +13,7 @@
 </template>
 
 <script>
-  import { StationDetailService } from '@/providers/metro/services';
+  import { StationEstimatesService } from '@/providers/metro/services';
 
   import TimeUntil from '@/components/time-until';
   import ViewAside from '@/components/view/aside';
@@ -31,7 +31,7 @@
         handler() {
           if (this.service) this.service.destroy();
           this.station = null;
-          this.service = new StationDetailService(
+          this.service = new StationEstimatesService(
             this.id.toUpperCase(),
             this.updateStation
           );

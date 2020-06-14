@@ -7,16 +7,18 @@ const transformToJSONObject = require('./../worker/helpers/transform-to-json-obj
 
 const stops = require('transportes-bundled-data/dist/carris/stops/list');
 const routes = require('transportes-bundled-data/dist/carris/routes/all');
+const stations = require('transportes-bundled-data/dist/metro/stations/list');
+const lines = require('transportes/metro/data/lines');
 
 const DIRECTORY = path.join(__dirname, 'public/built');
 const CARRIS_STOP_DIRECTORY = path.join(DIRECTORY, 'carris/stop');
 const CARRIS_ROUTE_DIRECTORY = path.join(DIRECTORY, 'carris/route');
+const METRO_DIRECTORY = path.join(DIRECTORY, 'metro');
+const METRO_STATIONS_DIRECTORY = path.join(DIRECTORY, 'metro/station');
 
-const buildCarrisSingleStop = async id => {
-  const stop = await stops.find(({ publicId }) => publicId === id);
-
+const buildCarrisSingleStop = async stop => {
+  const { publicId: id } = stop;
   const data = transformToJSONObject(stop);
-
   await writeFile(CARRIS_STOP_DIRECTORY, id, data);
 
   // const stopPositions = stops
@@ -30,7 +32,7 @@ const buildCarrisSingleStop = async id => {
   // carrisStopPositionsReference.set(transformToJSONObject(stopPositions));
 };
 
-const buildCarrisStops = async () => {
+const buildCarrisStops = async stops => {
   const stopPositions = stops
     .filter(({ visible }) => visible)
     .map(({ publicId: id, position: { latitude, longitude } }) => ({
@@ -38,17 +40,68 @@ const buildCarrisStops = async () => {
       position: [latitude, longitude]
     }))
     .reduce((acc, { id, position }) => ({ ...acc, [id]: position }), {});
-
   const data = transformToJSONObject(stopPositions);
-
   await writeFile(CARRIS_STOP_DIRECTORY, 'list', data);
 };
 
-const buildCarrisSingleRoute = async id => {
-  const route = await routes.find(({ number }) => number === id);
-
-  await writeFile(CARRIS_ROUTE_DIRECTORY, id, transformToJSONObject(route));
+const buildCarrisSingleRoute = async route => {
+  const { number } = route;
+  await writeFile(CARRIS_ROUTE_DIRECTORY, number, transformToJSONObject(route));
 };
+
+const buildMetroStationsAndLines = async stations => {
+  const stationData = stations
+    .map(({ id, position: { latitude, longitude } }) => ({
+      id,
+      position: [latitude, longitude]
+    }))
+    .reduce((acc, { id, position }) => ({ ...acc, [id]: position }), {});
+  const lineData = lines.reduce(
+    (acc, { id, stations }) => ({ ...acc, [id]: stations }),
+    {}
+  );
+  const data = transformToJSONObject({
+    stations: stationData,
+    lines: lineData
+  });
+  await writeFile(METRO_DIRECTORY, 'data', data);
+};
+
+const buildMetroSingleStation = async ({ id, name, platforms }) => {
+  const stationData = {
+    n: name,
+    f: platforms.reduce(
+      (acc, { id, destination }) => ({ ...acc, [id]: destination }),
+      {}
+    )
+  };
+  const data = transformToJSONObject(stationData);
+  await writeFile(METRO_STATIONS_DIRECTORY, id, data);
+};
+
+(async () => {
+  await buildCarrisStops(stops);
+  for (const stop of stops) {
+    await buildCarrisSingleStop(stop);
+  }
+  for (const route of routes) {
+    await buildCarrisSingleRoute(route);
+  }
+  await buildMetroStationsAndLines(stations);
+  for (const station of stations) {
+    await buildMetroSingleStation(station);
+  }
+  // await cleanStops();
+  // stops.sort(() => 0.5 - Math.random());
+  // for (let stop of stops) {
+  //   const id = stop.publicId;
+  //   const routes = await client.listRoutes({ stop: id });
+  //   const routeIds = routes.map(({ number: id }) => id);
+  //   const data = { ...stop, routes: routeIds };
+  //   await writeFile(DIRECTORY + '/stop', `${id}`, data, { pretty: true });
+  //   await delay(200);
+  // }
+})();
 
 // const cleanStops = async () => {
 //   const base = path.join(DIRECTORY, 'stop');
@@ -70,25 +123,3 @@ const buildCarrisSingleRoute = async id => {
 //   );
 //   await writeFile(DIRECTORY, 'stop-list', filteredStops);
 // };
-
-(async () => {
-  console.log('Copying provider static data...');
-  await buildCarrisStops();
-  for (const stop of stops) {
-    await buildCarrisSingleStop(stop.publicId);
-  }
-  for (const route of routes) {
-    await buildCarrisSingleRoute(route.number);
-  }
-  // await cleanStops();
-  // stops.sort(() => 0.5 - Math.random());
-  // for (let stop of stops) {
-  //   const id = stop.publicId;
-  //   const routes = await client.listRoutes({ stop: id });
-  //   const routeIds = routes.map(({ number: id }) => id);
-  //   const data = { ...stop, routes: routeIds };
-  //   await writeFile(DIRECTORY + '/stop', `${id}`, data, { pretty: true });
-  //   await delay(200);
-  // }
-  console.log('Provider static data copy complete!');
-})();

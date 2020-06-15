@@ -1,9 +1,10 @@
 'use strict';
 
-const transformToJSONObject = require('./../../helpers/transform-to-json-object');
-
 const database = require('./../../firebase');
 const client = require('./../client');
+
+const transformToJSONObject = require('./../../helpers/transform-to-json-object');
+const { serializeEstimate } = require('./../serializers');
 const { log } = require('transportes/utilities');
 
 const loadEstimates = async ids => {
@@ -39,13 +40,16 @@ const updateFirebaseCarrisStops = async () => {
   ids.sort(() => 0.5 - Math.random());
 
   const estimates = await loadEstimates(ids.slice(0, MAXIMUM_COUNT));
-  const data = estimates.reduce(
-    (acc, { publicId: id, estimates: value }) => ({ ...acc, [id]: value }),
+  const estimatesData = estimates.reduce(
+    (acc, { publicId: id, estimates: value }) => ({
+      ...acc,
+      [id]: value.map(serializeEstimate)
+    }),
     {}
   );
 
   const carrisStopsReference = database.ref('carris/estimates');
-  carrisStopsReference.update(transformToJSONObject(data));
+  carrisStopsReference.update(transformToJSONObject(estimatesData));
 };
 
 module.exports = updateFirebaseCarrisStops;

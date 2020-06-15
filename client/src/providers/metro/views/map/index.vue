@@ -82,7 +82,9 @@
     },
     methods: {
       updateTrains(trains) {
-        this.trains = [...TrainPositionService.parse(trains)];
+        if (trains) {
+          this.trains = [...TrainPositionService.parse(trains)];
+        }
       },
       async loadData() {
         const { lines, stations } = await loadInfrastructure();

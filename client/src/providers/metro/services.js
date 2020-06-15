@@ -11,7 +11,7 @@ class TrainPositionService extends RealtimeDatabaseService {
 
 class StationEstimatesService extends RealtimeDatabaseService {
   constructor(id, handler) {
-    super(`/metro/stations/${id}`, handler);
+    super(`/metro/stations/${id.toUpperCase()}`, handler);
   }
 }
 
@@ -33,4 +33,21 @@ const loadInfrastructure = async () => {
   };
 };
 
-export { TrainPositionService, StationEstimatesService, loadInfrastructure };
+const loadStationDetails = async id => {
+  const station = await loadData(`/built/metro/station/${id}.json`);
+  return {
+    id,
+    name: station.n,
+    platforms: Object.entries(station.f).map(([id, direction]) => ({
+      id,
+      direction
+    }))
+  };
+};
+
+export {
+  TrainPositionService,
+  StationEstimatesService,
+  loadInfrastructure,
+  loadStationDetails
+};

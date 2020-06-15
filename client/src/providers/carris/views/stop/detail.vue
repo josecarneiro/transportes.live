@@ -9,28 +9,19 @@
     template(v-else)
       ul
         li(
-          v-for="vehicle of estimates"
-          :key="vehicle.plate"
+          v-for="{ id, plate, route, routeName, time } of estimates"
+          :key="plate"
         )
-          router-link(
-            v-if="vehicle.id"
-            :to="{ name: 'carris/vehicle', params: { id: vehicle.id } }"
+          component(
+            :is="id ? 'router-link' : 'div'",
+            :to="id && { name: 'carris/vehicle', params: { id } }"
           )
-            strong {{ vehicle.route }}
-            span  {{ vehicle.routeName }}
+            strong {{ route }}
+            span  {{ routeName }}
             |  - 
             strong
               time-until(
-                :date="vehicle.time"
-                :interval="5"
-              )
-          div(v-else)
-            strong {{ vehicle.route }}
-            span  {{ vehicle.routeName }}
-            |  - 
-            strong
-              time-until(
-                :date="vehicle.time"
+                :date="time"
                 :interval="5"
               )
 </template>

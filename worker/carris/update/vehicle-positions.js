@@ -5,6 +5,7 @@ const client = require('./../client');
 
 const transformToJSONObject = require('../../helpers/transform-to-json-object');
 const calculateBearing = require('./../../helpers/calculate-bearing');
+const { serializeVehicle, serializePosition } = require('./../serializers');
 
 const transformVehicle = vehicle => {
   const bearing =
@@ -20,25 +21,15 @@ const transformVehicle = vehicle => {
 const updateFirebaseCarrisBusPositions = async () => {
   const unparsedVehicles = await client.listVehicles();
   const vehicles = unparsedVehicles.map(transformVehicle);
+  const vehicleData = vehicles
+    .map(serializeVehicle)
+    .reduce((acc, { id, ...value }) => ({ ...acc, [id]: value }), {});
   const vehicleReference = database.ref('carris/vehicles');
-  const vehicleData = vehicles.reduce(
-    (acc, { id, ...value }) => ({ ...acc, [id]: value }),
-    {}
-  );
   vehicleReference.set(transformToJSONObject(vehicleData));
 
   const positionReference = database.ref('carris/positions');
   const positionData = vehicles
-    .map(({ bearing, ...vehicle }) => ({
-      angle: Math.floor((180 * bearing) / Math.PI),
-      ...vehicle
-    }))
-    .map(({ id, angle, position: { latitude, longitude }, route }) => ({
-      id,
-      a: angle,
-      p: [latitude, longitude],
-      r: route
-    }))
+    .map(serializePosition)
     .reduce((acc, { id, ...value }) => ({ ...acc, [id]: value }), {});
   positionReference.set(transformToJSONObject(positionData));
 };

@@ -10,7 +10,7 @@
 </template>
 
 <script>
-  import { VehicleDetailService } from '@/services/carris';
+  // import { VehicleDetailService } from '@/services/carris';
 
   export default {
     props: {
@@ -23,15 +23,15 @@
       id: {
         immediate: true,
         handler() {
-          if (this.service) this.service.destroy();
+          // if (this.service) this.service.destroy();
           this.vehicle = null;
-          this.service = new VehicleDetailService(this.id, this.updateVehicle);
-          this.service.listen();
+          // this.service = new VehicleDetailService(this.id, this.updateVehicle);
+          // this.service.listen();
         }
       }
     },
     destroyed() {
-      if (this.service) this.service.destroy();
+      // if (this.service) this.service.destroy();
     },
     methods: {
       updateVehicle(data) {

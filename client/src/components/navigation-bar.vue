@@ -39,6 +39,8 @@
     top: env(safe-area-inset-top);
     left: 0;
     z-index: 300;
+    display: flex;
+    justify-content: space-between;
     width: 100%;
     padding: 1em;
     pointer-events: none;
@@ -56,12 +58,9 @@
       //   color: #42b983;
       // }
     }
-    button + a {
-      display: none;
-    }
     @media (min-width: 30em) {
-      a {
-        display: inline-flex;
+      button {
+        display: none;
       }
     }
   }

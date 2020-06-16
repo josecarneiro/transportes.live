@@ -28,11 +28,11 @@ describe('Metro', () => {
     it('should load station wait times', async () => {
       log(
         preparedEstimates
-          .map(({ station, pier }) => [station, pier])
+          .map(({ station, platform }) => [station, platform])
           .reduce(
-            (acc, [station, pier]) => ({
+            (acc, [station, platform]) => ({
               ...acc,
-              [station]: [...(acc[station] || []), pier]
+              [station]: [...(acc[station] || []), platform]
             }),
             {}
           )

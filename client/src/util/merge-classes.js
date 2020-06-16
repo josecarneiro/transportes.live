@@ -1,4 +1,3 @@
-/* eslint-disable */
 export default (...classes) =>
   classes
     .filter(item => !!item)

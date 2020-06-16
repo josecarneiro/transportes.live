@@ -13,6 +13,7 @@ class GenericDatabaseService {
   }
 
   static parse(data) {
+    if (!data) return data;
     return Object.entries(data).map(([id, value]) => ({ id, ...value }));
   }
 
@@ -30,7 +31,7 @@ class DatabaseService extends GenericDatabaseService {
   async load(id) {
     const reference = id ? this.reference.child(id) : this.reference;
     const snapshot = await reference.once('value');
-    return this._parse(snapshot);
+    return this.parse(this._parse(snapshot));
   }
 }
 

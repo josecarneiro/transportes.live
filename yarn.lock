@@ -848,10 +848,25 @@ tmp@^0.0.33:
   dependencies:
     os-tmpdir "~1.0.2"
 
-transportes@^0.0.11:
-  version "0.0.11"
-  resolved "https://registry.yarnpkg.com/transportes/-/transportes-0.0.11.tgz#f2f35bbd44afd2ac941af0176872de1f9189a6e0"
-  integrity sha512-PSxIEsENWj9+Mhg5MUS9vV0FIZs/3gIn0XCk/Oyo0Zi4lilkNLE3pzLx/x+Hme+VVh02hUf8UmHYmqICGIdkgA==
+transportes-bundled-data@^0.0.5:
+  version "0.0.5"
+  resolved "https://registry.yarnpkg.com/transportes-bundled-data/-/transportes-bundled-data-0.0.5.tgz#1b0ffbbe986d4bfb0353e4c903f39a4fe10ccd02"
+  integrity sha512-Y/TxsR3grrUK/KBUtVUq0jDD9AHb4EC0mi0mFZwLa+OJV1YA4y6KsOLlnCaKq0udwhNKbONMA9dY6mRlnvax4Q==
+  dependencies:
+    transportes "^0.0.12"
+
+transportes@^0.0.12:
+  version "0.0.12"
+  resolved "https://registry.yarnpkg.com/transportes/-/transportes-0.0.12.tgz#a47ec6c7c4e35227918f6fa4b7f975da96b50d25"
+  integrity sha512-A5o1CDrzdXwMYEc1uTEGzNhRANjLneQo6F1XdiOUu8dNYH7kuuydlRTlcnAzG/gMsu/B3OJLVrBaq/lntniIAQ==
+  dependencies:
+    axios "^0.19.2"
+    moment-timezone "^0.5.31"
+
+transportes@^0.0.13:
+  version "0.0.13"
+  resolved "https://registry.yarnpkg.com/transportes/-/transportes-0.0.13.tgz#eb5ddcbb92fc1f82330c9f480b1a5527e43e7e15"
+  integrity sha512-X0W65QqZW4n41X2k+XU+Y+NIjFQh3RBj7iKKg+n5JeQX99gJTDpzEDiGP87UU3/GqkYSt0a59NMDrUVRvLaoNw==
   dependencies:
     axios "^0.19.2"
     moment-timezone "^0.5.31"

@@ -59,6 +59,7 @@
       border: 2px solid grey;
       span {
         font-size: 0.5em;
+        color: grey(0.1);
       }
     }
   }

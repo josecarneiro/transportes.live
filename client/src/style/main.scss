@@ -1,9 +1,10 @@
-// $sans-serif: Avenir, Helvetica, Arial, sans-serif;
-$base-sans-serif-font-stack: -apple-system, Roboto, BlinkMacSystemFont, Segoe UI,
+$base-sans-serif-font-stack: -apple-system, BlinkMacSystemFont, Segoe UI,
   Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji;
-$sans-serif: Avenir, $base-sans-serif-font-stack;
+// $sans-serif: Avenir, $base-sans-serif-font-stack;
+$sans-serif: Roboto, $base-sans-serif-font-stack;
 // $text-color: #2c3e50;
-$text-color: #1e1e1f;
+// $text-color: hsl(240, 2%, 12%);
+$text-color: grey(0.1);
 
 * {
   &,
@@ -17,6 +18,8 @@ html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-tap-highlight-color: transparent;
+  /* Prevent font scaling in mobile devices in landscape mode */
+  -webkit-text-size-adjust: 100%;
   box-sizing: border-box;
   // font-size: 14 / 16 * 1em;
   // @include screen(small) {
@@ -36,6 +39,16 @@ body,
 .app {
   width: 100%;
   height: 100%;
+}
+
+noscript {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  min-height: 100vh;
 }
 
 a {

@@ -30,10 +30,12 @@
       font-weight: bold;
       // border-radius: 0.25em;
       border-radius: 0.25em;
-      border-top-right-radius: 1em;
-      border-top-left-radius: 1em;
+      // border-top-right-radius: 1em;
+      // border-top-left-radius: 1em;
       span {
-        font-size: 8 / 16 * 1em;
+        // font-size: 8 / 16 * 1em;
+        // font-size: 8 / 16 * 1rem;
+        font-size: 0.5rem;
       }
     }
   }

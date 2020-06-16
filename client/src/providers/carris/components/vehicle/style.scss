@@ -1,5 +1,8 @@
 @import './../../style/variables.scss';
 
+$bus-font-size: 0.5rem;
+// $bus-font-size: 8px;
+
 .bus {
   .map--idle & {
     transition: all 1s ease;
@@ -13,6 +16,8 @@
     color: $carris-blue;
     font-weight: bold;
     background-color: $carris-yellow;
+    font-size: $bus-font-size;
+    letter-spacing: -0.5px;
     // font-size: 0.675em;
     // font-size: 0.675em;
     // position: relative;
@@ -31,10 +36,10 @@
     //   border-bottom: $size * 2 solid $carris-blue;
     //   border-top: 0;
     // }
-    span {
-      font-size: 0.5em;
-      letter-spacing: -0.5px;
-    }
+    // span {
+    //   // font-size: 0.5em;
+    //   letter-spacing: inherit;
+    // }
   }
 }
 

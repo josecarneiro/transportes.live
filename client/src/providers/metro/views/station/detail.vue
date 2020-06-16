@@ -1,19 +1,24 @@
 <template lang="pug">
   view-aside
-    h1 Station Detail
-    div(v-for="pier in station")
-      strong {{ pier.pier }}
-      div(v-for="arrival in pier.arrivals")
-        strong {{ arrival.train }}: 
-        span
-          time-until(
-            :date="new Date(arrival.time)",
-            :interval="5"
-          )
+    template(v-if="station")
+      h3(v-text="station.name")
+      div(v-for="(arrivals, platform) in platforms")
+        //- strong {{ platform }}
+        strong Direction {{ station.platforms[platform] }}
+        div(v-for="{ train, time } in arrivals")
+          strong {{ train }}: 
+          span
+            time-until(
+              :date="new Date(time)",
+              :interval="5"
+            )
 </template>
 
 <script>
-  import { StationDetailService } from '@/providers/metro/services';
+  import {
+    StationEstimatesService,
+    loadStationDetails
+  } from '@/providers/metro/services';
 
   import TimeUntil from '@/components/time-until';
   import ViewAside from '@/components/view/aside';
@@ -23,7 +28,8 @@
       id: String
     },
     data: () => ({
-      station: null
+      station: null,
+      platforms: {}
     }),
     watch: {
       id: {
@@ -31,11 +37,13 @@
         handler() {
           if (this.service) this.service.destroy();
           this.station = null;
-          this.service = new StationDetailService(
-            this.id.toUpperCase(),
-            this.updateStation
+          this.platforms = {};
+          this.service = new StationEstimatesService(
+            this.id,
+            this.updateEstimates
           );
           this.service.listen();
+          this.loadData();
         }
       }
     },
@@ -43,8 +51,12 @@
       if (this.service) this.service.destroy();
     },
     methods: {
-      updateStation(data) {
-        this.station = data;
+      updateEstimates(platforms) {
+        this.platforms = Object.assign({}, this.platforms, platforms);
+      },
+      async loadData() {
+        const station = await loadStationDetails(this.id);
+        this.station = Object.assign({}, this.station, station);
       }
     },
     components: {

@@ -6,19 +6,19 @@ const lines = require('transportes/metro/data/lines');
 
 const limitValue = (value, max, min) => Math.max(Math.min(value, max), min);
 
-const getTrains = piers => {
+const getTrains = platforms => {
   const trains = [];
   for (const {
     station,
-    pier,
+    platform,
     destination,
     arrivals,
     time: dataTime
-  } of piers) {
+  } of platforms) {
     for (const { train, time } of arrivals) {
       const estimate = {
         station,
-        pier,
+        platform,
         destination,
         computationTime: new Date(),
         referenceTime: dataTime,
@@ -42,8 +42,8 @@ const getTrains = piers => {
   return trains;
 };
 
-module.exports = piers => {
-  const trains = getTrains(piers);
+module.exports = platforms => {
+  const trains = getTrains(platforms);
   return trains
     .filter(train => train.estimates.length >= 2)
     .map(train => {

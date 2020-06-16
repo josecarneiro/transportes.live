@@ -15,7 +15,8 @@
     "heroku-postbuild": "cd ./worker && yarn install"
   },
   "dependencies": {
-    "transportes": "^0.0.11"
+    "transportes": "^0.0.13",
+    "transportes-bundled-data": "^0.0.5"
   },
   "devDependencies": {
     "eslint": "^7.2.0",

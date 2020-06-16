@@ -3,8 +3,9 @@
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport"
-    content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover""
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover"
     />
     <!-- <link
       href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap"
@@ -14,8 +15,12 @@
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet"
     />
-    <link href="https://maps.googleapis.com" rel="preconnect" crossorigin />
     <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
+    <link href="https://maps.gstatic.com" rel="preconnect" crossorigin />
+    <link href="https://maps.googleapis.com" rel="preconnect" crossorigin />
+    <link href="https://storage.googleapis.com" rel="preconnect" crossorigin />
+    <!-- The following might be redundant -->
+    <!-- <link href="https://fonts.googleapis.com" rel="preconnect" crossorigin /> -->
 
     <title><%= htmlWebpackPlugin.options.title %></title>
 
@@ -117,10 +122,10 @@
   </head>
   <body>
     <noscript>
-      <strong>
-        We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work
-        properly without JavaScript enabled. Please enable it to continue.
-      </strong>
+      We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work
+      properly without JavaScript enabled.
+      <br />
+      Please enable it to continue.
     </noscript>
     <div id="app"></div>
   </body>

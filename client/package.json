@@ -4,12 +4,12 @@
   "private": true,
   "scripts": {
     "dev": "vue-cli-service serve",
-    "build": "vue-cli-service build --modern",
+    "build": "node build-provider-resources.js && vue-cli-service build --modern",
     "test:unit": "vue-cli-service test:unit",
     "test:e2e": "vue-cli-service test:e2e",
     "lint": "vue-cli-service lint",
-    "generate-resources:alt": "npx pwa-asset-generator public/images/transportes-iconographic-centered.png --favicon --portrait-only --index public/images/output/index.html --manifest public/images/output/manifest.json --background \"white\" public/images/icons",
-    "generate-resources": "npx pwa-asset-generator public/images/transportes-iconographic-centered.png --favicon --portrait-only --background \"white\" public/images/icons"
+    "prepare-provider-data": "node build-provider-resources.js",
+    "prepare-provider-data:dev": "nodemon build-provider-resources.js -e js"
   },
   "dependencies": {
     "@firebase/app": "^0.6.3",

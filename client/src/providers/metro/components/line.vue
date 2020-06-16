@@ -23,10 +23,12 @@
     },
     computed: {
       path() {
-        return this.stations.map(({ latitude: lat, longitude: lng }) => ({
-          lat,
-          lng
-        }));
+        return this.stations.map(
+          ({ position: { latitude: lat, longitude: lng } }) => ({
+            lat,
+            lng
+          })
+        );
       },
       options() {
         return {

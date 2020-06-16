@@ -1,7 +1,28 @@
 <template lang="pug">
   .nav
+    button(
+      v-if="displayBackButton",
+      @click="navigateBack"
+    ) Go Back
     router-link(to="/") transportes.live
 </template>
+
+<script>
+  export default {
+    computed: {
+      displayBackButton() {
+        const { matched } = this.$route;
+        const hasOverlay = matched.some(({ components }) => components.overlay);
+        return hasOverlay;
+      }
+    },
+    methods: {
+      navigateBack() {
+        this.$router.go(-1);
+      }
+    }
+  };
+</script>
 
 <style lang="scss">
   @import '~@/style/utilities.scss';
@@ -15,8 +36,11 @@
     width: 100%;
     padding: 1em;
     pointer-events: none;
-    a {
+    & > * {
       pointer-events: initial;
+    }
+    a,
+    button {
       display: inline-flex;
       padding: 1.25em;
       font-weight: bold;
@@ -25,6 +49,14 @@
       // &.router-link-exact-active {
       //   color: #42b983;
       // }
+    }
+    button + a {
+      display: none;
+    }
+    @media (min-width: 30em) {
+      a {
+        display: inline-flex;
+      }
     }
   }
 </style>

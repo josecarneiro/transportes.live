@@ -1,7 +1,7 @@
 <template lang="pug">
   view-aside
-    h1 Station Detail
     template(v-if="station")
+      h3(v-text="station.name")
       div(v-for="(arrivals, platform) in platforms")
         //- strong {{ platform }}
         strong Direction {{ station.platforms[platform] }}
@@ -37,6 +37,7 @@
         handler() {
           if (this.service) this.service.destroy();
           this.station = null;
+          this.platforms = {};
           this.service = new StationEstimatesService(
             this.id,
             this.updateEstimates

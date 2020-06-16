@@ -44,8 +44,8 @@ export default {
               to: { name: 'carris/vehicle', params: { id } }
             }
           },
-          // route
-          [createElement('span', route)]
+          route
+          // [createElement('span', route)]
         )
       ]
     )

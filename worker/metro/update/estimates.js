@@ -43,7 +43,7 @@ const extractEstimates = estimates =>
 const updateFirebaseMetroEstimates = async () => {
   const unparsedEstimates = await client.listEstimates();
   const estimates = extractEstimates(unparsedEstimates);
-  log(estimates);
+  // log(estimates);
 
   const metroPositionReference = database.ref('metro/stations');
   metroPositionReference.set(transformToJSONObject(estimates));

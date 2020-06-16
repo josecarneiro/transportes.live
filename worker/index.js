@@ -7,6 +7,6 @@ const runCarris = require('./carris/run');
 const runMetro = require('./metro/run');
 const runGira = require('./gira/run');
 
-// runCarris();
+runCarris();
 runMetro();
-// runGira();
+runGira();

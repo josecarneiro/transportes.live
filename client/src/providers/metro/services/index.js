@@ -1,7 +1,7 @@
 import { RealtimeDatabaseService } from '@/services/realtime-database';
 import loadData from '@/services/load-data';
 
-import metroData from './../../../public/built/metro/data';
+import metroData from '@/../public/built/metro/data';
 
 class TrainPositionService extends RealtimeDatabaseService {
   constructor(handler) {
@@ -9,9 +9,27 @@ class TrainPositionService extends RealtimeDatabaseService {
   }
 }
 
+const deserializeArrival = ({ i: train, t: time }) => ({
+  train,
+  time: new Date(time * 1000)
+});
+
+const deserializeEstimates = estimates =>
+  Object.fromEntries(
+    Object.entries(estimates).map(([platform, arrivals]) => [
+      platform,
+      arrivals.map(deserializeArrival)
+    ])
+  );
+
 class StationEstimatesService extends RealtimeDatabaseService {
   constructor(id, handler) {
     super(`/metro/stations/${id.toUpperCase()}`, handler);
+  }
+
+  parse(data) {
+    if (!data) return data;
+    return deserializeEstimates(data);
   }
 }
 
@@ -26,10 +44,13 @@ const loadInfrastructure = async () => {
         return { id, position: { latitude, longitude } };
       })
     })),
-    stations: Object.entries(stations).map(([id, [latitude, longitude]]) => ({
-      id,
-      position: { latitude, longitude }
-    }))
+    stations: Object.entries(stations).map(
+      ([id, [latitude, longitude, name]]) => ({
+        id,
+        name,
+        position: { latitude, longitude }
+      })
+    )
   };
 };
 
@@ -38,10 +59,15 @@ const loadStationDetails = async id => {
   return {
     id,
     name: station.n,
-    platforms: Object.entries(station.f).map(([id, direction]) => ({
-      id,
-      direction
-    }))
+    platforms: station.f
+    // platforms: Object.entries(station.f).map(([id, direction]) => ({
+    //   id,
+    //   direction
+    // }))
+    // platforms: Object.entries(station.f).map(([id, direction]) => ({
+    //   id,
+    //   direction
+    // }))
   };
 };
 

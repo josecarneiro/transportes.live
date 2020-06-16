@@ -2,8 +2,9 @@
   view-aside
     h1 Station Detail
     template(v-if="station")
-      div(v-for="{ platform, arrivals } in estimates")
-        strong {{ platform }}
+      div(v-for="(arrivals, platform) in platforms")
+        //- strong {{ platform }}
+        strong Direction {{ station.platforms[platform] }}
         div(v-for="{ train, time } in arrivals")
           strong {{ train }}: 
           span
@@ -28,7 +29,7 @@
     },
     data: () => ({
       station: null,
-      estimates: {}
+      platforms: {}
     }),
     watch: {
       id: {
@@ -49,13 +50,12 @@
       if (this.service) this.service.destroy();
     },
     methods: {
-      updateEstimates(data) {
-        console.log(data);
-        this.station = data;
+      updateEstimates(platforms) {
+        this.platforms = Object.assign({}, this.platforms, platforms);
       },
       async loadData() {
         const station = await loadStationDetails(this.id);
-        console.log(station);
+        this.station = Object.assign({}, this.station, station);
       }
     },
     components: {

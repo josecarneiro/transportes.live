@@ -3,8 +3,7 @@ import {
   DatabaseService
 } from '@/services/realtime-database';
 import loadData from '@/services/load-data';
-
-const parseTimestamp = timestamp => new Date(timestamp * 1000);
+import { deserializeEstimate, deserializeVehicle } from './deserializers';
 
 class VehiclePositionService extends RealtimeDatabaseService {
   constructor(handler) {
@@ -26,38 +25,6 @@ class VehiclePositionService extends RealtimeDatabaseService {
     );
   }
 }
-
-const deserializeVehicle = ({
-  id,
-  a: active,
-  // d: direction,
-  p: plate,
-  r: route,
-  t: time
-}) => ({
-  id,
-  active,
-  // direction,
-  plate,
-  route,
-  time: parseTimestamp(time)
-});
-
-const deserializeEstimate = ({
-  v: id,
-  p: plate,
-  r: route,
-  n: routeName,
-  // d: destination,
-  t: time
-}) => ({
-  id,
-  plate,
-  route,
-  routeName,
-  // destination,
-  time: parseTimestamp(time)
-});
 
 class VehicleDetailService extends DatabaseService {
   constructor() {

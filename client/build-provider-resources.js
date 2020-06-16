@@ -9,12 +9,14 @@ const stops = require('transportes-bundled-data/dist/carris/stops/list');
 const routes = require('transportes-bundled-data/dist/carris/routes/all');
 const stations = require('transportes-bundled-data/dist/metro/stations/list');
 const lines = require('transportes/metro/data/lines');
+const giraStations = require('transportes-bundled-data/dist/gira/stations/list');
 
 const DIRECTORY = path.join(__dirname, 'public/built');
 const CARRIS_STOP_DIRECTORY = path.join(DIRECTORY, 'carris/stop');
 const CARRIS_ROUTE_DIRECTORY = path.join(DIRECTORY, 'carris/route');
 const METRO_DIRECTORY = path.join(DIRECTORY, 'metro');
 const METRO_STATIONS_DIRECTORY = path.join(DIRECTORY, 'metro/station');
+const GIRA_STATION_DIRECTORY = path.join(DIRECTORY, 'gira/station');
 
 const buildCarrisSingleStop = async stop => {
   const { publicId: id } = stop;
@@ -51,11 +53,11 @@ const buildCarrisSingleRoute = async route => {
 
 const buildMetroStationsAndLines = async stations => {
   const stationData = stations
-    .map(({ id, position: { latitude, longitude } }) => ({
+    .map(({ id, name, position: { latitude, longitude } }) => [
       id,
-      position: [latitude, longitude]
-    }))
-    .reduce((acc, { id, position }) => ({ ...acc, [id]: position }), {});
+      [latitude, longitude, name]
+    ])
+    .reduce((acc, [id, value]) => ({ ...acc, [id]: value }), {});
   const lineData = lines.reduce(
     (acc, { id, stations }) => ({ ...acc, [id]: stations }),
     {}
@@ -79,6 +81,26 @@ const buildMetroSingleStation = async ({ id, name, platforms }) => {
   await writeFile(METRO_STATIONS_DIRECTORY, id, data);
 };
 
+const buildGiraStations = async stations => {
+  const stationsData = stations
+    .map(({ id, position: { latitude, longitude } }) => ({
+      id,
+      position: [latitude, longitude]
+    }))
+    .reduce((acc, { id, position }) => ({ ...acc, [id]: position }), {});
+  const data = transformToJSONObject(stationsData);
+  await writeFile(GIRA_STATION_DIRECTORY, 'list', data);
+};
+
+const buildGiraSingleStation = async ({ id, name, type }) => {
+  const stationData = {
+    n: name,
+    t: type
+  };
+  const data = transformToJSONObject(stationData);
+  await writeFile(GIRA_STATION_DIRECTORY, id, data);
+};
+
 (async () => {
   await buildCarrisStops(stops);
   for (const stop of stops) {
@@ -90,6 +112,10 @@ const buildMetroSingleStation = async ({ id, name, platforms }) => {
   await buildMetroStationsAndLines(stations);
   for (const station of stations) {
     await buildMetroSingleStation(station);
+  }
+  await buildGiraStations(giraStations);
+  for (const station of giraStations) {
+    await buildGiraSingleStation(station);
   }
   // await cleanStops();
   // stops.sort(() => 0.5 - Math.random());

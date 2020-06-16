@@ -5,7 +5,7 @@ const client = require('./../client');
 
 const transformToJSONObject = require('./../../helpers/transform-to-json-object');
 
-const extractTrainLocations = require('./../location/extract');
+const extractTrainLocations = require('./../helpers/location/extract');
 // const lines = require('transportes/metro/data/lines');
 // const stations = require('transportes/metro/data/stations');
 

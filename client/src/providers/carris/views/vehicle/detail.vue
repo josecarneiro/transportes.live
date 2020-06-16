@@ -3,9 +3,14 @@
     template(v-if="vehicle && route")
       //- button(@click="$emit('control', 'zoom-out')")
         icon(icon="favorite")
-      h1
-        | {{ vehicle.route }}
-        em {{ id }}
+      .vehicle__title
+        div
+          small.small-title Route
+          h1 {{ vehicle.route }}
+        div
+          small.small-title Number
+          h1 {{ id }}
+      small.small-title Destination
       h4 {{ route.name }}
       div(
         v-for="item in route.variants"
@@ -67,16 +72,25 @@
 <style lang="scss">
   .view--carris--vehicle {
     h1 {
+      flex: 0;
       display: flex;
+      // margin-bottom: 1em;
       em {
         color: grey();
         font-style: inherit;
         margin-left: auto;
-        // &:before {
-        //   content: '•';
-        //   margin: 0 0.5em;
-        // }
       }
     }
+  }
+
+  .vehicle__title {
+    display: flex;
+    justify-content: space-between;
+    // margin-bottom: 1em;
+  }
+
+  small.small-title {
+    text-transform: uppercase;
+    letter-spacing: 1 / 16 * 1em;
   }
 </style>

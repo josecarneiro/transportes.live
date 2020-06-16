@@ -30,8 +30,5 @@
 <style lang="scss">
   .view--about {
     justify-content: center;
-    // h1 {
-    //   margin-bottom: auto;
-    // }
   }
 </style>

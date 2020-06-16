@@ -24,6 +24,7 @@
     data: () => ({ station: null }),
     async created() {
       const station = await loadStation(this.id);
+      console.log(station);
       this.station = station;
     },
     components: {

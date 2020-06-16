@@ -1,7 +1,37 @@
-<template lang="pug" functional>
-  .view--aside(:class="[data.class, data.staticClass]")
-    slot
-</template>
+<script>
+  import mergeClasses from '@/util/merge-classes';
+
+  export default {
+    functional: true,
+    render: (
+      createElement,
+      {
+        props: { preventBackNavigationOnSafari = false },
+        data: { class: classes, staticClass },
+        children
+      }
+    ) =>
+      createElement(
+        'div',
+        {
+          class: mergeClasses('view--aside', classes, staticClass),
+          on: {
+            ...(preventBackNavigationOnSafari && {
+              touchstart: event => {
+                const THRESHOLD = 30;
+                const { pageX: x } = event;
+                const { innerWidth: width } = window;
+                if (x <= THRESHOLD || x >= width - THRESHOLD) {
+                  event.preventDefault();
+                }
+              }
+            })
+          }
+        },
+        children
+      )
+  };
+</script>
 
 <style lang="scss">
   .view--aside {
@@ -10,8 +40,10 @@
     right: 0;
     bottom: 0;
     z-index: 200;
-    display: flex;
-    flex-direction: column;
+    // display: flex;
+    // flex-direction: column;
+    // justify-content: flex-start;
+    // align-items: flex-start;
     width: 100%;
     padding: 1em;
     padding-top: 6em;
@@ -25,6 +57,9 @@
       max-width: 26em;
       padding-top: 1em;
       // padding-top: 2em;
+    }
+    & > * {
+      flex: 0;
     }
   }
 </style>

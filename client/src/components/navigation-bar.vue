@@ -3,11 +3,14 @@
     button(
       v-if="displayBackButton",
       @click="navigateBack"
-    ) Go Back
+    )
+      icon(icon="arrow-left")
     router-link(to="/") transportes.live
 </template>
 
 <script>
+  import Icon from '@/components/icon';
+
   export default {
     computed: {
       displayBackButton() {
@@ -20,6 +23,9 @@
       navigateBack() {
         this.$router.go(-1);
       }
+    },
+    components: {
+      Icon
     }
   };
 </script>

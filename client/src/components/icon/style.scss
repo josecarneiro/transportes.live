@@ -1,10 +1,10 @@
-@import "icons";
+@import 'icons';
 
 .icon {
   display: block;
   width: 1em;
   height: 1em;
-  font-family: "Material Icons";
+  font-family: 'Material Icons';
   font-size: 1.5em;
   font-weight: normal;
   font-style: normal;
@@ -15,14 +15,14 @@
   white-space: nowrap;
   direction: ltr;
   text-rendering: optimizeLegibility;
-  font-feature-settings: "liga";
+  font-feature-settings: 'liga';
   // & + span {
   //   margin-left: 1em;
   // }
   &:before {
     display: block;
     // margin: 0.25em;
-    content: "\E6DD";
+    content: '\E6DD';
   }
   @each $name, $value in $icons {
     &.icon--#{$name} {
@@ -33,9 +33,9 @@
   }
 }
 
-.icon--arrow-left {
-  transform: translateX(-25%);
-}
+// .icon--arrow-left {
+//   transform: translateX(-25%);
+// }
 
 .icon--menu-inverted {
   transform: scaleX(-1);

@@ -5,10 +5,6 @@
         slot(name="navigation")
       template(v-slot:overlay-top-right)
         slot(name="filters")
-    map-static(
-      v-once,
-      v-bind="{ center, zoom, size }"
-    )
     gmaps-map(
       ref="map"
       :class="{ 'map--idle': idle }"
@@ -25,14 +21,8 @@
 <script>
   import { Map as GmapsMap } from 'vue2-google-maps';
   import MapOverlay from '@/components/map/overlay';
+
   import loadLocation from '@/services/load-location';
-
-  import MapStatic from './static/image';
-
-  import LIGHT_STYLE from './style/light';
-  // import LIGHT_STYLE from './style/colored';
-
-  const DEFAULT_CENTER = { lat: 38.7462929, lng: -9.1447389 };
 
   export default {
     props: {
@@ -54,7 +44,7 @@
         fullscreenControl: false,
         disableDefaultUi: true,
         clickableIcons: false,
-        styles: LIGHT_STYLE
+        useStaticMap: true
       },
       ready: false,
       loaded: false,
@@ -111,7 +101,6 @@
     },
     components: {
       GmapsMap,
-      MapStatic,
       MapOverlay
     }
   };

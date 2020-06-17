@@ -19,7 +19,9 @@ Vue.use(VueGtag, {
 
 Vue.use(VueGoogleMaps, {
   load: {
-    key: mapsConfiguration.apiKey
+    key: mapsConfiguration.apiKey,
+    v: 'beta',
+    map_ids: mapsConfiguration.mapId
   },
   installComponents: false
 });

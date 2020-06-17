@@ -23,40 +23,9 @@
     loadInfrastructure
   } from '@/providers/metro/services';
 
-  // import metroStations from '@/data/metro/stations';
-
   import MetroStation from '@/providers/metro/components/station';
   import MetroLine from '@/providers/metro/components/line';
   import MetroTrain from '@/providers/metro/components/train';
-
-  // const interpolatePositions = (start, end, progress) => ({
-  //   latitude: start.latitude + (end.latitude - start.latitude) * progress,
-  //   longitude: start.longitude + (end.longitude - start.longitude) * progress
-  // });
-
-  // const extractAngle = (start, end) =>
-  //   Math.atan2(end.latitude - start.latitude, end.longitude - start.longitude);
-
-  // // const convertPosition = ({ latitude: lat, longitude: lng }) => ({ lat, lng });
-
-  // const extractMarkersFromTrains = trains =>
-  //   trains.map(({ id, ...train }) => {
-  //     const [startStationId, endStationId] = train.position.stations;
-  //     const progress = train.position.progress;
-  //     const startStation = metroStations.find(
-  //       station => startStationId === station.id
-  //     );
-  //     const endStation = metroStations.find(
-  //       station => endStationId === station.id
-  //     );
-  //     const position = interpolatePositions(startStation, endStation, progress);
-  //     const direction = extractAngle(startStation, endStation);
-  //     return {
-  //       id,
-  //       position,
-  //       direction
-  //     };
-  //   });
 
   export default {
     data: () => ({
@@ -65,13 +34,6 @@
       stations: {},
       lines: {}
     }),
-    // computed: {
-    //   markers() {
-    //     const { trains } = this;
-    //     const markers = extractMarkersFromTrains(trains);
-    //     return markers;
-    //   }
-    // },
     created() {
       this.loadData();
       this.service = new TrainPositionService(this.updateTrains);

@@ -848,10 +848,10 @@ tmp@^0.0.33:
   dependencies:
     os-tmpdir "~1.0.2"
 
-transportes-bundled-data@^0.0.5:
-  version "0.0.5"
-  resolved "https://registry.yarnpkg.com/transportes-bundled-data/-/transportes-bundled-data-0.0.5.tgz#1b0ffbbe986d4bfb0353e4c903f39a4fe10ccd02"
-  integrity sha512-Y/TxsR3grrUK/KBUtVUq0jDD9AHb4EC0mi0mFZwLa+OJV1YA4y6KsOLlnCaKq0udwhNKbONMA9dY6mRlnvax4Q==
+transportes-bundled-data@^0.0.6:
+  version "0.0.6"
+  resolved "https://registry.yarnpkg.com/transportes-bundled-data/-/transportes-bundled-data-0.0.6.tgz#8dba7155aaa4e20d160fb508e5f3ab66134bba2b"
+  integrity sha512-nHSPBiEF8loA/J9a7rnyKkn2q5Uf3El+KZCB/m5J+5sZzwu3THB5JvhauoxPeiRJ1JTYwflK38Gsd1P2qI4X7w==
   dependencies:
     transportes "^0.0.12"
 

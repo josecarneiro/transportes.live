@@ -16,6 +16,8 @@
   import MapOverlay from '@/components/map/overlay';
   import NavigationAside from '@/components/navigation-aside';
 
+  import { mapsConfiguration } from '@/config';
+
   const DEFAULT_CENTER = { lat: 38.7462929, lng: -9.1447389 };
 
   const DEFAULT_ZOOM = 13;
@@ -26,6 +28,7 @@
       zoom: DEFAULT_ZOOM,
       options: {
         minZoom: 11,
+        mapId: mapsConfiguration.mapId,
         restriction: {
           latLngBounds: {
             north: DEFAULT_CENTER.lat + 2.5,

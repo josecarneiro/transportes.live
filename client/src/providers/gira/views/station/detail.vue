@@ -25,9 +25,14 @@
       id: String
     },
     data: () => ({ station: null }),
-    async created() {
-      const station = await loadStation(this.id);
-      this.station = station;
+    watch: {
+      id: {
+        immediate: true,
+        async handler() {
+          const station = await loadStation(this.id);
+          this.station = station;
+        }
+      }
     },
     components: {
       ViewAside
@@ -38,7 +43,6 @@
 <style lang="scss">
   .gira__occupancy {
     display: flex;
-    // justify-content: space-between;
     & > * {
       &:not(:last-child) {
         margin-right: 1em;

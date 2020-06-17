@@ -1,6 +1,7 @@
 const {
   VUE_APP_GOOGLE_ANALYTICS_ID,
   VUE_APP_GOOGLE_MAPS_API_KEY,
+  VUE_APP_GOOGLE_MAPS_MAP_ID,
   VUE_APP_FIREBASE_DATABASE_NAME,
   VUE_APP_FIREBASE_API_KEY,
 
@@ -17,7 +18,8 @@ const firebaseConfiguration = {
 };
 
 const mapsConfiguration = {
-  apiKey: VUE_APP_GOOGLE_MAPS_API_KEY
+  apiKey: VUE_APP_GOOGLE_MAPS_API_KEY,
+  mapId: VUE_APP_GOOGLE_MAPS_MAP_ID
 };
 
 const analyticsConfiguration = {

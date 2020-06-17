@@ -1,21 +1,25 @@
 'use strict';
 
 const database = require('./../../firebase');
-const client = require('./../client');
-
+const { log } = require('transportes/utilities');
 const transformToJSONObject = require('./../../helpers/transform-to-json-object');
+const extractTrainLocations = require('../helpers/extract-position');
+const reduceArrayToObject = require('./../helpers/reduce-array-to-object');
 
-const extractTrainLocations = require('./../helpers/location/extract');
-// const lines = require('transportes/metro/data/lines');
-// const stations = require('transportes/metro/data/stations');
+const serializeDate = require('./../../helpers/serialize-date');
 
-const updateFirebaseMetroTrainPositions = async () => {
-  const rawTrains = await client.listEstimates();
-  const trains = extractTrainLocations(rawTrains);
-  const data = trains.reduce(
-    (acc, { id, ...value }) => ({ ...acc, [id]: value }),
-    {}
-  );
+const serializePosition = ({ location, ...train }) => ({
+  ...train,
+  l: location.map(({ station, time }) => ({
+    s: station,
+    t: serializeDate(time)
+  }))
+});
+
+const updateFirebaseMetroTrainPositions = async estimates => {
+  const positions = extractTrainLocations(estimates);
+  const data = positions.map(serializePosition).reduce(reduceArrayToObject, {});
+  // log(data);
 
   const metroPositionReference = database.ref('metro/position');
   metroPositionReference.set(transformToJSONObject(data));

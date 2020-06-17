@@ -1,16 +1,71 @@
 <template lang="pug">
   custom-map-marker.metro.marker(v-bind="{ position }")
-    router-link(:to="{ name: 'metro/map' }")
+    router-link(:to="{ name: 'metro/map' }", v-bind="{ style }")
       span(v-text="id")
 </template>
 
 <script>
+  import metroStations from '@/data/metro/stations';
+
   import CustomMapMarker from '@/components/map/custom-marker';
+
+  import extractAngle from './calculate-bearing';
+
+  const interpolatePositions = (start, end, progress) => ({
+    latitude: start.latitude + (end.latitude - start.latitude) * progress,
+    longitude: start.longitude + (end.longitude - start.longitude) * progress
+  });
+
+  const limit = (value, min, max) => Math.max(Math.min(value, max), min);
+
+  const convertRadiansToDegrees = angle =>
+    ((angle / (Math.PI * 2)) * 360 + 360) % 360;
 
   export default {
     props: {
       id: String,
-      position: Object
+      location: Array
+    },
+    computed: {
+      position() {
+        const [
+          { station: startStationId, time: startDate },
+          { station: endStationId, time: endDate }
+        ] = this.location;
+        const startStation = metroStations.find(
+          station => startStationId === station.id
+        );
+        const endStation = metroStations.find(
+          station => endStationId === station.id
+        );
+        const now = new Date();
+        const progress = limit((endDate - now) / (endDate - startDate), 0, 1);
+        const position = interpolatePositions(
+          startStation,
+          endStation,
+          progress
+        );
+        return position;
+      },
+      direction() {
+        const [
+          { station: startStationId },
+          { station: endStationId }
+        ] = this.location;
+        const startStation = metroStations.find(
+          station => startStationId === station.id
+        );
+        const endStation = metroStations.find(
+          station => endStationId === station.id
+        );
+        const direction = extractAngle(startStation, endStation);
+        return direction;
+      },
+      style() {
+        // const direction = convertRadiansToDegrees(this.direction);
+        // return { transform: `rotate(${direction.toFixed(0)}deg)` };
+        return {};
+      }
     },
     components: {
       CustomMapMarker

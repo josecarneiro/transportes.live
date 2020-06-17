@@ -1,15 +1,10 @@
 'use strict';
 
 const database = require('./../../firebase');
-const client = require('./../client');
-
 const transformToJSONObject = require('./../../helpers/transform-to-json-object');
-
-// const stations = require('transportes-bundled-data/dist/metro/stations');
-
 const { log } = require('transportes/utilities');
 
-const serializeDate = date => Number(new Date(date)) / 1000;
+const serializeDate = require('./../../helpers/serialize-date');
 
 const serializeArrivals = ({ train, time }) => ({
   i: train,
@@ -40,13 +35,12 @@ const extractEstimates = estimates =>
     ])
   );
 
-const updateFirebaseMetroEstimates = async () => {
-  const unparsedEstimates = await client.listEstimates();
-  const estimates = extractEstimates(unparsedEstimates);
-  // log(estimates);
+const updateFirebaseMetroStationEstimates = async rawEstimates => {
+  const stationEstimates = extractEstimates(rawEstimates);
+  // log(stationEstimates);
 
   const metroPositionReference = database.ref('metro/stations');
-  metroPositionReference.set(transformToJSONObject(estimates));
+  metroPositionReference.set(transformToJSONObject(stationEstimates));
 };
 
-module.exports = updateFirebaseMetroEstimates;
+module.exports = updateFirebaseMetroStationEstimates;

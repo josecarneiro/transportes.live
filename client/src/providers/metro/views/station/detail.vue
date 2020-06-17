@@ -1,10 +1,12 @@
 <template lang="pug">
   view-aside
     template(v-if="station")
+      small.heading-label Station
       h3(v-text="station.name")
-      div(v-for="(arrivals, platform) in platforms")
+      small.heading-label Estimates
+      .metro__station__estimates(v-for="(arrivals, platform) in platforms")
         //- strong {{ platform }}
-        strong Direction {{ station.platforms[platform] }}
+        h5 Direction {{ station.platforms[platform] }}
         div(v-for="{ train, time } in arrivals")
           strong {{ train }}: 
           span
@@ -65,3 +67,9 @@
     }
   };
 </script>
+
+<style lang="scss">
+  .metro__station__estimates {
+    margin-bottom: 1em;
+  }
+</style>

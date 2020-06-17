@@ -1,15 +1,18 @@
 <template lang="pug">
   view-aside
-    h1 Station {{ id }}
+    small.heading-label Station
+    h1(v-text="id")
     template(v-if="station")
+      small.heading-label Name
       h4(v-text="station.name")
-      span
-        strong Bikes
-        | : {{ station.bikes }}
-      br
-      span
-        strong Docks
-        | : {{ station.docks }}
+      small.heading-label Occupancy
+      .gira__occupancy
+        div
+          small.heading-label Free Bikes
+          h3 {{ station.bikes }}
+        div
+          small.heading-label Total Docks
+          h3 {{ station.docks }}
 </template>
 
 <script>
@@ -24,7 +27,6 @@
     data: () => ({ station: null }),
     async created() {
       const station = await loadStation(this.id);
-      console.log(station);
       this.station = station;
     },
     components: {
@@ -32,3 +34,15 @@
     }
   };
 </script>
+
+<style lang="scss">
+  .gira__occupancy {
+    display: flex;
+    // justify-content: space-between;
+    & > * {
+      &:not(:last-child) {
+        margin-right: 1em;
+      }
+    }
+  }
+</style>

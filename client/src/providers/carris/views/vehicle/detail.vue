@@ -5,13 +5,14 @@
         icon(icon="favorite")
       .vehicle__title
         div
-          small.small-title Route
+          small.heading-label Route
           h1 {{ vehicle.route }}
         div
-          small.small-title Number
+          small.heading-label Number
           h1 {{ id }}
-      small.small-title Destination
+      small.heading-label Destination
       h4 {{ route.name }}
+      small.heading-label Route Information
       div(
         v-for="item in route.variants"
         :key="item.variant"
@@ -21,7 +22,7 @@
           v-for="itenerary in item.iteneraries",
           v-if="itenerary.connections && itenerary.connections.length"
         )
-          h5 {{ itenerary.direction }}: {{itenerary.connections[0].stop.name}} - {{itenerary.connections[itenerary.connections.length - 1].stop.name}}
+          strong {{ itenerary.direction }}: {{itenerary.connections[0].stop.name}} - {{itenerary.connections[itenerary.connections.length - 1].stop.name}}
           ul
             li(v-for="connection in itenerary.connections")
               router-link(:to="{ name: 'carris/stop', params: { id: connection.stop.publicId } }")
@@ -87,10 +88,5 @@
     display: flex;
     justify-content: space-between;
     // margin-bottom: 1em;
-  }
-
-  small.small-title {
-    text-transform: uppercase;
-    letter-spacing: 1 / 16 * 1em;
   }
 </style>

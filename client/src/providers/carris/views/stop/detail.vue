@@ -1,5 +1,9 @@
 <template lang="pug">
   view-aside
+    time-until(
+      :date="new Date(Date.now() + 1000 * 125)"
+      :interval="5"
+    )
     template(v-if="stop")
       .title__container
         div

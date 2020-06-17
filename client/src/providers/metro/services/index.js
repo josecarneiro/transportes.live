@@ -3,15 +3,32 @@ import loadData from '@/services/load-data';
 
 import metroData from '@/../public/built/metro/data';
 
+const deserializeDate = timestamp => new Date(timestamp * 1000);
+
+const deserializeLocation = ({ s: station, t: time }) => ({
+  station,
+  time: deserializeDate(time)
+});
+
 class TrainPositionService extends RealtimeDatabaseService {
   constructor(handler) {
     super('/metro/position', handler);
+  }
+
+  parse(data) {
+    if (!data) return data;
+    return Object.fromEntries(
+      Object.entries(data).map(([train, { l: location }]) => [
+        train,
+        location.map(deserializeLocation)
+      ])
+    );
   }
 }
 
 const deserializeArrival = ({ i: train, t: time }) => ({
   train,
-  time: new Date(time * 1000)
+  time: deserializeDate(time)
 });
 
 const deserializeEstimates = estimates =>
@@ -56,10 +73,11 @@ const loadInfrastructure = async () => {
 
 const loadStationDetails = async id => {
   const station = await loadData(`/built/metro/station/${id}.json`);
+  const { n: name, f: platforms } = station;
   return {
     id,
-    name: station.n,
-    platforms: station.f
+    name,
+    platforms
     // platforms: Object.entries(station.f).map(([id, direction]) => ({
     //   id,
     //   direction

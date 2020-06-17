@@ -1,6 +1,6 @@
 'use strict';
 
-const serializeDate = date => Number(new Date(date)) / 1000;
+const serializeDate = require('./../helpers/serialize-date');
 
 const serializeEstimate = ({
   id: vehicle,

@@ -1,14 +1,8 @@
 <template lang="pug">
-  time-sensitive-component(
-    :interval="5",
-    v-slot="time"
-  )
-    span {{ parse(date - time.now) }}
+  span {{ parsed }}
 </template>
 
 <script>
-  import TimeSensitiveComponent from './time-aware-component.vue';
-
   const format = (value, separator = ' ') => {
     const hours = Math.floor(value / (60 * 60));
     const minutes = Math.floor(value / 60) % 60;
@@ -26,15 +20,24 @@
       date: Date,
       interval: Number
     },
-    methods: {
-      parse(milliseconds) {
-        const seconds = milliseconds / 1000;
+    data: () => ({ now: new Date(), id: null }),
+    mounted() {
+      const { interval } = this;
+      if (interval) {
+        this.id = setInterval(() => {
+          this.now = new Date();
+        }, interval * 1000);
+      }
+    },
+    unmounted() {
+      setInterval(this.id);
+    },
+    computed: {
+      parsed() {
+        const seconds = (this.date - this.now) / 1000;
         if (seconds < 0) return '0s';
         return format(seconds);
       }
-    },
-    components: {
-      TimeSensitiveComponent
     }
   };
 </script>

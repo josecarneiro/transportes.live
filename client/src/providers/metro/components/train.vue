@@ -5,7 +5,7 @@
 </template>
 
 <script>
-  import { stations as metroStations, lines as metroLines } from '@/data/metro';
+  import { stations } from '@/data/metro';
 
   import CustomMapMarker from '@/components/map/custom-marker';
 
@@ -27,47 +27,42 @@
       location: Array
     },
     computed: {
-      position() {
+      stationPositions() {
         const [
-          { station: startStationId, time: startDate },
-          { station: endStationId, time: endDate }
+          { station: startStationId },
+          { station: endStationId }
         ] = this.location;
-        const startStation = metroStations.find(
-          station => startStationId === station.id
-        );
-        const endStation = metroStations.find(
-          station => endStationId === station.id
-        );
+        const startStation = stations.find(({ id }) => id === startStationId);
+        const endStation = stations.find(({ id }) => id === endStationId);
+        return [startStation.position, endStation.position];
+      },
+      progress() {
+        const [{ time: startDate }, { time: endDate }] = this.location;
         const now = new Date();
-        const progress = limit((endDate - now) / (endDate - startDate), 0, 1);
+        return limit(1 - (endDate - now) / (endDate - startDate), 0, 1);
+      },
+      position() {
+        const [startStation, endStation] = this.stationPositions;
+        const progress = this.progress;
         const position = interpolatePositions(
-          startStation.position,
-          endStation.position,
+          startStation,
+          endStation,
           progress
         );
         return position;
       },
       direction() {
-        const [
-          { station: startStationId },
-          { station: endStationId }
-        ] = this.location;
-        const startStation = metroStations.find(
-          station => startStationId === station.id
-        );
-        const endStation = metroStations.find(
-          station => endStationId === station.id
-        );
-        const direction = extractAngle(
-          startStation.position,
-          endStation.position
-        );
+        const [startStation, endStation] = this.stationPositions;
+        const direction = extractAngle(startStation, endStation);
         return direction;
       },
       style() {
         // const direction = convertRadiansToDegrees(this.direction);
+        return {
+          transform: `translateY(50%)`
+        };
         // return { transform: `rotate(${direction.toFixed(0)}deg)` };
-        return {};
+        // return {};
       }
     },
     components: {

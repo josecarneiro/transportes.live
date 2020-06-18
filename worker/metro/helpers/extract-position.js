@@ -11,12 +11,33 @@ const getAdjacentPreviousStation = (line, currentStation, direction) => {
   const currentStationIndex = line.stations.indexOf(currentStation);
   const directionIndex = line.stations.indexOf(direction);
 
+  const firstStationIndex = 0;
+  const lastStationIndex = line.stations.length - 1;
+
   let previousStationIndex;
+
   if (currentStationIndex === directionIndex) {
-    previousStationIndex = currentStationIndex ? currentStationIndex - 1 : 1;
+    if (currentStationIndex === firstStationIndex) {
+      previousStationIndex = currentStationIndex + 1;
+    } else {
+      previousStationIndex = currentStationIndex - 1;
+    }
+    // previousStationIndex = currentStationIndex ? currentStationIndex - 1 : 1;
   } else {
-    previousStationIndex = currentStationIndex + (directionIndex ? 1 : -1);
+    if (directionIndex === firstStationIndex) {
+      if (currentStationIndex === lastStationIndex) {
+        previousStationIndex = currentStationIndex - 1;
+      } else {
+        previousStationIndex = currentStationIndex + 1;
+      }
+    } else {
+      previousStationIndex = currentStationIndex - 1;
+    }
+    // previousStationIndex = currentStationIndex + (directionIndex ? -1 : 1);
   }
+  // if (previousStationIndex < 0) previousStationIndex = 1;
+  previousStationIndex = Math.abs(previousStationIndex);
+  // console.log(currentStationIndex, directionIndex, previousStationIndex);
   const previousStation = line.stations[previousStationIndex];
 
   return previousStation;
@@ -51,6 +72,8 @@ module.exports = platforms => {
         currentStation,
         currentDirection
       );
+
+      // console.log(currentStation, currentDirection, previousStation);
 
       const timeBetweenStations = 120;
 

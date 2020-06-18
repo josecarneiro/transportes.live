@@ -7,14 +7,16 @@
       .metro__station__estimates(v-for="(arrivals, platform) in platforms")
         //- strong {{ platform }}
         h5 Towards {{ metroStations.find(({ id }) => id === station.platforms[platform]).name }}
-        .metro__train__item(v-for="{ train, time } in arrivals")
-          .metro__train__icon
-            span {{ train }}
-          span
-            time-until(
-              :date="new Date(time)",
-              :interval="5"
-            )
+        ul.metro__train__list
+          li.metro__train__item(v-for="{ train, time } in arrivals")
+            a(href="#")
+              .metro__train__icon
+                span {{ train }}
+              span
+                time-until(
+                  :date="time",
+                  :interval="5"
+              )
 </template>
 
 <script>
@@ -75,26 +77,29 @@
 <style lang="scss">
   .metro__station__estimates {
     margin-bottom: 1em;
+    h5 {
+      margin-bottom: 0.75em;
+    }
   }
 
   .metro__train__item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 1em;
+    a {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-radius: 0.25em;
+      padding: 1em;
+      margin-bottom: 1em;
+      background-color: white;
+      @include shadow;
+    }
   }
 
   .metro__train__icon {
     display: inline-flex;
     justify-content: center;
-    width: 3.5em;
-    padding: 1em 0;
-    border-radius: 0.25em;
-    background-color: grey(0.9);
-    @include shadow;
-    color: grey(0.3);
-    // color: white;
     font-weight: bold;
     letter-spacing: 1 / 16 * 1em;
+    @include shadow;
   }
 </style>

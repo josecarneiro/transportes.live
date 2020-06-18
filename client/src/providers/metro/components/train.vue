@@ -5,7 +5,7 @@
 </template>
 
 <script>
-  import metroStations from '@/data/metro/stations';
+  import { stations as metroStations, lines as metroLines } from '@/data/metro';
 
   import CustomMapMarker from '@/components/map/custom-marker';
 
@@ -41,8 +41,8 @@
         const now = new Date();
         const progress = limit((endDate - now) / (endDate - startDate), 0, 1);
         const position = interpolatePositions(
-          startStation,
-          endStation,
+          startStation.position,
+          endStation.position,
           progress
         );
         return position;
@@ -58,7 +58,10 @@
         const endStation = metroStations.find(
           station => endStationId === station.id
         );
-        const direction = extractAngle(startStation, endStation);
+        const direction = extractAngle(
+          startStation.position,
+          endStation.position
+        );
         return direction;
       },
       style() {

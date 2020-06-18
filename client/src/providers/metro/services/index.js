@@ -1,7 +1,7 @@
 import { RealtimeDatabaseService } from '@/services/realtime-database';
 import loadData from '@/services/load-data';
 
-import metroData from '@/../public/built/metro/data';
+import * as metroData from '@/data/metro';
 
 const deserializeDate = timestamp => new Date(timestamp * 1000);
 
@@ -53,22 +53,7 @@ class StationEstimatesService extends RealtimeDatabaseService {
 const loadInfrastructure = async () => {
   // const { lines, stations } = await loadData('/built/metro/data.json');
   const { lines, stations } = metroData;
-  return {
-    lines: Object.entries(lines).map(([id, stationIds]) => ({
-      id,
-      stations: stationIds.map(id => {
-        const [latitude, longitude] = stations[id];
-        return { id, position: { latitude, longitude } };
-      })
-    })),
-    stations: Object.entries(stations).map(
-      ([id, [latitude, longitude, name]]) => ({
-        id,
-        name,
-        position: { latitude, longitude }
-      })
-    )
-  };
+  return { lines, stations };
 };
 
 const loadStationDetails = async id => {

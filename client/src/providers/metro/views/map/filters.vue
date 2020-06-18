@@ -1,10 +1,10 @@
 <template lang="pug">
   .map__controls
     router-link.map__control(
-      :to="{ name: 'carris/map', ...!layers.stops && { query: { stops: true } } }"
+      :to="{ name: 'metro/station/list' }"
       replace
     )
-      icon(icon="stop")
+      icon(icon="station")
 </template>
 
 <script>

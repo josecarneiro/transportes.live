@@ -1,10 +1,9 @@
-<template lang="pug">
-  div
-    slot(v-bind="{ now }")
-</template>
-
 <script>
   export default {
+    render() {
+      const { now } = this;
+      return this.$scopedSlots.default({ now });
+    },
     props: {
       interval: Number
     },

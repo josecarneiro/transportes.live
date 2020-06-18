@@ -1,9 +1,5 @@
 <template lang="pug">
   view-aside
-    time-until(
-      :date="new Date(Date.now() + 1000 * 125)"
-      :interval="5"
-    )
     template(v-if="stop")
       .title__container
         div
@@ -13,12 +9,11 @@
           small.heading-label Location
           h3(v-text="stop.name")
       small.heading-label Estimates
-      //- h4 Estimates
       template(v-if="!estimates || !estimates.length")
         span There are no estimates for this stop...
       template(v-else)
-        ul
-          li(
+        ul.carris__estimate__list
+          li.carris__estimate__item(
             v-for="{ id, plate, route, routeName, time } of estimates"
             :key="plate"
           )
@@ -26,14 +21,12 @@
               :is="id ? 'router-link' : 'div'",
               :to="id && { name: 'carris/vehicle', params: { id } }"
             )
-              strong {{ route }}
-              span  {{ routeName }}
-              |  - 
-              strong
-                time-until(
-                  :date="time"
-                  :interval="5"
-                )
+              strong(v-text="route")
+              em(v-text="routeName")
+              time-until(
+                :date="time"
+                :interval="5"
+              )
 </template>
 
 <script>
@@ -66,3 +59,30 @@
     }
   };
 </script>
+
+<style lang="scss">
+  .carris__estimate__item {
+    margin-bottom: 1em;
+    & > * {
+      display: flex;
+      padding: 1em;
+      background-color: white;
+      @include shadow;
+      strong {
+        margin-right: 1em;
+      }
+      span:last-child {
+        margin-left: auto;
+        white-space: nowrap;
+        // margin-left: 1em;
+        text-align: right;
+      }
+      em {
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+        margin-right: 1em;
+      }
+    }
+  }
+</style>

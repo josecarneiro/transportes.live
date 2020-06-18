@@ -15,7 +15,7 @@
               span
                 time-until(
                   :date="time",
-                  :interval="5"
+                  :interval="1"
               )
 </template>
 

@@ -51,9 +51,16 @@ class StationEstimatesService extends RealtimeDatabaseService {
 }
 
 const loadInfrastructure = async () => {
-  // const { lines, stations } = await loadData('/built/metro/data.json');
   const { lines, stations } = metroData;
-  return { lines, stations };
+  return {
+    lines: lines.map(({ stations: stationIds, ...line }) => ({
+      ...line,
+      stations: stationIds.map(id =>
+        stations.find(station => id === station.id)
+      )
+    })),
+    stations
+  };
 };
 
 const loadStationDetails = async id => {

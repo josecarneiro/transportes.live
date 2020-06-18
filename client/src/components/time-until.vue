@@ -1,13 +1,13 @@
 <template lang="pug">
-  time-sensitive-component(
-    :interval="5",
+  time-aware-component(
+    v-bind="{ interval }"
     v-slot="time"
   )
     span {{ parse(date - time.now) }}
 </template>
 
 <script>
-  import TimeSensitiveComponent from './time-aware-component.vue';
+  import TimeAwareComponent from './time-aware-component.vue';
 
   const format = (value, separator = ' ') => {
     const hours = Math.floor(value / (60 * 60));
@@ -34,7 +34,7 @@
       }
     },
     components: {
-      TimeSensitiveComponent
+      TimeAwareComponent
     }
   };
 </script>

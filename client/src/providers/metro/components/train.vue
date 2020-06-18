@@ -1,5 +1,5 @@
 <template lang="pug">
-  custom-map-marker.metro.marker(v-bind="{ position }")
+  custom-map-marker.train(v-bind="{ position }")
     router-link(:to="{ name: 'metro/map' }", v-bind="{ style }")
       span(v-text="id")
 </template>
@@ -60,9 +60,8 @@
         // const direction = convertRadiansToDegrees(this.direction);
         return {
           transform: `translateY(50%)`
+          // transform: `rotate(${direction.toFixed(0)}deg)`
         };
-        // return { transform: `rotate(${direction.toFixed(0)}deg)` };
-        // return {};
       }
     },
     components: {
@@ -72,7 +71,7 @@
 </script>
 
 <style lang="scss">
-  .metro {
+  .train {
     a {
       $scale: 1.5;
       width: $scale * 0.65rem;

@@ -29,7 +29,7 @@
     methods: {
       parse(milliseconds) {
         const seconds = milliseconds / 1000;
-        if (seconds < 0) return '0s';
+        if (seconds <= 0) return '0s';
         return format(seconds);
       }
     },

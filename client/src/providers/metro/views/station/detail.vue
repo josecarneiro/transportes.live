@@ -6,14 +6,17 @@
       small.heading-label Estimates
       .metro__station__estimates(v-for="(arrivals, platform) in platforms")
         //- strong {{ platform }}
-        h5 Direction {{ station.platforms[platform] }}
-        div(v-for="{ train, time } in arrivals")
-          strong {{ train }}: 
-          span
-            time-until(
-              :date="new Date(time)",
-              :interval="5"
-            )
+        h5 Towards {{ metroStations.find(({ id }) => id === station.platforms[platform]).name }}
+        ul.metro__train__list
+          li.metro__train__item(v-for="{ train, time } in arrivals")
+            a(href="#")
+              .metro__train__icon
+                span {{ train }}
+              span
+                time-until(
+                  :date="time",
+                  :interval="5"
+              )
 </template>
 
 <script>
@@ -25,13 +28,16 @@
   import TimeUntil from '@/components/time-until';
   import ViewAside from '@/components/view/aside';
 
+  import { stations as metroStations } from '@/data/metro';
+
   export default {
     props: {
       id: String
     },
     data: () => ({
       station: null,
-      platforms: {}
+      platforms: {},
+      metroStations
     }),
     watch: {
       id: {
@@ -71,5 +77,29 @@
 <style lang="scss">
   .metro__station__estimates {
     margin-bottom: 1em;
+    h5 {
+      margin-bottom: 0.75em;
+    }
+  }
+
+  .metro__train__item {
+    a {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-radius: 0.25em;
+      padding: 1em;
+      margin-bottom: 1em;
+      background-color: white;
+      @include shadow;
+    }
+  }
+
+  .metro__train__icon {
+    display: inline-flex;
+    justify-content: center;
+    font-weight: bold;
+    letter-spacing: 1 / 16 * 1em;
+    @include shadow;
   }
 </style>

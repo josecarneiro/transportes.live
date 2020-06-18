@@ -3,7 +3,7 @@
     v-bind="{ interval }"
     v-slot="time"
   )
-    span {{ parse(date - time.now) }}
+    span(v-text="parse(date - time.now)")
 </template>
 
 <script>

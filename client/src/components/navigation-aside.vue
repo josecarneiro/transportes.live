@@ -88,7 +88,7 @@
       background-color: white;
       &:not(.active) {
         box-shadow: 0 0;
-        &:not(.disabled) {
+        &:not(.disabled):not(.map__control--toggle) {
           color: grey(0.5, 1, 0.1);
         }
       }
@@ -96,13 +96,7 @@
     .map__control--toggle {
       position: absolute;
       z-index: 50;
-      width: 100%;
-      height: 100%;
-      display: flex;
       opacity: 0;
-      .icon {
-        display: none;
-      }
     }
     &.side__navigation--toggled {
       @include shadow;
@@ -110,12 +104,8 @@
         position: inherit;
       }
       .map__control--toggle {
-        opacity: 1;
-        height: initial;
         position: static;
-        .icon {
-          display: flex;
-        }
+        opacity: 1;
       }
     }
   }

@@ -11,12 +11,12 @@
           li.metro__train__item(v-for="{ train, time } in arrivals")
             a(href="#")
               .metro__train__icon
-                span {{ train }}
+                span(v-text="train")
               span
                 time-until(
                   :date="time",
                   :interval="1"
-              )
+                )
 </template>
 
 <script>

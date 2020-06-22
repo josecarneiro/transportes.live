@@ -18,6 +18,8 @@ const METRO_DIRECTORY = path.join(DIRECTORY, 'metro');
 const METRO_STATIONS_DIRECTORY = path.join(DIRECTORY, 'metro/station');
 const GIRA_STATION_DIRECTORY = path.join(DIRECTORY, 'gira/station');
 
+// Carris
+
 const buildCarrisSingleStop = async stop => {
   const { publicId: id } = stop;
   const data = transformToJSONObject(stop);
@@ -51,6 +53,17 @@ const buildCarrisSingleRoute = async route => {
   await writeFile(CARRIS_ROUTE_DIRECTORY, number, transformToJSONObject(route));
 };
 
+const buildCarrisRoutes = async routes => {
+  const routesData = routes.reduce(
+    (acc, { number: id, name }) => ({ ...acc, [id]: name }),
+    {}
+  );
+  const data = transformToJSONObject(routesData);
+  await writeFile(CARRIS_ROUTE_DIRECTORY, 'list', data);
+};
+
+// Metro
+
 const buildMetroStationsAndLines = async stations => {
   const stationData = stations
     .map(({ id, name, position: { latitude, longitude } }) => [
@@ -81,6 +94,8 @@ const buildMetroSingleStation = async ({ id, name, platforms }) => {
   await writeFile(METRO_STATIONS_DIRECTORY, id, data);
 };
 
+// Gira
+
 const buildGiraStations = async stations => {
   const stationsData = stations
     .map(({ id, position: { latitude, longitude } }) => ({
@@ -101,11 +116,14 @@ const buildGiraSingleStation = async ({ id, name, type }) => {
   await writeFile(GIRA_STATION_DIRECTORY, id, data);
 };
 
+// Run all
+
 (async () => {
   await buildCarrisStops(stops);
   for (const stop of stops) {
     await buildCarrisSingleStop(stop);
   }
+  await buildCarrisRoutes(routes);
   for (const route of routes) {
     await buildCarrisSingleRoute(route);
   }
@@ -117,35 +135,4 @@ const buildGiraSingleStation = async ({ id, name, type }) => {
   for (const station of giraStations) {
     await buildGiraSingleStation(station);
   }
-  // await cleanStops();
-  // stops.sort(() => 0.5 - Math.random());
-  // for (let stop of stops) {
-  //   const id = stop.publicId;
-  //   const routes = await client.listRoutes({ stop: id });
-  //   const routeIds = routes.map(({ number: id }) => id);
-  //   const data = { ...stop, routes: routeIds };
-  //   await writeFile(DIRECTORY + '/stop', `${id}`, data, { pretty: true });
-  //   await delay(200);
-  // }
 })();
-
-// const cleanStops = async () => {
-//   const base = path.join(DIRECTORY, 'stop');
-//   const files = await fs.promises.readdir(base);
-//   const stopsWithNoRoutes = [];
-//   const invisibleStops = [];
-//   for (const file of files) {
-//     const filePath = path.join(base, file);
-//     const contents = require(filePath);
-//     if (!contents.routes.length) stopsWithNoRoutes.push(contents.publicId);
-//     if (!contents.visible) invisibleStops.push(contents.publicId);
-//   }
-//   // const stopListPath = path.join(DIRECTORY, 'stop-list.json');
-//   // const stops = require(stopListPath);
-//   const filteredStops = Object.fromEntries(
-//     Object.entries(stops).filter(
-//       ([id]) => !stopsWithNoRoutes.includes(id) && !invisibleStops.includes(id)
-//     )
-//   );
-//   await writeFile(DIRECTORY, 'stop-list', filteredStops);
-// };

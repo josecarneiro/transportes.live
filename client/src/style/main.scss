@@ -52,6 +52,7 @@ noscript {
 }
 
 a {
+  display: inline-flex;
   text-decoration: none;
   color: inherit;
   p & {

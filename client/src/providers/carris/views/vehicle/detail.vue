@@ -12,23 +12,9 @@
           h1 {{ id }}
       small.heading-label Destination
       h4 {{ route.name }}
-      small.heading-label Route Information
-      div(
-        v-for="item in route.variants"
-        :key="item.variant"
-      )
-        span Variant \#{{ item.id }}
-        div(
-          v-for="itenerary in item.iteneraries",
-          v-if="itenerary.connections && itenerary.connections.length"
-        )
-          strong {{ itenerary.direction }}: {{itenerary.connections[0].stop.name}} - {{itenerary.connections[itenerary.connections.length - 1].stop.name}}
-          ul
-            li(v-for="connection in itenerary.connections")
-              router-link(:to="{ name: 'carris/stop', params: { id: connection.stop.publicId } }")
-                span
-                  | {{ connection.stop.publicId }} 
-                  strong {{ connection.stop.name }}
+      router-link(
+        :to="{ name: 'carris/route', params: { id: vehicle.route } }"
+      ) Route Information
 </template>
 
 <script>
@@ -55,7 +41,6 @@
           this.route = null;
           const vehicle = await vehicleDetailService.load(this.id);
           this.vehicle = vehicle;
-
           if (this.vehicle) {
             const route = await loadRoute(this.vehicle.route);
             this.route = route;
@@ -75,7 +60,6 @@
     h1 {
       flex: 0;
       display: flex;
-      // margin-bottom: 1em;
       em {
         color: grey();
         font-style: inherit;
@@ -87,6 +71,5 @@
   .vehicle__title {
     display: flex;
     justify-content: space-between;
-    // margin-bottom: 1em;
   }
 </style>

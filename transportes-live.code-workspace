@@ -20,6 +20,7 @@
       "**/cypress*": true,
       "**/*.toml": true
       // "**/.env": true
-    }
+    },
+    "cSpell.enabled": true
   }
 }

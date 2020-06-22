@@ -5,6 +5,10 @@
       replace
     )
       icon(icon="stop")
+    router-link.map__control(
+      :to="{ name: 'carris/route/list' }"
+    )
+      icon(icon="routes")
 </template>
 
 <script>

@@ -37,3 +37,10 @@ h6 {
 small {
   font-size: 0.75em;
 }
+
+p {
+  a {
+    display: initial;
+    white-space: nowrap;
+  }
+}

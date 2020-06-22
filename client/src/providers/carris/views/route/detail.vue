@@ -1,45 +1,53 @@
 <template lang="pug">
   view-aside
-    template(v-if="vehicle")
-      //- button(@click="$emit('control', 'zoom-out')")
-        icon(icon="favorite")
-      h1(v-text="vehicle.route")
-      br
-      span
-        strong Vehicle Id
-        | : {{id}}
-      br
-      span 
+    small.heading-label Route
+    h1(v-text="id")
+    template(v-if="route")
+      small.heading-label Name
+      h4(v-text="route.name")
+      small.heading-label Route Information
+      div(
+        v-for="item in route.variants"
+        :key="item.variant"
+      )
+        span Variant \#{{ item.id }}
+        div(
+          v-for="itenerary in item.iteneraries",
+          v-if="itenerary.connections && itenerary.connections.length"
+        )
+          strong {{ itenerary.direction }}: {{itenerary.connections[0].stop.name}} - {{itenerary.connections[itenerary.connections.length - 1].stop.name}}
+          ul
+            li(v-for="connection in itenerary.connections")
+              router-link(:to="{ name: 'carris/stop', params: { id: connection.stop.publicId } }")
+                span
+                  | {{ connection.stop.publicId }} 
+                  strong {{ connection.stop.name }}
 </template>
 
 <script>
-  import { VehicleDetailService } from '@/providers/carris/services';
+  import { loadRoute } from '@/providers/carris/services';
 
-  import Icon from '@/components/icon';
   import ViewAside from '@/components/view/aside';
-
-  const service = new VehicleDetailService();
 
   export default {
     props: {
       id: String
     },
     data: () => ({
-      vehicle: null
+      route: null
     }),
     watch: {
       id: {
         immediate: true,
         async handler() {
-          this.vehicle = null;
-          const vehicle = await service.load(this.id);
-          this.vehicle = vehicle;
+          const { id } = this;
+          const route = await loadRoute(id);
+          this.route = route;
         }
       }
     },
     components: {
-      ViewAside,
-      Icon
+      ViewAside
     }
   };
 </script>

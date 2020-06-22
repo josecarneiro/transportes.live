@@ -25,7 +25,10 @@
 <script>
   import ViewAside from '@/components/view/aside';
 
-  import { stations as rawStations, lines as rawLines } from '@/data/metro';
+  import {
+    stations as rawStations,
+    lines as rawLines
+  } from '@/providers/metro/data';
 
   const lines = rawLines.map(({ stations: stationIds, ...line }) => ({
     ...line,
@@ -45,8 +48,8 @@
 </script>
 
 <style lang="scss">
-  .metro__station__list {
-  }
+  // .metro__station__list {
+  // }
 
   .metro__station__item {
     margin-bottom: 1em;

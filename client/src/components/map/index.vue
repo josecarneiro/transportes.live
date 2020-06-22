@@ -9,7 +9,7 @@
       ref="map"
       :class="{ 'map--idle': idle }"
       v-bind="{ center, zoom, options: { ...defaultOptions, ...options } }",
-      v-on="{ tilesloaded: changeLoaded, drag: idleEnd, resize: idleEnd, zoom_changed: idleEnd, idle: idleStart }"
+      v-on="{ tilesloaded: changeLoaded, drag: idleEnd, resize: idleEnd, zoom_changed: idleEnd, idle: idleStart, click: handleClick }"
     )
       slot(
         v-if="ready"
@@ -97,6 +97,9 @@
       },
       idleEnd() {
         this.idle = false;
+      },
+      handleClick(event) {
+        if (event.placeId) event.stop();
       }
     },
     components: {

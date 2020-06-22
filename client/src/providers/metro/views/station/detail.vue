@@ -28,7 +28,7 @@
   import TimeUntil from '@/components/time-until';
   import ViewAside from '@/components/view/aside';
 
-  import { stations as metroStations } from '@/data/metro';
+  import { stations as metroStations } from '@/providers/metro/data';
 
   export default {
     props: {

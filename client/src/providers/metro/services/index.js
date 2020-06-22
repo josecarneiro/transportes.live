@@ -1,7 +1,7 @@
 import { RealtimeDatabaseService } from '@/services/realtime-database';
 import loadData from '@/services/load-data';
 
-import * as metroData from '@/data/metro';
+import * as metroData from '@/providers/metro/data';
 
 const deserializeDate = timestamp => new Date(timestamp * 1000);
 
@@ -70,10 +70,6 @@ const loadStationDetails = async id => {
     id,
     name,
     platforms
-    // platforms: Object.entries(station.f).map(([id, direction]) => ({
-    //   id,
-    //   direction
-    // }))
     // platforms: Object.entries(station.f).map(([id, direction]) => ({
     //   id,
     //   direction

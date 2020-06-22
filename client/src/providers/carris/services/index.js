@@ -3,7 +3,12 @@ import {
   DatabaseService
 } from '@/services/realtime-database';
 import loadData from '@/services/load-data';
-import { deserializeEstimate, deserializeVehicle } from './deserializers';
+import {
+  deserializeEstimate,
+  deserializeVehicle,
+  deserializeVehiclePosition
+} from './deserializers';
+import { stops as carrisStops } from '@/providers/carris/data';
 
 class VehiclePositionService extends RealtimeDatabaseService {
   constructor(handler) {
@@ -12,16 +17,10 @@ class VehiclePositionService extends RealtimeDatabaseService {
 
   parse(vehicles) {
     return Object.fromEntries(
-      Object.entries(vehicles).map(
-        ([
-          key,
-          {
-            r: route,
-            a: angle,
-            p: [latitude, longitude]
-          }
-        ]) => [key, { route, angle, position: { latitude, longitude } }]
-      )
+      Object.entries(vehicles).map(([key, data]) => [
+        key,
+        deserializeVehiclePosition(data)
+      ])
     );
   }
 }
@@ -53,10 +52,20 @@ const loadRoute = async id => {
 };
 
 const listStops = async () => {
-  const stops = await loadData('/built/carris/stop/list.json');
-  return Object.fromEntries(
-    Object.entries(stops).map(([key, [lat, lng]]) => [key, { lat, lng }])
+  // const stops = carrisStops.reduce(
+  //   (acc, { id, position: { latitude: lat, longitude: lng } }) => ({
+  //     ...acc,
+  //     [id]: { lat, lng }
+  //   }),
+  //   {}
+  // );
+  const stops = Object.fromEntries(
+    carrisStops.map(({ id, position: { latitude: lat, longitude: lng } }) => [
+      id,
+      { lat, lng }
+    ])
   );
+  return stops;
 };
 
 const loadStop = async id => {

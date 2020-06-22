@@ -5,7 +5,7 @@
 </template>
 
 <script>
-  import { stations } from '@/data/metro';
+  import { stations } from '@/providers/metro/data';
 
   import CustomMapMarker from '@/components/map/custom-marker';
 
@@ -57,10 +57,10 @@
         return direction;
       },
       style() {
-        // const direction = convertRadiansToDegrees(this.direction);
+        const direction = convertRadiansToDegrees(this.direction);
+        // const direction = 0;
         return {
-          transform: `translateY(50%)`
-          // transform: `rotate(${direction.toFixed(0)}deg)`
+          transform: `translateY(50%) rotate(${direction.toFixed(0)}deg)`
         };
       }
     },

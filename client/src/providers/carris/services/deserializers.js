@@ -31,3 +31,9 @@ export const deserializeEstimate = ({
   // destination,
   time: parseTimestamp(time)
 });
+
+export const deserializeVehiclePosition = ({
+  r: route,
+  a: angle,
+  p: [latitude, longitude]
+}) => ({ route, angle, position: { latitude, longitude } });

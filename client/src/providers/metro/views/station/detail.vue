@@ -1,9 +1,24 @@
 <template lang="pug">
-  view-aside
-    template(v-if="station")
-      small.heading-label Station
-      h3(v-text="station.name")
+  view-aside.view--metro-station-detail
+    template(v-if="loaded")
+      .heading__labels
+        div
+          small.heading-label Name
+          h3(v-text="station.name")
+        //- div
+        //-   small.heading-label Station
+        //-   h3(v-text="id")
+        div
+          small.heading-label Line
+          .metro__line__labels
+            metro-line-label(
+              v-for="line in station.lines",
+              :key="line",
+              :id="line"
+            )
       small.heading-label Estimates
+      span At a glance estimates
+      small.heading-label Detailed Estimates
       .metro__station__estimates(v-for="(arrivals, platform) in platforms")
         //- strong {{ platform }}
         h5 Towards {{ metroStations.find(({ id }) => id === station.platforms[platform]).name }}
@@ -24,25 +39,29 @@
     StationEstimatesService,
     loadStationDetails
   } from '@/providers/metro/services';
+  import { stations as metroStations } from '@/providers/metro/data';
 
   import TimeUntil from '@/components/time-until';
   import ViewAside from '@/components/view/aside';
-
-  import { stations as metroStations } from '@/providers/metro/data';
+  import MetroLineLabel from '@/providers/metro/components/line-label';
 
   export default {
     props: {
       id: String
     },
     data: () => ({
-      station: null,
+      station: {
+        lines: []
+      },
       platforms: {},
-      metroStations
+      metroStations,
+      loaded: false
     }),
     watch: {
       id: {
         immediate: true,
         handler() {
+          this.loaded = false;
           if (this.service) this.service.destroy();
           this.station = null;
           this.platforms = {};
@@ -65,11 +84,13 @@
       async loadData() {
         const station = await loadStationDetails(this.id);
         this.station = Object.assign({}, this.station, station);
+        this.loaded = true;
       }
     },
     components: {
       ViewAside,
-      TimeUntil
+      TimeUntil,
+      MetroLineLabel
     }
   };
 </script>
@@ -101,5 +122,38 @@
     font-weight: bold;
     letter-spacing: 1 / 16 * 1em;
     @include shadow;
+  }
+
+  .heading__labels {
+    display: flex;
+    & > * {
+      &:not(:last-child) {
+        margin-right: 1em;
+      }
+    }
+  }
+
+  .view--metro-station-detail {
+    .heading__labels {
+      & > * {
+        &:first-child {
+          margin-right: auto;
+        }
+        &:last-child {
+          .heading-label {
+            justify-content: flex-end;
+          }
+        }
+      }
+    }
+  }
+
+  .metro__line__labels {
+    & > *:not(:first-child) {
+      margin-left: 1em;
+    }
+    .metro__line__label {
+      font-size: 0.75em;
+    }
   }
 </style>

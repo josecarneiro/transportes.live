@@ -66,10 +66,14 @@ const loadInfrastructure = async () => {
 const loadStationDetails = async id => {
   const station = await loadData(`/built/metro/station/${id}.json`);
   const { n: name, f: platforms } = station;
+  const lines = metroData.lines
+    .filter(({ stations }) => stations.includes(id))
+    .map(({ id }) => id);
   return {
     id,
     name,
-    platforms
+    platforms,
+    lines
     // platforms: Object.entries(station.f).map(([id, direction]) => ({
     //   id,
     //   direction

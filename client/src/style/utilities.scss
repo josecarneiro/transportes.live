@@ -14,3 +14,8 @@
     }
   }
 }
+
+@mixin uppercase {
+  text-transform: uppercase;
+  letter-spacing: 1 / 16 * 1em;
+}

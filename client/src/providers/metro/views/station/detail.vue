@@ -16,7 +16,7 @@
               :key="line",
               :id="line"
             )
-      small.heading-label Estimates
+      small.heading-label Next Arrivals
       span At a glance estimates
       small.heading-label Detailed Estimates
       .metro__station__estimates(v-for="(arrivals, platform) in platforms")
@@ -150,7 +150,7 @@
 
   .metro__line__labels {
     & > *:not(:first-child) {
-      margin-left: 1em;
+      margin-left: 0.5em;
     }
     .metro__line__label {
       font-size: 0.75em;

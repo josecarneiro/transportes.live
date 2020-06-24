@@ -3,7 +3,8 @@
     navigation-bar
     map-view
     transition(name="slide")
-      router-view(name="overlay")
+      router-view.view.view--aside(name="aside")
+    router-view.view.view--overlay(name="overlay")
 </template>
 
 <script>
@@ -41,5 +42,15 @@
   .slide-leave-to {
     // opacity: 0;
     transform: translate(100%);
+  }
+
+  .view--overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+    padding: 6em 5em 5em 1em;
   }
 </style>

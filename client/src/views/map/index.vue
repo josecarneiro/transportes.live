@@ -1,7 +1,7 @@
 <template lang="pug">
   main
     custom-map(
-      v-bind="{ center, zoom, options }"
+      v-bind="{ options, center, zoom, user }"
       v-on="{ changeZoom, changeCenter }"
     )
       template(v-slot:navigation)
@@ -12,11 +12,13 @@
 </template>
 
 <script>
+  import { mapState } from 'vuex';
+
   import CustomMap from '@/components/map';
   import MapOverlay from '@/components/map/overlay';
   import NavigationAside from '@/components/navigation-aside';
 
-  import { mapsConfiguration } from '@/config';
+  import { maps as mapsConfiguration } from '@/config';
 
   const DEFAULT_CENTER = { lat: 38.7462929, lng: -9.1447389 };
 
@@ -40,6 +42,11 @@
         }
       }
     }),
+    computed: {
+      ...mapState('location', {
+        user: ({ position }) => position && position.coordinates
+      })
+    },
     methods: {
       changeZoom(value) {
         this.zoom = value;

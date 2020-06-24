@@ -19,7 +19,7 @@
 <script>
   import Icon from '@/components/icon';
 
-  import { providersConfiguration } from '@/config';
+  import { providers as providersConfiguration } from '@/config';
 
   const LINKS = [
     ...[

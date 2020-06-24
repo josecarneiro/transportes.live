@@ -14,11 +14,11 @@ export default [
     path: '/gira/station/:id',
     name: 'gira/station',
     props: {
-      overlay: true
+      aside: true
     },
     components: {
       map: GiraMapView,
-      overlay: GiraStationDetailView
+      aside: GiraStationDetailView
     }
   }
 ];

@@ -1,7 +1,7 @@
 import { firebase } from '@firebase/app';
 import '@firebase/database';
 
-import { firebaseConfiguration } from './../config';
+import { firebase as firebaseConfiguration } from './../config';
 
 const app = firebase.initializeApp(firebaseConfiguration);
 const database = app.database();

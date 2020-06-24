@@ -22,22 +22,22 @@ export default [
     path: '/carris/vehicle/:id',
     name: 'carris/vehicle',
     props: {
-      overlay: true
+      aside: true
     },
     components: {
       map: CarrisMapView,
-      overlay: CarrisVehicleDetailView
+      aside: CarrisVehicleDetailView
     }
   },
   {
     path: '/carris/stop/:id',
     name: 'carris/stop',
     props: {
-      overlay: true
+      aside: true
     },
     components: {
       map: CarrisMapView,
-      overlay: CarrisStopDetailView
+      aside: CarrisStopDetailView
     }
   },
   {
@@ -45,18 +45,18 @@ export default [
     name: 'carris/route/list',
     components: {
       map: CarrisMapView,
-      overlay: CarrisRouteListView
+      aside: CarrisRouteListView
     }
   },
   {
     path: '/carris/route/:id',
     name: 'carris/route',
     props: {
-      overlay: true
+      aside: true
     },
     components: {
       map: CarrisMapView,
-      overlay: CarrisRouteDetailView
+      aside: CarrisRouteDetailView
     }
   }
 ];

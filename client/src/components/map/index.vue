@@ -15,23 +15,27 @@
         v-if="ready"
         name="default"
       )
+      map-user-position-marker(
+        v-if="user",
+        v-bind="{ position: user }"
+      )
     .map__color-overlay
 </template>
 
 <script>
   import { Map as GmapsMap } from 'vue2-google-maps';
   import MapOverlay from '@/components/map/overlay';
-
-  import loadLocation from '@/services/load-location';
+  import MapUserPositionMarker from '@/components/map/user-position-marker';
 
   export default {
     props: {
+      options: Object,
       center: Object,
       zoom: {
         type: Number,
         default: 13
       },
-      options: Object
+      user: Object
     },
     data: () => ({
       defaultOptions: {
@@ -76,11 +80,9 @@
         }
       },
       async locate() {
-        const position = await loadLocation();
-        const center = Object.assign({}, this.center, {
-          lat: position.latitude,
-          lng: position.longitude
-        });
+        await this.$store.dispatch('location/locate');
+        const { latitude: lat, longitude: lng } = this.user;
+        const center = Object.assign({}, this.center, { lat, lng });
         this.$emit('changeCenter', center);
         this.$emit('changeZoom', 15);
       },
@@ -104,7 +106,8 @@
     },
     components: {
       GmapsMap,
-      MapOverlay
+      MapOverlay,
+      MapUserPositionMarker
     }
   };
 </script>

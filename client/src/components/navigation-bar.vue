@@ -15,8 +15,8 @@
     computed: {
       displayBackButton() {
         const { matched } = this.$route;
-        const hasOverlay = matched.some(({ components }) => components.overlay);
-        return hasOverlay;
+        const hasAside = matched.some(({ components }) => components.aside);
+        return hasAside;
       }
     },
     methods: {

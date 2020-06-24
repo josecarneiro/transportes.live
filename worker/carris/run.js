@@ -8,9 +8,7 @@ const logger = require('./../logger');
 
 const carrisServiceLog = logger.extend('carris');
 
-const DELAY = 1000;
-
-module.exports = async () => {
+module.exports = async updateIntervals => {
   loop(async () => {
     try {
       await updateVehiclesPositions();
@@ -21,8 +19,7 @@ module.exports = async () => {
       );
       carrisServiceLog.extend('detailed')(error);
     }
-  }, DELAY / 4);
-
+  }, updateIntervals.vehiclePositions);
   loop(async () => {
     try {
       await updateEstimates();
@@ -31,5 +28,5 @@ module.exports = async () => {
       carrisServiceLog.extend('error')('Error updating Carris estimates.');
       carrisServiceLog.extend('detailed')(error);
     }
-  }, DELAY);
+  }, updateIntervals.stopEstimates);
 };

@@ -19,7 +19,8 @@
 </script>
 
 <style lang="scss">
-  $dot-size: 1em;
+  // $dot-size: 1em;
+  $dot-size: 0.75em;
   $disk-size: $dot-size * 5;
 
   $dot-color: grey(0.7, 1, 1);

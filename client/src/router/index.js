@@ -13,6 +13,8 @@ import {
 const AtAGlanceView = () => import('@/views/glance');
 const AboutView = () => import(/* webpackChunkName: "other" */ '@/views/about');
 const ErrorView = () => import(/* webpackChunkName: "other" */ '@/views/error');
+const SettingsView = () =>
+  import(/* webpackChunkName: "other" */ '@/views/settings');
 
 Vue.use(VueRouter);
 
@@ -38,6 +40,13 @@ const routes = [
   ...(providersConfiguration.carris ? carrisRoutes : []),
   ...(providersConfiguration.metro ? metroRoutes : []),
   ...(providersConfiguration.gira ? giraRoutes : []),
+  {
+    path: '/settings',
+    name: 'settings',
+    components: {
+      aside: SettingsView
+    }
+  },
   {
     path: '/error',
     name: 'error',

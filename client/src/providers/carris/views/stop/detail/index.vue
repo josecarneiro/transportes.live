@@ -8,7 +8,11 @@
         div
           small.heading-label Location
           h3(v-text="stop.name")
-      small.heading-label Estimates
+      small.heading-label Next arrivals
+      carris-stop-next-arrivals(
+        v-bind="{ stop, estimates }"
+      )
+      small.heading-label All Estimates
       template(v-if="!estimates || !estimates.length")
         span There are no estimates for this stop...
       template(v-else)
@@ -35,6 +39,8 @@
   import TimeUntil from '@/components/time-until';
   import ViewAside from '@/components/view/aside';
 
+  import CarrisStopNextArrivals from './next-arrivals';
+
   export default {
     props: {
       id: String
@@ -51,11 +57,18 @@
           ...everything,
           time: new Date(time)
         }));
+        const routes = estimates
+          .map(({ route }) => route)
+          .filter(
+            (route, index, original) => original.indexOf(route) === index
+          );
+        this.stop.routes = routes;
       }
     },
     components: {
       ViewAside,
-      TimeUntil
+      TimeUntil,
+      CarrisStopNextArrivals
     }
   };
 </script>

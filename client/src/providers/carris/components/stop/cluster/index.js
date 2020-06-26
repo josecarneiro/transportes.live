@@ -5,6 +5,8 @@ import GmapCluster from 'vue2-google-maps/src/components/cluster';
 const ICON_SIZE = 24;
 const ICON_FILE_NAME = 'marker-cluster';
 
+const GRID_SIZE = 40;
+
 const clusterStyles = [ICON_FILE_NAME, ICON_FILE_NAME, ICON_FILE_NAME].map(
   name => ({
     url: `/images/${name}.png`,
@@ -20,7 +22,7 @@ export default {
     createElement(
       GmapCluster,
       {
-        props: { styles: clusterStyles }
+        props: { styles: clusterStyles, gridSize: GRID_SIZE }
       },
       children
     )

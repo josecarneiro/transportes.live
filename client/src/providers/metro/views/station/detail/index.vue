@@ -17,11 +17,16 @@
               :id="line"
             )
       small.heading-label Next Arrivals
-      span At a glance estimates
+      metro-station-next-arrivals(
+        v-bind="{ station, estimates }"
+      )
       small.heading-label Detailed Estimates
-      .metro__station__estimates(v-for="(arrivals, platform) in platforms")
+      .metro__station__estimates(
+        v-for="(arrivals, platform) in estimates",
+        :key="platform"
+      )
         //- strong {{ platform }}
-        h5 Towards {{ metroStations.find(({ id }) => id === station.platforms[platform]).name }}
+        h5 Towards {{ metroStations.find(({ id }) => id === station.platforms[platform].direction).name }}
         ul.metro__train__list
           li.metro__train__item(v-for="{ train, time } in arrivals")
             a(href="#")
@@ -44,18 +49,19 @@
   import TimeUntil from '@/components/time-until';
   import ViewAside from '@/components/view/aside';
   import MetroLineLabel from '@/providers/metro/components/line-label';
+  import MetroStationNextArrivals from './next-arrivals';
 
   export default {
     props: {
       id: String
     },
     data: () => ({
+      loaded: false,
       station: {
         lines: []
       },
-      platforms: {},
-      metroStations,
-      loaded: false
+      estimates: {},
+      metroStations
     }),
     watch: {
       id: {
@@ -64,7 +70,7 @@
           this.loaded = false;
           if (this.service) this.service.destroy();
           this.station = null;
-          this.platforms = {};
+          this.estimates = {};
           this.service = new StationEstimatesService(
             this.id,
             this.updateEstimates
@@ -78,8 +84,8 @@
       if (this.service) this.service.destroy();
     },
     methods: {
-      updateEstimates(platforms) {
-        this.platforms = Object.assign({}, this.platforms, platforms);
+      updateEstimates(estimates) {
+        this.estimates = Object.assign({}, this.estimates, estimates);
       },
       async loadData() {
         const station = await loadStationDetails(this.id);
@@ -90,7 +96,8 @@
     components: {
       ViewAside,
       TimeUntil,
-      MetroLineLabel
+      MetroLineLabel,
+      MetroStationNextArrivals
     }
   };
 </script>

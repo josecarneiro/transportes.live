@@ -58,7 +58,7 @@
       //   color: #42b983;
       // }
     }
-    @media (min-width: 30em) {
+    @include screen(small) {
       button {
         display: none;
       }

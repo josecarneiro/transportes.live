@@ -6,7 +6,7 @@
     render: (
       createElement,
       {
-        props: { preventBackNavigationOnSafari = false },
+        props: { preventBackNavigationOnSafari = false, size = 'small' },
         data: { class: classes, staticClass },
         children
       }
@@ -14,7 +14,12 @@
       createElement(
         'div',
         {
-          class: mergeClasses('view--aside', classes, staticClass),
+          class: mergeClasses(
+            'view--aside',
+            `view--aside--${size}`,
+            classes,
+            staticClass
+          ),
           on: {
             ...(preventBackNavigationOnSafari && {
               touchstart: event => {
@@ -52,12 +57,40 @@
     background-color: hsla(0, 0, 100%, 0.9);
     backdrop-filter: blur(2px);
     overflow-y: auto;
-    @media (min-width: 30em) {
-      @include shadow();
-      max-width: 26em;
-      padding-top: 1em;
-      // padding-top: 2em;
+    // @include screen(small) {
+    //   @include shadow();
+    //   max-width: 26em;
+    //   padding-top: 1em;
+    //   // padding-top: 2em;
+    // }
+
+    &.view--aside--small {
+      @include screen(medium) {
+        @include shadow();
+        max-width: 36em;
+        padding-top: 1em;
+        // padding-top: 2em;
+      }
     }
+
+    &.view--aside--medium {
+      @include screen(medium) {
+        @include shadow();
+        max-width: 36em;
+        // padding-top: 1em;
+        // padding-top: 2em;
+      }
+    }
+
+    &.view--aside--full {
+      @include screen(large) {
+        @include shadow();
+        max-width: initial;
+        // padding-top: 1em;
+        // padding-top: 2em;
+      }
+    }
+
     & > * {
       flex: 0;
     }

@@ -18,9 +18,9 @@
           strong {{ itenerary.direction }}: {{itenerary.connections[0].stop.name}} - {{itenerary.connections[itenerary.connections.length - 1].stop.name}}
           ul
             li(v-for="connection in itenerary.connections")
-              router-link(:to="{ name: 'carris/stop', params: { id: connection.stop.publicId } }")
+              router-link(:to="{ name: 'carris/stop', params: { id: connection.stop.id } }")
                 span
-                  | {{ connection.stop.publicId }} 
+                  | {{ connection.stop.id }} 
                   strong {{ connection.stop.name }}
 </template>
 

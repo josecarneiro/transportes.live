@@ -10,6 +10,7 @@ dist
 
 # Editor directories and files
 .vscode
+*.code-workspace
 
 /client/public/built
 

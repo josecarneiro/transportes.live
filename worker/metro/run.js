@@ -10,9 +10,7 @@ const loadEstimates = require('./load-estimates');
 
 const metroServiceLog = logger.extend('metro');
 
-const DELAY = 1000;
-
-module.exports = () => {
+module.exports = updateIntervals => {
   loop(async () => {
     try {
       const estimates = await loadEstimates();
@@ -47,5 +45,5 @@ module.exports = () => {
       metroServiceLog.extend('error')('Error loading metro estimates');
       metroServiceLog.extend('detailed')(error);
     }
-  }, DELAY);
+  }, updateIntervals.estimates);
 };

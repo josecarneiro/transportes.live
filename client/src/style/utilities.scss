@@ -12,5 +12,18 @@
     @media (min-width: 30em) {
       @content;
     }
+  } @else if $size == medium {
+    @media (min-width: 40em) {
+      @content;
+    }
+  } @else if $size == large {
+    @media (min-width: 50em) {
+      @content;
+    }
   }
+}
+
+@mixin uppercase {
+  text-transform: uppercase;
+  letter-spacing: 1 / 16 * 1em;
 }

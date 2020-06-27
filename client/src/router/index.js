@@ -5,10 +5,16 @@ import carrisRoutes from '@/providers/carris/routes';
 import metroRoutes from '@/providers/metro/routes';
 import giraRoutes from '@/providers/gira/routes';
 
-import { providersConfiguration } from '@/config';
+import {
+  app as appConfiguration,
+  providers as providersConfiguration
+} from '@/config';
 
+const AtAGlanceView = () => import('@/views/glance');
 const AboutView = () => import(/* webpackChunkName: "other" */ '@/views/about');
 const ErrorView = () => import(/* webpackChunkName: "other" */ '@/views/error');
+const SettingsView = () =>
+  import(/* webpackChunkName: "other" */ '@/views/settings');
 
 Vue.use(VueRouter);
 
@@ -16,23 +22,36 @@ const routes = [
   {
     path: '/',
     name: 'home',
-    redirect: '/carris'
+    ...((appConfiguration.debug && {
+      components: {
+        overlay: AtAGlanceView
+      }
+    }) || {
+      redirect: '/carris'
+    })
   },
   {
     path: '/about',
     name: 'about',
     components: {
-      overlay: AboutView
+      aside: AboutView
     }
   },
   ...(providersConfiguration.carris ? carrisRoutes : []),
   ...(providersConfiguration.metro ? metroRoutes : []),
   ...(providersConfiguration.gira ? giraRoutes : []),
   {
+    path: '/settings',
+    name: 'settings',
+    components: {
+      aside: SettingsView
+    }
+  },
+  {
     path: '/error',
     name: 'error',
     components: {
-      overlay: ErrorView
+      aside: ErrorView
     }
   }
 ];

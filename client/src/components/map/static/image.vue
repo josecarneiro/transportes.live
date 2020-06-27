@@ -3,7 +3,7 @@
 </template>
 
 <script>
-  import { mapsConfiguration } from '@/config';
+  import { maps as mapsConfiguration } from '@/config';
   import MAP_STYLE from './../style/light';
 
   import generateSource from './generate-source';

@@ -31,17 +31,28 @@ const loadEstimates = async ids => {
 
 const MAXIMUM_COUNT = 40;
 
+const shuffleArray = original => {
+  const array = [...original];
+  let size = array.length;
+  let t;
+  let i;
+  while (size) {
+    i = Math.floor(Math.random() * size--);
+    t = array[size];
+    array[size] = array[i];
+    array[i] = t;
+  }
+  return array;
+};
+
 const updateFirebaseCarrisStops = async () => {
   const stops = await client.listStops();
-  const filtered = stops
-    .filter(({ visible }) => visible)
-    .map(({ id, publicId }) => ({ id, publicId }));
-  const ids = filtered.map(({ id }) => id);
-  ids.sort(() => 0.5 - Math.random());
+  const filtered = stops.filter(({ visible }) => visible);
+  const ids = shuffleArray(filtered.map(({ id }) => id));
 
   const estimates = await loadEstimates(ids.slice(0, MAXIMUM_COUNT));
   const estimatesData = estimates.reduce(
-    (acc, { publicId: id, estimates: value }) => ({
+    (acc, { id, estimates: value }) => ({
       ...acc,
       [id]: value.map(serializeEstimate)
     }),

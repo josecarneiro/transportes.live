@@ -7,9 +7,7 @@ const logger = require('./../logger');
 
 const giraServiceLog = logger.extend('gira');
 
-const DELAY = 1000;
-
-module.exports = () => {
+module.exports = updateIntervals => {
   loop(async () => {
     try {
       await updateStations();
@@ -18,5 +16,5 @@ module.exports = () => {
       giraServiceLog.extend('error')('Error updating Gira stations.');
       giraServiceLog.extend('detailed')(error);
     }
-  }, DELAY * 5);
+  }, updateIntervals.stations);
 };

@@ -3,7 +3,11 @@
     v-bind="{ interval }"
     v-slot="time"
   )
-    span(v-text="parse(date - time.now)")
+    span(
+      v-if="date - time.now > 0",
+      v-text="parse(date - time.now)"
+    )
+    span(v-else) Now
 </template>
 
 <script>

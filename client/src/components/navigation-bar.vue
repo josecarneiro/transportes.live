@@ -1,11 +1,11 @@
 <template lang="pug">
   .nav
-    button(
+    button.btn.btn--default(
       v-if="displayBackButton",
       @click="navigateBack"
     )
       icon(icon="arrow-left")
-    router-link(to="/") transportes.live
+    router-link.btn.btn--default(to="/") transportes.live
 </template>
 
 <script>
@@ -15,8 +15,8 @@
     computed: {
       displayBackButton() {
         const { matched } = this.$route;
-        const hasOverlay = matched.some(({ components }) => components.overlay);
-        return hasOverlay;
+        const hasAside = matched.some(({ components }) => components.aside);
+        return hasAside;
       }
     },
     methods: {
@@ -49,16 +49,12 @@
     }
     a,
     button {
-      display: inline-flex;
-      padding: 1.25em;
       font-weight: bold;
-      background-color: white;
-      @include shadow();
       // &.router-link-exact-active {
       //   color: #42b983;
       // }
     }
-    @media (min-width: 30em) {
+    @include screen(small) {
       button {
         display: none;
       }

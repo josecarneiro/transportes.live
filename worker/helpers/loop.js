@@ -1,9 +1,11 @@
 'use strict';
 
-const loop = (callback, delay) =>
-  setTimeout(async () => {
-    await callback();
-    loop(callback, delay);
-  }, delay);
+const delay = require('./delay');
+
+const loop = async (callback, interval) => {
+  await callback();
+  await delay(interval);
+  loop(callback, interval);
+};
 
 module.exports = loop;

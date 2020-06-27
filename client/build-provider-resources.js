@@ -21,13 +21,13 @@ const GIRA_STATION_DIRECTORY = path.join(DIRECTORY, 'gira/station');
 // Carris
 
 const buildCarrisSingleStop = async stop => {
-  const { publicId: id } = stop;
+  const { id } = stop;
   const data = transformToJSONObject(stop);
   await writeFile(CARRIS_STOP_DIRECTORY, id, data);
 
   // const stopPositions = stops
   //   .filter(({ visible }) => visible)
-  //   .map(({ publicId: id, position: { latitude, longitude } }) => ({
+  //   .map(({ id, position: { latitude, longitude } }) => ({
   //     id,
   //     position: [latitude, longitude]
   //   }))
@@ -39,7 +39,7 @@ const buildCarrisSingleStop = async stop => {
 const buildCarrisStops = async stops => {
   const stopPositions = stops
     .filter(({ visible }) => visible)
-    .map(({ publicId: id, position: { latitude, longitude } }) => ({
+    .map(({ id, position: { latitude, longitude } }) => ({
       id,
       position: [latitude, longitude]
     }))
@@ -49,13 +49,13 @@ const buildCarrisStops = async stops => {
 };
 
 const buildCarrisSingleRoute = async route => {
-  const { number } = route;
-  await writeFile(CARRIS_ROUTE_DIRECTORY, number, transformToJSONObject(route));
+  const { id } = route;
+  await writeFile(CARRIS_ROUTE_DIRECTORY, id, transformToJSONObject(route));
 };
 
 const buildCarrisRoutes = async routes => {
   const routesData = routes.reduce(
-    (acc, { number: id, name }) => ({ ...acc, [id]: name }),
+    (acc, { id, name }) => ({ ...acc, [id]: name }),
     {}
   );
   const data = transformToJSONObject(routesData);

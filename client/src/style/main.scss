@@ -95,7 +95,27 @@ ul {
 
 .heading-label {
   display: flex;
-  text-transform: uppercase;
-  letter-spacing: 1 / 16 * 1em;
   margin-bottom: 0.5rem;
+  @include uppercase();
+}
+
+.btn {
+  padding: 1.25em;
+  margin-right: 1em;
+  display: inline-flex;
+  align-items: center;
+}
+
+.btn--default {
+  background-color: white;
+  @include shadow;
+}
+
+[disabled] {
+  pointer-events: none;
+  cursor: initial;
+}
+
+.btn[disabled] {
+  color: grey();
 }

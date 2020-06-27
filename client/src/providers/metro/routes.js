@@ -20,22 +20,22 @@ export default [
     path: '/metro/station/list',
     name: 'metro/station/list',
     props: {
-      overlay: true
+      aside: true
     },
     components: {
       map: MetroMapView,
-      overlay: MetroStationListView
+      aside: MetroStationListView
     }
   },
   {
     path: '/metro/station/:id',
     name: 'metro/station',
     props: {
-      overlay: true
+      aside: true
     },
     components: {
       map: MetroMapView,
-      overlay: MetroStationDetailView
+      aside: MetroStationDetailView
     }
   }
 ];

@@ -1,7 +1,4 @@
-// const extractAngle = (start, end) =>
-//   Math.atan2(end.latitude - start.latitude, end.longitude - start.longitude);
-
-const extractAngle = (
+export default (
   { latitude: startLat, longitude: startLong },
   { latitude: endLat, longitude: endLong }
 ) => {
@@ -12,5 +9,3 @@ const extractAngle = (
   const bearing = Math.atan2(y, x);
   return (bearing + Math.PI * 2) % (Math.PI * 2);
 };
-
-export default extractAngle;

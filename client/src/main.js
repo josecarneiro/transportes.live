@@ -7,7 +7,10 @@ import './register-service-worker';
 import * as VueGoogleMaps from 'vue2-google-maps';
 import VueGtag from 'vue-gtag';
 
-import { mapsConfiguration, analyticsConfiguration } from './config';
+import {
+  maps as mapsConfiguration,
+  analytics as analyticsConfiguration
+} from '@/config';
 
 import 'vue-material-design-icons/styles.css';
 

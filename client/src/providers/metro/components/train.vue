@@ -9,7 +9,7 @@
 
   import CustomMapMarker from '@/components/map/custom-marker';
 
-  import extractAngle from './calculate-bearing';
+  import extractAngle from '@/util/calculate-bearing';
 
   const interpolatePositions = (start, end, progress) => ({
     latitude: start.latitude + (end.latitude - start.latitude) * progress,

@@ -36,6 +36,7 @@
 
   .metro__line__label {
     display: inline-flex;
+    align-items: center;
     padding: 0.25em 0.5em;
     border-radius: 0.25em;
     font-weight: bold;
@@ -43,6 +44,9 @@
     color: white;
     @include uppercase();
     background-color: grey();
+    // span {
+    //   vertical-align: top;
+    // }
     &.metro__line__label--red {
       background-color: $metro-line-color-red;
     }

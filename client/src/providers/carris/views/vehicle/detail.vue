@@ -6,15 +6,21 @@
       .vehicle__title
         div
           small.heading-label Route
-          h1 {{ vehicle.route }}
+          h1(v-text="vehicle.route")
         div
           small.heading-label Number
-          h1 {{ id }}
+          h1(v-text="id")
       small.heading-label Destination
-      h4 {{ route.name }}
-      router-link(
+      h4(v-text="route.name")
+      small.heading-label More
+      router-link.btn.btn--default(
         :to="{ name: 'carris/route', params: { id: vehicle.route } }"
       ) Route Information
+      router-link.btn.btn--default(
+        :to="{ name: 'home' }",
+        disabled
+      )
+        | Buses in this route
 </template>
 
 <script>

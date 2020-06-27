@@ -1,8 +1,8 @@
 <template lang="pug">
   view-aside
-    small.heading-label Route
-    h1(v-text="id")
     template(v-if="route")
+      small.heading-label Route
+      h1(v-text="id")
       small.heading-label Name
       h4(v-text="route.name")
       small.heading-label Route Information
@@ -10,18 +10,17 @@
         v-for="item in route.variants"
         :key="item.variant"
       )
-        span Variant \#{{ item.id }}
+        small.heading-label Variant \#{{ item.id }}
         div(
           v-for="itenerary in item.iteneraries",
           v-if="itenerary.connections && itenerary.connections.length"
         )
-          strong {{ itenerary.direction }}: {{itenerary.connections[0].stop.name}} - {{itenerary.connections[itenerary.connections.length - 1].stop.name}}
-          ul
-            li(v-for="connection in itenerary.connections")
-              router-link(:to="{ name: 'carris/stop', params: { id: connection.stop.id } }")
-                span
-                  | {{ connection.stop.id }} 
-                  strong {{ connection.stop.name }}
+          h6 {{ directionMap[itenerary.direction] }}: {{itenerary.connections[0].stop.name}} - {{itenerary.connections[itenerary.connections.length - 1].stop.name}}
+          ul.carris__itenerary
+            li.carris__itenerary__item(v-for="{ stop } in itenerary.connections")
+              router-link(:to="{ name: 'carris/stop', params: { id: stop.id } }")
+                strong(v-text="stop.id")
+                span(v-text="stop.name")
 </template>
 
 <script>
@@ -34,7 +33,12 @@
       id: String
     },
     data: () => ({
-      route: null
+      route: null,
+      directionMap: {
+        ASC: 'Ascendente',
+        DESC: 'Descendente',
+        CIRC: 'Circular'
+      }
     }),
     watch: {
       id: {
@@ -51,3 +55,15 @@
     }
   };
 </script>
+
+<style lang="scss">
+  .carris__itenerary__item {
+    margin-bottom: 0.25em;
+    a {
+      display: flex;
+    }
+    strong {
+      margin-right: 1em;
+    }
+  }
+</style>

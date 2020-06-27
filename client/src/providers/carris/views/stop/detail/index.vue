@@ -57,12 +57,6 @@
           ...everything,
           time: new Date(time)
         }));
-        const routes = estimates
-          .map(({ route }) => route)
-          .filter(
-            (route, index, original) => original.indexOf(route) === index
-          );
-        this.stop.routes = routes;
       }
     },
     components: {

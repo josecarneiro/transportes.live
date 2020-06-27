@@ -1,11 +1,11 @@
 <template lang="pug">
   .nav
-    button(
+    button.btn.btn--default(
       v-if="displayBackButton",
       @click="navigateBack"
     )
       icon(icon="arrow-left")
-    router-link(to="/") transportes.live
+    router-link.btn.btn--default(to="/") transportes.live
 </template>
 
 <script>
@@ -49,11 +49,7 @@
     }
     a,
     button {
-      display: inline-flex;
-      padding: 1.25em;
       font-weight: bold;
-      background-color: white;
-      @include shadow();
       // &.router-link-exact-active {
       //   color: #42b983;
       // }

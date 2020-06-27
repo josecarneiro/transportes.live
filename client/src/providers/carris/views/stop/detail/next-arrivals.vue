@@ -1,7 +1,7 @@
 <template lang="pug">
   .carris__arrivals
     .carris__arrival(v-for="arrival of arrivals")
-      small.heading-label.carris__arrival__route(v-text="arrival.route")
+      h6.heading-label.carris__arrival__route(v-text="arrival.route")
       time-until.carris__arrival__time(
         v-if="arrival.estimate",
         :date="arrival.estimate.time"

@@ -50,6 +50,7 @@
     // justify-content: flex-start;
     // align-items: flex-start;
     width: 100%;
+    height: 100%;
     padding: 1em;
     padding-top: 6em;
     padding-top: calc(env(safe-area-inset-top) - 0em + 6em);
@@ -57,13 +58,9 @@
     background-color: hsla(0, 0, 100%, 0.9);
     backdrop-filter: blur(2px);
     overflow-y: auto;
-    // @include screen(small) {
-    //   @include shadow();
-    //   max-width: 26em;
-    //   padding-top: 1em;
-    //   // padding-top: 2em;
-    // }
-
+    & > * {
+      flex: 0;
+    }
     &.view--aside--small {
       @include screen(medium) {
         @include shadow();
@@ -90,9 +87,8 @@
         // padding-top: 2em;
       }
     }
+  }
 
-    & > * {
-      flex: 0;
-    }
+  .view--aside__content {
   }
 </style>

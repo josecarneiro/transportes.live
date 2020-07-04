@@ -41,6 +41,8 @@
 
   import CarrisStopNextArrivals from './next-arrivals';
 
+  const estimatesService = new EstimatesService();
+
   export default {
     props: {
       id: String
@@ -49,8 +51,6 @@
     async created() {
       const stop = await loadStop(this.id);
       this.stop = stop;
-
-      const estimatesService = new EstimatesService();
       const estimates = await estimatesService.load(this.id);
       if (estimates) {
         this.estimates = estimates.map(({ time, ...everything }) => ({

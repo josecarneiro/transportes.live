@@ -5,11 +5,13 @@ const path = require('path');
 const writeFile = require('./../worker/helpers/write-file');
 const transformToJSONObject = require('./../worker/helpers/transform-to-json-object');
 
-const stops = require('transportes-bundled-data/dist/carris/stops/list');
-const routes = require('transportes-bundled-data/dist/carris/routes/all');
-const stations = require('transportes-bundled-data/dist/metro/stations/list');
-const lines = require('transportes/metro/data/lines');
-const giraStations = require('transportes-bundled-data/dist/gira/stations/list');
+const rawData = {
+  stops: require('transportes-bundled-data/dist/carris/stops/list'),
+  routes: require('transportes-bundled-data/dist/carris/routes/all'),
+  stations: require('transportes-bundled-data/dist/metro/stations/list'),
+  lines: require('transportes/metro/data/lines'),
+  giraStations: require('transportes-bundled-data/dist/gira/stations/list')
+};
 
 const DIRECTORY = path.join(__dirname, 'public/built');
 const CARRIS_STOP_DIRECTORY = path.join(DIRECTORY, 'carris/stop');
@@ -64,7 +66,7 @@ const buildCarrisRoutes = async routes => {
 
 // Metro
 
-const buildMetroStationsAndLines = async stations => {
+const buildMetroStationsAndLines = async (stations, lines) => {
   const stationData = stations
     .map(({ id, name, position: { latitude, longitude } }) => [
       id,
@@ -72,7 +74,7 @@ const buildMetroStationsAndLines = async stations => {
     ])
     .reduce((acc, [id, value]) => ({ ...acc, [id]: value }), {});
   const lineData = lines.reduce(
-    (acc, { id, stations }) => ({ ...acc, [id]: stations }),
+    (acc, { id, stations: value }) => ({ ...acc, [id]: value }),
     {}
   );
   const data = transformToJSONObject({
@@ -119,6 +121,7 @@ const buildGiraSingleStation = async ({ id, name, type }) => {
 // Run all
 
 (async () => {
+  const { stops, routes, stations, lines, giraStations } = rawData;
   await buildCarrisStops(stops);
   for (const stop of stops) {
     await buildCarrisSingleStop(stop);
@@ -127,7 +130,7 @@ const buildGiraSingleStation = async ({ id, name, type }) => {
   for (const route of routes) {
     await buildCarrisSingleRoute(route);
   }
-  await buildMetroStationsAndLines(stations);
+  await buildMetroStationsAndLines(stations, lines);
   for (const station of stations) {
     await buildMetroSingleStation(station);
   }

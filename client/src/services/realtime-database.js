@@ -12,17 +12,7 @@ class GenericDatabaseService {
     this.reference = this.database.ref(path);
   }
 
-  static parse(data) {
-    if (!data) return data;
-    return Object.entries(data).map(([id, value]) => ({ id, ...value }));
-  }
-
   parse(data) {
-    return data;
-  }
-
-  _parse(snapshot) {
-    const data = snapshot.val();
     return data;
   }
 }
@@ -31,7 +21,8 @@ class DatabaseService extends GenericDatabaseService {
   async load(id) {
     const reference = id ? this.reference.child(id) : this.reference;
     const snapshot = await reference.once('value');
-    return this.parse(this._parse(snapshot));
+    const data = snapshot.val();
+    if (data) return this.parse(data);
   }
 }
 
@@ -43,7 +34,11 @@ class RealtimeDatabaseService extends DatabaseService {
   }
 
   callback(snapshot) {
-    this.handler(this.parse(this._parse(snapshot)));
+    const data = snapshot.val();
+    if (data) {
+      const parsed = this.parse(data);
+      this.handler(parsed);
+    }
   }
 
   listen() {

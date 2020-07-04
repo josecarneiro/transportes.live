@@ -3,12 +3,14 @@ import {
   DatabaseService
 } from '@/services/realtime-database';
 import loadData from '@/services/load-data';
+
 import {
   deserializeEstimate,
   deserializeVehicle,
   deserializeVehiclePosition
 } from './deserializers';
-import { stops as carrisStops } from '@/providers/carris/data';
+
+import { stops as carrisStops } from './../data';
 
 class VehiclePositionService extends RealtimeDatabaseService {
   constructor(handler) {
@@ -31,7 +33,6 @@ class VehicleDetailService extends DatabaseService {
   }
 
   parse(vehicle) {
-    if (!vehicle) return vehicle;
     return deserializeVehicle(vehicle);
   }
 }
@@ -41,7 +42,6 @@ class EstimatesService extends DatabaseService {
   }
 
   parse(estimates) {
-    if (!estimates) return estimates;
     return estimates.map(deserializeEstimate);
   }
 }

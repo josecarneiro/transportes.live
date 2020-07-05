@@ -1,7 +1,7 @@
 'use strict';
 
-const scssImports = ['~@/style/utilities'];
 const pwaConfig = require('./pwa.config');
+const scssConfig = require('./scss.config');
 
 module.exports = {
   lintOnSave: false,
@@ -11,11 +11,7 @@ module.exports = {
   },
   css: {
     loaderOptions: {
-      sass: {
-        prependData: [...scssImports.map(item => `@import "${item}"`), ''].join(
-          ';'
-        )
-      }
+      sass: { ...scssConfig }
     }
   },
   configureWebpack: config => {

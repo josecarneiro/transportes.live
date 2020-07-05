@@ -8,7 +8,7 @@
 </template>
 
 <script>
-  import NavigationBar from '@/components/navigation-bar';
+  import NavigationBar from '@/components/layout/navigation-bar';
 
   import MapView from '@/views/map/index';
 

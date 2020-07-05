@@ -16,6 +16,9 @@
     verde: '#00A19B'
   };
 
+  // const LINE_STROKE_WEIGHT = 7;
+  const LINE_STROKE_WEIGHT = 8;
+
   export default {
     props: {
       id: String,
@@ -32,7 +35,7 @@
       },
       options() {
         return {
-          strokeWeight: 7,
+          strokeWeight: LINE_STROKE_WEIGHT,
           strokeColor: LINE_COLOR_MAP[this.id]
         };
       }

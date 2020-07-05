@@ -2,6 +2,8 @@ import Vue from 'vue';
 import App from './app';
 import router from './router';
 import store from './store';
+import * as filters from './filters';
+
 import './register-service-worker';
 
 import * as VueGoogleMaps from 'vue2-google-maps';
@@ -29,9 +31,7 @@ Vue.use(VueGoogleMaps, {
   installComponents: false
 });
 
-const filters = {};
-
-for (let key in filters) Vue.filter(key, filters[key]);
+for (const key in filters) Vue.filter(key, filters[key]);
 
 const app = new Vue({
   router,

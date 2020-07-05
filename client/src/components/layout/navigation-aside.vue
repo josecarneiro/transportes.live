@@ -6,7 +6,7 @@
     router-link.map__control(
       v-for="{ name, icon, disabled } in links",
       :key="icon",
-      :to="{ name  }",
+      :to="{ name }",
       :class="{ disabled }",
       v-bind="{ disabled }",
       @click="toggled = false"

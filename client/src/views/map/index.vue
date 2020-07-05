@@ -16,7 +16,7 @@
 
   import CustomMap from '@/components/map';
   import MapOverlay from '@/components/map/overlay';
-  import NavigationAside from '@/components/navigation-aside';
+  import NavigationAside from '@/components/layout/navigation-aside';
 
   import { maps as mapsConfiguration } from '@/config';
 

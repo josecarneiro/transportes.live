@@ -13,14 +13,15 @@
       small.heading-label Destination
       h4(v-text="route.name")
       small.heading-label More
-      router-link.btn.btn--default(
-        :to="{ name: 'carris/route', params: { id: vehicle.route } }"
-      ) Route Information
-      router-link.btn.btn--default(
-        :to="{ name: 'home' }",
-        disabled
-      )
-        | Buses in this route
+      .btn__group
+        router-link.btn.btn--default(
+          :to="{ name: 'carris/route', params: { id: vehicle.route } }"
+        ) Route Information
+        router-link.btn.btn--default(
+          :to="{ name: 'home' }",
+          disabled
+        )
+          | Buses in this route
 </template>
 
 <script>

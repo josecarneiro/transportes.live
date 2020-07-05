@@ -1,5 +1,5 @@
 <template lang="pug">
-  main
+  .map__wrapper
     custom-map(
       v-bind="{ options, center, zoom, user }"
       v-on="{ changeZoom, changeCenter }"
@@ -64,7 +64,7 @@
 </script>
 
 <style lang="scss">
-  main {
+  .map__wrapper {
     width: 100%;
     height: 100vh;
   }

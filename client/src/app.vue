@@ -2,8 +2,7 @@
   #app
     navigation-bar
     map-view
-    transition(name="slide")
-      router-view.view.view--aside(name="aside")
+    router-view.view.view--aside(name="aside")
     router-view.view.view--overlay(name="overlay")
 </template>
 
@@ -23,32 +22,32 @@
 <style lang="scss">
   @import '~@/style/main.scss';
 
+  // $slide-duration: 0.25s;
+  $slide-duration: 0.325s;
+
   .slide-enter-active,
   .slide-leave-active {
-    transition: transform 0.25s ease;
-    // transition: opacity 0.5s;
-    transform: translate(0);
+    transition: transform $slide-duration ease;
+    transform: translateY(0);
   }
 
   .slide-enter-active {
-    transition-timing-function: ease-out;
+    transition-timing-function: $ease-out;
   }
 
   .slide-leave-active {
-    transition-timing-function: ease-in;
+    transition-timing-function: $ease-in;
   }
 
-  .slide-enter,
-  .slide-leave-to {
-    // opacity: 0;
-    transform: translate(100%);
-  }
+  // .slide-enter,
+  // .slide-leave-to {
+  //   transform: translate(100%);
+  // }
 
   .view--overlay {
     position: fixed;
     top: 0;
     left: 0;
-
     width: 100%;
     height: 100%;
     padding: 6em 5em 5em 1em;

@@ -1,14 +1,12 @@
 <template lang="pug">
   .nav
-    button.btn.btn--default(
-      v-if="displayBackButton",
-      @click="navigateBack"
-    )
+    navigate-back-wrapper.btn.btn--default(v-if="displayBackButton")
       icon(icon="arrow-left")
-    router-link.btn.btn--default(to="/") transportes.live
+    router-link.btn.btn--default(:to="logoLink") transportes.live
 </template>
 
 <script>
+  import NavigateBackWrapper from '@/components/wrappers/navigate-back';
   import Icon from '@/components/icon';
 
   export default {
@@ -16,7 +14,19 @@
       displayBackButton() {
         const { matched } = this.$route;
         const hasAside = matched.some(({ components }) => components.aside);
+        console.log(matched, hasAside);
         return hasAside;
+      },
+      logoLink() {
+        const { name } = this.$route;
+        if (name) {
+          const parts = name.split('/');
+          const [provider] = parts;
+          if (['carris', 'metro', 'gira'].includes(provider)) {
+            return `/${provider}`;
+          }
+        }
+        return { name: 'home' };
       }
     },
     methods: {
@@ -25,6 +35,7 @@
       }
     },
     components: {
+      NavigateBackWrapper,
       Icon
     }
   };
@@ -53,8 +64,12 @@
       // &.router-link-exact-active {
       //   color: #42b983;
       // }
+      &:last-child {
+        margin-right: 0;
+      }
     }
-    @include screen(small) {
+    $button-back-breakpoint: medium;
+    @include screen($button-back-breakpoint) {
       button {
         display: none;
       }

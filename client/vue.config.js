@@ -1,7 +1,7 @@
 'use strict';
 
 const pwaConfig = require('./pwa.config');
-const scssConfig = require('./scss.config');
+const scssConfig = require('./sass.config');
 
 module.exports = {
   lintOnSave: false,

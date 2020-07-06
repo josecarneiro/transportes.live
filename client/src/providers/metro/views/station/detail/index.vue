@@ -47,7 +47,7 @@
   import { stations as metroStations } from '@/providers/metro/data';
 
   import TimeUntil from '@/components/time-until';
-  import ViewAside from '@/components/view/aside';
+  import ViewAside from '@/components/layout/view-aside';
   import MetroLineLabel from '@/providers/metro/components/line-label';
   import MetroStationNextArrivals from './next-arrivals';
 

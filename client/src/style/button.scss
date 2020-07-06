@@ -1,0 +1,23 @@
+.btn__group {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.btn {
+  padding: 1.25em;
+  display: inline-flex;
+  align-items: center;
+  &[disabled] {
+    color: grey();
+  }
+  .btn__group & {
+    flex: 0 1 auto;
+    margin-bottom: 1em;
+    margin-right: 1em;
+  }
+}
+
+.btn--default {
+  background-color: white;
+  @include shadow;
+}

@@ -18,7 +18,7 @@
 <script>
   import { loadStation } from '@/providers/gira/services';
 
-  import ViewAside from '@/components/view/aside';
+  import ViewAside from '@/components/layout/view-aside';
 
   export default {
     props: {

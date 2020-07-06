@@ -26,7 +26,7 @@
 <script>
   import { loadRoute } from '@/providers/carris/services';
 
-  import ViewAside from '@/components/view/aside';
+  import ViewAside from '@/components/layout/view-aside';
 
   export default {
     props: {

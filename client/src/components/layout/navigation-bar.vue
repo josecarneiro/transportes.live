@@ -12,10 +12,7 @@
   export default {
     computed: {
       displayBackButton() {
-        const { matched } = this.$route;
-        const hasAside = matched.some(({ components }) => components.aside);
-        console.log(matched, hasAside);
-        return hasAside;
+        return this.$route.matched.some(({ components }) => components.aside);
       },
       logoLink() {
         const { name } = this.$route;

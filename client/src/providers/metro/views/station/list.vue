@@ -23,7 +23,7 @@
 </template>
 
 <script>
-  import ViewAside from '@/components/view/aside';
+  import ViewAside from '@/components/layout/view-aside';
 
   import {
     stations as rawStations,

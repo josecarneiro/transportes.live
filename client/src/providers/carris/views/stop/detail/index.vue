@@ -1,18 +1,17 @@
 <template lang="pug">
   view-aside
-    template(v-if="stop")
-      .title__container
-        div
-          small.heading-label Stop
-          h1(v-text="id")
-        div
-          small.heading-label Location
-          h3(v-text="stop.name")
-      small.heading-label Next arrivals
-      carris-stop-next-arrivals(
-        v-bind="{ stop, estimates }"
-      )
-      small.heading-label All Estimates
+    .title__container
+      div
+        small.heading-label Stop
+        h1(v-text="id")
+      div
+        small.heading-label Location
+        h3.placeholder.placeholder--long(v-text="stop && stop.name")
+    small.heading-label Next arrivals
+    template(v-if="loaded")
+      carris-stop-next-arrivals(v-bind="{ stop, estimates }")
+    small.heading-label All Estimates
+    template(v-if="loaded")
       template(v-if="!estimates || !estimates.length")
         span There are no estimates for this stop...
       template(v-else)
@@ -37,7 +36,7 @@
   import { loadStop, EstimatesService } from '@/providers/carris/services';
 
   import TimeUntil from '@/components/time-until';
-  import ViewAside from '@/components/view/aside';
+  import ViewAside from '@/components/layout/view-aside';
 
   import CarrisStopNextArrivals from './next-arrivals';
 
@@ -47,8 +46,13 @@
     props: {
       id: String
     },
-    data: () => ({ stop: null, estimates: [] }),
+    data: () => ({
+      loaded: false,
+      stop: null,
+      estimates: []
+    }),
     async created() {
+      this.loaded = false;
       const stop = await loadStop(this.id);
       this.stop = stop;
       const estimates = await estimatesService.load(this.id);
@@ -57,6 +61,7 @@
           ...everything,
           time: new Date(time)
         }));
+        this.loaded = true;
       }
     },
     components: {

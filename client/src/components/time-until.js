@@ -1,4 +1,4 @@
-import TimeAwareComponent from './wrappers/time-aware-component';
+import TimeAwareComponent from './wrappers/time-aware';
 
 const format = (value, separator = ' ') => {
   const hours = Math.floor(value / (60 * 60));

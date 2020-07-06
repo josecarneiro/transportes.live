@@ -2,8 +2,8 @@
 
 const path = require('path');
 
-const writeFile = require('./../worker/helpers/write-file');
-const transformToJSONObject = require('./../worker/helpers/transform-to-json-object');
+const writeFile = require('./../../worker/helpers/write-file');
+const transformToJSONObject = require('./../../worker/helpers/transform-to-json-object');
 
 const rawData = {
   stops: require('transportes-bundled-data/dist/carris/stops/list'),
@@ -13,7 +13,7 @@ const rawData = {
   giraStations: require('transportes-bundled-data/dist/gira/stations/list')
 };
 
-const DIRECTORY = path.join(__dirname, 'public/built');
+const DIRECTORY = path.join(__dirname, '../public/built');
 const CARRIS_STOP_DIRECTORY = path.join(DIRECTORY, 'carris/stop');
 const CARRIS_ROUTE_DIRECTORY = path.join(DIRECTORY, 'carris/route');
 const METRO_DIRECTORY = path.join(DIRECTORY, 'metro');

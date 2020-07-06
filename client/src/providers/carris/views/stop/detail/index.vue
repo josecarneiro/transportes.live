@@ -11,25 +11,24 @@
     template(v-if="loaded")
       carris-stop-next-arrivals(v-bind="{ stop, estimates }")
     small.heading-label All Estimates
-    template(v-if="loaded")
-      template(v-if="!estimates || !estimates.length")
-        span There are no estimates for this stop...
-      template(v-else)
-        ul.carris__estimate__list
-          li.carris__estimate__item(
-            v-for="{ id, plate, route, routeName, time } of estimates"
-            :key="plate"
+    template(v-if="!estimates || !estimates.length")
+      span There are no estimates for this stop...
+    template(v-else)
+      ul.carris__estimate__list
+        li.carris__estimate__item(
+          v-for="{ id, plate, route, routeName, time } of estimates"
+          :key="plate"
+        )
+          component(
+            :is="id ? 'router-link' : 'div'",
+            :to="id && { name: 'carris/vehicle', params: { id } }"
           )
-            component(
-              :is="id ? 'router-link' : 'div'",
-              :to="id && { name: 'carris/vehicle', params: { id } }"
+            strong(v-text="route")
+            em(v-text="routeName")
+            time-until(
+              :date="time"
+              :interval="5"
             )
-              strong(v-text="route")
-              em(v-text="routeName")
-              time-until(
-                :date="time"
-                :interval="5"
-              )
 </template>
 
 <script>

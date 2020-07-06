@@ -50,7 +50,6 @@
           this.vehicle = null;
           this.route = null;
           const vehicle = await vehicleDetailService.load(this.id);
-          await delay(2000);
           this.vehicle = vehicle;
           if (this.vehicle) {
             const route = await loadRoute(this.vehicle.route);

@@ -14,11 +14,15 @@
       router-link.btn.btn--default(
         :to="vehicle ? { name: 'carris/route', params: { id: vehicle && vehicle.route } } : {}",
         :disabled="!vehicle"
-      ) Route Information
+      )
+        icon(icon="route")
+        span Route Information
       router-link.btn.btn--default(
         :to="{ name: 'home' }",
         disabled
-      ) Buses in this route
+      )
+        icon(icon="bus")
+        span Buses in this route
       //- button(@click="$emit('control', 'zoom-out')")
         icon(icon="favorite")
 </template>

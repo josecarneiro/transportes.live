@@ -1,3 +1,5 @@
+import mergeClasses from '@/util/merge-classes';
+
 import TimeAwareComponent from './wrappers/time-aware';
 
 const format = (value, separator = ' ') => {
@@ -24,11 +26,15 @@ export default {
     date: Date,
     interval: Number
   },
-  render: (createElement, { props: { date, interval } }) =>
+  render: (
+    createElement,
+    { props: { date, interval }, data: { class: classes, staticClass } }
+  ) =>
     createElement(TimeAwareComponent, {
       props: {
         interval
       },
+      class: mergeClasses(classes, staticClass),
       scopedSlots: {
         default: ({ now }) => {
           const delta = date - now;

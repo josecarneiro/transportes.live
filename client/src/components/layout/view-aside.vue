@@ -65,7 +65,8 @@
     will-change: transform;
     @include shadow(-0.125em);
     @include screen(medium) {
-      padding-top: 1em;
+      // padding-top: 1em;
+      max-height: calc(100% - 1em);
     }
     // &:before {
     //   content: '';

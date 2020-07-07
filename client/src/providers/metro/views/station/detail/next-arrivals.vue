@@ -5,11 +5,12 @@
       .next-arrivals__platform__list
         .next-arrivals__platform(v-for="platform in line.platforms")
           small.heading-label Towards {{ stationNames[platform.direction] }}
-          div(v-if="platform.estimates && platform.estimates.length")
-            time-until(
-              :date="platform.estimates[0].time"
-              :interval="1"
-            )
+          time-until(
+            v-if="platform.estimates && platform.estimates.length"
+            :date="platform.estimates[0].time"
+            :interval="1"
+          )
+          span(v-else) -
 </template>
 
 <script>

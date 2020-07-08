@@ -12,6 +12,7 @@ import {
 
 const AtAGlanceView = () => import('@/views/glance');
 const AboutView = () => import(/* webpackChunkName: "other" */ '@/views/about');
+const DebugView = () => import(/* webpackChunkName: "other" */ '@/views/debug');
 const ErrorView = () => import(/* webpackChunkName: "other" */ '@/views/error');
 const SettingsView = () =>
   import(/* webpackChunkName: "other" */ '@/views/settings');
@@ -22,12 +23,24 @@ const routes = [
   {
     path: '/',
     name: 'home',
+    redirect: '/carris'
+  },
+  {
+    path: '/at-a-glance',
+    name: 'glance',
+    components: {
+      overlay: AtAGlanceView
+    }
+  },
+  {
+    path: '/debug',
+    name: 'debug',
     ...((appConfiguration.debug && {
       components: {
-        overlay: AtAGlanceView
+        aside: DebugView
       }
     }) || {
-      redirect: '/carris'
+      redirect: '/'
     })
   },
   {

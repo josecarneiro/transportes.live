@@ -12,6 +12,6 @@ dist
 .vscode
 *.code-workspace
 
-/client/public/built
+client/public/built
 
 tmp

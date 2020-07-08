@@ -1,45 +1,45 @@
 <template lang="pug">
   view-aside.view--metro-station-detail
-    template(v-if="loaded")
-      .heading__labels
-        div
-          small.heading-label Name
-          h3(v-text="station.name")
-        //- div
-        //-   small.heading-label Station
-        //-   h3(v-text="id")
-        div
-          small.heading-label Line
-          .metro__line__labels
-            metro-line-label(
-              v-for="line in station.lines",
-              :key="line",
-              :id="line"
-            )
-      small.heading-label Next Arrivals
-      metro-station-next-arrivals(
-        v-bind="{ station, estimates }"
-      )
-      small.heading-label Detailed Estimates
-      .metro__station__estimates(
-        v-for="(arrivals, platform) in estimates",
-        :key="platform"
-      )
-        //- strong {{ platform }}
-        h5 Towards {{ metroStations.find(({ id }) => id === station.platforms[platform].direction).name }}
-        ul.metro__train__list
-          li.metro__train__item(v-for="{ train, time } in arrivals")
-            a(href="#")
-              .metro__train__icon
-                span(v-text="train")
-              span
-                time-until(
-                  :date="time",
-                  :interval="1"
-                )
+    .heading__labels
+      div
+        small.heading-label Name
+        h3.placeholder(v-text="station && station.name")
+      div
+        small.heading-label Line
+        .metro__line__labels(v-if="station && station.lines")
+          metro-line-label(
+            v-for="line in station.lines",
+            :key="line",
+            :id="line"
+          )
+    small.heading-label Next Arrivals
+    metro-station-next-arrivals(
+      v-if="station && station.lines && station.lines.length",
+      v-bind="{ station, estimates }"
+    )
+    h1.placeholder(v-else)
+    small.heading-label Detailed Estimates
+    .metro__station__estimates(
+      v-for="(arrivals, platform) in estimates",
+      :key="platform"
+    )
+      h5 Towards {{ metroStations.find(({ id }) => id === station.platforms[platform].direction).name }}
+      ul.metro__train__list(v-if="arrivals.length")
+        li.metro__train__item(v-for="{ train, time } in arrivals")
+          a(href="#")
+            .metro__train__icon
+              span(v-text="train")
+            span
+              time-until(
+                :date="time",
+                :interval="1"
+              )
+      span(v-else) There are no train estimates for this trip.
 </template>
 
 <script>
+  // import delay from '@/util/delay';
+
   import {
     StationEstimatesService,
     loadStationDetails
@@ -47,7 +47,7 @@
   import { stations as metroStations } from '@/providers/metro/data';
 
   import TimeUntil from '@/components/time-until';
-  import ViewAside from '@/components/view/aside';
+  import ViewAside from '@/components/layout/view-aside';
   import MetroLineLabel from '@/providers/metro/components/line-label';
   import MetroStationNextArrivals from './next-arrivals';
 
@@ -66,9 +66,10 @@
     watch: {
       id: {
         immediate: true,
-        handler() {
+        async handler() {
           this.loaded = false;
           if (this.service) this.service.destroy();
+          // await delay(5000);
           this.station = null;
           this.estimates = {};
           this.service = new StationEstimatesService(
@@ -76,7 +77,7 @@
             this.updateEstimates
           );
           this.service.listen();
-          this.loadData();
+          await this.loadData();
         }
       }
     },

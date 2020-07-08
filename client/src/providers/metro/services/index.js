@@ -16,7 +16,7 @@ class TrainPositionService extends RealtimeDatabaseService {
   }
 
   parse(data) {
-    if (!data) return data;
+    // if (!data) return data;
     return Object.fromEntries(
       Object.entries(data).map(([train, { l: location }]) => [
         train,
@@ -39,14 +39,25 @@ const deserializeEstimates = estimates =>
     ])
   );
 
+const removeOldEstimates = (estimates, age = 0) =>
+  Object.fromEntries(
+    Object.entries(estimates).map(([platform, arrivals]) => [
+      platform,
+      arrivals.filter(({ time }) => time - Date.now() > -1 * age)
+    ])
+  );
 class StationEstimatesService extends RealtimeDatabaseService {
   constructor(id, handler) {
     super(`/metro/stations/${id.toUpperCase()}`, handler);
   }
 
-  parse(data) {
-    if (!data) return data;
-    return deserializeEstimates(data);
+  parse(rawEstimates) {
+    const deserializedValues = deserializeEstimates(rawEstimates);
+    const parsedEstimates = removeOldEstimates(
+      deserializedValues,
+      1 * 60 * 1000
+    );
+    return parsedEstimates;
   }
 }
 

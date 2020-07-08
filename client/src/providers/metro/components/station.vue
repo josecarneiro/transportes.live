@@ -22,22 +22,28 @@
 </script>
 
 <style lang="scss">
-  $size: 1.25em;
-
   .metro-station {
+    // $size: 1.25em;
+    // $size: 1.5em;
+    $size: 1.5em;
+    $border-size: 2 / 16 * 1em;
+    // $font-size: 0.5em;
+    // $font-size: 0.75em;
+    $font-size: 0.675em;
     a {
       display: flex;
       justify-content: center;
       align-items: center;
       width: $size;
       height: $size;
-      border: 2px solid black;
-      border-radius: 2em;
+      border: $border-size solid black;
+      border-radius: 50%;
       background-color: white;
       transform: translateY(50%);
       span {
-        font-size: 0.5em;
+        font-size: $font-size;
         font-weight: bold;
+        transform: translateY(5%);
       }
     }
   }

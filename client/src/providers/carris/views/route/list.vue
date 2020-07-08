@@ -12,7 +12,7 @@
 </template>
 
 <script>
-  import ViewAside from '@/components/view/aside';
+  import ViewAside from '@/components/layout/view-aside';
 
   import routes from '@/providers/carris/data/routes';
 

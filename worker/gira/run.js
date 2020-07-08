@@ -2,7 +2,7 @@
 
 const updateStations = require('./update-stations');
 
-const loop = require('./../helpers/loop');
+const loop = require('./../helpers/promises/loop');
 const logger = require('./../logger');
 
 const giraServiceLog = logger.extend('gira');

@@ -3,12 +3,12 @@
 const dotenv = require('dotenv');
 dotenv.config();
 
-const updateIntervals = require('./config/intervals');
+const updateProviderConfig = require('./config/provider-update');
 
 const runCarris = require('./carris/run');
 const runMetro = require('./metro/run');
 const runGira = require('./gira/run');
 
-runCarris(updateIntervals.carris);
-runMetro(updateIntervals.metro);
-runGira(updateIntervals.gira);
+runCarris(updateProviderConfig.carris);
+runMetro(updateProviderConfig.metro.intervals);
+runGira(updateProviderConfig.gira.intervals);

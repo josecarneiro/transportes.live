@@ -4,7 +4,7 @@ const updateTrainPositions = require('./update/train-positions');
 const updateStationEstimates = require('./update/station-estimates');
 const updateTrainDetails = require('./update/train-timetable');
 
-const loop = require('./../helpers/loop');
+const loop = require('./../helpers/promises/loop');
 const logger = require('./../logger');
 const loadEstimates = require('./load-estimates');
 

@@ -5,7 +5,7 @@ const delay = require('./delay');
 const loop = async (callback, interval) => {
   await callback();
   await delay(interval);
-  loop(callback, interval);
+  return loop(callback, interval);
 };
 
 module.exports = loop;

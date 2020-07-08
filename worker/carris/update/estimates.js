@@ -50,7 +50,11 @@ const updateFirebaseCarrisStops = async () => {
   const filtered = stops.filter(({ visible }) => visible);
   const ids = shuffleArray(filtered.map(({ id }) => id));
 
-  const estimates = await loadEstimates(ids.slice(0, MAXIMUM_COUNT));
+  const requestedIds = ids.slice(0, MAXIMUM_COUNT);
+
+  // console.log(requestedIds);
+
+  const estimates = await loadEstimates(requestedIds);
   const estimatesData = estimates.reduce(
     (acc, { id, estimates: value }) => ({
       ...acc,

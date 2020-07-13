@@ -1,9 +1,9 @@
 'use strict';
 
-const origin = process.env.URL.replace(/https:\/\//, '') || 'transportes.live';
+const ORIGIN = process.env.URL.replace(/https:\/\//, '') || 'transportes.live';
 
 module.exports = {
-  name: origin,
+  name: ORIGIN,
   themeColor: '#fcfcfd',
   msTileColor: '#fff',
   appleMobileWebAppStatusBarStyle: 'black-translucent',

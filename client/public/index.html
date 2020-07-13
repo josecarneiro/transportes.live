@@ -22,10 +22,46 @@
     <!-- The following might be redundant -->
     <!-- <link href="https://fonts.googleapis.com" rel="preconnect" crossorigin /> -->
 
+    <meta
+      name="robots"
+      content="<%= htmlWebpackPlugin.options.environment === 'production' ? 'index, follow' : 'noindex, nofollow' %>"
+    />
+
+    <!-- Meta Information -->
     <title><%= htmlWebpackPlugin.options.title %></title>
+    <meta
+      name="description"
+      content="Lisbon's public transportation, in real-time"
+    />
 
-    <!-- <links -->
+    <!-- Social -->
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@transporteslive" />
+    <meta name="twitter:creator" content="@josemcarneiro" />
+    <meta name="twitter:title" content="transportes.live" />
+    <meta
+      name="twitter:description"
+      content="<%= htmlWebpackPlugin.options.meta.description %>"
+    />
+    <meta
+      name="twitter:image"
+      content="<%= htmlWebpackPlugin.options.meta.social.twitter.image %>"
+    />
 
+    <!-- Facebook -->
+    <!-- <meta property="og:url" content="https://transportes.live" /> -->
+    <meta property="og:title" content="transportes.live" />
+    <meta
+      property="og:description"
+      content="<%= htmlWebpackPlugin.options.meta.description %>"
+    />
+    <meta
+      property="og:image"
+      content="<%= htmlWebpackPlugin.options.meta.social.facebook.image %>"
+    />
+
+    <!-- Icons -->
     <link rel="icon" href="<%= BASE_URL %>favicon.ico" />
     <link rel="icon" sizes="196x196" href="images/icons/favicon-196.jpg" />
 
@@ -121,12 +157,13 @@
     />
   </head>
   <body>
-    <noscript>
-      We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work
-      properly without JavaScript enabled.
-      <br />
-      Please enable it to continue.
-    </noscript>
-    <div id="app"></div>
+    <div id="app">
+      <noscript>
+        We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work
+        properly without JavaScript enabled.
+        <br />
+        Please enable it to continue.
+      </noscript>
+    </div>
   </body>
 </html>

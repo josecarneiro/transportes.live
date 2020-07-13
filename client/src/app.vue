@@ -22,6 +22,20 @@
         return this.$route.matched.some(({ components }) => components.aside);
       }
     },
+    watch: {
+      navigationIsAside: {
+        immediate: true,
+        handler(value) {
+          const className = 'no-scroll';
+          const body = document.body;
+          if (value) {
+            body.classList.add(className);
+          } else {
+            body.classList.remove(className);
+          }
+        }
+      }
+    },
     components: {
       NavigationBar,
       MapView,
@@ -37,6 +51,10 @@
   // $slide-duration: 0.25s;
   $slide-duration: 0.275s;
   // $slide-duration: 0.325s;
+
+  // .no-scroll {
+  //   overflow: hidden;
+  // }
 
   .slide-enter-active,
   .slide-leave-active {

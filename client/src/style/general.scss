@@ -25,6 +25,7 @@ html {
   // @include screen(small) {
   //   font-size: 1em;
   // }
+  // min-height: 100vh;
 }
 
 body {
@@ -39,6 +40,7 @@ body,
 .app {
   width: 100%;
   height: 100%;
+  // overflow: hidden;
 }
 
 noscript {

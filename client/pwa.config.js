@@ -1,6 +1,6 @@
 'use strict';
 
-const ORIGIN = process.env.URL.replace(/https:\/\//, '') || 'transportes.live';
+const { ORIGIN } = require('./constants');
 
 module.exports = {
   name: ORIGIN,

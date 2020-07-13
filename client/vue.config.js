@@ -4,16 +4,11 @@ const pwaConfig = require('./pwa.config');
 const scssConfig = require('./sass.config');
 const metaConfig = require('./meta.config');
 
-const ENVIRONMENT =
-  process.env.NODE_ENV === 'development'
-    ? 'development'
-    : process.env.URL && process.env.URL.includes('staging')
-    ? 'staging'
-    : 'production';
+const { ENVIRONMENT, BUILD_ENVIRONMENT } = require('./constants');
 
 module.exports = {
   lintOnSave: false,
-  productionSourceMap: !process.env.NETLIFY,
+  productionSourceMap: BUILD_ENVIRONMENT === 'local',
   devServer: {
     disableHostCheck: true
   },

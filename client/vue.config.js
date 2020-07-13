@@ -2,10 +2,13 @@
 
 const pwaConfig = require('./pwa.config');
 const scssConfig = require('./sass.config');
+const metaConfig = require('./meta.config');
+
+const { ENVIRONMENT, BUILD_ENVIRONMENT } = require('./constants');
 
 module.exports = {
   lintOnSave: false,
-  productionSourceMap: !process.env.NETLIFY,
+  productionSourceMap: BUILD_ENVIRONMENT === 'local',
   devServer: {
     disableHostCheck: true
   },
@@ -19,6 +22,18 @@ module.exports = {
       entry: './src/entry-client.js',
       devtool: 'source-map'
     });
+  },
+  chainWebpack: config => {
+    config.plugin('html').tap(([options, ...args]) => [
+      {
+        ...options,
+        meta: {
+          ...metaConfig
+        },
+        environment: ENVIRONMENT
+      },
+      ...args
+    ]);
   },
   pwa: {
     ...pwaConfig,

@@ -81,10 +81,13 @@
       },
       async locate() {
         await this.$store.dispatch('location/locate');
-        const { latitude: lat, longitude: lng } = this.user;
-        const center = Object.assign({}, this.center, { lat, lng });
-        this.$emit('changeCenter', center);
-        this.$emit('changeZoom', 15);
+        const { user: position } = this;
+        if (position) {
+          const { latitude: lat, longitude: lng } = position;
+          const center = Object.assign({}, this.center, { lat, lng });
+          this.$emit('changeCenter', center);
+          if (this.zoom < 15) this.$emit('changeZoom', 15);
+        }
       },
       setSize() {
         const { innerWidth: width, innerHeight: height } = window;

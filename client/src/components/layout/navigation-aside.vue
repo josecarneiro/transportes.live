@@ -32,6 +32,7 @@
       const disabled = !providersConfiguration[link.id];
       return { ...link, name: disabled ? 'error' : name, disabled };
     }),
+    { id: 'favorites', name: 'favorites', icon: 'favorite' },
     { id: 'about', name: 'about', icon: 'about' }
   ];
 

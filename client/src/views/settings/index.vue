@@ -1,6 +1,13 @@
 <template lang="pug">
-  view-aside(size="full").view--about
-    h1 Settings 
+  view-aside
+    h1 Settings
+    select(v-model="$i18n.locale")
+      option(
+        v-for="(lang, i) in ['pt', 'en']"
+        :key="i"
+        :value="lang",
+        v-text="lang"
+      )
 </template>
 
 <script>

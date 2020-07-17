@@ -1,38 +1,35 @@
 <template lang="pug">
-  view-aside.view--carris--vehicle(height="auto")
-    .vehicle__title
-      div
-        small.heading-label Route
-        h1.placeholder(v-text="vehicle && vehicle.route")
-      div
-        small.heading-label Number
-        h1(v-text="id")
-    small.heading-label Destination
-    h4.placeholder.placeholder--long(v-text="route && route.name")
-    small.heading-label More
-    .btn__group
-      router-link.btn.btn--default(
-        :to="vehicle ? { name: 'carris/route', params: { id: vehicle && vehicle.route } } : {}",
-        :disabled="!vehicle"
-      )
-        icon(icon="route")
-        span Route Information
-      router-link.btn.btn--default(
-        :to="{ name: 'home' }",
-        disabled
-      )
-        icon(icon="bus")
-        span Buses in this route
-      //- button(@click="$emit('control', 'zoom-out')")
-        icon(icon="favorite")
+  view-aside.view--carris--vehicle(type="pill")
+    template
+      .vehicle__title
+        div
+          small.heading-label Route
+          h1.placeholder(v-text="vehicle && vehicle.route")
+        div
+          small.heading-label Number
+          h1(v-text="id")
+      small.heading-label Destination
+      h4.placeholder.placeholder--long(v-text="route && route.name")
+      //- small.heading-label More
+    template(slot="actions")
+      .btn__group
+        router-link.btn(
+          :to="vehicle ? { name: 'carris/route', params: { id: vehicle && vehicle.route } } : {}",
+          :disabled="!vehicle"
+        )
+          icon(icon="route")
+          span Route Information
+        //- router-link.btn(
+        //-   :to="{ name: 'home' }",
+        //-   disabled
+        //- )
+        //-   icon(icon="bus")
+        //-   span Buses in this route
 </template>
 
 <script>
-  import delay from '@/util/delay';
-
   import { VehicleDetailService, loadRoute } from '@/providers/carris/services';
 
-  import Icon from '@/components/icon';
   import ViewAside from '@/components/layout/view-aside';
 
   const vehicleDetailService = new VehicleDetailService();
@@ -64,8 +61,7 @@
       }
     },
     components: {
-      ViewAside,
-      Icon
+      ViewAside
     }
   };
 </script>
@@ -79,6 +75,17 @@
         color: grey();
         font-style: inherit;
         margin-left: auto;
+      }
+    }
+    .btn__group {
+      margin-top: 0;
+      border-top: 1px solid grey(0.5, 0.05);
+      &:not(:empty) {
+        // Overide to default
+        margin-bottom: 0;
+      }
+      .btn {
+        margin-bottom: 0;
       }
     }
   }

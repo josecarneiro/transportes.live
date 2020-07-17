@@ -17,19 +17,21 @@
       {
         props: {
           preventBackNavigationOnSafari = false,
-          size = 'small',
-          height = 'full'
+          width = 'small',
+          height = 'full',
+          type = 'page'
         },
         data: { class: classes, staticClass },
-        children
+        scopedSlots: slots
       }
-    ) =>
-      createElement(
+    ) => {
+      return createElement(
         'main',
         {
           class: mergeClasses(
-            `view--aside--${size}`,
-            height === 'full' ? 'view--aside--tall' : [],
+            `view--aside--${type}`,
+            `view--aside--${height}`,
+            `view--aside--${width}`,
             classes,
             staticClass
           ),
@@ -39,8 +41,24 @@
             })
           }
         },
-        children
-      )
+        [
+          createElement(
+            'div',
+            { class: { 'view--aside__contents': true } },
+            slots.default ? slots.default() : []
+          ),
+          ...(slots.actions
+            ? [
+                createElement(
+                  'footer',
+                  { class: { 'view--aside__actions': true } },
+                  slots.actions()
+                )
+              ]
+            : [])
+        ]
+      );
+    }
   };
 </script>
 
@@ -57,15 +75,16 @@
     // padding-top: calc(env(safe-area-inset-top) + 6em);
     max-height: calc(100% - 6em);
     max-height: calc(100% - (env(safe-area-inset-top) + 6em));
-    padding: 1em;
-    margin-left: auto;
+    // margin-left: auto;
     border-radius: $radius $radius 0 0;
     overflow-y: auto;
     background-color: white;
     will-change: transform;
+    .view--aside__contents {
+      padding: 1em;
+    }
     @include shadow(-0.125em);
     @include screen(medium) {
-      // padding-top: 1em;
       max-height: calc(100% - 1em);
     }
     // &:before {
@@ -79,27 +98,42 @@
     //   background-color: white;
     //   z-index: 10000;
     // }
-    &.view--aside--tall {
-      height: 100%;
+    &.view--aside--pill {
+      width: calc(100% - 2em);
+      max-width: 36em;
+      right: 1em;
+      bottom: 1em;
+      border-radius: $radius;
+      // @include shadow();
     }
-    &.view--aside--small {
-      @include screen(medium) {
-        @include shadow();
-        max-width: 36em;
-        padding-top: 1em;
-        // padding-top: 2em;
+    &.view--aside--page {
+      &.view--aside--full {
+        height: 100%;
+      }
+      &.view--aside--small {
+        @include screen(medium) {
+          max-width: 36em;
+        }
       }
     }
-    &.view--aside--medium {
-      @include screen(medium) {
-        @include shadow();
-        max-width: 36em;
-      }
-    }
-    &.view--aside--full {
-      @include screen(large) {
-        max-width: initial;
-      }
-    }
+    // &.view--aside--small {
+    //   @include screen(medium) {
+    //     // @include shadow();
+    //     max-width: 36em;
+    //     padding-top: 1em;
+    //     // padding-top: 2em;
+    //   }
+    // }
+    // &.view--aside--medium {
+    //   @include screen(medium) {
+    //     // @include shadow();
+    //     max-width: 36em;
+    //   }
+    // }
+    // &.view--aside--full {
+    //   @include screen(large) {
+    //     max-width: initial;
+    //   }
+    // }
   }
 </style>

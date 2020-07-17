@@ -26,8 +26,15 @@ const routes = [
     redirect: '/carris'
   },
   {
-    path: '/at-a-glance',
+    path: '/glance',
     name: 'glance',
+    components: {
+      overlay: AtAGlanceView
+    }
+  },
+  {
+    path: '/favorites',
+    name: 'favorites',
     components: {
       overlay: AtAGlanceView
     }

@@ -11,7 +11,6 @@
 
 <script>
   import OverlayBackNavigationTrigger from '@/components/layout/overlay-back-navigation-trigger';
-
   import NavigationBar from '@/components/layout/navigation-bar';
 
   import MapView from '@/views/map/index';
@@ -79,9 +78,15 @@
     position: fixed;
     top: 0;
     left: 0;
+    z-index: 100;
     width: 100%;
     height: 100%;
-    padding: 6em 5em 5em 1em;
+    padding: 1em;
+    padding-top: 6em;
+    padding-bottom: 5em;
+    // padding-right: 5em;
+    // padding: 6em 5em 5em 1em;
+    overflow-y: auto;
   }
 
   // .transparency

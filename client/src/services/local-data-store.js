@@ -11,9 +11,27 @@ export const save = (collection, data) => {
 };
 
 export const clear = collection => {
-  if (collection) {
-    storage.removeItem(collection);
-  } else {
-    storage.clear();
-  }
+  storage.removeItem(collection);
 };
+
+export const clearAll = () => {
+  storage.clear();
+};
+
+// class Reference {
+//   constructor(key) {
+//     this.key = key;
+//   }
+
+//   save(data) {
+//     save(this.key, data);
+//   }
+
+//   load() {
+//     return load(this.key);
+//   }
+
+//   clear() {
+//     clear(this.key);
+//   }
+// }

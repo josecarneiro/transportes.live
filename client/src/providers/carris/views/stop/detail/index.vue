@@ -37,7 +37,7 @@
   import TimeUntil from '@/components/time-until';
   import ViewAside from '@/components/layout/view-aside';
 
-  import CarrisStopNextArrivals from './next-arrivals';
+  import CarrisStopNextArrivals from '@/providers/metro/components/next-arrivals';
 
   const estimatesService = new EstimatesService();
 
@@ -51,17 +51,13 @@
       estimates: []
     }),
     async created() {
+      const { id } = this;
       this.loaded = false;
-      const stop = await loadStop(this.id);
+      const stop = await loadStop(id);
       this.stop = stop;
-      const estimates = await estimatesService.load(this.id);
-      if (estimates) {
-        this.estimates = estimates.map(({ time, ...everything }) => ({
-          ...everything,
-          time: new Date(time)
-        }));
-        this.loaded = true;
-      }
+      const estimates = await estimatesService.load(id);
+      this.estimates = estimates || [];
+      this.loaded = true;
     },
     components: {
       ViewAside,

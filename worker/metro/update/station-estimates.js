@@ -2,7 +2,7 @@
 
 const database = require('./../../firebase');
 const transformToJSONObject = require('./../../helpers/transform-to-json-object');
-const { log } = require('transportes/utilities');
+// const { log } = require('transportes/utilities');
 
 const serializeDate = require('./../../helpers/serialize-date');
 

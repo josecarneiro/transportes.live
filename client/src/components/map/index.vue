@@ -87,6 +87,7 @@
           const center = Object.assign({}, this.center, { lat, lng });
           this.$emit('changeCenter', center);
           if (this.zoom < 15) this.$emit('changeZoom', 15);
+          this.$emit('locate', position);
         }
       },
       setSize() {
@@ -98,7 +99,7 @@
         // await this.$nextTick();
         setTimeout(() => {
           this.idle = true;
-        }, 500);
+        }, 100);
       },
       idleEnd() {
         this.idle = false;

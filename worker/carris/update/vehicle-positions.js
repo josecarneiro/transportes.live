@@ -1,7 +1,10 @@
 'use strict';
 
-const database = require('./../../firebase');
 const client = require('./../client');
+const {
+  carrisVehicleReference,
+  carrisPositionReference
+} = require('./../references');
 
 const transformToJSONObject = require('../../helpers/transform-to-json-object');
 const calculateBearing = require('./../../helpers/calculate-bearing');
@@ -24,14 +27,12 @@ const updateFirebaseCarrisBusPositions = async () => {
   const vehicleData = vehicles
     .map(serializeVehicle)
     .reduce((acc, { id, ...value }) => ({ ...acc, [id]: value }), {});
-  const vehicleReference = database.ref('carris/vehicles');
-  vehicleReference.set(transformToJSONObject(vehicleData));
+  carrisVehicleReference.set(transformToJSONObject(vehicleData));
 
-  const positionReference = database.ref('carris/positions');
   const positionData = vehicles
     .map(serializePosition)
     .reduce((acc, { id, ...value }) => ({ ...acc, [id]: value }), {});
-  positionReference.set(transformToJSONObject(positionData));
+  carrisPositionReference.set(transformToJSONObject(positionData));
 };
 
 module.exports = updateFirebaseCarrisBusPositions;

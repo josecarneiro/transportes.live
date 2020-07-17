@@ -43,6 +43,8 @@
           .btn__group
             button.btn(@click="toggleFavorite")
               icon(:icon="favorite ? 'favorite' : 'favorite-empty'")
+            button.btn
+              icon(icon="share")
 </template>
 
 <script>
@@ -57,10 +59,7 @@
 
   import { stations as metroStations } from '@/providers/metro/data';
 
-  // import generateId from '@/util/generate-id';
-
   const metroFavoriteFactory = station => ({
-    // id: generateId(),
     id: `metro/${station}`,
     type: 'metro',
     details: { station }

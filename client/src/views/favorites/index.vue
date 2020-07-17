@@ -1,7 +1,7 @@
 <template lang="pug">
   .view--glance
     .container
-      h1(v-text="$t('message.atAGlance')")
+      h1.title(v-text="$t('message.title')")
       favorites-list(v-bind="{ favorites }")
 </template>
 
@@ -23,8 +23,8 @@
     },
     i18n: {
       messages: {
-        pt: { message: { atAGlance: 'Numa vista de olhos' } },
-        en: { message: { atAGlance: 'At a glance' } }
+        pt: { message: { title: 'Favoritos' } },
+        en: { message: { title: 'Favorites' } }
       }
     },
     async created() {

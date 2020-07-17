@@ -10,7 +10,7 @@ import {
   providers as providersConfiguration
 } from '@/config';
 
-const AtAGlanceView = () => import('@/views/glance');
+const FavoritesView = () => import('@/views/favorites');
 const AboutView = () => import(/* webpackChunkName: "other" */ '@/views/about');
 const DebugView = () => import(/* webpackChunkName: "other" */ '@/views/debug');
 const ErrorView = () => import(/* webpackChunkName: "other" */ '@/views/error');
@@ -29,14 +29,14 @@ const routes = [
     path: '/glance',
     name: 'glance',
     components: {
-      overlay: AtAGlanceView
+      overlay: FavoritesView
     }
   },
   {
     path: '/favorites',
     name: 'favorites',
     components: {
-      overlay: AtAGlanceView
+      overlay: FavoritesView
     }
   },
   {

@@ -2,16 +2,19 @@
   metro-station-data-provider(v-bind="{ id: station }")
     template(slot-scope="{ loaded, details, estimates }")
       .favorite__card.favorite__card--metro(:class="generateClasses(details)")
-        small.heading-label Station
-        h2.placeholder(v-text="details && details.name")
-        small.heading-label Directions
-        metro-next-arrivals(
-          v-if="details",
-          v-bind="{ station: details, estimates }"
-        )
-        .btn__group
-          router-link.btn(:to="{ name: 'metro/station', params: { id: station } }")
-            icon(icon="plus")
+        header.favorite__card__header
+          div
+            small.heading-label Station
+            h2.placeholder(v-text="details && details.name")
+          .favorite__card__header__actions
+            router-link.btn(:to="{ name: 'metro/station', params: { id: station } }")
+              icon(icon="arrow-right")
+        section.favorite__card__body
+          small.heading-label Directions
+          metro-next-arrivals(
+            v-if="details",
+            v-bind="{ station: details, estimates }"
+          )
 </template>
 
 <script>
@@ -60,6 +63,7 @@
   );
 
   .favorite__card.favorite__card--metro {
+    padding: 0;
     color: white;
     background-color: grey(0.75);
     @each $line, $color in $metro-lines {
@@ -68,18 +72,15 @@
         @include shadow(0.125em, $color);
       }
     }
-    // .heading-label {
-    //   font-weight: bold;
-    // }
     .next-arrivals__line {
       margin-bottom: 0;
     }
-    .btn__group {
-      margin: -1em;
-      // margin-top: 0;
-      margin-top: 1em;
-      margin-bottom: -2em;
-      border-top: 1px solid grey(0.75, 0.25);
+    .favorite__card__header {
+      .btn {
+        .icon {
+          margin-right: -0.125em;
+        }
+      }
     }
   }
 
@@ -96,5 +97,22 @@
     h5 {
       margin-bottom: 0.25rem;
     }
+  }
+
+  .favorite__card__header {
+    padding: 1em;
+    padding-bottom: 0;
+    display: flex;
+  }
+
+  .favorite__card__body {
+    padding: 0 1em;
+    padding-bottom: 1em;
+  }
+
+  .favorite__card__header__actions {
+    margin-left: auto;
+    margin-top: -1em;
+    margin-right: -1em;
   }
 </style>

@@ -70,6 +70,8 @@
     right: 0;
     bottom: 0;
     z-index: 200;
+    display: flex;
+    flex-direction: column;
     width: 100%;
     // padding-top: 6em;
     // padding-top: calc(env(safe-area-inset-top) + 6em);
@@ -77,27 +79,35 @@
     max-height: calc(100% - (env(safe-area-inset-top) + 6em));
     // margin-left: auto;
     border-radius: $radius $radius 0 0;
-    overflow-y: auto;
+    // overflow-y: auto;
+    overflow: hidden;
     background-color: white;
     will-change: transform;
     .view--aside__contents {
+      flex: 1;
       padding: 1em;
+      overflow-y: auto;
+      @include hide-scrollbars;
+    }
+    .view--aside__actions {
+      flex: 0;
     }
     @include shadow(-0.125em);
     @include screen(medium) {
       max-height: calc(100% - 1em);
     }
-    // &:before {
-    //   content: '';
-    //   position: fixed;
-    //   top: 0;
-    //   left: 0;
-    //   width: 100%;
-    //   height: 1em;
-    //   // background-color: red;
-    //   background-color: white;
-    //   z-index: 10000;
-    // }
+    &:before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 1em;
+      // background-color: red;
+      background-color: white;
+      background: linear-gradient(grey(1, 0.75), grey(1, 0, 0));
+      z-index: 10000;
+    }
     &.view--aside--pill {
       width: calc(100% - 2em);
       max-width: 36em;

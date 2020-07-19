@@ -6,11 +6,11 @@ const writeFile = require('./../../worker/helpers/write-file');
 const transformToJSONObject = require('./../../worker/helpers/transform-to-json-object');
 
 const rawData = {
-  stops: require('transportes-bundled-data/dist/carris/stops/list'),
-  routes: require('transportes-bundled-data/dist/carris/routes/all'),
-  stations: require('transportes-bundled-data/dist/metro/stations/list'),
+  stops: require('transportes-bundled-data/dist/carris/stops'),
+  routes: require('transportes-bundled-data/dist/carris/routes'),
+  stations: require('transportes-bundled-data/dist/metro/stations'),
   lines: require('transportes/metro/data/lines'),
-  giraStations: require('transportes-bundled-data/dist/gira/stations/list')
+  giraStations: require('transportes-bundled-data/dist/gira/stations')
 };
 
 const DIRECTORY = path.join(__dirname, '../public/built');

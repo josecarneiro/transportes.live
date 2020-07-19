@@ -6,8 +6,9 @@ const {
   carrisPositionReference
 } = require('./../references');
 
-const transformToJSONObject = require('../../helpers/transform-to-json-object');
+const transformToJSONObject = require('./../../helpers/transform-to-json-object');
 const calculateBearing = require('./../../helpers/calculate-bearing');
+const arrayToObjectReducerFactory = require('./../../helpers/array-to-object-reducer-factory');
 const { serializeVehicle, serializePosition } = require('./../serializers');
 
 const transformVehicle = vehicle => {
@@ -26,12 +27,12 @@ const updateFirebaseCarrisBusPositions = async () => {
   const vehicles = unparsedVehicles.map(transformVehicle);
   const vehicleData = vehicles
     .map(serializeVehicle)
-    .reduce((acc, { id, ...value }) => ({ ...acc, [id]: value }), {});
+    .reduce(arrayToObjectReducerFactory(), {});
   carrisVehicleReference.set(transformToJSONObject(vehicleData));
 
   const positionData = vehicles
     .map(serializePosition)
-    .reduce((acc, { id, ...value }) => ({ ...acc, [id]: value }), {});
+    .reduce(arrayToObjectReducerFactory(), {});
   carrisPositionReference.set(transformToJSONObject(positionData));
 };
 

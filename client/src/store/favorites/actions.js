@@ -16,6 +16,6 @@ export const remove = async ({ commit, state }, data) => {
 };
 
 export const load = async ({ commit }) => {
-  const list = loadData(FAVORITE_LIST_STORAGE_KEY, list);
+  const list = loadData(FAVORITE_LIST_STORAGE_KEY);
   for (const item of list) commit('add', item);
 };

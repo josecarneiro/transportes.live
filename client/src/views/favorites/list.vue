@@ -1,48 +1,28 @@
 <template lang="pug">
-  .favorite__list
-    component(
-      v-for="{ id, type, details } of favorites",
-      :is="types[type]",
-      :key="id"
-      v-bind="{ ...details }"
-    )
+  card-list(:list="favorites")
 </template>
 
 <script>
-  import FavoriteCarrisCard from '@/providers/carris/components/card';
-  import FavoriteMetroCard from '@/providers/metro/components/card';
+  import { mapState } from 'vuex';
+
+  import CardList from '@/components/card-list';
 
   export default {
     props: {
-      favorites: Array
-    },
-    data: () => ({
-      types: {
-        carris: 'FavoriteCarrisCard',
-        metro: 'FavoriteMetroCard'
+      limit: {
+        type: Number,
+        default: 20
       }
-    }),
+    },
+    computed: {
+      ...mapState('favorites', {
+        favorites({ list }) {
+          return list.slice(0, this.limit);
+        }
+      })
+    },
     components: {
-      FavoriteCarrisCard,
-      FavoriteMetroCard
+      CardList
     }
   };
 </script>
-
-<style lang="scss">
-  .favorite__list {
-    max-width: 30em;
-    & > * {
-      &:not(:last-child) {
-        margin-bottom: 1em;
-      }
-    }
-  }
-
-  .favorite__card {
-    padding: 1em;
-    border-radius: 0.5em;
-    background-color: white;
-    @include shadow;
-  }
-</style>

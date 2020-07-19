@@ -11,6 +11,8 @@ import {
 } from '@/config';
 
 const FavoritesView = () => import('@/views/favorites');
+const NearbyView = () => import('@/views/nearby');
+const GlanceView = () => import('@/views/glance');
 const AboutView = () => import(/* webpackChunkName: "other" */ '@/views/about');
 const DebugView = () => import(/* webpackChunkName: "other" */ '@/views/debug');
 const ErrorView = () => import(/* webpackChunkName: "other" */ '@/views/error');
@@ -29,7 +31,7 @@ const routes = [
     path: '/glance',
     name: 'glance',
     components: {
-      overlay: FavoritesView
+      overlay: GlanceView
     }
   },
   {
@@ -37,6 +39,13 @@ const routes = [
     name: 'favorites',
     components: {
       overlay: FavoritesView
+    }
+  },
+  {
+    path: '/nearby',
+    name: 'nearby',
+    components: {
+      overlay: NearbyView
     }
   },
   {

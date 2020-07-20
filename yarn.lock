@@ -818,10 +818,10 @@ to-fast-properties@^2.0.0:
   resolved "https://registry.yarnpkg.com/to-fast-properties/-/to-fast-properties-2.0.0.tgz#dc5e698cbd079265bc73e0377681a4e4e83f616e"
   integrity sha1-3F5pjL0HkmW8c+A3doGk5Og/YW4=
 
-transportes-bundled-data@^0.0.9:
-  version "0.0.9"
-  resolved "https://registry.yarnpkg.com/transportes-bundled-data/-/transportes-bundled-data-0.0.9.tgz#5a36cd402e5b2aba2af5b237a1e810b6d4ec4cd1"
-  integrity sha512-94RMiXL++nb+fZ/EHLRg76Xt8krwOh8uGVdHtuN5EPNH0qY4tAWovGkBw15EKRFBbgsxUwU/YhP4pgVzmLLQGA==
+transportes-bundled-data@^0.0.10:
+  version "0.0.10"
+  resolved "https://registry.yarnpkg.com/transportes-bundled-data/-/transportes-bundled-data-0.0.10.tgz#5a2e8b172247b76ee7287a857e08ef67b144572e"
+  integrity sha512-JoWRRJ6UlAuQX6Lg9NwcPh++Yx5mxvt5xYeLQgA5MSv4wAuzvw8/fo9ePda0QmW5FrkMj9+vVbsoIsKUSE3Wig==
   dependencies:
     transportes "^0.0.14"
 

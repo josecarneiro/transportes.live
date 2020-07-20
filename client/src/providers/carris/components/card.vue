@@ -1,44 +1,29 @@
 <template lang="pug">
-  .favorite__card
-    small.heading-label Stop
-    h1(v-text="stop")
-    small.heading-label Routes
-    .favorite__route__list
-      .favorite__route__item(v-for="(item, route) in arrivals")
-        router-link(:to="{ name: 'carris/stop', params: { id: route } }")
-          h5(v-text="route")
-          time-until(:date="item.time")
+  carris-stop-data-provider(v-bind="{ id: stop }")
+    template(slot-scope="{ loaded, stop: details, estimates }")
+      .favorite__card
+        small.heading-label Code
+        h1.placeholder(v-text="stop")
+        small.heading-label Stop
+        h4.placeholder(v-text="details && details.name")
+        small.heading-label Routes
+        carris-stop-next-arrivals(
+          v-if="loaded",
+          v-bind="{ stop: details, estimates }"
+        )
 </template>
 
 <script>
-  import { loadStop, EstimatesService } from '@/providers/carris/services';
-  import TimeUntil from '@/components/time-until';
-
-  const estimatesService = new EstimatesService();
+  import CarrisStopNextArrivals from './next-arrivals';
+  import CarrisStopDataProvider from '@/providers/carris/components/providers/stop';
 
   export default {
     props: {
       stop: String
     },
-    data: () => ({
-      arrivals: {}
-    }),
-    async mounted() {
-      const { stop } = this;
-      const estimates = await estimatesService.load(stop);
-      const arrivals = estimates.reduce(
-        (acc, { route, ...other }) => ({
-          ...acc,
-          ...((!acc[route] || acc[route].time > other.time) && {
-            [route]: other
-          })
-        }),
-        {}
-      );
-      this.arrivals = Object.assign({}, this.arrivals, arrivals);
-    },
     components: {
-      TimeUntil
+      CarrisStopDataProvider,
+      CarrisStopNextArrivals
     }
   };
 </script>

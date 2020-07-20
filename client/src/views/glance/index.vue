@@ -2,9 +2,9 @@
   .view--glance
     .container
       h1.title(v-text="$t('message.glanceTitle')")
-      h3.title(v-text="$t('message.favoritesTitle')")
+      h2.title(v-text="$t('message.favoritesTitle')")
       favorites-list(:limit="3")
-      h3.title(v-text="$t('message.nearbyTitle')")
+      h2.title(v-text="$t('message.nearbyTitle')")
       nearby-list(:limit="3")
 </template>
 
@@ -35,5 +35,11 @@
 <style lang="scss">
   .view--glance {
     background-image: linear-gradient(white, grey(1, 0, 0));
+  }
+
+  .title {
+    &:is(h2) {
+      margin: 1em 0;
+    }
   }
 </style>

@@ -36,9 +36,10 @@ class VehicleDetailService extends DatabaseService {
     return deserializeVehicle(vehicle);
   }
 }
-class EstimatesService extends DatabaseService {
-  constructor() {
-    super(`/carris/estimates`);
+
+class EstimatesService extends RealtimeDatabaseService {
+  constructor(id, handler) {
+    super(`/carris/estimates/${id}`, handler);
   }
 
   parse(estimates) {

@@ -26,15 +26,6 @@
     props: {
       station: String
     },
-    // computed: {
-    //   classes() {
-    //     const lines = this.details?.lines || [];
-    //     const [line] = lines;
-    //     return {
-    //       [`favorite__card--metro--${line}`]: true
-    //     };
-    //   }
-    // },
     methods: {
       generateClasses(details) {
         const lines = details?.lines || [];
@@ -62,8 +53,7 @@
     'amarela': $metro-line-color-yellow
   );
 
-  .favorite__card.favorite__card--metro {
-    padding: 0;
+  .favorite__card--metro {
     color: white;
     background-color: grey(0.75);
     @each $line, $color in $metro-lines {
@@ -74,13 +64,6 @@
     }
     .next-arrivals__line {
       margin-bottom: 0;
-    }
-    .favorite__card__header {
-      .btn {
-        .icon {
-          margin-right: -0.125em;
-        }
-      }
     }
   }
 
@@ -97,22 +80,5 @@
     h5 {
       margin-bottom: 0.25rem;
     }
-  }
-
-  .favorite__card__header {
-    padding: 1em;
-    padding-bottom: 0;
-    display: flex;
-  }
-
-  .favorite__card__body {
-    padding: 0 1em;
-    padding-bottom: 1em;
-  }
-
-  .favorite__card__header__actions {
-    margin-left: auto;
-    margin-top: -1em;
-    margin-right: -1em;
   }
 </style>

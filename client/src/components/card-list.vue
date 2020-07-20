@@ -40,9 +40,30 @@
   }
 
   .favorite__card {
-    padding: 1em;
     border-radius: 0.5em;
     background-color: white;
     @include shadow;
+  }
+
+  .favorite__card__header {
+    padding: 1em;
+    padding-bottom: 0;
+    display: flex;
+    .btn {
+      .icon {
+        margin-right: -0.125em;
+      }
+    }
+  }
+
+  .favorite__card__body {
+    padding: 0 1em;
+    padding-bottom: 1em;
+  }
+
+  .favorite__card__header__actions {
+    margin-left: auto;
+    margin-top: -1em;
+    margin-right: -1em;
   }
 </style>

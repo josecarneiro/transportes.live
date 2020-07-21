@@ -25,13 +25,14 @@
 
 <style lang="scss">
   .overlay-back-navigation-trigger {
+    $transparency: 0.5;
+    // $transparency: 0.625;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: hsla(0, 0, 100%, 0.5);
-    background-color: grey(1, 0.5);
+    background-color: grey(1, $transparency);
     backdrop-filter: blur(1px);
   }
 </style>

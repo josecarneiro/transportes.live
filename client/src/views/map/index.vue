@@ -2,7 +2,7 @@
   .map__wrapper
     custom-map(
       v-bind="{ options, center, zoom, user }"
-      v-on="{ changeZoom, changeCenter }"
+      v-on="{ changeZoom, changeCenter, locate }"
     )
       template(v-slot:navigation)
         navigation-aside
@@ -53,6 +53,20 @@
       },
       changeCenter(position) {
         this.center = Object.assign({}, this.center, position);
+      },
+      locate(position) {
+        // console.log(position);
+        // this.$ga.event(
+        //   'location',
+        //   'triggered-geolocation',
+        //   'trigger',
+        //   position
+        // );
+        this.$gtag.event('location', {
+          event_category: 'triggered-geolocation',
+          event_label: 'trigger',
+          value: position
+        });
       }
     },
     components: {

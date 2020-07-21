@@ -4,6 +4,7 @@ const client = require('./client');
 const database = require('./../firebase');
 
 const transformToJSONObject = require('./../helpers/transform-to-json-object');
+const arrayToObjectReducerFactory = require('./../helpers/array-to-object-reducer-factory');
 
 const updateFirebaseGiraStations = async () => {
   const stations = await client.listStations();
@@ -14,7 +15,7 @@ const updateFirebaseGiraStations = async () => {
       d: docks,
       a: status === 'active'
     }))
-    .reduce((acc, { id, ...value }) => ({ ...acc, [id]: value }), {});
+    .reduce(arrayToObjectReducerFactory(), {});
   const giraStationsReference = database.ref('gira/stations');
   giraStationsReference.set(transformToJSONObject(stationData));
 };

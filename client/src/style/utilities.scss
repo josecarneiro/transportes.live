@@ -2,8 +2,7 @@
   @return hsla(230, $saturation * 100%, $lightness * 100%, $opacity);
 }
 
-@mixin shadow($vertical-offset: 0.125em) {
-  $shadow-color: grey(0.3, 0.3);
+@mixin shadow($vertical-offset: 0.125em, $shadow-color: grey(0.3, 0.3)) {
   box-shadow: 0 $vertical-offset 1em -0.5em $shadow-color;
 }
 
@@ -26,4 +25,13 @@
 @mixin uppercase {
   text-transform: uppercase;
   letter-spacing: 1 / 16 * 1em;
+}
+
+@mixin hide-scrollbars {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE 10+ */
+  &::-webkit-scrollbar {
+    width: 0px;
+    background: transparent; /* Chrome/Safari/Webkit */
+  }
 }

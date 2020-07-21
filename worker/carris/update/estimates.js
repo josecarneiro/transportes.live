@@ -1,11 +1,11 @@
 'use strict';
 
-const database = require('./../../firebase');
 const client = require('./../client');
+const { carrisStopsReference } = require('./../references');
 
 const transformToJSONObject = require('./../../helpers/transform-to-json-object');
 const { serializeEstimate } = require('./../serializers');
-const { log } = require('transportes/utilities');
+// const { log } = require('transportes/utilities');
 
 const loadEstimates = async ids => {
   const COUNT = 50;
@@ -63,7 +63,6 @@ const updateFirebaseCarrisStops = async () => {
     {}
   );
 
-  const carrisStopsReference = database.ref('carris/estimates');
   carrisStopsReference.update(transformToJSONObject(estimatesData));
 };
 

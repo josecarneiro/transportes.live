@@ -16,7 +16,7 @@
   },
   "dependencies": {
     "transportes": "^0.0.14",
-    "transportes-bundled-data": "^0.0.7"
+    "transportes-bundled-data": "^0.0.10"
   },
   "devDependencies": {
     "babel-eslint": "^10.1.0",

@@ -2,21 +2,21 @@
   .view--glance
     .container
       h1.title(v-text="$t('message.title')")
-      nearby-list
+      favorites-list
 </template>
 
 <script>
-  import NearbyList from './list';
+  import FavoritesList from './list';
 
   export default {
     i18n: {
       messages: {
-        pt: { message: { title: 'Próximos' } },
-        en: { message: { title: 'Nearby' } }
+        pt: { message: { title: 'Favoritos' } },
+        en: { message: { title: 'Favorites' } }
       }
     },
     components: {
-      NearbyList
+      FavoritesList
     }
   };
 </script>

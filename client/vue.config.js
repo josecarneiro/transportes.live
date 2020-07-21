@@ -2,7 +2,7 @@
 
 const pwaConfig = require('./pwa.config');
 const scssConfig = require('./sass.config');
-const metaConfig = require('./meta.config');
+const metadataConfig = require('./meta.config');
 
 const { ENVIRONMENT, BUILD_ENVIRONMENT } = require('./constants');
 
@@ -27,8 +27,8 @@ module.exports = {
     config.plugin('html').tap(([options, ...args]) => [
       {
         ...options,
-        meta: {
-          ...metaConfig
+        metadata: {
+          ...metadataConfig
         },
         environment: ENVIRONMENT
       },

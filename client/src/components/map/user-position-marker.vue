@@ -28,7 +28,7 @@
 
   .user-position {
     position: relative;
-    transform: translate(-50%, -50%);
+    // transform: translate(-50%, -50%);
   }
 
   .user-position__dot {

@@ -38,6 +38,7 @@
     },
     data: () => ({
       // opacity: 0.01
+      instance: null,
       opacity: 1
     }),
     computed: {
@@ -59,17 +60,17 @@
     watch: {
       async position() {
         await this.$mapPromise;
-        this.$overlay.setPosition();
+        this.instance.setPosition();
       },
       zIndex() {
-        this.$overlay.repaint();
+        this.instance.repaint();
       }
     },
     methods: {
-      async afterCreate(inst) {
+      async afterCreate(instance) {
         if (this.$clusterPromise) {
           const cluster = await this.$clusterPromise;
-          cluster.addMarker(inst);
+          cluster.addMarker(instance);
           this.$clusterObject = cluster;
         }
       }
@@ -79,109 +80,72 @@
       return this.$clusterPromise;
     },
     destroyed() {
+      const { instance } = this;
       if (this.$clusterObject) {
-        this.$clusterObject.removeMarker(this.$overlay, true);
+        this.$clusterObject.removeMarker(instance, true);
       } else {
-        this.$overlay.setMap(null);
-        this.$overlay = undefined;
+        instance.setMap(null);
+        this.instance = null;
       }
     },
     async provide() {
-      const self = this;
       const google = this.google;
-
-      const map = await this.$mapPromise;
+      const mapPromise = await this.$mapPromise;
 
       class Overlay extends google.maps.OverlayView {
-        constructor(map) {
+        constructor(map, component) {
           super();
+          this.component = component;
           this.setMap(map);
           this.draw = this.repaint;
           this.setPosition = this.repaint;
-          // this.draw = () => this.repaint();
-          // this.setPosition = () => this.repaint();
         }
 
         repaint() {
-          const element = self.$el;
+          const element = this.component.$el;
+          const position = this.component.latLng;
           const projection = this.getProjection();
-          if (projection && element) {
-            const posPixel = projection.fromLatLngToDivPixel(self.latLng);
-            const { x: horizontal, y: vertical } = posPixel;
-            const { offsetWidth: width, offsetHeight: height } = element;
-            let x = horizontal + self.offsetX,
-              y = vertical + self.offsetY;
-            switch (self.alignment) {
-              case 'top':
-                x -= width / 2;
-                y -= height;
-                break;
-              case 'bottom':
-                x -= width / 2;
-                break;
-              case 'left':
-                x -= width;
-                y -= height / 2;
-                break;
-              case 'right':
-                y -= height / 2;
-                break;
-              case 'center':
-                x -= width / 2;
-                y -= height / 2;
-                break;
-              case 'topleft':
-              case 'lefttop':
-                x -= width;
-                y -= height;
-                break;
-              case 'topright':
-              case 'righttop':
-                y = vertical - height;
-                break;
-              case 'bottomleft':
-              case 'leftop':
-                x = horizontal - width;
-                break;
-              case 'bottomright':
-              case 'rightbottom':
-                break;
-              default:
-                throw new Error('Invalid alignment type of custom marker!');
-            }
+
+          if (element && projection) {
+            const { x, y } = projection.fromLatLngToDivPixel(position);
+
             Object.assign(element.style, {
-              transform: `translate(${x}px, ${y}px)`,
-              'z-index': self.zIndex
+              top: `${y}px`,
+              left: `${x}px`,
+              transform: 'translate(-50%, -50%)'
             });
           }
         }
 
         onAdd() {
-          const element = self.$el;
+          const component = this.component;
+          const element = component.$el;
           Object.assign(element.style, {
-            position: 'absolute',
-            display: 'inline-block',
-            zIndex: self.zIndex
+            position: 'absolute'
           });
           const panes = this.getPanes();
           panes.overlayLayer.appendChild(element);
           panes.overlayMouseTarget.appendChild(element);
-          this.getDraggable = () => false;
-          this.getPosition = () => new google.maps.LatLng(self.lat, self.lng);
-          self.afterCreate(this);
+          component.afterCreate(this);
         }
 
         onRemove() {
-          if (self.$el) self.$el.remove();
+          const element = this.component.$el;
+          if (element) element.remove();
+        }
+
+        getPosition() {
+          const { component } = this;
+          return new google.maps.LatLng(component.lat, component.lng);
         }
       }
 
-      this.$overlay = new Overlay(map);
+      this.instance = new Overlay(mapPromise, this);
 
       await this.$nextTick();
 
-      if (this.$overlay) {
-        this.$overlay.repaint();
+      if (this.instance) {
+        this.instance.repaint();
         this.opacity = 1;
       }
     }

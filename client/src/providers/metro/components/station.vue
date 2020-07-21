@@ -39,11 +39,11 @@
       border: $border-size solid black;
       border-radius: 50%;
       background-color: white;
-      transform: translateY(50%);
+      // transform: translateY(50%);
       span {
         font-size: $font-size;
         font-weight: bold;
-        transform: translateY(5%);
+        transform: translateY(2.5%);
       }
     }
   }

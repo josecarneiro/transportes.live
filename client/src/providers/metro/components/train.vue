@@ -58,9 +58,9 @@
       },
       style() {
         const direction = convertRadiansToDegrees(this.direction);
-        // const direction = 0;
         return {
-          transform: `translateY(50%) rotate(${direction.toFixed(0)}deg)`
+          // transform: `translateY(50%) rotate(${direction.toFixed(0)}deg)`
+          transform: `rotate(${direction.toFixed(0)}deg)`
         };
       }
     },

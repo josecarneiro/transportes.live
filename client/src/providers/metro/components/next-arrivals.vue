@@ -4,7 +4,7 @@
       //- metro-line-label(:id="line.id")
       .next-arrivals__platform__list
         .next-arrivals__platform(v-for="platform in line.platforms")
-          small.heading-label Towards {{ stationNames[platform.direction] }}
+          small.heading-label {{ stationNames[platform.direction] }}
           time-until(
             v-if="platform.estimates && platform.estimates.length"
             :date="platform.estimates[0].time"

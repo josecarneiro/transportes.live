@@ -46,6 +46,7 @@ const removeOldEstimates = (estimates, age = 0) =>
       arrivals.filter(({ time }) => time - Date.now() > -1 * age)
     ])
   );
+
 class StationEstimatesService extends RealtimeDatabaseService {
   constructor(id, handler) {
     super(`/metro/stations/${id.toUpperCase()}`, handler);

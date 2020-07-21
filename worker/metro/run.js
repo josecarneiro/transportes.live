@@ -1,5 +1,6 @@
 'use strict';
 
+const updateLineStatus = require('./update/line-status');
 const updateTrainPositions = require('./update/train-positions');
 const updateStationEstimates = require('./update/station-estimates');
 const updateTrainDetails = require('./update/train-timetable');
@@ -13,10 +14,21 @@ const metroServiceLog = logger.extend('metro');
 module.exports = updateIntervals => {
   loop(async () => {
     try {
+      await updateLineStatus();
+      metroServiceLog.extend('success')('Updated metro line status.');
+    } catch (error) {
+      metroServiceLog.extend('error')(
+        'Error updating firebase with metro line status'
+      );
+      metroServiceLog.extend('detailed')(error);
+    }
+  }, updateIntervals.lineStatus);
+  loop(async () => {
+    try {
       const estimates = await loadEstimates();
       try {
         await updateTrainPositions(estimates);
-        metroServiceLog.extend('success')('Updated Metro train positions.');
+        metroServiceLog.extend('success')('Updated metro train positions.');
       } catch (error) {
         metroServiceLog.extend('error')(
           'Error updating firebase with metro train positions'
@@ -25,7 +37,7 @@ module.exports = updateIntervals => {
       }
       try {
         await updateTrainDetails(estimates);
-        metroServiceLog.extend('success')('Updated Metro train details.');
+        metroServiceLog.extend('success')('Updated metro train details.');
       } catch (error) {
         metroServiceLog.extend('error')(
           'Error updating firebase with metro train details'

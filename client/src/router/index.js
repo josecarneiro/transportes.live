@@ -25,7 +25,7 @@ const routes = [
   {
     path: '/',
     name: 'home',
-    redirect: '/carris'
+    redirect: '/metro'
   },
   {
     path: '/glance',

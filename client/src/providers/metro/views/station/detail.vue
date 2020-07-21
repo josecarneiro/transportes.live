@@ -112,14 +112,6 @@
     .view--aside__contents {
       flex: 1;
     }
-    .view--aside__actions {
-      .btn__group {
-        border-top: 1px solid grey(0.5, 0.05);
-        .btn {
-          margin-bottom: 0em;
-        }
-      }
-    }
   }
 
   .metro__station__estimates {

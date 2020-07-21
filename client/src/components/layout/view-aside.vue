@@ -91,6 +91,12 @@
     }
     .view--aside__actions {
       flex: 0;
+      .btn__group {
+        border-top: 1px solid grey(0.5, 0.05);
+        .btn {
+          margin-bottom: 0em;
+        }
+      }
     }
     @include shadow(-0.125em);
     @include screen(medium) {

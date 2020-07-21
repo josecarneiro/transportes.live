@@ -23,11 +23,11 @@
 
   const LINKS = [
     ...[
-      { id: 'carris', name: 'carris/map', icon: 'bus' },
       { id: 'metro', name: 'metro/map', icon: 'subway' },
-      { id: 'cp', name: 'error', icon: 'train' },
+      { id: 'carris', name: 'carris/map', icon: 'bus' },
+      { id: 'gira', name: 'gira/map', icon: 'bicycle' },
+      { id: 'cp', name: 'error', icon: 'train' }
       // { id: 'boat', name: 'error', icon: 'boat' },
-      { id: 'gira', name: 'gira/map', icon: 'bicycle' }
     ].map(({ name, ...link }) => {
       const disabled = !providersConfiguration[link.id];
       return { ...link, name: disabled ? 'error' : name, disabled };

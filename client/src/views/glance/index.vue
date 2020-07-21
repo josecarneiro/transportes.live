@@ -36,10 +36,4 @@
   .view--glance {
     background-image: linear-gradient(white, grey(1, 0, 0));
   }
-
-  .title {
-    &:is(h2) {
-      margin: 1em 0;
-    }
-  }
 </style>

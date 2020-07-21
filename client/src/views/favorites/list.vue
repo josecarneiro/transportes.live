@@ -1,5 +1,9 @@
 <template lang="pug">
-  card-list(:list="favorites")
+  div
+    template(v-if="favorites.length")
+      card-list(:list="favorites")
+    template(v-else)
+      p You haven't favorited any station or stop yet.
 </template>
 
 <script>
